@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 import App from './App'
-import { AppBox } from './components/tutorial/Box'
+import AppBox from './components/tutorial/Box'
 
 ReactDOM.render(
   <div>
