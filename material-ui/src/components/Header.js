@@ -209,6 +209,7 @@ export default function Header() {
             <FormControlLabel
               control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
               label={auth ? 'Logout' : 'Login'}
+              labelPlacement='start'
             />
           </FormGroup>
         </Toolbar>

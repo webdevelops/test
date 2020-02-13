@@ -1,0 +1,401 @@
+// ----------- general ----------
+.card
+  border: 1px solid #ccc
+  border-radius: 5px
+  padding: 10px
+
+  &__image
+    margin-bottom: 10px
+    text-align: center
+
+  img 
+    border: 1px solid #ccc
+    border-radius: 5px
+    width: 100%
+
+  &__title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-weight: bold
+
+  &__buttons
+    display: flex
+    justify-content: center
+    margin: 10px 0
+
+.button
+  display: block
+  padding: 10px 20px
+  text-align: center
+  border: none
+  outline: none
+  border-radius: 5px
+  color: #ffffff
+  background: #007BFF
+  white-space: nowrap
+  transition: .3s
+
+  &:hover
+    background: #0052A9
+    color: #ffffff
+    text-decoration: none
+    
+
+  &-default
+    background: #F8F9FA
+    color: #000000
+
+    &:hover
+      background: #CBCCCD
+      text-decoration: none
+      color: #000000
+  
+  &-block
+    width: 100%
+
+  &-info
+    background: #5bc0de
+
+    &:hover
+      background: #007BFF
+
+  &-success
+    background: #449d44
+
+    &:hover
+      background: #079637
+
+  &-danger
+    background: #db1a1a
+
+    &:hover
+      background: #9c0b0b
+
+  &-warning
+    background: #f8b119
+
+    &:hover
+      background: #cc8f0a
+
+.backdrop
+  position: fixed
+  z-index: 20
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  background: #000
+  opacity: 0.7
+  animation: .3s show-backdrop
+
+@keyframes backdrop
+  0%
+    opacity: 0
+
+  100%
+    opacity: 0.7
+
+// ----------- top-line ----------
+.top-line
+  position: fixed
+  z-index: 10
+  left: 0
+  top: 0
+  right: 0
+  padding: 5px 20px
+  background: rgba(#117de2, .8)
+  display: flex
+  justify-content: flex-end
+
+  .toggle-menu
+    position: relative
+    z-index: 50
+    color: #ffffff
+    transition: .3s
+
+    &:hover
+      cursor: pointer
+      opacity: 0.7
+
+.drawer
+  position: fixed
+  z-index: 50
+  left: -300px
+  top: 0
+  bottom: 0
+  width: 80%
+  max-width: 300px
+  background: #ffffff
+  padding: 50px
+  transition: .3s
+
+  &__open
+    left: 0
+
+  &__link
+    display: block
+    font-size: 30px
+    margin: 10px 0
+    color: #1b1818
+    transition: .3s
+
+    &:hover
+      opacity: 0.7
+      text-decoration: none
+      color: #1b1818
+
+    &.active-link
+      color: #e6a10f
+
+// ----------- layout ---------- 
+.layout
+  max-width: 1200px
+  margin: auto
+  margin-top: 50px
+  padding: 0 15px
+  display: flex
+  flex-wrap: wrap
+
+  &__sidebar
+    width: 25%
+    padding: 0 15px
+
+  &__content
+    width: 75%
+    // padding: 0 15px
+
+.phones
+  display: flex
+  flex-wrap: wrap
+
+  &__item
+    width: 33.33%
+    padding: 0 15px
+    margin-bottom: 30px
+
+  .button
+    margin: 0 3px
+
+// ----------- general ----------
+.phones
+  &__more
+    display: flex
+    justify-content: flex-end
+    padding: 0 15px
+    margin-bottom: 20px
+
+// ----------- phone ----------
+.phone
+  margin-top: 50px
+  display: flex
+  flex-wrap: wrap
+
+  &__content
+    width: 75%
+    padding: 0 15px
+
+  &__sidebar
+    width: 25%
+    padding: 0 15px
+
+  .card
+    &__info
+      display: flex
+      flex-wrap: wrap
+      margin-bottom: 20px
+
+    &__image,
+      width: 50%
+      text-align: left
+
+    img
+      width: auto
+      max-width: 100%   
+
+    &__fields
+      width: 50%
+
+      &_item
+        display: flex
+        align-items: center
+        padding: 10px 0
+        border-bottom: 1px solid #ccc
+
+      h4 
+        margin-right: 10px
+
+  .button
+    margin-bottom: 10px
+
+// ----------- phone ----------
+.search
+  background: #eeeeee
+  padding: 25px
+
+  &__form-group
+    display: flex
+
+  input 
+    width: 100%
+    padding: 10px
+
+// ----------- categories ----------
+.categories
+  padding: 25px
+  background: #eeeeee
+
+  &__item
+    display: block
+    font-size: 20px
+    color: #181111
+    padding: 10px
+    background: #ffffff
+    border: 1px solid #ccc
+    transition: .3s
+
+    &:hover
+      text-decoration: none
+      color: #181111
+      background: #ddd
+
+    &.active-link
+      background: #007BFF
+      color: #ffffff
+
+// ----------- basket ----------
+.basket
+  margin-top: 50px
+  padding: 16px
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+  &__content
+    width: 75%
+
+  &__sudebar
+    width: 25%
+
+  .table
+    tr:nth-child(even)
+      background: #eeeeee
+
+    td 
+      border: 1px solid #ccc
+      text-align: center
+      vertical-align: middle
+
+      &:first-child
+        width: 12%
+
+    img
+      width: 100px
+
+    .fa-trash-alt:hover
+      cursor: pointer
+      color: #da1515
+      transition: .3s
+
+  &__total-price
+    display: flex
+    justify-content: flex-end
+
+    b 
+      margin-right: 5px
+  
+  .button
+    margin-bottom: 7px
+
+    .fas
+      margin-right: 5px
+
+// ----------- auth ---------- 
+.auth
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
+  background: #93e6f5
+
+  > div
+      width: 100%
+      max-width: 600px
+
+  h1 
+    color: #ffffff
+    text-align: center
+    margin-bottom: 20px
+
+  form 
+    padding: 25px
+    background: #eeeeee
+    box-shadow: 2px 2px 2px #777777
+
+  .input
+    margin-bottom: 15px
+
+    &.invalid label
+      color: #e21515
+
+  label
+    display: block
+    margin-bottom: 3px
+    font-weight: bold
+
+  input
+    display: block
+    width: 100%
+    padding: 7px
+    border: 1px solid #ccc
+
+  span 
+    display: block
+    font-size: 12px
+    font-weight: bold
+    color: #df1c1c
+
+  .button
+    display: inline-block
+    margin-right: 7px
+
+// ----------- media ----------
+@media screen and ( max-width: 1200px )
+  .phones
+    &__item
+      width: 50%
+  
+@media screen and ( max-width: 992px )
+  .layout
+    &__sidebar
+      width: 100%
+      margin-bottom: 30px
+
+    &__content
+      width: 100% 
+
+@media screen and ( max-width: 768px )
+  .phones
+    &__item
+      width: 80%
+      margin: 0 auto 30px
+
+  .phone,
+  .basket
+    &__content
+      width: 100%
+      margin-bottom: 30px
+
+    &__sidebar
+      width: 100%
+
+  .phone .card
+    &__image,
+    &__fields
+      width: 100%
+
+@media screen and ( max-width: 480px )
+  .phones
+    &__item
+      width: 100%
+      min-width: 320px
