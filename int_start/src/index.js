@@ -15,7 +15,9 @@ import routes from 'routes'
 
 // --------- without & with Material-Ui
 // import TopLine from 'topLine/containers/TopLine'
-import TopLine from 'topLine/containers/TopLineMui'
+// import TopLine from 'Mui/TopLineMui'
+// import TopLine from 'Mui/Top-2'
+import TopLine from 'Mui/Top-3'
 
 const middlewares = [thunk]
 const store = createStore(
