@@ -9,6 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@material-ui/core'
 
 import createRootReducer from 'reducers'
 import routes from 'routes'
@@ -18,6 +19,7 @@ import routes from 'routes'
 // import TopLine from 'Mui/TopLineMui'
 // import TopLine from 'Mui/Top-2'
 import TopLine from 'Mui/Top-3'
+import { theme } from 'Mui/Top-3/theme'
 
 const middlewares = [thunk]
 const store = createStore(
@@ -26,11 +28,15 @@ const store = createStore(
 )
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <TopLine />
-      {routes}
-    </BrowserRouter>
-  </Provider>,
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="app">
+          <TopLine />
+          {routes}
+        </div>
+      </BrowserRouter>
+    </Provider>
+  </ThemeProvider>,
   document.getElementById('root')
 )
