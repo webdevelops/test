@@ -19,7 +19,7 @@ import routes from 'routes'
 // import TopLine from 'Mui/TopLineMui'
 // import TopLine from 'Mui/Top-2'
 import TopLine from 'Mui/Top-3'
-import { theme } from 'Mui/Top-3/theme'
+import theme from 'Mui/Top-3/theme'
 
 const middlewares = [thunk]
 const store = createStore(
