@@ -150,7 +150,7 @@ export const checkoutBasket = phones => dispatch => {
 }
 
 export const auth = (email, password, isLogin) => async dispatch => {
-console.log("TCL: email", email)
+  console.log("TCL: email", email)
   dispatch({
     type: AUTH_REQUEST
   })
@@ -203,7 +203,7 @@ export const autoLogin = () => async dispatch => {
   } else {
     const expirationDate = new Date(localStorage.getItem('expirationDate'))
 
-        if (expirationDate <= new Date()) {
+    if (expirationDate <= new Date()) {
       dispatch(logout())
 
     } else {

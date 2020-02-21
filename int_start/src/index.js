@@ -12,7 +12,7 @@ import { /* BrowserRouter, */ HashRouter } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core'
 
 import createRootReducer from 'reducers'
-import routes from 'routes'
+import Routes from 'Routes'
 
 // --------- without & with Material-Ui
 // import TopLine from 'topLine/containers/TopLine'
@@ -34,7 +34,7 @@ ReactDOM.render(
       <HashRouter>
         <div className="app">
           <TopLine />
-          {routes}
+          <Routes />
         </div>
       </HashRouter>
       {/* </BrowserRouter> */}
