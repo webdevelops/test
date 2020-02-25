@@ -1,7 +1,7 @@
 import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
+import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
@@ -67,7 +67,7 @@ const SignUp = () => {
   }
 
   const header = (
-    <div className="form__header" /* className={classes.header} */>
+    <div /* className="form__header" */ className={classes.header}>
       <Typography variant="h4" color="secondary">
         Sign In
       </Typography>
@@ -106,7 +106,7 @@ const SignUp = () => {
         }
 
         return (
-          <Grid container key={index}>
+          <Grid container key={index} className={classes.formControl}>
             <Grid item>
               {icon}
             </Grid>
@@ -131,13 +131,13 @@ const SignUp = () => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form className="form" /* className={classes.form} */>
+        <form /* className="form" */ className={classes.form}>
 
           {header}
 
           {renderFormControls()}
 
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" className={classes.button}>
             Sign Up
           </Button>
 

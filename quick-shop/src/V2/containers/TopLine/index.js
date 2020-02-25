@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import useStyles from './useStyles';
 import TopLineDrawer from './TopLineDrawer';
 import ToggleSwitch from './ToggleSwitch';
+import { Menu, MenuItem } from '@material-ui/core';
 
-export default function TopLine() {
+const TopLine = ({ history }) => {
   const classes = useStyles();
 
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -21,8 +24,45 @@ export default function TopLine() {
     setOpenDrawer(open);
   };
 
-  const [signUp, setSignUp] = useState(false)
-  const handleChange = event => setSignUp(event.target.checked)
+  const [signIn, setSignUp] = useState(false);
+  const handleChange = event => {
+    if (signIn) {
+      history.push("/");
+
+    } else {
+      history.push("/sign-in");
+    }
+
+    setSignUp(event.target.checked);
+  }
+
+  const links = [
+    { to: "/sign-in", label: "Sign In" },
+    { to: "/sign-up", label: "Sign Up" }
+  ];
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleMobileMenuOpen = event => setAnchorEl(event.currentTarget);
+  const handleMobilemenuClose = () => setAnchorEl(null);
+
+  const renderMobileMenu = (
+    <Menu
+      id="mobile-menu"
+      anchorEl={anchorEl}
+      keepMounted
+      open={Boolean(anchorEl)}
+      className={classes.mobileList}
+      onClose={handleMobilemenuClose}
+    >
+      {links.map(link => (
+        <MenuItem key={link.label}>
+          <Link to={link.to} onClick={handleMobilemenuClose} className={classes.mobileLink}>
+            {link.label}
+          </Link>
+        </MenuItem>
+      ))}
+    </Menu>
+  );
 
   return (
     <div className={classes.root}>
@@ -45,12 +85,27 @@ export default function TopLine() {
 
           <TopLineDrawer open={openDrawer} toggleDrawer={toggleDrawer} />
 
-          <ToggleSwitch signUp={signUp} handleChange={handleChange} />
+          <div className={classes.sectionDeskTop}>
+            <ToggleSwitch signIn={signIn} handleChange={handleChange} />
 
-          <Button color="inherit">Login</Button>
+            <Link to="/sign-up" className={classes.signUp}>Sign Up</Link>
+          </div>
 
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="more"
+              aria-controls="mobile-menu"
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+            >
+              <MoreVertIcon className={classes.moreIcon} />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
+      {renderMobileMenu}
     </div>
   );
 };
+
+export default withRouter(TopLine)

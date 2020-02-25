@@ -4,7 +4,7 @@ const validateEmail = email => {
   return re.test(email.toString().toLowerCase());
 }
 
-export const validateControl = (value, validation) => {
+export const validateControl = (value, validation, password) => {
   if (!validation) {
     return true;
   }
@@ -12,16 +12,20 @@ export const validateControl = (value, validation) => {
   let isValid = true;
 
   if (validation.require) {
-    isValid = value.trim() !== '' && isValid
+    isValid = value.trim() !== '' && isValid;
   }
 
   if (validation.email) {
-    isValid = validateEmail(value) && isValid
+    isValid = validateEmail(value) && isValid;
   }
 
-  if (validation.minLengh) {
-    isValid = value.length >= validation.minLength && isValid
+  if (validation.minLength) {
+    isValid = value.length >= validation.minLength && isValid;
   }
 
-  return isValid
+  if (validation.samePassword) {
+    isValid = value === password && isValid;
+  }
+
+  return isValid;
 }

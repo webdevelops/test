@@ -1,7 +1,7 @@
 import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
+import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
@@ -50,7 +50,7 @@ const SignIn = () => {
   }
 
   const header = (
-    <div className="form__header" /* className={classes.header} */>
+    <div /* className="form__header" */ className={classes.header}>
       <Typography variant="h4" color="primary">
         Sign In
             </Typography>
@@ -85,13 +85,12 @@ const SignIn = () => {
         }
 
         return (
-          <Grid container>
+          <Grid container key={index} className={classes.formControl}>
             <Grid item>
               {icon}
             </Grid>
             <Grid item>
               <TextField
-                key={index}
                 id={controlName + index}
                 type={control.type}
                 label={control.label}
@@ -111,21 +110,21 @@ const SignIn = () => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form className="form" /* className={classes.form} */>
+        <form /* className="form" */ className={classes.form}>
 
           {header}
 
           {renderFormControls()}
 
-          <Link to="/recovery" className="form__link">
+          <Link to="/recovery" className="form__link" >
             Forgot password?
           </Link>
 
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" className={classes.button}>
             Sign In
           </Button>
 
-          <Link to="/sign-in" className="form__link form__link_policy">
+          <Link to="/sign-in"  className="form__link form__link_policy">
             Privacy Policy
           </Link>
 

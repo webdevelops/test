@@ -1,15 +1,13 @@
 import React from 'react'
 import { FormGroup, FormControlLabel, Switch } from '@material-ui/core';
 
-const ToggleSwitch = ({ signUp, handleChange }) => {
+export default function ToggleSwitch({ signIn, handleChange}) {
   return (
     <FormGroup>
       <FormControlLabel
-        control={<Switch checked={signUp} onChange={handleChange} aria-label='login switch' />}
-        label={signUp ? 'Logout' : 'Login'}
+        control={<Switch checked={signIn} onChange={handleChange} aria-label='login switch' />}
+        label={signIn ? 'Logout' : 'Login'}
       />
     </FormGroup>
   );
 }
-
-export default ToggleSwitch;

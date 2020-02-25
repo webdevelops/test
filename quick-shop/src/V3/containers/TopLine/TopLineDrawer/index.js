@@ -11,7 +11,7 @@ import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 
-import useStyles from '../useStyles';
+import useStyles from '../topLineStyles';
 import { connect } from 'react-redux';
 
 const TopLineDrawer = ({ open, toggleDrawer }) => {

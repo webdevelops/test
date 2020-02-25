@@ -22,6 +22,15 @@ const useStyles = makeStyles({
   header: {
     marginBottom: 20,
   },
+  controlField: {
+    display: "flex",
+    alignItems: "center",
+    '& svg': {
+      marginTop: 10,
+      marginRight: 10,
+      opacity: .5,
+    },
+  },
   textField: {
     marginBottom: 10,
   },
@@ -47,7 +56,10 @@ const useStyles = makeStyles({
     color: "#0277bd",
     textDecoration: "none",
     marginTop: 30,
-  }
+  },
+  recovery: {
+      marginTop: 10,
+  },
 });
 
 export default useStyles

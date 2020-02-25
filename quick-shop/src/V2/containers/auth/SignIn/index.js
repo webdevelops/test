@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import useStyles from '../useStyles';
-import { Typography, TextField, Button, Paper } from '@material-ui/core';
+import { Typography, TextField, Button, Paper, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
+import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 
 import { validateControl } from '../../../selectors';
 
@@ -40,12 +42,22 @@ const SignIn = () => {
     const control = newFieldControls[controlName];
 
     control.value = event.target.value;
-    console.log("TCL: SignIn -> control.value", control.value)
     control.touched = true;
     control.valid = validateControl(control.value, control.validation);
 
     setFieldControls(newFieldControls);
   }
+
+  const header = (
+    <div className={classes.header}>
+      <Typography variant="h4" color="primary">
+        Sign In
+      </Typography>
+      <Typography variant="h4" color="secondary">
+        Sign Up
+      </Typography>
+    </div>
+  )
 
   const renderFieldControls = () => {
 
@@ -57,18 +69,39 @@ const SignIn = () => {
           ? control.errorMessage || "Incorrect entry."
           : '';
 
+        let icon = null;
+
+        switch (controlName) {
+          case 'email':
+            icon = <DraftsTwoToneIcon fontSize="small" />;
+            break;
+
+          case 'password':
+            icon = <VpnKeyTwoToneIcon fontSize="small" />;
+            break;
+
+          default:
+            icon = null;
+        }
+
         return (
-          <TextField
-            key={index}
-            id={controlName + index}
-            type={control.type}
-            label={control.label}
-            value={control.value}
-            error={isInvalid}
-            helperText={helperText}
-            className={classes.textField}
-            onChange={handleChange(controlName)}
-          />
+          <Grid key={index} container className={classes.controlField}>
+            <Grid item>
+              {icon}
+            </Grid>
+            <Grid item>
+              <TextField
+                id={controlName + index}
+                type={control.type}
+                label={control.label}
+                value={control.value}
+                error={isInvalid}
+                helperText={helperText}
+                className={classes.textField}
+                onChange={handleChange(controlName)}
+              />
+            </Grid>
+          </Grid>
         );
       })
     );
@@ -79,32 +112,25 @@ const SignIn = () => {
       <Paper elevation={5}>
         <form className={classes.form}>
 
-          <div className={classes.header}>
-            <Typography variant="h4" color="primary">
-              Sign In
-          </Typography>
-            <Typography variant="h4" color="secondary">
-              Sign Up
-          </Typography>
-          </div>
+          {header}
 
           {renderFieldControls()}
 
           <Link to="/recovery" className={classes.forgotPassword} >
             Forgot password?
-        </Link>
+          </Link>
 
           <Button variant="contained" color="primary" className={classes.button} >
             Sign In
-        </Button>
+          </Button>
 
           <Link to="sign-in" className={classes.privacyPolicy} >
             Privacy Policy
-        </Link>
+          </Link>
 
           <Link to="/" className={classes.cancel} >
             Cancel
-        </Link>
+          </Link>
 
         </form>
       </Paper>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import useStyles from '../useStyles';
-import { Typography, TextField, Button, Paper } from '@material-ui/core';
+import { Typography, TextField, Button, Paper, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 
 import { validateControl } from '../../../selectors';
 
@@ -28,7 +29,6 @@ const Recovery = () => {
     const control = newFieldControls[controlName];
 
     control.value = event.target.value;
-    console.log("TCL: Recovery -> control.value", control.value)
     control.touched = true;
     control.valid = validateControl(control.value, control.validation);
 
@@ -46,17 +46,23 @@ const Recovery = () => {
           : '';
 
         return (
-          <TextField
-            key={index}
-            id={controlName + index}
-            type={control.type}
-            label={control.label}
-            value={control.value}
-            error={isInvalid}
-            helperText={helperText}
-            className={classes.textField}
-            onChange={handleChange(controlName)}
-          />
+          <Grid key={index} container className={classes.controlField}>
+            <Grid item>
+              <DraftsTwoToneIcon fontSize="small" />
+            </Grid>
+            <Grid item>
+              <TextField
+                id={controlName + index}
+                type={control.type}
+                label={control.label}
+                value={control.value}
+                error={isInvalid}
+                helperText={helperText}
+                className={classes.textField}
+                onChange={handleChange(controlName)}
+              />
+            </Grid>
+          </Grid>
         );
       })
     );
@@ -75,7 +81,7 @@ const Recovery = () => {
 
           {renderFieldControls()}
 
-          <Button variant="contained" color="primary" className={classes.button} >
+          <Button variant="contained" color="primary" className={classes.recovery} >
             Recovery
           </Button>
 

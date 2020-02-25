@@ -1,9 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    minWidth: 320,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -18,25 +17,17 @@ export default makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
+    color: 'inherit',
   },
-  listIcon: {
+  linkIcon: {
     justifyContent: 'center',
   },
-  signUp: {
-    fontSize: 16,
-    color: "white",
+  linkSignUp: {
     textDecoration: "none",
-    '&:hover': {
-      opacity: .7,
-    },
+    color: "white",
+    fontSize: "1rem",
   },
-  signIn: {
-    opacity: .7,
-    '& MuiTypography-root:hover': {
-      opacity: .7,
-    },
-  },
-  sectionDesctop: {
+  sectionDeskTop: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "flex",
@@ -48,19 +39,17 @@ export default makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
+    '& button': {
+      color: "white",
+    },
   },
-  menuItem: {
-    display: "flex",
+  mobileMenu: {
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
-  },
-  signInMobileMenu: {
-    textDecoration: "none",
-    color: "#0277bd",
-  },
-  signUpMobileMenu: {
-    textDecoration: "none",
-    color: "#0277bd",
+    '& a': {
+      textDecoration: "none",
+      color: "#0277bd",
+    },
   },
 }));

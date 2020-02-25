@@ -1,7 +1,7 @@
 import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
+import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
@@ -46,7 +46,7 @@ const Recovery = () => {
           : "";
 
         return (
-          <Grid container>
+          <Grid container className={classes.formControl}>
             <Grid item>
               <DraftsTwoToneIcon fontSize="small" />
             </Grid>
@@ -72,9 +72,9 @@ const Recovery = () => {
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
-        <form className="form form__recovery" /* className={classes.form} */>
+        <form /* className="form form__recovery" */ className={classes.form}>
 
-          <div className="form__header" /* className={classes.header} */>
+          <div /* className="form__header" */ className={classes.header}>
             <Typography variant="h4" color="primary">
               Recovery
             </Typography>
@@ -82,7 +82,7 @@ const Recovery = () => {
 
           {renderFormControls()}
 
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" className={classes.recovery}>
             Recovery
           </Button>
 

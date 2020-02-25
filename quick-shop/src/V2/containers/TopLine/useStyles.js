@@ -22,6 +22,40 @@ const useStyles = makeStyles(theme => ({
   linkItem: {
     justifyContent: 'center',
   },
+  signUp: {
+    textDecoration: "none",
+    color: "white",
+    fontSize: "1rem",
+  },
+  sectionDeskTop: {
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      alignItems: "center",
+    },
+  },
+  sectionMobile: {
+    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+      '& svg': {
+        color: "white",
+      }
+    },
+  },
+  moreIcon: {
+    color: "white",
+  },
+  mobileLink: {
+    textDecoration: "none",
+    color: "#0277bd",
+  },
+  mobileList: {
+    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    }
+  }
 }));
 
-export default useStyles;
+export default useStyles
