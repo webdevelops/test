@@ -10,17 +10,17 @@ import { HashRouter } from 'react-router-dom'
 // import createRootReducer from 'store/reducers';
 // import TopLine from 'containers/TopLine';
 // import theme from 'theme';
-// import routes from './routes';
+// import Routes from './routes';
 
-// import createRootReducer from './V2/store/reducers';
-// import theme from './V2/theme';
-// import TopLine from './V2/containers/TopLine';
-// import routes from './routes';
+import createRootReducer from './V2/store/reducers';
+import theme from './V2/theme';
+import TopLine from './V2/containers/TopLine';
+import Routes from './routes';
 
-import createRootReducer from './V3/store/reducers';
-import theme from './V3/theme';
-import TopLine from './V3/containers/TopLine';
-import routes from './routes';
+// import createRootReducer from './V3/store/reducers';
+// import theme from './V3/theme';
+// import TopLine from './V3/containers/TopLine';
+// import Routes from './routes';
 
 
 const middlewares = [thunk];
@@ -35,7 +35,7 @@ ReactDOM.render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <TopLine />
-        {routes}
+        <Routes />
       </ThemeProvider>
     </HashRouter>
   </Provider>,

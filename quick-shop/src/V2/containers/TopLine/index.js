@@ -7,13 +7,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import useStyles from './useStyles';
 import TopLineDrawer from './TopLineDrawer';
 import ToggleSwitch from './ToggleSwitch';
 import { Menu, MenuItem } from '@material-ui/core';
 
-const TopLine = ({ history }) => {
+const TopLine = ({ history, isAuthenticated }) => {
   const classes = useStyles();
 
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -36,10 +38,14 @@ const TopLine = ({ history }) => {
     setSignUp(event.target.checked);
   }
 
-  const links = [
-    { to: "/sign-in", label: "Sign In" },
-    { to: "/sign-up", label: "Sign Up" }
-  ];
+  const links = isAuthenticated
+    ? [
+      { to: "/logout", label: "Logout" }
+    ]
+    : [
+      { to: "/sign-in", label: "Sign In" },
+      { to: "/sign-up", label: "Sign Up" }
+    ];
 
   const [anchorEl, setAnchorEl] = useState(null);
   const handleMobileMenuOpen = event => setAnchorEl(event.currentTarget);
@@ -108,4 +114,13 @@ const TopLine = ({ history }) => {
   );
 };
 
-export default withRouter(TopLine)
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: Boolean(state.auth.token)
+  }
+}
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps)
+)(TopLine)

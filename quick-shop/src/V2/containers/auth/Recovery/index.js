@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
 import { Typography, TextField, Button, Paper, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 
+import useStyles from '../authStyles';
 import { validateControl } from '../../../selectors';
 
 const Recovery = () => {

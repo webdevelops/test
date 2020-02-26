@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
 import { Typography, TextField, Button, Paper, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
+import { connect } from 'react-redux';
 
+import useStyles from '../authStyles';
 import { validateControl } from '../../../selectors';
+import { auth } from '../../../store/actions/authActions';
 
-const SignIn = () => {
+const SignIn = ({ auth }) => {
   const classes = useStyles();
 
   const [fieldControls, setFieldControls] = useState({
@@ -107,6 +109,12 @@ const SignIn = () => {
     );
   }
 
+  const handleClickSignIn = () => auth(
+    fieldControls.email.value,
+    fieldControls.password.value,
+    true
+  );
+
   return (
     <div className={classes.root}>
       <Paper elevation={5}>
@@ -120,7 +128,12 @@ const SignIn = () => {
             Forgot password?
           </Link>
 
-          <Button variant="contained" color="primary" className={classes.button} >
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={handleClickSignIn}
+          >
             Sign In
           </Button>
 
@@ -138,4 +151,8 @@ const SignIn = () => {
   );
 }
 
-export default SignIn
+const mapDispatchToProps = {
+  auth
+};
+
+export default connect(null, mapDispatchToProps)(SignIn)

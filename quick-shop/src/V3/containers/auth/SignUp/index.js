@@ -1,15 +1,18 @@
 import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
-import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
+import {connect} from 'react-redux';
 
-const SignUp = () => {
+import useStyles from '../authStyles';
+import { validateControl } from '../../../store/actions';
+import {auth} from '../../../store/actions';
+
+const SignUp = ({auth}) => {
   const classes = useStyles();
 
   const [formControls, setFormControls] = useState({
@@ -96,7 +99,7 @@ const SignUp = () => {
           case 'password':
             icon = <VpnKeyTwoToneIcon fontSize="small" />
             break;
-            
+
           case 'verifyPassword':
             icon = <LockOpenTwoToneIcon fontSize="small" />
             break;
@@ -128,6 +131,12 @@ const SignUp = () => {
     );
   }
 
+  const handleClickSignUp = () => auth(
+    formControls.email.value,
+    formControls.password.value,
+    false
+  );
+
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
@@ -137,7 +146,12 @@ const SignUp = () => {
 
           {renderFormControls()}
 
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={handleClickSignUp}
+          >
             Sign Up
           </Button>
 
@@ -155,4 +169,8 @@ const SignUp = () => {
   );
 }
 
-export default SignUp
+const mapDispatchToProps = {
+  auth
+};
+
+export default connect(null, mapDispatchToProps)(SignUp)

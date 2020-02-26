@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import useStyles from '../useStyles';
 import { Typography, TextField, Button, Paper, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
+import { connect } from 'react-redux';
 
+import useStyles from '../authStyles';
 import { validateControl } from '../../../selectors';
+import { auth } from '../../../store/actions/authActions';
 
-const SignUp = () => {
+const SignUp = ({ auth }) => {
   const classes = useStyles();
 
   const [fieldControls, setFieldControls] = useState({
@@ -129,6 +131,12 @@ const SignUp = () => {
     );
   }
 
+  const handleClickSignUp = () => auth(
+    fieldControls.email.value,
+    fieldControls.password.value,
+    false
+  );
+
   return (
     <div className={classes.root}>
       <Paper elevation={5}>
@@ -138,7 +146,12 @@ const SignUp = () => {
 
           {renderFieldControls()}
 
-          <Button variant="contained" color="primary" className={classes.button} >
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={handleClickSignUp}
+          >
             Sign In
           </Button>
 
@@ -156,4 +169,8 @@ const SignUp = () => {
   );
 }
 
-export default SignUp
+const mapDiaspatchToProps = {
+  auth
+}
+
+export default connect(null, mapDiaspatchToProps)(SignUp)

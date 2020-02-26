@@ -17,7 +17,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
-    color: 'blue',
+    color: '#0277bd',
+    '& span': {
+      fontSize: "1.3rem",
+    },
   },
   linkItem: {
     justifyContent: 'center',

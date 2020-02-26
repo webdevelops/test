@@ -1,14 +1,16 @@
-import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
-import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
+import { connect } from 'react-redux';
 
-const SignIn = () => {
+import '../auth.sass';
+import useStyles from '../authStyles';
+import { validateControl, auth } from '../../../store/actions';
+
+const SignIn = ({ auth }) => {
   const classes = useStyles();
 
   const [formControls, setFormControls] = useState({
@@ -107,6 +109,12 @@ const SignIn = () => {
     );
   }
 
+  const handleClickSignIn = () => auth(
+    formControls.email.value,
+    formControls.password.value,
+    true
+  );
+
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
@@ -120,11 +128,16 @@ const SignIn = () => {
             Forgot password?
           </Link>
 
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={handleClickSignIn}
+          >
             Sign In
           </Button>
 
-          <Link to="/sign-in"  className="form__link form__link_policy">
+          <Link to="/sign-in" className="form__link form__link_policy">
             Privacy Policy
           </Link>
 
@@ -138,4 +151,8 @@ const SignIn = () => {
   );
 }
 
-export default SignIn
+const mapDispatchToProps = {
+  auth
+};
+
+export default connect(null, mapDispatchToProps)(SignIn)

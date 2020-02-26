@@ -9,19 +9,29 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
+import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
+import MeetingRoomTwoToneIcon from '@material-ui/icons/MeetingRoomTwoTone';
+import { connect } from 'react-redux';
 
 import useStyles from '../useStyles';
-// import { Link } from '@material-ui/core';
 
-const TopLineDrawer = ({ toggleDrawer, open }) => {
+const TopLineDrawer = ({ toggleDrawer, open, isAuthenticated }) => {
   const classes = useStyles();
 
-  const links = [
-    { to: '/', label: 'Phones', icon: <SmartphoneIcon style={{color: 'orange'}}/>  },
-    { to: '/basket', label: 'Basket', icon: <ShoppingBasketIcon style={{color: 'green'}}/>  },
-    { to: '/sign-up', label: 'Sign Up', icon: <i className='fas fa-user-plus' style={{color: 'blue'}}></i>  }
-  ]
+  const links = isAuthenticated
+    ? [
+      { to: '/', label: 'Phones', icon: <SmartphoneIcon style={{ color: 'orange' }} /> },
+      { to: '/basket', label: 'Basket', icon: <ShoppingBasketIcon style={{ color: 'green' }} /> },
+      { to: '/logout', label: 'Logout', icon: <MeetingRoomTwoToneIcon style={{ color: '#0277bd' }} /> }
+    ]
+    : [
+      { to: '/', label: 'Phones', icon: <SmartphoneIcon style={{ color: 'orange' }} /> },
+      { to: '/basket', label: 'Basket', icon: <ShoppingBasketIcon style={{ color: 'green' }} /> },
+      { to: '/sign-in', label: 'Sign In', icon: <ExitToAppTwoToneIcon style={{ color: '#0277bd' }} /> },
+      { to: '/sign-up', label: 'Sign Up', icon: <PersonAddTwoToneIcon style={{ color: '#0277bd' }} /> }
+    ];
 
   const list = () => (
     <div
@@ -32,12 +42,12 @@ const TopLineDrawer = ({ toggleDrawer, open }) => {
     >
       <List>
         {links.map(link => (
-          <ListItem button key={link.label} className={classes.link}>
-            <Link to={link.to} className={classes.link} >
+          <Link to={link.to} className={classes.link} key={link.label}>
+            <ListItem button>
               <ListItemIcon className={classes.linkItem}>{link.icon}</ListItemIcon>
               <ListItemText primary={link.label} />
-            </Link>
-          </ListItem>
+            </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
@@ -61,4 +71,10 @@ const TopLineDrawer = ({ toggleDrawer, open }) => {
   );
 };
 
-export default TopLineDrawer;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: !!state.auth.token
+  }
+};
+
+export default connect(mapStateToProps)(TopLineDrawer)
