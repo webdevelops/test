@@ -1,11 +1,12 @@
-import '../auth.sass';
 
 import React, { useState } from 'react';
-import useStyles from '../authStyles';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
-import { validateControl } from '../../../store/actions';
 import { Link } from 'react-router-dom';
 import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
+
+import '../auth.sass';
+import useStyles from '../authStyles';
+import { validateControl } from '../../../store/actions/authActions';
 
 const Recovery = () => {
   const classes = useStyles();

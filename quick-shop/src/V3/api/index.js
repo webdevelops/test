@@ -21,7 +21,7 @@ export const authApi = async (email, password, isLogin) => {
   const data = await response.json();
   console.log("TCL: authApi!!! -> data", data);
 
-  const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1);
+  const expirationDate = new Date(new Date().getTime() + data.expiresIn * 5);
   
   localStorage.setItem('token', data.idToken);
   localStorage.setItem('user', data.localId);

@@ -50,12 +50,8 @@ export const auth = (email, password, isLogin) => async dispatch => {
       alert(response.error.message);
     }
 
-    dispatch({
-      type: AUTH_SUCCESS,
-      payload: response.idToken
-    });
-
-    dispatch(autoLogout(response.expiresIn * 1));
+    dispatch(authSuccess(response.idToken));
+    dispatch(autoLogout(response.expiresIn * 5));
 
   } catch (err) {
     dispatch({
@@ -66,6 +62,13 @@ export const auth = (email, password, isLogin) => async dispatch => {
   }
 };
 
+const authSuccess = idToken => {
+  return {
+    type: AUTH_SUCCESS,
+    payload: idToken
+  };
+};
+
 const autoLogout = delay => dispatch => {
   const timerId =setTimeout(() => {
     dispatch(logout());
@@ -74,7 +77,7 @@ const autoLogout = delay => dispatch => {
   }, delay);
 };
 
-const logout = () => {
+export const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
   localStorage.removeItem('expirationDate');
@@ -82,4 +85,25 @@ const logout = () => {
   return {
     type: AUTH_LOGOUT
   };
+};
+
+export const autoLogin = () => dispatch => {
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    dispatch(logout());
+  
+  } else {
+    const expirationDate = new Date(localStorage.getItem('expirationDate'));
+
+    if (expirationDate <= new Date()) {
+      dispatch(logout());
+    
+    } else {
+      const delay = expirationDate.getTime() - new Date().getTime();
+
+      dispatch(authSuccess(token));
+      dispatch(autoLogout(delay));
+    }
+  }
 };

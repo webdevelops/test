@@ -49,7 +49,13 @@ const TopLine = ({ history, isAuthenticated }) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const handleMobileMenuOpen = event => setAnchorEl(event.currentTarget);
-  const handleMobilemenuClose = () => setAnchorEl(null);
+  const handleMobilemenuClose = () => {
+    if (isAuthenticated) {
+      return null;
+    }
+    
+    setAnchorEl(null)
+  };
 
   const renderMobileMenu = (
     <Menu

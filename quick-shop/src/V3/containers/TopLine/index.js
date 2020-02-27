@@ -4,15 +4,18 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import useStyles from './topLineStyles';
-import TopLineDrawer from './TopLineDrawer';
-import ToggleSwitch from './ToggleSwitch';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 
-const TopLine = ({ history }) => {
+import useStyles from './topLineStyles';
+import TopLineDrawer from './TopLineDrawer';
+import ToggleSwitch from './ToggleSwitch';
+
+const TopLine = ({ history, isAuthenticated }) => {
   const classes = useStyles();
   const [state, setState] = useState({
     left: false,
@@ -39,13 +42,22 @@ const TopLine = ({ history }) => {
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const links = [
-    { to: "/sign-in", label: "Sign In" },
-    { to: "/sign-up", label: "Sign Up" }
-  ];
+  const links = isAuthenticated
+    ? [
+      { to: "/logout", label: "Logout" }
+    ]
+    : [
+      { to: "/sign-in", label: "Sign In" },
+      { to: "/sign-up", label: "Sign Up" }
+    ];
 
   const handleClickMobileMenu = event => setAnchorEl(event.currentTarget);
-  const handleCloseMobileMenu = () => setAnchorEl(null);
+  const handleCloseMobileMenu = () => {
+    if (isAuthenticated) {
+      return;
+    }
+    setAnchorEl(null);
+  };
 
   const renderMobileMenu = (
     <Menu
@@ -109,6 +121,15 @@ const TopLine = ({ history }) => {
       {renderMobileMenu}
     </div>
   );
-  }
+}
 
-  export default withRouter(TopLine)
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: Boolean(state.auth.token)
+  };
+};
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps)
+)(TopLine)

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ import { connect } from 'react-redux';
 
 import '../auth.sass';
 import useStyles from '../authStyles';
-import { validateControl, auth } from '../../../store/actions';
+import { validateControl, auth } from '../../../store/actions/authActions';
 
 const SignIn = ({ auth }) => {
   const classes = useStyles();

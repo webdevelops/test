@@ -1,5 +1,3 @@
-import '../auth.sass';
-
 import React, { useState } from 'react';
 import { Typography, TextField, Paper, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -8,9 +6,9 @@ import VpnKeyTwoToneIcon from '@material-ui/icons/VpnKeyTwoTone';
 import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
 import {connect} from 'react-redux';
 
+import '../auth.sass';
 import useStyles from '../authStyles';
-import { validateControl } from '../../../store/actions';
-import {auth} from '../../../store/actions';
+import { validateControl, auth } from '../../../store/actions/authActions';
 
 const SignUp = ({auth}) => {
   const classes = useStyles();

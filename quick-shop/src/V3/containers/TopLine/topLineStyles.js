@@ -17,7 +17,10 @@ export default makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
-    color: 'inherit',
+    color: '#0277bd',
+    '& span': {
+      fontSize: "1.3rem",
+    }
   },
   linkIcon: {
     justifyContent: 'center',
