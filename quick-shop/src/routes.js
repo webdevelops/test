@@ -22,9 +22,8 @@ import Phones from './V2/containers/Phones';
 // import Recovery from './V3/containers/auth/Recovery';
 // import Logout from './V3/containers/auth/Logout';
 // import { autoLogin } from './V3/store/actions/authActions';
+// import Phones from './V3/containers/Phones';
 
-
-// import Phones from 'containers/Phones'
 
 const Routes = ({ isAuthenticated, autoLogin }) => {
   useEffect(() => {

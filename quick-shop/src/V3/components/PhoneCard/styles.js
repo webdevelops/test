@@ -1,14 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
+
+import { makeStyles } from '@material-ui/styles';
 
 export default makeStyles(theme => (
   {
     root: {
-      width: 300,
+      marginTop: 95,
     },
     title: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "center",
+      alignItems: "baseline",
 
       '& a': {
         color: "#007bff",
@@ -25,13 +26,8 @@ export default makeStyles(theme => (
       },
     },
     link: {
+      color: "#0277bd",
       textDecoration: "none",
     },
-    image: {
-      [theme.breakpoints.down("xs")]: {
-        width: "75%",
-        margin: "auto",
-      },
-  }
   }
 ));

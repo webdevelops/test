@@ -7,8 +7,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import SmartphoneIcon from '@material-ui/icons/Smartphone';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import SmartphoneTwoToneIcon from '@material-ui/icons/SmartphoneTwoTone';
+import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 import { Link } from 'react-router-dom';
 import PersonAddTwoToneIcon from '@material-ui/icons/PersonAddTwoTone';
 import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
@@ -22,13 +22,13 @@ const TopLineDrawer = ({ toggleDrawer, open, isAuthenticated }) => {
 
   const links = isAuthenticated
     ? [
-      { to: '/', label: 'Phones', icon: <SmartphoneIcon style={{ color: 'orange' }} /> },
-      { to: '/basket', label: 'Basket', icon: <ShoppingBasketIcon style={{ color: 'green' }} /> },
+      { to: '/', label: 'Phones', icon: <SmartphoneTwoToneIcon style={{ color: 'orange' }} /> },
+      { to: '/basket', label: 'Basket', icon: <ShoppingBasketTwoToneIcon style={{ color: 'green' }} /> },
       { to: '/logout', label: 'Logout', icon: <MeetingRoomTwoToneIcon style={{ color: '#0277bd' }} /> }
     ]
     : [
-      { to: '/', label: 'Phones', icon: <SmartphoneIcon style={{ color: 'orange' }} /> },
-      { to: '/basket', label: 'Basket', icon: <ShoppingBasketIcon style={{ color: 'green' }} /> },
+      { to: '/', label: 'Phones', icon: <SmartphoneTwoToneIcon style={{ color: 'orange' }} /> },
+      { to: '/basket', label: 'Basket', icon: <ShoppingBasketTwoToneIcon style={{ color: 'green' }} /> },
       { to: '/sign-in', label: 'Sign In', icon: <ExitToAppTwoToneIcon style={{ color: '#0277bd' }} /> },
       { to: '/sign-up', label: 'Sign Up', icon: <PersonAddTwoToneIcon style={{ color: '#0277bd' }} /> }
     ];

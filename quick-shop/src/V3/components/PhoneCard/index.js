@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -20,18 +21,17 @@ const PhoneCard = ({ phone }) => {
         <CardMedia
           component="img"
           alt={phone.name}
-          image={phone.image}
-          className={classes.image}
+          src={phone.image}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+          <Typography gutterBottom variant="h5" componnet="h2" className={classes.title}>
             <Link to={`/phones/${phone.id}`}>
               {phone.name}
             </Link>
             <span>${phone.price}</span>
           </Typography>
 
-          <Typography variant="body2" component="p" color="textSecondary">
+          <Typography variant="body2" color="textSecondary" component="p">
             {shortDescription}
           </Typography>
         </CardContent>

@@ -1,3 +1,4 @@
+
 const key = 'AIzaSyCpUApD9K5SMQxiiDCLUIvnbclYf1yiyVc';
 const signUpURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key}`;
 const signInURL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${key}`;

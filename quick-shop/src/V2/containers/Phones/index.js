@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Grid } from '@material-ui/core';
 
 import useStyles from './styles';
 import { fetchPhones } from '../../store/actions/phonesActions';
@@ -16,20 +17,23 @@ const Phones = ({ fetchPhones, phones }) => {
 
   const renderPhone = (phone, index) => {
     return (
-      <div className={classes.phoneCard} key={index}>
+      <Grid item xs={10} sm={6} md={4} className={classes.phoneCard} key={index}>
         <PhoneCard phone={phone} />
-      </div>
+      </Grid>
     );
   };
 
   return (
     <div className={classes.root}>
-      <div className={classes.sidebar}>
-        Sidebar
-      </div>
-      <div className={classes.content}>
-        {phones.map((phone, index) => renderPhone(phone, index))}
-      </div>
+      <Grid container>
+        <Grid container item lg={3} className={classes.sidebar}>
+          Sidebar
+        </Grid>
+
+        <Grid container item lg={9} spacing={5} className={classes.content}>
+          {phones.map((phone, index) => renderPhone(phone, index))}
+        </Grid>
+      </Grid>
     </div>
   );
 };
