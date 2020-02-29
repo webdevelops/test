@@ -1,9 +1,10 @@
+
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(theme => (
   {
     root: {
-      width: 300,
+      // width: 300,
     },
     title: {
       display: "flex",
@@ -28,10 +29,8 @@ export default makeStyles(theme => (
       textDecoration: "none",
     },
     image: {
-      [theme.breakpoints.down("xs")]: {
-        width: "75%",
-        margin: "auto",
-      },
-  }
+      maxWidth: 300,
+      margin: "auto",
+    },
   }
 ));

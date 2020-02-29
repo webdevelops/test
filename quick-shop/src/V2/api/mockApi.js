@@ -12,5 +12,15 @@ const fetchData = url => {
 };
 
 export const fetchPhonesApi = async () => {
-  return fetchData(mockPhones)
+  return fetchData(mockPhones);
+};
+
+export const loadMorePhonesApi = async () => {
+  return await fetchData(mockPhones);
+};
+
+export const fetchPhoneByIdApi = async id => {
+  const phones = await fetchData(mockPhones);
+
+  return phones.find(phone => phone.id === id);
 };

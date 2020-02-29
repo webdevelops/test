@@ -8,15 +8,17 @@ import { Provider } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { HashRouter } from 'react-router-dom'
 
+// import './styles.css';
 // import createRootReducer from 'store/reducers';
 // import TopLine from 'containers/TopLine';
 // import theme from 'theme';
-// import Routes from './routes';
+// import Routes from './Routes';
 
+import './styles.css'
 import createRootReducer from './V2/store/reducers';
 import theme from './V2/theme';
 import TopLine from './V2/containers/TopLine';
-import Routes from './routes';
+import Routes from './Routes';
 
 // import createRootReducer from './V3/store/reducers';
 // import theme from './V3/theme';
@@ -31,14 +33,16 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <HashRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <TopLine />
-        <Routes />
-      </ThemeProvider>
-    </HashRouter>
-  </Provider>,
+  <div className="root">
+    <Provider store={store}>
+      <HashRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <TopLine />
+          <Routes />
+        </ThemeProvider>
+      </HashRouter>
+    </Provider>
+  </div>,
   document.getElementById('root')
 );
