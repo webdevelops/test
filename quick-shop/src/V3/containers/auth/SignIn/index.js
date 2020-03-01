@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 
 import '../auth.sass';
 import useStyles from '../authStyles';
-import { validateControl, auth } from '../../../store/actions/authActions';
+import { auth } from '../../../store/actions/authActions';
+import { validateControl } from '../../../selectors';
 
 const SignIn = ({ auth }) => {
   const classes = useStyles();

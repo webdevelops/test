@@ -3,6 +3,11 @@ import { makeStyles } from "@material-ui/styles";
 export default makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    '& header > div': {
+      maxWidth: 1920,
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),

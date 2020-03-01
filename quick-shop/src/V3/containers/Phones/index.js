@@ -1,15 +1,15 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 
 import useStyles from './styles';
-import { fetchPhones } from '../../store/actions/phonesActions';
+import { fetchPhones, loadMorePhones } from '../../store/actions/phonesActions';
 import PhoneCard from '../../components/PhoneCard';
 
-const Phones = ({ fetchPhones, phones }) => {
+const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
   const classes = useStyles();
-  
+
   useEffect(() => {
     fetchPhones();
   }, [fetchPhones]);
@@ -22,6 +22,8 @@ const Phones = ({ fetchPhones, phones }) => {
     );
   };
 
+  const handleLoadMore = () => loadMorePhones();
+
   return (
     <div className={classes.root}>
       <Grid container justify="space-between">
@@ -29,9 +31,17 @@ const Phones = ({ fetchPhones, phones }) => {
           Sidebar
         </Grid>
 
-        <Grid container item lg={9} spacing={4} className={classes.content}>
-          {phones.map((phone, index) => renderPhone(phone, index))}
-        </Grid>
+        <Fragment>
+          <Grid container item lg={9} spacing={4} className={classes.content}>
+            {phones.map((phone, index) => renderPhone(phone, index))}
+          </Grid>
+
+          <div className={classes.loadMore}>
+            <Button variant="contained" color="primary" onClick={handleLoadMore}>
+              Load More
+            </Button>
+          </div>
+        </Fragment>
       </Grid>
     </div>
   );
@@ -44,7 +54,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchPhones
+  fetchPhones,
+  loadMorePhones
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones)

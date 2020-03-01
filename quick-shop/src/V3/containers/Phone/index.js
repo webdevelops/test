@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
-import { Grid, Typography, Card, CardContent } from '@material-ui/core';
+/* eslint-disable react/jsx-no-comment-textnodes */
+
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Grid, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
 
 import useStyles from './styles';
 import { fetchPhoneById } from '../../store/actions/phonesActions';
-import { getPhoneById } from 'selectors';
+import { getPhoneById } from '../../selectors';
 
 const Phone = ({ fetchPhoneById, match, phone }) => {
+  console.log("Phone -> phone", phone)
   const classes = useStyles();
 
   useEffect(() => {
@@ -25,11 +28,11 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
 
     return (
       fields.map(field => (
-        <div className={classes.field}>
+        <div className={classes.field} key={field}>
           <Typography variant="h6">
-            {field}:
+            {field}
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body2">
             {phone[field]}
           </Typography>
         </div>
@@ -42,19 +45,17 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
       <Card raised /* variant="outlined" */>
         <CardContent>
           <Grid container className={classes.info}>
-            <Grid container item md={6}>
-              {/* <CardMedia
+            <Grid item xs={12} md={6}>
+              <CardMedia
                 component="img"
                 src={phone.image}
                 alt={phone.name}
                 className={classes.image}
-              /> */}
-              <img src={phone.image} alt={phone.name} className={classes.image}/>
+              />
             </Grid>
-
-            <Grid container item md={6}>
+            <Grid item xs={12} md={6}>
               {renderFields()}
-          </Grid>
+            </Grid>
           </Grid>
 
           <div className={classes.title}>
@@ -72,15 +73,21 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
     );
   };
 
+  const renderSidebar = () => {
+    return (
+      <div>Sidebar</div>
+    );
+  };
+
   return (
     <div className={classes.root}>
       <Grid container spacing={5}>
-        <Grid item xs={12} md={9}>
+        <Grid item xs={12} md={9} className={classes.contect}>
           {phone && renderPhone()}
         </Grid>
 
-        <Grid item xs={12} md={3}>
-          Sidebar
+        <Grid item xs={12} md={3} className={classes.sidebar}>
+          {renderSidebar()}
         </Grid>
       </Grid>
     </div>
@@ -95,6 +102,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   fetchPhoneById
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

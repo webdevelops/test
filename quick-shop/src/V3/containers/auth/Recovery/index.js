@@ -6,7 +6,7 @@ import DraftsTwoToneIcon from '@material-ui/icons/DraftsTwoTone';
 
 import '../auth.sass';
 import useStyles from '../authStyles';
-import { validateControl } from '../../../store/actions/authActions';
+import { validateControl } from '../../../selectors';
 
 const Recovery = () => {
   const classes = useStyles();

@@ -23,5 +23,10 @@ export default makeStyles(theme => ({
       margin: "auto",
     },
   },
-
+  loadMore: {
+    display: "flex",
+    justifyContent: "flex-end",
+    width: "100%",
+    margin: "30px 0 50px",
+  },
 }));
