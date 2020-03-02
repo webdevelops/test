@@ -29,3 +29,6 @@ export const validateControl = (value, validation, password) => {
 
   return isValid;
 }
+
+export const getPhoneById = (state, id) => 
+  state.phones.find(phone => phone.id === id);

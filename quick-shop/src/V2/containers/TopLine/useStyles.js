@@ -3,6 +3,13 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    '& header > div': {
+      maxWidth: 1920,
+      minWidth: 320,
+      left: "50%",
+      transform: "translateX(-50%)",
+    },
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
