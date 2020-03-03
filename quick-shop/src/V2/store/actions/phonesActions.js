@@ -8,7 +8,8 @@ import {
   LOAD_MORE_PHONES_FAILURE,
   FETCH_PHONE_BY_ID_REQUEST,
   FETCH_PHONE_BY_ID_SUCCESS,
-  FETCH_PHONE_BY_ID_FAILURE
+  FETCH_PHONE_BY_ID_FAILURE,
+  ADD_PHONE_TO_BASKET
 } from "./actionTypes";
 
 import { fetchPhonesApi, loadMorePhonesApi, fetchPhoneByIdApi } from '../../api/mockApi';
@@ -74,4 +75,11 @@ export const fetchPhoneById = id => async dispatch => {
       error: true
     });
   }
+};
+
+export const addPhoneToBasket = id => dispatch => {
+  dispatch({
+    type: ADD_PHONE_TO_BASKET,
+    payload: id
+  });
 };

@@ -29,6 +29,29 @@ export default makeStyles(theme => ({
     borderBottom: "1px dotted #ccc",
     '& h6': {
       marginRight: 10,
-    }
-  }
+    },
+  },
+  sidebarTitle: {
+    marginTop: 20,
+  },
+  backToStore: {
+    margin: "15px 0",
+    display: "block",
+    textDecoration: "none",
+    '& button': {
+      color: "white",
+      background: theme.palette.info.main,
+      trnasition: "0.3s",
+      '&:hover': {
+        background: theme.palette.info.dark,
+      },
+    },
+  },
+  addToBasket: {
+    color: "white",
+    background: theme.palette.success.main,
+    '&:hover': {
+      background: theme.palette.success.dark,
+    },
+  },
 }));

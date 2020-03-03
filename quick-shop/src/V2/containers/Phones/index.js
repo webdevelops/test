@@ -5,6 +5,7 @@ import { Grid, Button } from '@material-ui/core';
 
 import useStyles from './styles';
 import PhoneCard from '../../components/PhoneCard';
+import BasketCart from '../../components/BasketCart';
 import { fetchPhones, loadMorePhones } from '../../store/actions/phonesActions';
 
 const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
@@ -26,13 +27,13 @@ const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Grid container spacing={0}>
         <Grid container item lg={3} className={classes.sidebar}>
-          Sidebar
+          <BasketCart />
         </Grid>
 
         <Fragment>
-          <Grid container item lg={9} spacing={5} className={classes.content}>
+          <Grid container item lg={9} spacing={3} className={classes.content}>
             {phones.map((phone, index) => renderPhone(phone, index))}
           </Grid>
 

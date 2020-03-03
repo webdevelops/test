@@ -11,6 +11,7 @@ import {
 } from "./actionTypes";
 
 import { fetchPhonesApi, loadMorePhonesApi, fetchPhoneByIdApi} from '../../api/mockApi';
+import { ADD_PHONE_TO_BASKET } from "../../../V2/store/actions/actionTypes";
 
 export const fetchPhones = () => async dispatch => {
   dispatch({
@@ -73,4 +74,11 @@ export const fetchPhoneById = id => async dispatch => {
       error: true
     });
   }
+};
+
+export const addPhoneToBasket = id => dispatch => {
+  dispatch({
+    type: ADD_PHONE_TO_BASKET,
+    payload: id
+  });
 };

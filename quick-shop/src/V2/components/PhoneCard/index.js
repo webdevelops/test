@@ -8,12 +8,16 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import useStyles from './styles';
+import { addPhoneToBasket } from '../../store/actions/phonesActions';
 
-const PhoneCard = ({ phone }) => {
+const PhoneCard = ({ phone, addPhoneToBasket }) => {
   const classes = useStyles();
   const shortDescription = `${phone.description.slice(0, 61)}...`;
+
+  const handleAddPhoneToBasket = id => event => addPhoneToBasket(id);
 
   return (
     <Card raised>
@@ -39,7 +43,7 @@ const PhoneCard = ({ phone }) => {
       </CardActionArea>
 
       <CardActions>
-        <Button color="primary">
+        <Button color="primary" onClick={handleAddPhoneToBasket(phone.id)}>
           Buy now!
         </Button>
 
@@ -53,4 +57,8 @@ const PhoneCard = ({ phone }) => {
   );
 };
 
-export default PhoneCard;
+const mapDispatchToProps = {
+  addPhoneToBasket
+}
+
+export default connect(null, mapDispatchToProps)(PhoneCard);

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Grid, Card, CardContent, CardMedia, Typography, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
-import { fetchPhoneById } from '../../store/actions/phonesActions';
+import { fetchPhoneById, addPhoneToBasket } from '../../store/actions/phonesActions';
 import { getPhoneById } from '../../selectors';
+import BasketCart from '../../components/BasketCart';
 
-const Phone = ({ fetchPhoneById, match, phone }) => {
-  console.log("Phone -> phone", phone)
+const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
   const classes = useStyles();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
 
     return (
       fields.map(field => (
-        <div className={classes.field}>
+        <div className={classes.field} key={field}>
           <Typography variant="h6">
             {field}:
           </Typography>
@@ -48,6 +49,7 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
                 component="img"
                 src={phone.image}
                 alt={phone.name}
+                className={classes.image}
               />
             </Grid>
 
@@ -63,11 +65,47 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
             <span>${phone.price}</span>
           </div>
 
-          <Typography variant="bodi1">
+          <Typography variant="body1">
             {phone.description}
           </Typography>
         </CardContent>
       </Card>
+    );
+  };
+
+  const handleAddPhoneToBasket = id => event => addPhoneToBasket(id);
+
+  const renderSidebar = () => {
+    return (
+      <div>
+        <Typography gutterBottom variant="h5">
+          Quick Shop
+          </Typography>
+
+        <BasketCart />
+
+        <Typography variant="h4" className={classes.titleSidebar} >
+          {phone.name}
+        </Typography>
+        <Typography gutterBottom variant="h4">
+          ${phone.price}
+        </Typography>
+
+        <Link to="/" className={classes.backToStore}>
+          <Button variant="contained" fullWidth>
+            Back to store
+          </Button>
+        </Link>
+
+        <Button
+          className={classes.addToBasket}
+          variant="contained"
+          fullWidth
+          onClick={handleAddPhoneToBasket(phone.id)}
+        >
+          Add to cart
+        </Button>
+      </div>
     );
   };
 
@@ -79,7 +117,7 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
         </Grid>
 
         <Grid item xs={12} md={3}>
-          Sidebar
+          {phone && renderSidebar()}
         </Grid>
       </Grid>
     </div>
@@ -93,7 +131,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchPhoneById
+  fetchPhoneById,
+  addPhoneToBasket
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

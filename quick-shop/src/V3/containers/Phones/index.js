@@ -6,6 +6,7 @@ import { Grid, Button } from '@material-ui/core';
 import useStyles from './styles';
 import { fetchPhones, loadMorePhones } from '../../store/actions/phonesActions';
 import PhoneCard from '../../components/PhoneCard';
+import BasketCart from '../../components/BasketCart';
 
 const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
   const classes = useStyles();
@@ -28,7 +29,7 @@ const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
     <div className={classes.root}>
       <Grid container justify="space-between">
         <Grid container item lg={3} className={classes.sidebar}>
-          Sidebar
+          <BasketCart />
         </Grid>
 
         <Fragment>

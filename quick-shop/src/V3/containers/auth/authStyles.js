@@ -7,6 +7,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     height: "100vh",
     background: "#63bdf1",
+    position: "fixed",
+    left: 0,
+    right: 0,
   },
   form: {
     display: "flex",

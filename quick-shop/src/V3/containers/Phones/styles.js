@@ -5,9 +5,9 @@ export default makeStyles(theme => ({
     marginTop: 95,
     paddingLeft: 15,
     paddingRight: 15,
-    maxWidth: 1920,
-    minWidth: 320,
-    margin: "0 auto",
+    // maxWidth: 1920,
+    // minWidth: 320,
+    // margin: "0 auto",
     // overflow: "hidden",
   },
   '& .MuiGrid-spacing-xs-4': {

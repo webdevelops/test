@@ -16,6 +16,9 @@ export default makeStyles(theme => ({
   info: {
     marginBottom: 30,
   },
+  image: {
+    maxWidth: 300,
+  },
   title: {
     display: "flex",
     justifyContent: "space-between",
@@ -34,4 +37,26 @@ export default makeStyles(theme => ({
       marginRight: 10,
     },
   },
+  titleSidebar: {
+    marginTop: 20,
+  },
+  backToStore: {
+    textDecoration: "none",
+    display: "block",
+    marginBottom: 15,
+    '& button': {
+      color: "white",
+      background: theme.palette.info.main,
+      '&:hover': {
+        background: theme.palette.info.dark,
+      },
+    },
+  },
+  addToBasket: {
+    color: "white",
+    background: theme.palette.success.main,
+    '&:hover': {
+      background: theme.palette.success.dark,
+    }
+  }
 }));

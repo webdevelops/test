@@ -2,14 +2,15 @@
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Grid, Card, CardContent, CardMedia, Typography, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
-import { fetchPhoneById } from '../../store/actions/phonesActions';
+import { fetchPhoneById, addPhoneToBasket } from '../../store/actions/phonesActions';
 import { getPhoneById } from '../../selectors';
+import BasketCart from '../../components/BasketCart';
 
-const Phone = ({ fetchPhoneById, match, phone }) => {
-  console.log("Phone -> phone", phone)
+const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
   const classes = useStyles();
 
   useEffect(() => {
@@ -73,9 +74,39 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
     );
   };
 
+  const handleAddPhoneToBasket = id => () => addPhoneToBasket(id);
+
   const renderSidebar = () => {
     return (
-      <div>Sidebar</div>
+      <div>
+        <Typography gutterBottom variant="h5">
+          Quick Shop
+        </Typography>
+
+        <BasketCart />
+
+        <Typography variant="h4" className={classes.sidebarTitle}>
+          {phone.name}
+        </Typography>
+        <Typography variant="h4">
+          ${phone.price}
+        </Typography>
+
+        <Link to="/" className={classes.backToStore}>
+          <Button variant="contained" fullWidth>
+            Back to Store
+          </Button>
+        </Link>
+
+        <Button
+          variant="contained"
+          className={classes.addToBasket}
+          fullWidth
+          onClick={handleAddPhoneToBasket(phone.id)}
+        >
+          Add to Cart
+        </Button>
+      </div>
     );
   };
 
@@ -87,7 +118,7 @@ const Phone = ({ fetchPhoneById, match, phone }) => {
         </Grid>
 
         <Grid item xs={12} md={3} className={classes.sidebar}>
-          {renderSidebar()}
+          {phone && renderSidebar()}
         </Grid>
       </Grid>
     </div>
@@ -101,7 +132,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  fetchPhoneById
+  fetchPhoneById,
+  addPhoneToBasket
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

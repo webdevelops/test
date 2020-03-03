@@ -31,3 +31,14 @@ export const validateControl = (value, validation, password) => {
 
 export const getPhoneById = (state, id) => 
   state.phones.find(phone => phone.id === id);
+
+export const getTotalBasketCount = state => state.basket.length;
+
+export const getTotalBasketPrice = state => {
+  const applyTotalSum = (current, next) => current + next;
+
+  return state.basket
+    .map(id => getPhoneById(state, id))
+    .map(phone => phone.price)
+    .reduce(applyTotalSum, 0);
+};

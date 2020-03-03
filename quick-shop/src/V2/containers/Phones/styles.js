@@ -7,11 +7,13 @@ export default makeStyles(theme => (
       marginTop: 95,
       maxWidth: 1920,
       minWidth: 320,
-      paddingLeft: 15,
-      paddingRight: 15,
+      // paddingLeft: 15,
+      // paddingRight: 15,
       margin: "0 auto",
     },
     sidebar: {
+      paddingLeft: 15,
+      paddingRight: 15,
       [theme.breakpoints.down("lg")]: {
         marginBottom: 30,
       },
