@@ -3,10 +3,16 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 95,
     paddingLeft: 15,
     paddingRight: 15,
     // overflow: "hidden",
+    marginTop: 80,
+    [theme.breakpoints.up("sm")]: {
+      marginTop: 95,
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: 105,
+    },
   },
   card: {
     [theme.breakpoints.down("md")]: {

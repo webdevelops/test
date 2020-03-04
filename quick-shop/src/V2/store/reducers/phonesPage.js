@@ -1,6 +1,7 @@
 
 const initialState = {
-  ids: []
+  ids: [],
+  value: ""
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -13,6 +14,9 @@ export default (state = initialState, { type, payload }) => {
       const moreValues = payload.map(phone => phone.id);
       const ids = [...state.ids, ...moreValues];
       return { ...state, ids };
+
+    case 'SEARCH_PHONE':
+      return { ...state, value: payload };
 
     default:
       return state;

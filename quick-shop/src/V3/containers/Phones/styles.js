@@ -2,25 +2,26 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 95,
-    paddingLeft: 15,
-    paddingRight: 15,
-    // maxWidth: 1920,
-    // minWidth: 320,
-    // margin: "0 auto",
-    // overflow: "hidden",
+    marginTop: 80,
+    [theme.breakpoints.up("sm")]:{
+      marginTop: 95,
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: 105,
+    },
   },
   '& .MuiGrid-spacing-xs-4': {
     // margin: 0,
   },
   sidebar: {
-    marginBottom: 30,
-  },
-  content: {
+    display: "block",
+    [theme.breakpoints.down("lg")]: {
+      marginBottom: 30,
+    },
   },
   card: {
     [theme.breakpoints.down("xs")]: {
-      margin: "auto",
+      margin: "0 auto",
     },
   },
   loadMore: {

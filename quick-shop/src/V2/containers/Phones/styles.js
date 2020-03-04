@@ -4,20 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(theme => (
   {
     root: {
-      marginTop: 95,
-      maxWidth: 1920,
-      minWidth: 320,
-      // paddingLeft: 15,
-      // paddingRight: 15,
-      margin: "0 auto",
-    },
-    sidebar: {
       paddingLeft: 15,
       paddingRight: 15,
+      marginTop: 80,
+      [theme.breakpoints.up("sm")]: {
+        marginTop: 95,
+      },
+      // [theme.breakpoints.up("lg")]: {
+      //   marginTop: 95,
+      // },
+    },
+    sidebar: {
       [theme.breakpoints.down("lg")]: {
         marginBottom: 30,
       },
-    
+      display: "block",
     },
     content: {
     },
