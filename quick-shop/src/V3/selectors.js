@@ -29,17 +29,22 @@ export const validateControl = (value, validation, password) => {
   return isValid;
 }
 
-export const getPhoneById = (state, id) => 
+export const getPhoneById = (state, id) =>
   state.phones.find(phone => phone.id === id);
 
-export const getPhones = state => {
+export const getPhones = (state, { match }) => {
   const applySearch = phone => phone.name
-    .toLowerCase()  
+    .toLowerCase()
     .indexOf(state.phonesPage.value.toLowerCase()) > -1;
+
+  const activeCategory = match.params.id || undefined;
+  const applyCategory = phone =>
+    activeCategory === undefined || activeCategory === phone.categoryId;
 
   return state.phonesPage.ids
     .map(id => getPhoneById(state, id))
-    .filter(applySearch);
+    .filter(applySearch)
+    .filter(applyCategory);
 };
 
 export const getTotalBasketCount = state => state.basket.length;

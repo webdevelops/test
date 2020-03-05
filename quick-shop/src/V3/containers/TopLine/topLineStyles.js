@@ -5,6 +5,7 @@ export default makeStyles(theme => ({
     flexGrow: 1,
     '& header > div': {
       maxWidth: 1920,
+      minWidth: 320,
       left: "50%",
       transform: "translateX(-50%)",
     },

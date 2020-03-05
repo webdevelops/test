@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ListItem, ListItemText, Typography, List } from '@material-ui/core';
+import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import { Link, withRouter } from 'react-router-dom';
 
 import useStyles from './styles';
@@ -17,7 +16,7 @@ const Categories = ({ categories, match }) => {
         selected={activeCategory === undefined}
         className={classes.category}
       >
-        <Link to="/">
+        <Link to="">
           <ListItemText primary="All" />
         </Link>
       </ListItem>

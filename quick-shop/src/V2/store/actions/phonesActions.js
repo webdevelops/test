@@ -10,10 +10,18 @@ import {
   FETCH_PHONE_BY_ID_SUCCESS,
   FETCH_PHONE_BY_ID_FAILURE,
   ADD_PHONE_TO_BASKET,
-  SEARCH_PHONE
+  SEARCH_PHONE,
+  FETCH_CATEGORIES_REQUEST,
+  FETCH_CATEGORIES_SUCCESS,
+  FETCH_CATEGORIES_FAILURE
 } from "./actionTypes";
 
-import { fetchPhonesApi, loadMorePhonesApi, fetchPhoneByIdApi } from '../../api/mockApi';
+import { 
+  fetchPhonesApi, 
+  loadMorePhonesApi, 
+  fetchPhoneByIdApi,
+  fetchCategoriesApi
+} from '../../api/mockApi';
 
 export const fetchPhones = () => async dispatch => {
   dispatch({
@@ -90,4 +98,25 @@ export const searchPhone = value => dispatch => {
     type: SEARCH_PHONE,
     payload: value
   });
+};
+
+export const fetchCategories = () => async dispatch => {
+  dispatch({
+    type: FETCH_CATEGORIES_REQUEST
+  });
+
+  try {
+    const response = await fetchCategoriesApi();
+    dispatch({
+      type: FETCH_CATEGORIES_SUCCESS,
+      payload: response
+    });
+  
+  } catch (err) {
+    dispatch({
+      type: FETCH_CATEGORIES_FAILURE,
+      payload: err,
+      error: true
+    });
+  }
 };

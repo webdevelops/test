@@ -1,5 +1,6 @@
 
 import mockPhones from './mockPhones';
+import mockCategories from './mockCategories';
 
 const fetchData = url => {
   return new Promise(resolve => {
@@ -23,4 +24,8 @@ export const fetchPhoneByIdApi = async id => {
   const phones = await fetchData(mockPhones);
 
   return phones.find(phone => phone.id === id);
+};
+
+export const fetchCategoriesApi = async () => {
+  return fetchData(mockCategories);
 };

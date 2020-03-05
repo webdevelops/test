@@ -8,8 +8,9 @@ import { searchPhone } from '../../store/actions/phonesActions';
 
 const useStyles = makeStyles({
   searchField: {
-    padding: "50px 25px",
+    padding: "60px 25px",
     background: "#eee",
+    marginBottom: 30,
     '& form': {
       display: "flex",
       position: "relative",

@@ -94,7 +94,7 @@ const TopLine = ({ history, isAuthenticated }) => {
           </IconButton>
 
           <Typography variant="h6" className={classes.title}>
-            News
+            Quick Shop
           </Typography>
 
           <TopLineDrawer open={state.left} toggleDrawer={toggleDrawer} />

@@ -7,16 +7,24 @@ import useStyles from './styles';
 import PhoneCard from '../../components/PhoneCard';
 import BasketCart from '../../components/BasketCart';
 import Search from '../../components/Search';
-import { fetchPhones, loadMorePhones } from '../../store/actions/phonesActions';
+import { fetchPhones, loadMorePhones, fetchCategories } from '../../store/actions/phonesActions';
 import { getPhones } from '../../selectors';
 import Categories from '../../components/Categories';
 
-const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
+const Phones = ({ 
+  fetchPhones, 
+  phones, 
+  loadMorePhones, 
+  fetchCategories,
+  categories
+}) => {
+
   const classes = useStyles();
 
   useEffect(() => {
     fetchPhones();
-  }, [fetchPhones]);
+    fetchCategories();
+  }, [fetchPhones, fetchCategories]);
 
   const renderPhone = (phone, index) => {
     return (
@@ -34,6 +42,7 @@ const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
         <Grid container item lg={3} className={classes.sidebar}>
           <BasketCart />
           <Search />
+          <Categories categories={categories} />
         </Grid>
 
         <Fragment>
@@ -52,15 +61,17 @@ const Phones = ({ fetchPhones, phones, loadMorePhones }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    phones: getPhones(state)
-  }
-}
+    phones: getPhones(state, ownProps),
+    categories: state.categories
+  };
+};
 
 const mapDispatchToProps = {
   fetchPhones,
-  loadMorePhones
+  loadMorePhones,
+  fetchCategories
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Phones)
+export default connect(mapStateToProps, mapDispatchToProps)(Phones);

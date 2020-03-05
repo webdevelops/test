@@ -2,7 +2,7 @@
 const validateEmail = email => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email.toString().toLowerCase());
-}
+};
 
 export const validateControl = (value, validation, password) => {
   if (!validation) {
@@ -28,28 +28,43 @@ export const validateControl = (value, validation, password) => {
   }
 
   return isValid;
-}
+};
 
-export const getPhoneById = (state, id) => 
+export const getPhoneById = (state, id) =>
   state.phones.find(phone => phone.id === id);
 
-export const getPhones = state => {
+export const getPhones = (state, { match }) => {
   const applySearch = phone => phone.name
     .toLowerCase()
     .indexOf(state.phonesPage.value.toLowerCase()) > -1;
 
+  const activeCategory = match.params.id || undefined;
+  const applyCategory = phone =>
+    activeCategory === undefined || phone.id === activeCategory;
+
   return state.phonesPage.ids
     .map(id => getPhoneById(state, id))
-    .filter(applySearch);
+    .filter(applySearch)
+    .filter(applyCategory);
 };
 
 export const getTotalBasketCount = state => state.basket.length;
 
 export const getTotalBasketPrice = state => {
   const applySum = (current, next) => current + next;
-  
+
   return state.basket
     .map(id => getPhoneById(state, id))
     .map(phone => phone.price)
     .reduce(applySum, 0);
-}
+};
+
+export const getBasketPhonesWithCount = state => {
+  const uniqueId = [...new Set(state.basket)];
+  const phoneCount = id => 
+    state.basket.filter(basketId => basketId === id).length;
+
+  return uniqueId
+    .map(id => getPhoneById(state, id))
+    .map(phone => ({ ...phone, count: phoneCount(phone.id)}));
+};

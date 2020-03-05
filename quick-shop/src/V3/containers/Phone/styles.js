@@ -2,8 +2,6 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    // paddingLeft: 20,
-    // paddingRight: 20,
     marginTop: 80,
     [theme.breakpoints.up("sm")]: {
       marginTop: 95,
