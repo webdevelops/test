@@ -113,11 +113,11 @@ const Phone = ({ fetchPhoneById, match, phone, addPhoneToBasket }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={5}>
-        <Grid item xs={12} md={9} className={classes.contect}>
+        <Grid item xs={12} md={8} lg={9} className={classes.contect}>
           {phone && renderPhone()}
         </Grid>
 
-        <Grid item xs={12} md={3} className={classes.sidebar}>
+        <Grid item xs={12} md={4} lg={3} className={classes.sidebar}>
           {phone && renderSidebar()}
         </Grid>
       </Grid>
