@@ -7,10 +7,18 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
 
 import useStyles from './styles';
-import { getBasketPhonesWithCount, getTotalBasketPrice } from '../../selectors';
 import BasketTable from './BasketTable';
+import { getBasketPhonesWithCount, getTotalBasketPrice } from '../../selectors';
+import { handleDeletePhone, handleCheckout, handleCleanBasket } from '../../store/actions/phonesActions';
 
-const Basket = ({ phones, totalBasketPrice }) => {
+const Basket = ({ 
+  phones, 
+  totalBasketPrice, 
+  handleDeletePhone, 
+  handleCheckout, 
+  handleCleanBasket 
+}) => {
+
   const classes = useStyles();
 
   const emptyCart = (
@@ -31,6 +39,7 @@ const Basket = ({ phones, totalBasketPrice }) => {
         fullWidth
         startIcon={<DeleteForeverOutlinedIcon />}
         className={classes.cleanBasket}
+        onClick={handleCleanBasket}
       >
         Clean basket
       </Button>
@@ -38,6 +47,7 @@ const Basket = ({ phones, totalBasketPrice }) => {
         fullWidth
         startIcon={<MailOutlineOutlinedIcon />}
         className={classes.checkout}
+        onClick={handleCheckout(phones)}
       >
         Checkout
       </Button>
@@ -47,13 +57,13 @@ const Basket = ({ phones, totalBasketPrice }) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={9}>
+        <Grid item xs={12} md={8} lg={9}>
           {(phones.length === 0) && emptyCart}
-          <BasketTable phones={phones} />
+          <BasketTable phones={phones} handleDeletePhone={handleDeletePhone} />
           {(phones.length > 0) && totalPrice}
         </Grid>
 
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={4} lg={3}>
           <Link to="/" className={classes.continueShopping}>
             <Button fullWidth startIcon={<InfoOutlinedIcon />}>
               Continue shopping!
@@ -74,4 +84,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Basket);
+const mapDispatchToProps = {
+  handleDeletePhone,
+  handleCleanBasket,
+  handleCheckout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);

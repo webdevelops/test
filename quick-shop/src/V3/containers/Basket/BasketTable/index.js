@@ -9,7 +9,7 @@ import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
 
 import useStyles from '../styles';
 
-const BasketTable = ({ phones }) => {
+const BasketTable = ({ phones, handleRemovePhone }) => {
   const classes = useStyles();
 
   return (
@@ -26,7 +26,10 @@ const BasketTable = ({ phones }) => {
               <TableCell align="center">${phone.price}</TableCell>
               <TableCell align="center">{phone.count}</TableCell>
               <TableCell align="center">
-                <IconButton className={classes.deletePhone}>
+                <IconButton
+                  className={classes.deletePhone}
+                  onClick={() => handleRemovePhone(phone.id)}
+                >
                   <DeleteForeverTwoToneIcon />
                 </IconButton>
               </TableCell>

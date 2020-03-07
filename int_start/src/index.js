@@ -1,31 +1,31 @@
-import 'topLine/top-line.sass'
-import 'internetShop/internet-shop.sass'
-import 'taskList/task-list.sass'
+import 'topLine/top-line.sass';
+import 'internetShop/internet-shop.sass';
+import 'taskList/task-list.sass';
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-import { /* BrowserRouter, */ HashRouter } from 'react-router-dom'
-import { ThemeProvider } from '@material-ui/core'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { /* BrowserRouter, */ HashRouter } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core';
 
-import createRootReducer from 'reducers'
-import Routes from 'Routes'
+import createRootReducer from 'reducers';
+import Routes from 'Routes';
 
 // --------- without & with Material-Ui
 // import TopLine from 'topLine/containers/TopLine'
 // import TopLine from 'Mui/TopLineMui'
 // import TopLine from 'Mui/Top-2'
-import TopLine from 'Mui-3/TopLine'
-import theme from 'Mui-3/TopLine/theme'
+import TopLine from 'Mui-3/TopLine';
+import theme from 'Mui-3/TopLine/theme';
 
 const middlewares = [thunk]
 const store = createStore(
   createRootReducer,
   composeWithDevTools(applyMiddleware(...middlewares))
-)
+);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -41,4 +41,4 @@ ReactDOM.render(
     </Provider>
   </ThemeProvider>,
   document.getElementById('root')
-)
+);

@@ -8,20 +8,20 @@ import { Provider } from 'react-redux';
 import { CssBaseline, ThemeProvider, Container } from '@material-ui/core';
 import { HashRouter } from 'react-router-dom'
 
-import createRootReducer from 'store/reducers';
-import TopLine from 'containers/TopLine';
-import theme from 'theme';
-import Routes from './Routes';
+// import createRootReducer from 'store/reducers';
+// import TopLine from 'containers/TopLine';
+// import theme from 'theme';
+// import Routes from './Routes';
 
 // import createRootReducer from './V2/store/reducers';
 // import theme from './V2/theme';
 // import TopLine from './V2/containers/TopLine';
 // import Routes from './Routes';
 
-// import createRootReducer from './V3/store/reducers';
-// import theme from './V3/theme';
-// import TopLine from './V3/containers/TopLine';
-// import Routes from './Routes';
+import createRootReducer from './V3/store/reducers';
+import theme from './V3/theme';
+import TopLine from './V3/containers/TopLine';
+import Routes from './Routes';
 
 
 const middlewares = [thunk];

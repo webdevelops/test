@@ -13,7 +13,9 @@ import {
   SEARCH_PHONE,
   FETCH_CATEGORIES_REQUEST,
   FETCH_CATEGORIES_SUCCESS,
-  FETCH_CATEGORIES_FAILURE
+  FETCH_CATEGORIES_FAILURE,
+  DELETE_PHONE_FROM_BASKET,
+  CLEAN_BASKET
 } from "./actionTypes";
 
 import { 
@@ -21,7 +23,8 @@ import {
   loadMorePhonesApi, 
   fetchPhoneByIdApi,
   fetchCategoriesApi
-} from '../../api/mockApi';
+} from '../../api';
+// } from '../../api/mockApi';
 
 export const fetchPhones = () => async dispatch => {
   dispatch({
@@ -120,3 +123,18 @@ export const fetchCategories = () => async dispatch => {
     });
   }
 };
+
+export const handleDeletePhone = id => dispatch => {
+  dispatch({
+    type: DELETE_PHONE_FROM_BASKET,
+    payload: id
+  });
+};
+
+export const handleCleanBasket = () => dispatch => {
+  dispatch({
+    type: CLEAN_BASKET
+  });
+};
+
+export const handleCheckout = phones => () => () => alert(JSON.stringify(phones));

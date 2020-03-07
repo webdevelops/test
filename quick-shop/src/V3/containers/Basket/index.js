@@ -8,10 +8,18 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 import MailOutlineTwoToneIcon from '@material-ui/icons/MailOutlineTwoTone';
 
 import useStyles from './styles';
-import { getBasketPhonesWithCount, getTotalBasketPrice } from '../../selectors';
 import BasketTable from './BasketTable';
+import { getBasketPhonesWithCount, getTotalBasketPrice } from '../../selectors';
+import { handleRemovePhone, handleCleanBasket, handleCheckout } from '../../store/actions/phonesActions';
 
-const Basket = ({ phones, totalBasketPrice }) => {
+const Basket = ({
+  phones,
+  totalBasketPrice,
+  handleRemovePhone,
+  handleCleanBasket,
+  handleCheckout
+}) => {
+
   const classes = useStyles();
 
   const emptyCart = (
@@ -32,6 +40,7 @@ const Basket = ({ phones, totalBasketPrice }) => {
         fullWidth
         startIcon={<DeleteForeverOutlinedIcon />}
         className={classes.cleanBasket}
+        onClick={handleCleanBasket}
       >
         Clean Basket
       </Button>
@@ -39,6 +48,7 @@ const Basket = ({ phones, totalBasketPrice }) => {
         fullWidth
         startIcon={<MailOutlineTwoToneIcon />}
         className={classes.checkout}
+        onClick={handleCheckout(phones)}
       >
         Checkout
       </Button>
@@ -50,7 +60,7 @@ const Basket = ({ phones, totalBasketPrice }) => {
       <Grid container spacing={4}>
         <Grid item xs={12} md={8} lg={9}>
           {(phones.length === 0) && emptyCart}
-          <BasketTable phones={phones} />
+          <BasketTable phones={phones} handleRemovePhone={handleRemovePhone} />
           {(phones.length > 0) && totalPrice}
         </Grid>
 
@@ -72,7 +82,13 @@ const mapStateToProps = state => {
   return {
     phones: getBasketPhonesWithCount(state),
     totalBasketPrice: getTotalBasketPrice(state)
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(Basket);
+const mapDispatchToProps = {
+  handleRemovePhone,
+  handleCleanBasket,
+  handleCheckout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);
