@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 80,
-    [theme.breakpoints.up("xs")]: {
-      marginTop: 90,
+    marginTop: 20,
+    [theme.breakpoints.up("sm")]: {
+      marginTop: 35,
     },
-    [theme.breakpoints.up("md")]: {
-      marginTop: 105,
+    [theme.breakpoints.up("lg")]: {
+      marginTop: 45,
     },
     '& table tr:nth-of-type(even)': {
       background: "#eee",

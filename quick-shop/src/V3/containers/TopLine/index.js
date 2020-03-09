@@ -15,7 +15,7 @@ import useStyles from './topLineStyles';
 import TopLineDrawer from './TopLineDrawer';
 import ToggleSwitch from './ToggleSwitch';
 
-const TopLine = ({ history, isAuthenticated }) => {
+const TopLine = props => {
   const classes = useStyles();
   const [state, setState] = useState({
     left: false,
@@ -32,17 +32,17 @@ const TopLine = ({ history, isAuthenticated }) => {
   const [signIn, setSignIn] = useState(false);
   const handleChange = event => {
     if (signIn) {
-      history.push("/");
+      props.history.push("/");
 
     } else {
-      history.push("/sign-in");
+      props.history.push("/sign-in");
     }
 
     setSignIn(event.target.checked)
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const links = isAuthenticated
+  const links = props.isAuthenticated
     ? [
       { to: "/logout", label: "Logout" }
     ]
@@ -53,7 +53,7 @@ const TopLine = ({ history, isAuthenticated }) => {
 
   const handleClickMobileMenu = event => setAnchorEl(event.currentTarget);
   const handleCloseMobileMenu = () => {
-    if (isAuthenticated) {
+    if (props.isAuthenticated) {
       return;
     }
     setAnchorEl(null);

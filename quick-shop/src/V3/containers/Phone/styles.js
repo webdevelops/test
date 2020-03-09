@@ -2,12 +2,12 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
   root: {
-    marginTop: 80,
+    marginTop: 20,
     [theme.breakpoints.up("sm")]: {
-      marginTop: 95,
+      marginTop: 35,
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: 105,
+      marginTop: 45,
     },
   },
   info:{

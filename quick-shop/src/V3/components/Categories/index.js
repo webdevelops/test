@@ -16,7 +16,7 @@ const Categories = ({ categories, match }) => {
         selected={activeCategory === undefined}
         className={classes.category}
       >
-        <Link to="">
+        <Link to="/">
           <ListItemText primary="All" />
         </Link>
       </ListItem>

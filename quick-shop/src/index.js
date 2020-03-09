@@ -20,7 +20,7 @@ import { HashRouter } from 'react-router-dom'
 
 import createRootReducer from './V3/store/reducers';
 import theme from './V3/theme';
-import TopLine from './V3/containers/TopLine';
+// import TopLine from './V3/containers/TopLine';
 import Routes from './Routes';
 
 
@@ -35,8 +35,8 @@ ReactDOM.render(
     <HashRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="xl" style={{minWidth: 320}} /* fixed */>
-          <TopLine />
+        <Container /* maxWidth="xl" */ style={{minWidth: 320}} fixed>
+          {/* <TopLine /> */}
           <Routes />
         </Container>
       </ThemeProvider>

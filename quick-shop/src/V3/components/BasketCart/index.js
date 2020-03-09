@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, makeStyles } from '@material-ui/core';
 import { connect } from 'react-redux';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 import { getTotalBasketCount, getTotalBasketPrice } from '../../selectors';
 
 const useStyles = makeStyles({
@@ -19,7 +21,7 @@ const BasketCart = ({ totalBasketCount, totalBasketPrice }) => {
 
   return (
     <Link to="/basket" className={classes.link}>
-      <Button variant="contained" color="primary" fullWidth>
+      <Button startIcon={<ShoppingCartIcon/>} variant="contained" color="primary" fullWidth>
         {totalBasketCount} item(s) - $ {totalBasketPrice}
       </Button>
     </Link>

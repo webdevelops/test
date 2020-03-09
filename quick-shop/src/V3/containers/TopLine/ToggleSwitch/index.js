@@ -5,7 +5,7 @@ const ToggleSwitch = ({ signIn, handleChange }) => {
   return (
     <FormControl>
       <FormControlLabel
-        control={<Switch checked={signIn} onChange={handleChange} aria-label='lofin switch' />}
+        control={<Switch checked={signIn} onChange={handleChange} aria-label='login switch' />}
         label={signIn ? 'Logout' : 'Login'}
       />
     </FormControl>

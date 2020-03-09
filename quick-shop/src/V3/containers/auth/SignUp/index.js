@@ -172,4 +172,4 @@ const mapDispatchToProps = {
   auth
 };
 
-export default connect(null, mapDispatchToProps)(SignUp)
+export default connect(null, mapDispatchToProps)(SignUp);
