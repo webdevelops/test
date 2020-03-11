@@ -20,7 +20,7 @@ export const auth = (email, password, isLogin) => async dispatch => {
     }
 
     dispatch(authSuccess(response.idToken));
-    dispatch(autoLogout(response.expiresIn * 5));
+    dispatch(autoLogout(response.expiresIn * 1000));
 
   } catch (err) {
     dispatch({
