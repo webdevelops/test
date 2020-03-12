@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "mern",
@@ -14,12 +16,15 @@
   "author": "Oleg <oleg1ostrikov@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^5.1.0",
+    "bcrypt": "^4.0.1",
     "config": "^3.3.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.3",
+    "mongoose": "^5.9.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2"
   }
 }
