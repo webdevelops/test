@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const LinkPage = () => {
+export const DetailsPage = () => {
   return (
     <div>
-      <h1>Link Page</h1>
+      <h1>Detail Page</h1>
     </div>
   );
 };

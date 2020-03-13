@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DetailsPage = () => {
+export const DetailPage = () => {
   return (
     <div>Details Page</div>
   );

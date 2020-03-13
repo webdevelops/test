@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const LinkPage = () => {
+export const LinksPage = () => {
   return (
-    <div>Link Page</div>
+    <div>Links Page</div>
   );
 };
