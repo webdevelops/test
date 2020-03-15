@@ -2,23 +2,24 @@ const { Router } = require('express');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const config = require('config');
-const { check, validationRisults } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 
 const router = Router();
 
 // /api/auth/register
 router.post(
-  'register',
+  '/register',
   [
     check('email', 'Incorrect email.').isEmail(),
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
     try {
-      const errors = validationRisults(req);
+      
+      const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(422).json({
           errors: errors.array(),
           message: 'Incorrect registration data.'
@@ -45,14 +46,14 @@ router.post(
 
 // /api/auth/login
 router.post(
-  'login',
+  '/login',
   [
     check('email', 'Incorrect email').normalizeEmail().isEmail(),
     check('password', 'Incorrect password').exists()
   ],
   async (req, res) => {
     try {
-      const errors = validationRisults(req);
+      const errors = validationResult(req);
 
       if (!errors.isEmpty) {
         return res.status(400).json({
