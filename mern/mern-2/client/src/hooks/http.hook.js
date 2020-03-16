@@ -1,21 +1,19 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export const useHttp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
-  const request = async (
+  const request = useCallback(async (
     url,
     method = 'GET',
     body = null,
-    // // headers = {}
-    headers = { 'Content-Type': 'application/json' }
-    ) => {
-      setLoading(true);
-      
+    headers = {}
+    // headers = { 'Content-Type': 'application/json' }
+  ) => {
+    setLoading(true);
+
     try {
-      // const response = await fetch(url, { mode: 'no-cors' }, { method, body, headers });
       if (body) {
         body = JSON.stringify(body);
         // headers['Content-Type'] = 'application/json';
@@ -37,9 +35,9 @@ export const useHttp = () => {
       setError(err.message);
       throw err;
     }
-  };
+  }, []);
 
-  const clearError = () => setError(null);
+  const clearError = useCallback(() => setError(null), []);
 
   return { loading, error, request, clearError };
 };

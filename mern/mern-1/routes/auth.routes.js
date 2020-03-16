@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const bcrypt = require('bcrypt');
+// const bcrypt = require('bcryptjs');
 const config = require('config');
-const { check, validationRisult } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
@@ -11,33 +12,32 @@ const router = Router();
 router.post(
   '/register',
   [
-    check('email', 'Incorrect email').isEmail(),
+    check('email', 'Incorrect email.').isEmail(),
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
-    console.log("req", req);
-    try {
-      const errors = validationRisult(req);
+    try {      
+      const errors = validationResult(req);
 
-      if (!error.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(422).json({
           errors: errors.array(),
-          message: "Inccorect registration data"
+          message: 'Incorrect registration data.'
         });
       }
 
       const { email, password } = req.body;
-      const candidate = await User.findOne({ email: email });  // ({ email });
+      const candidate = await User.findOne({ email: email });
 
       if (candidate) {
-        return res.status(400).json({ message: "Such user exist" });
+        return res.status(400).json({ message: "This user already exists." });
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({ email, password: hashedPassword });
 
       await user.save();
-      res.status(201).json({ message: "User created successfully." });
+      res.status(201).json({ message: "User created." });
 
     } catch (err) {
       res.status(500).json({ message: "Something went wrong, try again." });
@@ -49,31 +49,30 @@ router.post(
   '/login',
   [
     check('email', 'Incorrect email').normalizeEmail().isEmail(),
-    check('password', 'Enter password').exists()
+    check('password', 'Incorrect password').exists()
   ],
   async (req, res) => {
-    // console.log("req", req)
     try {
-      const errors = validationRisult(req);
+      const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
+      if (!errors.isEmpty()) {
         return res.status(422).json({
           errors: errors.array(),
-          message: 'Incorrect entry data'
+          message: 'Incorrect login data.'
         });
       }
-
+      
       const { email, password } = req.body;
       const user = await User.findOne({ email });
-
-      if (user) {
-        return res.status(400).json({ message: 'User is not found' });
+      
+      if (!user) {
+        return res.status(422).json({ message: 'User not found' });
       }
-
+      
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        res.status(400).json({ message: 'Incorrect password, try again.' });
+        return res.status(422).json({ message: 'Incorrect password' });
       }
 
       const token = jwt.sign(
@@ -85,7 +84,7 @@ router.post(
       res.json({ token, userId: user.id });
 
     } catch (err) {
-      res.status(500).json({ message: 'Something went wrong, try again.' });
+      res.status(500).json({ message: 'Something went wrong, try again' });
     }
   });
 

@@ -1,31 +1,47 @@
 import React, { useState, useEffect } from 'react';
+
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
 
 export const AuthPage = () => {
-  const { loading, error, request, clearError } = useHttp();
   const message = useMessage();
-
+  const { loading, error, request, clearError } = useHttp();
   const [form, setForm] = useState({
     email: "", password: ""
   });
 
   useEffect(() => {
     message(error);
-    clearError();
+    clearError(null);
   }, [error, message, clearError]);
 
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleRegistration = async () => {
-    // console.log("handleRegistration -> data")
-    // console.log("handleRegistration -> form", form)
+  const handleLogin = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', { ...form });
-      message(data.message)
-      // console.log("handleRegistration -> data", data)
+      const data = await request(
+        '/api/auth/login',
+        'POST',
+        { ...form },
+        { 'Content-Type': 'application/json' }
+      );
+      console.log("handleLogin -> data", data)
+      message(data.message);
+
+    } catch (err) { }
+  };
+
+  const handleRegister = async () => {
+    try {
+      const data = await request(
+        '/api/auth/register',
+        'POST',
+        { ...form },
+        { 'Content-Type': 'application/json' }
+      );
+      message(data.message);
 
     } catch (err) { }
   };
@@ -33,15 +49,15 @@ export const AuthPage = () => {
   return (
     <div className="row">
       <div className="col s6 offset-s3">
-        <h1>Auth Page</h1>
-        <div className="card blue darken-1">
+        <h1>Shorten Link</h1>
+        <div className="card blue darken-3">
           <div className="card-content white-text">
             <span className="card-title">Authorization</span>
-            <div>
 
+            <div>
               <div className="input-field">
                 <input
-                  placeholder="Enter email"
+                  placeholder="Enter your email"
                   id="email"
                   type="email"
                   name="email"
@@ -50,10 +66,12 @@ export const AuthPage = () => {
                 />
                 <label htmlFor="email">First Name</label>
               </div>
+            </div>
 
+            <div>
               <div className="input-field">
                 <input
-                  placeholder="Enter pasword"
+                  placeholder="Enter your password"
                   id="password"
                   type="password"
                   name="password"
@@ -62,18 +80,22 @@ export const AuthPage = () => {
                 />
                 <label htmlFor="password">First Name</label>
               </div>
-
             </div>
+
           </div>
           <div className="card-action">
-            <button className="btn yellow darken-4" style={{ marginRight: 10 }}>Enter</button>
             <button
-              className="btn grey lighten-1 black-text"
-              onClick={handleRegistration}
+              className="btn yellow darken-4"
+              onClick={handleLogin}
               disabled={loading}
             >
-              Registration
+              Enter
             </button>
+            <button
+              className="btn green lighten-1"
+              onClick={handleRegister}
+              disabled={loading}
+            >Registration</button>
           </div>
         </div>
       </div>

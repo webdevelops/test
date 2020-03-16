@@ -1,10 +1,18 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
+.card-title {
+  margin-bottom: 25px !important;
+}
+
 input.yellow-input {
   color: #fff;
   border-bottom: 1px solid #fff !important;
   box-shadow: 0 1px 0 0 #fff !important;
-  margin-bottom: 20px !important;
+}
+
+input.yellow-input:focus {
+  border-bottom: 1px solid #f57f17  !important;
+  box-shadow: 0 1px 0 0 #f57f17  !important;
 }
 
 input.yellow-input+label {
@@ -12,10 +20,9 @@ input.yellow-input+label {
 }
 
 input.yellow-input:focus+label {
-  color: #ffeb3b !important;
+  color: #f57f17  !important;
 }
 
-input.yellow-input:focus {
-  border-bottom: 1px solid #ffeb3b !important;
-  box-shadow: 0 1px 0 0 #ffeb3b !important;
+.btn.yellow {
+  margin-right: 10px;
 }

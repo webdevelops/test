@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const bcrypt = require('bcrypt');
-const { check, validationRisult } = require('express-validator');
-const jwt = require('jsonwebtoken');
 const config = require('config');
+const { check, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 const router = Router();
@@ -15,11 +15,11 @@ router.post(
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
-  console.log("req", req)
+  // console.log("req", req)
     try {
-      const errors = validationRisult(req);
+      const errors = validationResult(req);
 
-      if (!error.isEmpty) {
+      if (!errors.isEmpty) {
         return res.status(422).json({
           errors: errors.array(),
           message: 'Incorrect registration data.'
@@ -55,7 +55,7 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const errors = validationRisult(req);
+      const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
         return res.status(422).json({

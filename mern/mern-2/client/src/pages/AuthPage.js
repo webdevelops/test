@@ -12,19 +12,32 @@ export const AuthPage = () => {
   useEffect(() => {
     message(error);
     clearError(null);
-  }, [error]);
-
- 
+  }, [error, message, clearError]);
 
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
+  const handleEnter = () => {
+    try {
+      const data = request(
+        '/api/auth/login',
+        'POST',
+        {...form},
+        {'Content-Type': 'application/json'}
+      )
+
+    } catch (err) {}
+  }
+
   const handleRegistration = async () => {
     try {
-      // const data = await request('http://localhost:5000/api/auth/register', 'POST', { ...form });
-      const data = await request('/api/auth/register', 'POST', { ...form });
-      console.log("handleRegistration -> data", data)
+      const data = await request(
+        '/api/auth/register',
+        'POST',
+        { ...form },
+        { 'Content-Type': 'application/json' }
+      );
 
     } catch (err) { }
   };
@@ -67,7 +80,11 @@ export const AuthPage = () => {
 
           </div>
           <div className="card-action">
-            <button className="btn yellow darken-4" style={{ marginRight: 10 }}>Enter</button>
+            <button
+              className="btn yellow darken-4"
+              style={{ marginRight: 10 }}
+              onClick={handleEnter}
+            >Enter</button>
             <button
               className="btn grey lighten-1 text-black"
               disabled={loading}
