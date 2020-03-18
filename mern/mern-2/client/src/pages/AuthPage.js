@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from 'react';
+
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
+import { useAuth } from '../hooks/auth.hook';
+import { AuthContext } from '../context/AuthContext';
 
 export const AuthPage = () => {
+  const auth = useAuth(AuthContext);
   const message = useMessage();
-  const { loading, error, request, clearError } = useHttp();
+  const { loading, errors, request, clearError } = useHttp();
   const [form, setForm] = useState({
-    email: '', password: ''
+    email: "", password: ""
   });
 
   useEffect(() => {
-    message(error);
+    message(errors);
     clearError(null);
-  }, [error, message, clearError]);
+  }, [errors, message, clearError]);
 
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleEnter = () => {
+  const handleLogin = async () => {
     try {
-      const data = request(
+      const data = await request(
         '/api/auth/login',
         'POST',
-        {...form},
-        {'Content-Type': 'application/json'}
-      )
+        { ...form },
+        { 'Content-Type': 'application/json' }
+      );
+      // message(data.message);
+      auth.login(data.token, data.userId);
 
-    } catch (err) {}
-  }
+    } catch (err) { }
+  };
 
-  const handleRegistration = async () => {
+  const handleRegister = async () => {
     try {
       const data = await request(
         '/api/auth/register',
@@ -38,6 +44,7 @@ export const AuthPage = () => {
         { ...form },
         { 'Content-Type': 'application/json' }
       );
+      message(data.message);
 
     } catch (err) { }
   };
@@ -45,8 +52,8 @@ export const AuthPage = () => {
   return (
     <div className="row">
       <div className="col s6 offset-s3">
-        <h1>Shorten link</h1>
-        <div className="card blue darken-1">
+        <h1>Shorten Link</h1>
+        <div className="card blue darken-3">
           <div className="card-content white-text">
             <span className="card-title">Authorization</span>
 
@@ -73,6 +80,7 @@ export const AuthPage = () => {
                   name="password"
                   className="yellow-input"
                   onChange={handleChange}
+                  disabled={loading}
                 />
                 <label htmlFor="password">First Name</label>
               </div>
@@ -82,16 +90,14 @@ export const AuthPage = () => {
           <div className="card-action">
             <button
               className="btn yellow darken-4"
-              style={{ marginRight: 10 }}
-              onClick={handleEnter}
-            >Enter</button>
-            <button
-              className="btn grey lighten-1 text-black"
-              disabled={loading}
-              onClick={handleRegistration}
+              onClick={handleLogin}
             >
-              Registration
+              Enter
             </button>
+            <button
+              className="btn green lighten-1"
+              onClick={handleRegister}
+            >Registration</button>
           </div>
         </div>
       </div>

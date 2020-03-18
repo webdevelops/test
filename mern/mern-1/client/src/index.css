@@ -26,3 +26,7 @@ input.yellow-input:focus+label {
 .btn.yellow {
   margin-right: 10px;
 }
+
+.nav-wrapper {
+  padding: 0 2rem;
+}

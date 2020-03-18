@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
+import { AuthContext } from '../context/AuthContext';
 
 export const AuthPage = () => {
+  const auth = useContext(AuthContext);
   const message = useMessage();
   const { loading, error, request, clearError } = useHttp();
   const [form, setForm] = useState({
@@ -17,6 +19,20 @@ export const AuthPage = () => {
 
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
+  };
+
+  const handleLogin = async () => {
+    try {
+      const data = await request(
+        '/api/auth/login',
+        'POST',
+        { ...form },
+        { 'Content-Type': 'application/json' }
+      );
+      message(data.message);
+      auth.login(data.token, data.userId);
+
+    } catch (err) { }
   };
 
   const handleRegister = async () => {
@@ -71,11 +87,18 @@ export const AuthPage = () => {
 
           </div>
           <div className="card-action">
-            <button className="btn yellow darken-4">Enter</button>
+            <button
+              className="btn yellow darken-4"
+              onClick={handleLogin}
+            >
+              Enter
+            </button>
             <button
               className="btn green lighten-1"
               onClick={handleRegister}
-            >Registration</button>
+            >
+              Registration
+            </button>
           </div>
         </div>
       </div>

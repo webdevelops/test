@@ -15,8 +15,7 @@ router.post(
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
-    try {
-      
+    try {     
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
@@ -69,7 +68,7 @@ router.post(
         return res.status(422).json({ message: 'User not found' });
       }
 
-      const isMatch = bcrypt.compare(password, user.password);
+      const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
         return res.status(422).json({ message: 'Incorrect password' });
@@ -81,7 +80,7 @@ router.post(
         { expiresIn: '1h' }
       );
 
-      res.json({ token, userId: user.id });
+      res.json({ token, userId: user.id, message: 'Welcome!' });
 
     } catch (err) {
       res.status(500).json({ message: 'Something went wrong, try again' });

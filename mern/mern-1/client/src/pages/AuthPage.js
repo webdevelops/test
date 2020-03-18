@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
+import { AuthContext } from '../context/AuthContext';
 
 export const AuthPage = () => {
+  const auth = useContext(AuthContext);
   const message = useMessage();
   const { loading, error, request, clearError } = useHttp();
   const [form, setForm] = useState({
@@ -13,6 +15,7 @@ export const AuthPage = () => {
   useEffect(() => {
     message(error);
     clearError(null);
+    window.M.updateTextFields();
   }, [error, message, clearError]);
 
   const handleChange = event => {
@@ -21,26 +24,16 @@ export const AuthPage = () => {
 
   const handleLogin = async () => {
     try {
-      const data = await request(
-        '/api/auth/login',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
-      console.log("handleLogin -> data", data)
+      const data = await request('/api/auth/login', 'POST', { ...form });
       message(data.message);
+      auth.login(data.token, data.userId);
 
     } catch (err) { }
   };
 
   const handleRegister = async () => {
     try {
-      const data = await request(
-        '/api/auth/register',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
+      const data = await request('/api/auth/register', 'POST', { ...form });
       message(data.message);
 
     } catch (err) { }
