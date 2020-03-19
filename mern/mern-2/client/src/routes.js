@@ -7,6 +7,7 @@ import { DetailPage } from './pages/DetailPage';
 import { AuthPage } from './pages/AuthPage';
 
 export const useRoutes = isAuthenticated => {
+console.log("isAuthenticated", isAuthenticated)
   if (isAuthenticated) {
     return (
       <Switch>
@@ -19,7 +20,7 @@ export const useRoutes = isAuthenticated => {
   }
   return (
     <Switch>
-      <Route path="/" component={AuthPage} />
+      <Route exact path="/" component={AuthPage} />
       <Redirect to="/" />
     </Switch>
   );

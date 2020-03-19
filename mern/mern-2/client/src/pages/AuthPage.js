@@ -16,6 +16,7 @@ export const AuthPage = () => {
   useEffect(() => {
     message(errors);
     clearError(null);
+    window.M.updateTextFields();
   }, [errors, message, clearError]);
 
   const handleChange = event => {
@@ -24,13 +25,9 @@ export const AuthPage = () => {
 
   const handleLogin = async () => {
     try {
-      const data = await request(
-        '/api/auth/login',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
-      // message(data.message);
+      const data = await request('/api/auth/login', 'POST', { ...form });
+      // console.log("handleLogin -> data", data)
+      message(data.message);
       auth.login(data.token, data.userId);
 
     } catch (err) { }
@@ -38,12 +35,7 @@ export const AuthPage = () => {
 
   const handleRegister = async () => {
     try {
-      const data = await request(
-        '/api/auth/register',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
+      const data = await request('/api/auth/register', 'POST', { ...form });
       message(data.message);
 
     } catch (err) { }

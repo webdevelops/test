@@ -15,6 +15,7 @@ export const AuthPage = () => {
   useEffect(() => {
     message(error);
     clearError(null);
+    window.M.updateTextFields();
   }, [error, message, clearError]);
 
   const handleChange = event => {
@@ -29,7 +30,7 @@ export const AuthPage = () => {
         { ...form },
         { 'Content-Type': 'application/json' }
       );
-      message(data.message);
+      // message(data.message);
       auth.login(data.token, data.userId);
 
     } catch (err) { }

@@ -1,8 +1,7 @@
 const { Router } = require('express');
-const Link = require('../models/Link');
 const router = Router();
 
-router.post('/generate', async (req, res) => {
+router.past('/', async (req, res) => {
   try {
 
   } catch (err) {
@@ -12,7 +11,7 @@ router.post('/generate', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const links = await Link.find({ owner: null }) // ???
+    const links = await Link.find({ owner: null });
     res.json(links);
 
   } catch (err) {
