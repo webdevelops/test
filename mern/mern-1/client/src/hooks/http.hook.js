@@ -9,15 +9,15 @@ export const useHttp = () => {
     method = 'GET',
     body = null,
     headers = {}
-  ) => {  // try without useCall..
+  ) => {
     setLoading(true);
 
     try {
       if (body) {
         body = JSON.stringify(body);
-        headers = { 'Content-Type': 'application/json' };
+        headers['Content-Type'] = 'application/json';
       }
-
+      
       const response = await fetch(url, { method, body, headers });
       const data = await response.json();
 

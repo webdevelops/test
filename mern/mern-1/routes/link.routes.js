@@ -20,12 +20,12 @@ router.post('/generate', authMiddleware, async (req, res) => {
 
     const to = baseUrl + '/t/' + code;
     const link = new Link({
-      code, from, to, owner: req.user.userid
+      code, from, to, owner: req.user.userId
     });
-
+    
     await link.save();
     res.status(201).json({ link });
-
+    
   } catch (err) {
     res.status(500).json({ message: 'Something went wrong, try again.' });
   }

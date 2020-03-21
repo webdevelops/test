@@ -30,3 +30,10 @@ input.yellow-input:focus+label {
 .nav-wrapper {
   padding: 0 2rem;
 }
+
+.loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}

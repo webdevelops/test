@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-function func() {}
+function func() {};
 
 export const AuthContext = createContext({
   token: null,

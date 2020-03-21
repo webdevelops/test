@@ -16,8 +16,7 @@ router.post(
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
-    try {
-      
+    try {      
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
@@ -56,20 +55,20 @@ router.post(
     try {
       const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
-        return res.status(400).json({
+      if (!errors.isEmpty()) {
+        return res.status(422).json({
           errors: errors.array(),
-          message: 'Incorrect login data'
+          message: 'Incorrect login data.'
         });
       }
-
+      
       const { email, password } = req.body;
       const user = await User.findOne({ email });
-
+      
       if (!user) {
         return res.status(422).json({ message: 'User not found' });
       }
-
+      
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
