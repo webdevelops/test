@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
 const config = require('config');
+const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
@@ -10,10 +10,11 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];  // "Bearer TOKEN"
 
     if (!token) {
-      return res.status(401).json({ message: 'No authorization.' })
+      return res.status(401).json({ message: 'No authorization' });
     }
 
     const decoded = jwt.verify(token, config.get('jwtSecret'));
+
     req.user = decoded;
     next();
 

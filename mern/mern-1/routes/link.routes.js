@@ -8,16 +8,15 @@ const authMiddleware = require('../middleware/auth.middleware');
 
 router.post('/generate', authMiddleware, async (req, res) => {
   try {
-    const baseUrl = config.get('baseUrl');
     const { from } = req.body;
-
-    const code = shortid.generate();
     const existing = await Link.findOne({ from });
-
+    
     if (existing) {
       return res.json({ link: existing });
     }
-
+    
+    const baseUrl = config.get('baseUrl');
+    const code = shortid.generate();
     const to = baseUrl + '/t/' + code;
     const link = new Link({
       code, from, to, owner: req.user.userId

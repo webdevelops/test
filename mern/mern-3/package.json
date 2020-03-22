@@ -16,12 +16,14 @@
   "author": "Oleg <olos1olos@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.3"
+    "mongoose": "^5.9.3",
+    "shortid": "^2.2.15"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",

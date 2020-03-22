@@ -6,15 +6,16 @@ import { useRoutes } from './routes';
 import { useAuth } from './hooks/auth.hook';
 import { AuthContext } from './context/AuthContext';
 import { Navbar } from './components/Navbar';
+import { Loader } from './components/Loader';
 
 function App() {
-  const { token, login, logout, userId } = useAuth();
+  const { login, logout, token, userId } = useAuth();
   const isAuthenticated = !!token;
   const routes = useRoutes(isAuthenticated);
 
   return (
     <AuthContext.Provider value={{
-      token, userId, login, logout, isAuthenticated
+      login, logout, token, userId, isAuthenticated
     }}>
       <Router>
         {isAuthenticated && <Navbar />}

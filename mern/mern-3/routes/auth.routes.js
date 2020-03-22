@@ -1,5 +1,6 @@
 const { Router } = require('express');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
+// const bcrypt = require('bcryptjs');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
@@ -15,7 +16,7 @@ router.post(
     check('password', 'At least 6 characters.').isLength({ min: 6 })
   ],
   async (req, res) => {
-    try {     
+    try {      
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
@@ -54,20 +55,20 @@ router.post(
     try {
       const errors = validationResult(req);
 
-      if (!errors.isEmpty) {
-        return res.status(400).json({
+      if (!errors.isEmpty()) {
+        return res.status(422).json({
           errors: errors.array(),
-          message: 'Incorrect login data'
+          message: 'Incorrect login data.'
         });
       }
-
+      
       const { email, password } = req.body;
       const user = await User.findOne({ email });
-
+      
       if (!user) {
         return res.status(422).json({ message: 'User not found' });
       }
-
+      
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
@@ -80,7 +81,7 @@ router.post(
         { expiresIn: '1h' }
       );
 
-      res.json({ token, userId: user.id, message: 'Welcome!' });
+      res.json({ token, userId: user.id });
 
     } catch (err) {
       res.status(500).json({ message: 'Something went wrong, try again' });

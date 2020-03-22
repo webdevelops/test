@@ -1,9 +1,10 @@
 const { Router } = require('express');
-const Link = require('../models/Link');
-const authMiddleware = require('../middleware/auth.middleware');
 const config = require('config');
 const shortid = require('shortid');
 const router = Router();
+
+const Link = require('../models/Link');
+const authMiddleware = require('../middleware/auth.middleware');
 
 router.post('/generate', authMiddleware, async (req, res) => {
   try {
@@ -11,7 +12,6 @@ router.post('/generate', authMiddleware, async (req, res) => {
     const { from } = req.body;
 
     const code = shortid.generate();
-
     const existing = await Link.findOne({ from });
 
     if (existing) {
@@ -20,12 +20,12 @@ router.post('/generate', authMiddleware, async (req, res) => {
 
     const to = baseUrl + '/t/' + code;
     const link = new Link({
-      code, to, from, owner: req.user.userId
+      code, from, to, owner: req.user.userId
     });
-
+    
     await link.save();
     res.status(201).json({ link });
-
+    
   } catch (err) {
     res.status(500).json({ message: 'Something went wrong, try again.' });
   }

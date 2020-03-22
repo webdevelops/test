@@ -24,13 +24,8 @@ export const AuthPage = () => {
 
   const handleLogin = async () => {
     try {
-      const data = await request(
-        '/api/auth/login',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
-      // message(data.message);
+      const data = await request('/api/auth/login', 'POST', { ...form });
+      message(data.message);
       auth.login(data.token, data.userId);
 
     } catch (err) { }
@@ -38,12 +33,7 @@ export const AuthPage = () => {
 
   const handleRegister = async () => {
     try {
-      const data = await request(
-        '/api/auth/register',
-        'POST',
-        { ...form },
-        { 'Content-Type': 'application/json' }
-      );
+      const data = await request('/api/auth/register', 'POST', { ...form });
       message(data.message);
 
     } catch (err) { }
@@ -64,8 +54,8 @@ export const AuthPage = () => {
                   id="email"
                   type="email"
                   name="email"
-                  value={form.email}
                   className="yellow-input"
+                  value={form.email}
                   onChange={handleChange}
                 />
                 <label htmlFor="email">First Name</label>
@@ -82,7 +72,6 @@ export const AuthPage = () => {
                   className="yellow-input"
                   value={form.password}
                   onChange={handleChange}
-                  disabled={loading}
                 />
                 <label htmlFor="password">First Name</label>
               </div>
@@ -93,15 +82,15 @@ export const AuthPage = () => {
             <button
               className="btn yellow darken-4"
               onClick={handleLogin}
+              disabled={loading}
             >
               Enter
             </button>
             <button
               className="btn green lighten-1"
               onClick={handleRegister}
-            >
-              Registration
-            </button>
+              disabled={loading}
+            >Registration</button>
           </div>
         </div>
       </div>
