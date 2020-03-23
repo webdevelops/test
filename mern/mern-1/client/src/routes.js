@@ -11,12 +11,13 @@ export const useRoutes = isAuthenticated => {
     return (
       <Switch>
         <Route path="/create" component={CreatePage} />
-        <Route path="/links" component={LinksPage} />
+        <Route path="/link" component={LinksPage} />
         <Route path="/detail/:id" component={DetailPage} />
         <Redirect to="/create" />
       </Switch>
     );
   }
+  
   return (
     <Switch>
       <Route path="/" component={AuthPage} />

@@ -18,7 +18,7 @@ export const Navbar = () => {
         <span href="/" className="brand-logo">Shorten Links</span>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><NavLink to="/create">Craete</NavLink></li>
-          <li><NavLink to="/links">Links</NavLink></li>
+          <li><NavLink to="/link">Links</NavLink></li>
           <li><a href="/" onClick={handleLogout}>Exit</a></li>
         </ul>
       </div>

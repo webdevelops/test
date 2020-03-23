@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Link } from "react-router-dom";  // only for local Links (into SPA) 
 
 export const LinkCard = ({ link }) => {
   return (
@@ -7,10 +8,12 @@ export const LinkCard = ({ link }) => {
 
       <p>Your link:
         <a href={link.to} target="_blank" rel="noopener noreferrer"> {link.to}</a>
+        {/* <Link to={link.to}> {link.to}</Link>   // only for local Links (into SPA) */}
       </p>
 
       <p>From:
         <a href={link.from} target="_blank" rel="noopener noreferrer"> {link.from}</a>
+        {/* <Link to={link.to}> {link.to}</Link>   // only for local Links (into SPA) */}
       </p>
 
       <p>Number of links:
@@ -19,7 +22,7 @@ export const LinkCard = ({ link }) => {
 
       <p>Date of creation:
         <strong> {new Date(link.date).toLocaleDateString()}</strong>
-      </p>
+      </p> 
     </>
   );
 };
