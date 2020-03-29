@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     matginTop: 20,
     marginLeft: 40,
     [theme.breakpoints.up("sm")]: {
-      marginLeft: 200
+      marginLeft: 250
     },
   },
   sectionMobile: {
@@ -42,7 +42,25 @@ function App() {
   const [state, setState] = useState({
     left: false
   });
-  // console.log("App -> state.left", state.left)
+
+  // const [links, setLinks] = useState([
+  //   { name: 'about', active: false },
+  //   { name: 'experience', active: false },
+  //   { name: 'interests', active: false },
+  //   { name: 'work', active: false }
+  // ]);
+
+  // const handleActiveLink = name => event => {
+  //   const newLinks = links;
+
+  //   newLinks.forEach(link => {
+  //     link.active = false;
+  //     if (link.name === name) {
+  //       link.active = true;
+  //     }
+  //   });
+  //   setLinks([...newLinks]);
+  // };
 
   const toggleDrawer = (anchor, open) => event => {
     setState({ ...state, [anchor]: open });
@@ -65,7 +83,7 @@ function App() {
       <DrawerLeft open={state.left} toggleDrawer={toggleDrawer} />
 
       <div className={classes.sectionDesktop}>
-        <Sidebar open={true} toggleDrawer={toggleDrawer} />
+        <Sidebar open={true} /* handleActiveLink={handleActiveLink} links={links} */ />
       </div>
       <main className={classes.content}>
         <MainContent />

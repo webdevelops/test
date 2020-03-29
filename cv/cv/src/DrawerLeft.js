@@ -3,8 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText, Drawer } from '@material-ui/core';
 import { Link } from 'react-scroll';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   drawer: {
+    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
     '& > .MuiPaper-root': {
       background: '#16792D',
       display: 'flex',
@@ -14,8 +18,9 @@ const useStyles = makeStyles({
       textTransform: 'uppercase',
     },
     '& li': {
-      textAlign: 'center',
-      cursor: "pointer"
+      justifyContent: 'center',
+      cursor: "pointer",
+      padding: '5px 16px',
     },
     '& a': {
       opacity: .5,
@@ -26,9 +31,9 @@ const useStyles = makeStyles({
     },
   },
   list: {
-    width: 200
+    width: 250
   },
-});
+}));
 
 export const DrawerLeft = ({ open, toggleDrawer }) => {
   const classes = useStyles();
@@ -47,7 +52,7 @@ export const DrawerLeft = ({ open, toggleDrawer }) => {
               offset={-20}
               duration={500}
             >
-              <ListItemText primary={link} onClick={toggleDrawer('left', false)} />
+              <ListItemText primary={link} onClick={toggleDrawer(side, false)} />
             </Link>
           </ListItem>
         ))}

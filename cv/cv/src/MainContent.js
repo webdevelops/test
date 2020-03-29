@@ -5,20 +5,7 @@ import { Box } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   content: {
     marginLeft: 40,
-    // [theme.breakpoints.up("sm")]: {
-    //   marginLeft: 150
-    // },
   },
-  title: {
-    // margin: 0,
-  },
-  // sectionMobile: {
-  //   display: "flex",
-  //   [theme.breakpoints.up("sm")]: {
-  //     display: 'none',
-  //   },
-  // },
-  // marginLeft: drawerWidth + 20
 }));
 
 export const MainContent = () => {
