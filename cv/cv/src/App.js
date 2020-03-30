@@ -1,95 +1,86 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { CssBaseline, IconButton, makeStyles } from '@material-ui/core';
+// import MenuIcon from '@material-ui/icons/Menu';
+import MenuOpenRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
-import { DrawerLeft } from './DrawerLeft';
-import { MainContent } from './MainContent';
-import { Sidebar } from './Sidebar';
+import TabPanel from './Components/TabPanel';
+import Navigation from './Components/Navigation';
+import DrawerNavigation from './Components/DrawerNavigation';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    padding: '0 20px',
-  },
-  menuButton: {
-    position: 'fixed',
-    color: '#16792D',
-  },
-  content: {
-    matginTop: 20,
-    marginLeft: 40,
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: 250
-    },
   },
   sectionMobile: {
-    [theme.breakpoints.up("sm")]: {
-      display: 'none'
+    display: 'block',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
     },
   },
-  sectionDesktop: {
+  sectionDesctop: {
     display: 'none',
-    [theme.breakpoints.up("sm")]: {
-      display: 'flex'
+    width: '33%',
+    maxWidth: 250,
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
     },
-  },
+  }
 }));
 
-function App() {
+export default function App() {
   const classes = useStyles();
-  const [state, setState] = useState({
-    left: false
-  });
+  const [value, setValue] = useState(0);
+  const [state, setState] = useState({ 'left': false });
 
-  // const [links, setLinks] = useState([
-  //   { name: 'about', active: false },
-  //   { name: 'experience', active: false },
-  //   { name: 'interests', active: false },
-  //   { name: 'work', active: false }
-  // ]);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-  // const handleActiveLink = name => event => {
-  //   const newLinks = links;
-
-  //   newLinks.forEach(link => {
-  //     link.active = false;
-  //     if (link.name === name) {
-  //       link.active = true;
-  //     }
-  //   });
-  //   setLinks([...newLinks]);
-  // };
-
-  const toggleDrawer = (anchor, open) => event => {
-    setState({ ...state, [anchor]: open });
+  const toggleDrawer = (side, open) => event => {
+    setState({ ...state, [side]: open });
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
+
       <div className={classes.sectionMobile}>
         <IconButton
           edge="start"
           color="inherit"
-          aria-label="open drawer"
-          className={classes.menuButton}
+          aria-label="open drover-navigation"
+          className={classes.buttonMenu}
           onClick={toggleDrawer('left', true)}
         >
-          <MenuIcon />
+          <MenuOpenRoundedIcon />
         </IconButton>
-      </div>
-      <DrawerLeft open={state.left} toggleDrawer={toggleDrawer} />
 
-      <div className={classes.sectionDesktop}>
-        <Sidebar open={true} /* handleActiveLink={handleActiveLink} links={links} */ />
+        <DrawerNavigation
+          value={value}
+          open={state.left}
+          handleChange={handleChange}
+          toggleDrawer={toggleDrawer}
+        />
       </div>
-      <main className={classes.content}>
-        <MainContent />
-      </main>
+
+      <div className={classes.sectionDesctop}>
+        <Navigation value={value} handleChange={handleChange} />
+      </div>
+
+      <div /* className={classes.tabpanel} */>
+        <TabPanel value={value} index={0} hello={'...other - additionalProps'}>
+          About
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Experience
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Interests
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          Work
+      </TabPanel>
+      </div>
     </div>
   );
 }
-
-export default App;
