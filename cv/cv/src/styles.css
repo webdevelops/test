@@ -1,0 +1,13 @@
+.slidein {
+  animation: 1s slidein;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

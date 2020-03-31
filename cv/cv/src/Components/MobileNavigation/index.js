@@ -11,13 +11,12 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
     '& .MuiDrawer-paper': {
-      width: '33%',
-      minWidth: 150,
+      minWidth: theme.spacing(20),
     },
   },
 }));
 
-export default function DrawerNavigation(props) {
+export default function MobileNavigation(props) {
   const { value, handleChange, open, toggleDrawer } = props;
   const classes = useStyles();
 
@@ -33,7 +32,7 @@ export default function DrawerNavigation(props) {
   );
 }
 
-Navigation.propTypes = {
+MobileNavigation.propTypes = {
   value: PropTypes.number.isRequired,
   handleChange: PropTypes.func,
   open: PropTypes.bool,

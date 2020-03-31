@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { CssBaseline, IconButton, makeStyles } from '@material-ui/core';
-// import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
+import './styles.css';
 import TabPanel from './Components/TabPanel';
 import Navigation from './Components/Navigation';
-import DrawerNavigation from './Components/DrawerNavigation';
+import MobileNavigation from './Components/MobileNavigation';
+import About from './Components/About';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,12 +20,12 @@ const useStyles = makeStyles(theme => ({
   },
   sectionDesctop: {
     display: 'none',
-    width: '33%',
-    maxWidth: 250,
+    width: '30%',
+    maxWidth: theme.spacing(40),
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
-  }
+  },
 }));
 
 export default function App() {
@@ -55,7 +56,7 @@ export default function App() {
           <MenuOpenRoundedIcon />
         </IconButton>
 
-        <DrawerNavigation
+        <MobileNavigation
           value={value}
           open={state.left}
           handleChange={handleChange}
@@ -67,19 +68,19 @@ export default function App() {
         <Navigation value={value} handleChange={handleChange} />
       </div>
 
-      <div /* className={classes.tabpanel} */>
-        <TabPanel value={value} index={0} hello={'...other - additionalProps'}>
-          About
+      <div className={classes.tabpanel}>
+        <TabPanel value={value} index={0} hello={'...other - additionalProps'} className="slidein">
+          <About />
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={1} className="slidein">
           Experience
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel value={value} index={2} className="slidein">
           Interests
         </TabPanel>
-        <TabPanel value={value} index={3}>
+        <TabPanel value={value} index={3} className="slidein">
           Work
-      </TabPanel>
+        </TabPanel>
       </div>
     </div>
   );

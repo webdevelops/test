@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
   root: {
@@ -6,37 +6,47 @@ export default makeStyles(theme => ({
   },
   navigation: {
     height: '100vh',
-    maxWidth: 250,
-    minWidth: 150,
-    background: '#16792D',
+    maxWidth: theme.spacing(35),
+    minWidth: theme.spacing(20),
+    backgroundColor: theme.palette.success.dark,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     color: 'white',
     textTransform: 'uppercase',
+    '& .MuiTab-root': {
+      fontSize: '1.2rem',
+      maxWidth: 'inherit',
+    },
     '& .MuiTabs-vertical': {
       width: '100%',
     },
-    '& li': {
-      textAlign: 'center',
-      cursor: "pointer",
-    },
-    '& a': {
-      opacity: .5,
-      transition: '.3s',
-    },
     '& span[class^="PrivateTabIndicator"]': {
-      background: '#8bd671',
-      width: 5
+      backgroundColor: theme.palette.success.light,
+      width: theme.spacing(.8)
     },
   },
   large: {
-    // width: theme.spacing(7),
-    // height: theme.spacing(7),
-    width: 100,
-    height: 100,
-    marginBottom: 20,
-    border: '6px solid #5fa23d',
+    width: theme.spacing(20),
+    height: theme.spacing(20),
+    marginBottom: theme.spacing(3),
+    border: '8px solid #5fa23d',
+  },
+  [theme.breakpoints.down('sm')]: {
+    large: {
+      width: theme.spacing(15),
+      height: theme.spacing(15),
+      marginBottom: theme.spacing(2),
+      border: '6px solid #5fa23d',
+    },
+  },
+  [theme.breakpoints.down('xs')]: {
+    navigation: {
+      '& span[class^="PrivateTabIndicator"]': {
+        backgroundColor: theme.palette.success.light,
+        width: theme.spacing(.5),
+      },
+    },
   }
 }));
