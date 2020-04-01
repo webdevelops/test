@@ -5,26 +5,27 @@ import PhoneInTalkTwoToneIcon from '@material-ui/icons/PhoneInTalkTwoTone';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    height: '100vh',
+    padding: '0 50px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '100vh',
-    paddingLeft: 50,
     '& h1': {
-      fontFamily: '"Helvetica Neue"',
-      textTransform: 'uppercase',
       marginBottom: theme.spacing(3),
       color: theme.palette.grey[700],
+      lineHeight: 1,
       '& span': {
         color: theme.palette.success.main,
       },
     },
     '& h6': {
-      fontFamily: '"Helvetica Neue"',
+      fontSize: '1.4rem',
+      [theme.breakpoints.down('xs')]: {
+        fontSise: '1rem',
+      },
       color: theme.palette.grey[600],
-      fontSize: '1.5rem',
       textAlign: 'left',
-      marginBottom: theme.spacing(4),
+      marginBottom: theme.spacing(3),
       '& span': {
         color: theme.palette.success.main,
       },
@@ -37,7 +38,9 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.success.main,
       },
     },
-
+    [theme.breakpoints.down('xs')]: {
+      padding: '0 20px',
+    },
   },
 }));
 
@@ -50,9 +53,14 @@ export default function About() {
         {/* Oleg <span>Ostrikov</span> */}
       </Typography>
 
-      <Typography variant="subtitle1">
+      <Typography variant="h6">
         <span>Rivne, Ukraine</span>
-        <Box>
+        <Box
+          component="p"
+          color="text.secondary"
+          fontSize={{ xs: 'h6.fontSize', sm: 'h5.fontSize' }}
+          m={0}
+        >
           <PhoneInTalkTwoToneIcon />
           <Link href="tel:+380974754105">+38 (097) 47-54-105</Link>
         </Box>
@@ -63,9 +71,13 @@ export default function About() {
         </Box>
       </Typography>
 
-      <Typography variant="subtitle2">
+      <Box
+        component="p"
+        color="text.secondary"
+        fontSize={{ xs: 'h5.fontSize', sm: 'h4.fontSize' }}
+      >
         I'm obsessed with making things and even more obsessed with making things better. I am a self taught web developer
-      </Typography>
+      </Box>
     </div>
   );
 }

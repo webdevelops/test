@@ -7,7 +7,7 @@ export default makeStyles(theme => ({
   navigation: {
     height: '100vh',
     maxWidth: theme.spacing(35),
-    minWidth: theme.spacing(20),
+    minWidth: theme.spacing(22),
     backgroundColor: theme.palette.success.dark,
     display: 'flex',
     flexDirection: 'column',

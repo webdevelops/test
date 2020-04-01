@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
-import { CssBaseline, IconButton, makeStyles } from '@material-ui/core';
+import { CssBaseline, IconButton, makeStyles, AppBar, Toolbar } from '@material-ui/core';
 import MenuOpenRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
-import './styles.css';
-import TabPanel from './Components/TabPanel';
-import Navigation from './Components/Navigation';
-import MobileNavigation from './Components/MobileNavigation';
-import About from './Components/About';
+import './App.css';
+import TabPanel from './components/TabPanel';
+import Navigation from './components/Navigation';
+import MobileNavigation from './components/MobileNavigation';
+import About from './containers/About';
+import Experience from './containers/Experience';
+import Interests from './containers/Interests';
+import HideOnScroll from './components/HideOnScroll';
+import Work from './containers/Work';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+    },
   },
   sectionMobile: {
     display: 'block',
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
+    padding: '0 20px',
+  },
+  buttonMenu: {
+    color: 'white',
+    '&:hover': {
+      background: theme.palette.success.light,
+    }
   },
   sectionDesctop: {
     display: 'none',
@@ -26,9 +40,15 @@ const useStyles = makeStyles(theme => ({
       display: 'block',
     },
   },
+  tabpanel: {
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
+    width: '70%',
+  },
 }));
 
-export default function App() {
+export default function App(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const [state, setState] = useState({ 'left': false });
@@ -46,15 +66,21 @@ export default function App() {
       <CssBaseline />
 
       <div className={classes.sectionMobile}>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="open drover-navigation"
-          className={classes.buttonMenu}
-          onClick={toggleDrawer('left', true)}
-        >
-          <MenuOpenRoundedIcon />
-        </IconButton>
+        <HideOnScroll {...props}>
+          <AppBar color="primary">
+            <Toolbar>
+              <IconButton
+                edge="start"
+                color="primary"
+                aria-label="open drover-navigation"
+                className={classes.buttonMenu}
+                onClick={toggleDrawer('left', true)}
+              >
+                <MenuOpenRoundedIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
 
         <MobileNavigation
           value={value}
@@ -69,17 +95,17 @@ export default function App() {
       </div>
 
       <div className={classes.tabpanel}>
-        <TabPanel value={value} index={0} hello={'...other - additionalProps'} className="slidein">
+        <TabPanel value={value} index={0} className="slidein">
           <About />
         </TabPanel>
         <TabPanel value={value} index={1} className="slidein">
-          Experience
+          <Experience />
         </TabPanel>
         <TabPanel value={value} index={2} className="slidein">
-          Interests
+          <Interests />
         </TabPanel>
         <TabPanel value={value} index={3} className="slidein">
-          Work
+          <Work />
         </TabPanel>
       </div>
     </div>
