@@ -7,11 +7,11 @@ import Navigation from '../Navigation';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
     '& .MuiDrawer-paper': {
-      minWidth: theme.spacing(20),
+      minWidth: theme.spacing(22),
     },
   },
 }));

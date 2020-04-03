@@ -2,11 +2,11 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
   root: {
-    padding: '0 50px',
-    [theme.breakpoints.down('xs')]: {
-      padding: '0 20px'
+    paddingTop: theme.spacing(8),
+    position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(7),
     },
-    height: '100vh',
     display: 'flex',
     alignItems: 'center',
     '& img': {
@@ -14,7 +14,7 @@ export default makeStyles(theme => ({
     },
   },
   card: {
-    maxWidth: 700,
+    maxWidth: 850,
     '& li': {
       color: theme.palette.grey[600],
     },

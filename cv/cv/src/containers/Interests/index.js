@@ -3,8 +3,11 @@ import { makeStyles, Typography, Box } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    [theme.breakpoints.down('sm')]: {
+      height: '95vh',
+    },
     height: '100vh',
-    padding: '0 50px',
+    // padding: '0 50px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -31,7 +34,7 @@ export default function Interests() {
         color="text.secondary"
         fontSize={{xs: 'h5.fontSize', sm: 'h4.fontSize'}}
       >
-        Apart from being a web developer, I enjoy most of my time playing badminton and tennis, I am an avid reader and casual soccer player.
+        Apart from being a web developer, I enjoy most of my time  learning English, I am fond of tennis and badminton.
       </Box>
 
       <Box

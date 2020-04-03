@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
-import { Typography, Box, AppBar, Tabs, Tab } from '@material-ui/core';
+import { AppBar, Tabs, Tab, makeStyles } from '@material-ui/core';
+import SwipeableViews from 'react-swipeable-views';
 
 import { projects } from '../../data/projects';
+import TabPanel from '../../components/TabPanel';
 import Lawyer from './Lawyer';
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </Typography>
-  );
-}
+import Quiz from './Quiz';
+import Store from './Store';
 
 function allyProps(index) {
   return {
@@ -28,16 +15,36 @@ function allyProps(index) {
   };
 }
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    position: 'relative',
+    '& .MuiAppBar-positionFixed': {
+      position: "static",
+    },
+    '& .PrivateTabIndicator-colorSecondary-116': {
+      background: theme.palette.success.main,
+    },
+    '& .MuiTab-wrapper': {
+      fontWeight: 'bold',
+    },
+  },
+}));
+
 export default function Work() {
-  const [valuem, setValue] = useState(0);
+  const classes = useStyles();
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleChangeIndex = index => {
+    setValue(index);
+  };
+
   return (
-    <div>
-      <AppBar>
+    <div className={classes.root}>
+      <AppBar color="inherit">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -45,10 +52,30 @@ export default function Work() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Lawyer" />
+          <Tab label="Lawyer" {...allyProps(0)} />
+          <Tab label="Quiz" {...allyProps(1)} />
+          <Tab label="Store" {...allyProps(2)} />
         </Tabs>
       </AppBar>
-      <Lawyer lawyer={projects.lawyer} />
+
+      <SwipeableViews
+        axis={'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel value={value} index={0}>
+          <Lawyer lawyer={projects.lawyer} />
+        </TabPanel>
+
+        <TabPanel value={value} index={1}>
+          <Quiz quiz={projects.quiz} />
+        </TabPanel>
+
+        <TabPanel value={value} index={2}>
+          <Store store={projects.store} />
+        </TabPanel>
+      </SwipeableViews>
+      
     </div>
   );
 }

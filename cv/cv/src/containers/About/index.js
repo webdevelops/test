@@ -5,8 +5,10 @@ import PhoneInTalkTwoToneIcon from '@material-ui/icons/PhoneInTalkTwoTone';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    [theme.breakpoints.down('sm')]: {
+      height: '95vh',
+    },
     height: '100vh',
-    padding: '0 50px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -41,6 +43,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       padding: '0 20px',
     },
+
   },
 }));
 

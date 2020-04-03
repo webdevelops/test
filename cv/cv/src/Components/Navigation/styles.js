@@ -5,6 +5,8 @@ export default makeStyles(theme => ({
     display: 'flex',
   },
   navigation: {
+    position: 'fixed',
+    width: '30%',
     height: '100vh',
     maxWidth: theme.spacing(35),
     minWidth: theme.spacing(22),
@@ -44,7 +46,6 @@ export default makeStyles(theme => ({
   [theme.breakpoints.down('xs')]: {
     navigation: {
       '& span[class^="PrivateTabIndicator"]': {
-        backgroundColor: theme.palette.success.light,
         width: theme.spacing(.5),
       },
     },

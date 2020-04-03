@@ -9,7 +9,7 @@ export default function ProjectCard(props) {
 
   return (
     <div className={classes.root}>
-      <Card className={classes.card}>
+      <Card raised className={classes.card}>
         <CardHeader
           title={title}
           subheader={description}

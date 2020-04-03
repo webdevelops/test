@@ -15,13 +15,13 @@ import Work from './containers/Work';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'block',
     },
   },
   sectionMobile: {
     display: 'block',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
     padding: '0 20px',
@@ -36,15 +36,19 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     width: '30%',
     maxWidth: theme.spacing(40),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'block',
     },
   },
   tabpanel: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(0, 3),
+    },
     width: '70%',
+    padding: theme.spacing(0, 7),
   },
 }));
 
@@ -81,6 +85,7 @@ export default function App(props) {
             </Toolbar>
           </AppBar>
         </HideOnScroll>
+        <Toolbar />
 
         <MobileNavigation
           value={value}

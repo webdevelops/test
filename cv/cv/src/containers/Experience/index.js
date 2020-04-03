@@ -3,8 +3,10 @@ import { makeStyles, Typography, Box } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    [theme.breakpoints.down('sm')]: {
+      height: '95vh',
+    },
     height: '100vh',
-    padding: '0 50px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
