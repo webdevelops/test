@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ProjectCard from '../../components/ProjectCard';
 
@@ -13,3 +14,7 @@ export default function Lawyer({ lawyer }) {
     />
   );
 }
+
+Lawyer.propTypes = {
+  store: PropTypes.objectOf(PropTypes.object)
+};

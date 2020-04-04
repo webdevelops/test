@@ -7,15 +7,11 @@ const useStyles = makeStyles(theme => ({
       height: '95vh',
     },
     height: '100vh',
-    // padding: '0 50px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     '& h2': {
       marginBottom: theme.spacing(2),
-    },
-    [theme.breakpoints.down('xs')]: {
-      padding: '0 20px',
     },
   },
 }));

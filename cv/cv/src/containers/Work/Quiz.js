@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ProjectCard from '../../components/ProjectCard';
 
 export default function Quiz({ quiz }) {
-  console.log("Quiz -> quiz", quiz)
   return (
     <ProjectCard 
       title={quiz.title}
@@ -14,3 +14,7 @@ export default function Quiz({ quiz }) {
     />
   );
 }
+
+Quiz.propTypes = {
+  store: PropTypes.objectOf(PropTypes.object)
+};

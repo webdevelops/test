@@ -25,9 +25,6 @@ const useStyles = makeStyles(theme => ({
     '& time': {
       color: theme.palette.success.main,
     },
-    [theme.breakpoints.down('xs')]: {
-      padding: '0 20px',
-    },
   },
 }));
 
