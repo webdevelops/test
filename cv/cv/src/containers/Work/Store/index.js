@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-import ProjectCard from '../../components/ProjectCard';
+import ProjectCard from '../../../components/ProjectCard';
+import image from './store.jpg';
 
 export default function Store({ store }) {
   const linkSource = (
@@ -20,7 +21,8 @@ export default function Store({ store }) {
         title={store.title}
         description={store.description}
         url={store.url}
-        image={store.image}
+        // image={store.image}
+        image={image}
         techList={store.techList}
         linkSource={linkSource}
       />

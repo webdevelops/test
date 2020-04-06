@@ -24,7 +24,7 @@ export default makeStyles(theme => ({
     '& .MuiTabs-vertical': {
       width: '100%',
     },
-    '& span[class^="PrivateTabIndicator"]': {
+    '& .MuiTabs-indicator': {
       backgroundColor: theme.palette.success.light,
       width: theme.spacing(.8)
     },

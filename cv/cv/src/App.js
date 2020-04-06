@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function App(props) {
   const classes = useStyles();
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(0);
   const [state, setState] = useState({ 'left': false });
 
   const handleChange = (event, newValue) => {

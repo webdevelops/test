@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     '& .MuiAppBar-positionFixed': {
       position: "static",
     },
-    '& .PrivateTabIndicator-colorSecondary-116': {
+    '& .MuiTabs-indicator': {
       background: theme.palette.success.main,
     },
     '& .MuiTab-wrapper': {

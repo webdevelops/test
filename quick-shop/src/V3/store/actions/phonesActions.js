@@ -23,8 +23,8 @@ import {
   loadMorePhonesApi, 
   fetchPhoneByIdApi, 
   fetchCategoriesApi
-} from '../../api';
-// } from '../../api/mockApi';
+// } from '../../api';
+} from '../../api/mockApi';
 
 export const fetchPhones = () => async dispatch => {
   dispatch({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActionArea, Link, CardHeader, CardContent, Typography } from '@material-ui/core';
+import { Card, CardActionArea, Link, CardHeader, CardContent, Typography, CardMedia } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import useStyles from './styles';
@@ -27,7 +27,11 @@ export default function ProjectCard(props) {
         />
         <CardActionArea>
           <Link href={url} target="_blank" rel="noopener noreferrer">
-            <img src={image} alt={title} />
+            <CardMedia
+              component="img"
+              src={image}
+              alt={title}
+            />
           </Link>
         </CardActionArea>
         <CardContent>
@@ -44,10 +48,10 @@ export default function ProjectCard(props) {
 }
 
 ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired, 
-  description: PropTypes.string.isRequired, 
-  url: PropTypes.string.isRequired, 
-  image: PropTypes.string.isRequired, 
-  techList: PropTypes.arrayOf(PropTypes.string).isRequired, 
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  techList: PropTypes.arrayOf(PropTypes.string).isRequired,
   linkSource: PropTypes.element
 };
