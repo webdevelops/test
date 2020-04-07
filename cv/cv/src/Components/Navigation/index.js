@@ -3,6 +3,7 @@ import { Tabs, Tab, Avatar } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import useStyles from './styles';
+import image from './1.jpg';
 
 function allyProps(index) {
   return {
@@ -16,7 +17,7 @@ export default function Navigation({ value, handleChange }) {
 
   return (
     <div className={classes.navigation}>
-      <Avatar alt="Oleg" src="" className={classes.large} />
+      <Avatar alt="Oleg" src={image} className={classes.large} />
 
       <Tabs
         orientation="vertical"

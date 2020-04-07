@@ -48,8 +48,7 @@ export default function About() {
   return (
     <div className={classes.root}>
       <Typography variant="h1">
-        David <span>Amunga</span>
-        {/* Oleg <span>Ostrikov</span> */}
+        Oleg <span>Ostrikov</span>
       </Typography>
 
       <Typography variant="h6">

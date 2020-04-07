@@ -7,7 +7,7 @@ export const projects = {
     techList: ['HTML', 'Css (Sass)', 'JavaScript (jQuery)'],
   },
   quiz: {
-    title: 'QUIZ',
+    title: 'QUIZ-CREATOR',
     description: 'After authorization you can create your own test',
     url: 'https://quiz-creator-8ef06.firebaseapp.com',
     image: './images/quiz.jpg',
