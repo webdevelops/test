@@ -3,3 +3,4 @@ function min(a, b) {
 }
 
 console.log(min(12, 5));
+console.log(min(2, 5));
