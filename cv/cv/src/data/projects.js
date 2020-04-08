@@ -15,7 +15,7 @@ export const projects = {
   },
   store: {
     title: 'QUICK SHOP',
-    description: 'Model mini Online Store using Material-UI',
+    description: 'Model of a mini Online Store using Material-UI',
     url: 'https://webdevelops.github.io/q-shop',
     image: './images/store.jpg',
     techList: ['React (Material-UI)', 'Redux', 'Firebase (database)', 'Git'],
