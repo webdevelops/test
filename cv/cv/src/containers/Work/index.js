@@ -17,6 +17,7 @@ function allyProps(index) {
 
 const useStyles = makeStyles(theme => ({
   root: {
+    maxWidth: 1000,
     position: 'relative',
     '& .MuiAppBar-positionFixed': {
       position: "static",

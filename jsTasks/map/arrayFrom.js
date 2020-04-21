@@ -8,4 +8,4 @@ console.log("keys", keys)
 
 keys.push("age");
 
-console.log("keys", keys)
+console.log("keys", keys);
