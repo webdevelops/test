@@ -1,7 +1,7 @@
 function printNumbers(from, to) {
   let timerId = setInterval(() => {
     console.log(from);
-    
+
     if (from == to) clearInterval(timerId);
     from++;
 
@@ -14,7 +14,7 @@ function printNumbers2(from, to) {
 
     if (from < to) {
       setTimeout(nextNumber, 1000);
-    } 
+    }
     from++;
 
   }, 1000);
