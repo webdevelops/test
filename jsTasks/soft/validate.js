@@ -1,5 +1,5 @@
 function validateLogin(login) {
-  if (Number(login[0])) return false;
+  if (Number(login[0]) || Number(login[0]) == 0) return false;
   if (login.length < 2 || login.length > 10) return false;
 
   // const regexp = /^[a-zA-Z0-9]+$/;
