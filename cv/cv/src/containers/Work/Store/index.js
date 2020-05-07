@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import ProjectCard from '../../../components/ProjectCard';
 import image from './store.jpg';
+import Spinner from '../../../components/Spinner';
 
 export default function Store({ store }) {
   const linkSource = (
@@ -15,13 +16,16 @@ export default function Store({ store }) {
     </Link>
   );
 
+  if (!image) {
+    return <Spinner />
+  }
+
   return (
     <div>
       <ProjectCard
         title={store.title}
         description={store.description}
         url={store.url}
-        // image={store.image}
         image={image}
         techList={store.techList}
         linkSource={linkSource}

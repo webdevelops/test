@@ -2,7 +2,8 @@ export const projects = {
   lawyer: {
     title: 'LAWYER',
     description: 'Convert a PSD to Responsive HTML and CSS',
-    url: 'http://olos1.zzz.com.ua/new/lawyer_2',
+    // url: 'http://olos1.zzz.com.ua/new/lawyer_2',
+    url: 'https://lawyer-cf1ad.web.app/',
     image: './images/lawyer.jpg',
     techList: ['HTML', 'Css (Sass)', 'JavaScript (jQuery)'],
   },
