@@ -1,4 +1,53 @@
 <label>Enter your name: </label>
 <input [(ngModel)]="name" placeholder="name">
 <h1>Welcome {{name}}!</h1>
-<p>Heelo Angular 9</p>
+<p>Hello Angular 9</p>
+
+<h5>1. DOM element binding: {{name}}</h5>
+<p>Name: {{name}}</p>
+<p>Age: {{age}}</p>
+
+<h5>2. property binding: [value]="name"</h5>
+<input type="text" [value]="name">
+
+<h5>3. attribute binding: value={{name}}</h5>
+<input type="text" value={{name}}>
+
+<h5>5. attribute binding-2: [attr.colspan]="colspan"</h5>
+<table border="1">
+  <tr>
+    <td [attr.colspan]="colspan">One-Two</td>
+  </tr>
+  <tr>
+    <td>Three</td>
+    <td>Four</td>
+  </tr>
+  <tr>
+    <td>Five</td>
+    <td>Six</td>
+  </tr>
+</table>
+
+<h5>4. [textContent]="name"</h5>
+<p [textContent]="name"></p>
+
+<h5>6. event binding: (click)="increase($event)"</h5>
+<p>Count of clicks: {{count}}</p>
+<button (click)="increase($event)" >Click</button>
+
+<h5>7. event binding-2: on-click="increase($event)"</h5>
+<button on-click="increase($event)">Click</button>
+
+<h5>8. css binding: [class.name_class] = "true / false"</h5>
+<div [class.isredbox]="isRed"></div>
+<div [class.isredbox]="!isRed"></div>
+<input type="checkbox" [(ngModel)]="isRed">
+
+<h5>9. css binding: [class] = "blue", [class] = "green"</h5>
+<div [class]="blue"></div>
+<div [class]="green"></div>
+
+<h5>10. style binding: [style.backgroundColor] = "isRed" ? 'red' : 'green'</h5>
+<div [style.backgroundColor]="isRed ? 'red' : 'green'"></div>
+<div [style.background-color]="!isRed ? 'red' : 'green'"></div>
+<input type="checkbox" [(ngModel)]="isRed">
