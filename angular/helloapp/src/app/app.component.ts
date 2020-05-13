@@ -21,10 +21,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<child-comp><h2>Welocome {{name}}!</h2></child-comp>
-            <p>Hello {{name}}</p>`,
+  template: `<child-comp [userName]="name" [userAge]="age"></child-comp>
+            <p>Hello {{name}}</p>
+            <input type="text" [(ngModel)]="name">
+            <br/><br/>
+            <input type="number" [(ngModel)]="age">`,
   styles: [`h2, p {color: #333}`]
 })
 export class AppComponent {
   name: string = 'Pete';
+  age: number = 45;
 }
