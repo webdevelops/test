@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 // @Component({
 //   selector: 'child-comp',
@@ -12,7 +12,11 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'child-comp',
-  template: `<p>User name: {{userName}}</p>
+  template: `<button (click)="change(true)">+</button> :
+            <button (click)="change(false)">-</button>
+            <br /><br />
+            <input [(ngModel)]="userName" (ngModelChange)="onNameChange($event)">
+            <p>User name: {{userName}}</p>
             <p>User age: {{userAge}}</p>`,
 })
 export class ChildComponent {
@@ -26,5 +30,16 @@ export class ChildComponent {
     else this._userAge = age;
   }
 
-  get userAge() {return this._userAge}
+  get userAge() { return this._userAge }
+
+  @Output() onChanged = new EventEmitter<boolean>();
+  change(increased: any) {
+    this.onChanged.emit(increased);
+  }
+
+  @Output() onUserChange = new EventEmitter<string>();
+  onNameChange(model: string) {
+    this.userName = model;
+    this.onUserChange.emit(model);
+  }
 }
