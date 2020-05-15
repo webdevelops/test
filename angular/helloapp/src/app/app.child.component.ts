@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 // @Component({
 //   selector: 'child-comp',
@@ -14,14 +14,34 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'child-comp',
   template: `<button (click)="change(true)">+</button> :
             <button (click)="change(false)">-</button>
-            <br /><br />
+            <br/><br/>
             <input [(ngModel)]="userName" (ngModelChange)="onNameChange($event)">
             <p>User name: {{userName}}</p>
             <p>User age: {{userAge}}</p>`,
 })
-export class ChildComponent {
+export class ChildComponent implements OnInit, OnChanges {
   @Input() userName: string;
   _userAge: number;
+
+
+  constructor() { this.log(`constructor`); }
+  ngOnInit() { this.log(`OnInit`); }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (let propName in changes) {
+      let chng = changes[propName];
+      // let cur = JSON.stringify(chng.currentValue);
+      // let prev = JSON.stringify(chng.previousValue);
+      let cur = chng.currentValue;
+      let prev = chng.previousValue;
+      this.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+    }
+  }
+
+  private log(msg: string) {
+    console.log(msg);
+  }
+
 
   @Input()
   set userAge(age: number) {

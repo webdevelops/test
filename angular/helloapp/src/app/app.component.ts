@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // @Component({
 //   selector: 'my-app',
@@ -33,12 +33,20 @@ import { Component } from '@angular/core';
             <input type="number" [(ngModel)]="age">`,
   styles: [`h2, p {color: #333}`]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   name: string = 'Pete';
   age: number = 45;
   clicks: number = 0;
 
+  constructor() { this.log(`constructor`); }
+  ngOnInit() { this.log(`onInit`); }
+  ngOnDestroy() { this.log(`onDestroy`); }
+
+  private log(msg: string) {
+    console.log(msg);
+  }
+
   onChanged(increased: any) {
     increased == true ? this.clicks++ : this.clicks--;
-   }
+  }
 }
