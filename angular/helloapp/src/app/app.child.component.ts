@@ -17,6 +17,7 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChange
             <br/><br/>
             <input [(ngModel)]="userName" (ngModelChange)="onNameChange($event)">
             <p>User name: {{userName}}</p>
+            <p>Test!</p>
             <p>User age: {{userAge}}</p>`,
 })
 export class ChildComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
