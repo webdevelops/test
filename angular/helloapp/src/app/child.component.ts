@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, ContentChild, ElementRef } from '@angular/core';
 
 // @Component({
 //   selector: 'child-comp',
@@ -18,7 +18,13 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChange
             <input [(ngModel)]="userName" (ngModelChange)="onNameChange($event)">
             <p>User name: {{userName}}</p>
             <p>Test!</p>
-            <p>User age: {{userAge}}</p>`,
+            <p>User age: {{userAge}}</p>
+            <br/><br/>
+            <h5>Template variables - child</h5>
+            <p>{{counter}}</p>
+            <h5>ContentChild - child</h5>
+            <ng-content></ng-content>
+            <button (click)="changeHeader()">Change - Child</button>`,
 })
 export class ChildComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
   @Input() userName: string;
@@ -68,5 +74,17 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck, AfterContentI
   onNameChange(model: string) {
     this.userName = model;
     this.onUserChange.emit(model);
+  }
+
+  counter: number = 0;
+  increment() { this.counter++; }
+  decrement() { this.counter--; }
+
+  @ContentChild("headerContent", {static: false})
+  header: ElementRef;
+
+  changeHeader() {
+    console.log(this.header);
+    this.header.nativeElement.textContent = "Hello from Change!";
   }
 }

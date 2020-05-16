@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { ChildComponent } from './child.component';
 
 // @Component({
 //   selector: 'my-app',
@@ -26,11 +27,20 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
               [(userName)]="name" [userAge]="age" 
               (onChanged)="onChanged($event)"
             >
+              <h3 #headerContent> Welcom ContentChild !!!</h3>
             </child-comp>
             <p>Hello {{name}}</p>
             <input type="text" [(ngModel)]="name">
             <br/><br/>
-            <input type="number" [(ngModel)]="age">`,
+            <input type="number" [(ngModel)]="age">
+            <br/><br/>
+            <h5>Template variables</h5>
+            <button (click)="increment()">+</button>,
+            <button (click)="decrement()">-</button>
+            <h5>ViewChild to Template variables</h5>
+            <h6 #nameText>{{nameVC}}</h6>
+            <p>{{nameText.textContent}}</p>
+            <button (click)="change()">Change</button>`,
   styles: [`h2, p {color: #333}`]
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -48,5 +58,21 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onChanged(increased: any) {
     increased == true ? this.clicks++ : this.clicks--;
+  }
+
+  @ViewChild(ChildComponent, { static: false })
+  private counterComponent: ChildComponent;
+
+  increment() { this.counterComponent.increment(); }
+  decrement() { this.counterComponent.decrement(); }
+
+  @ViewChild("nameText", {static: false})
+  nameParagraph: ElementRef;
+
+  nameVC: string = "Tom";
+
+  change() {
+    console.log(this.nameParagraph.nativeElement.textContent);
+    this.nameParagraph.nativeElement.textContent = "Hello";
   }
 }
