@@ -40,7 +40,9 @@ import { ChildComponent } from './child.component';
             <h5>ViewChild to Template variables</h5>
             <h6 #nameText>{{nameVC}}</h6>
             <p>{{nameText.textContent}}</p>
-            <button (click)="change()">Change</button>`,
+            <button (click)="change()">Change</button>
+            <h3>AppModule</h3>
+            <data-comp></data-comp>`,
   styles: [`h2, p {color: #333}`]
 })
 export class AppComponent implements OnInit, OnDestroy {
