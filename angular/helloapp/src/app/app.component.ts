@@ -22,20 +22,20 @@ import { ChildComponent } from './child.component';
 
 @Component({
   selector: 'my-app',
-  template: `<h2>Number of clicks: {{clicks}}</h2>
+  template: `<h2  [ngClass]="{verdanaFont:true}">Number of clicks: {{clicks}}</h2>
             <child-comp 
               [(userName)]="name" [userAge]="age" 
               (onChanged)="onChanged($event)"
             >
-              <h3 #headerContent> Welcom ContentChild !!!</h3>
+              <h3 #headerContent [ngClass]="currentClasses"> Welcom ContentChild !!!</h3>
             </child-comp>
-            <p>Hello {{name}}</p>
+            <p [ngClass]="{segoePrintFont:true}" >Hello {{name}}</p>
             <input type="text" [(ngModel)]="name">
             <br/><br/>
             <input type="number" [(ngModel)]="age">
             <br/><br/>
-            <h5>Template variables</h5>
-            <button (click)="increment()">+</button>,
+            <h5 [ngClass]="currentClasses">Template variables</h5>
+            <button (click)="increment()">+</button>
             <button (click)="decrement()">-</button>
             <h5>ViewChild to Template variables</h5>
             <h6 #nameText>{{nameVC}}</h6>
@@ -43,7 +43,10 @@ import { ChildComponent } from './child.component';
             <button (click)="change()">Change</button>
             <h3>AppModule</h3>
             <data-comp></data-comp>`,
-  styles: [`h2, p {color: #333}`]
+  styles: [`h2, p {color: #333;}
+            .verdanaFont {font-size: 33px; font-family: Verdana;}
+            .segoePrintFont {font-size: 14px; font-family: "Segoe Print;}
+            .navyColor {color: navy;}`]
 })
 export class AppComponent implements OnInit, OnDestroy {
   name: string = 'Pete';
@@ -77,4 +80,12 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log(this.nameParagraph.nativeElement.textContent);
     this.nameParagraph.nativeElement.textContent = "Hello";
   }
+
+  isVerdana = true;
+  isNavy = true;
+
+  currentClasses = {
+    verdanaFont: this.isVerdana,
+    navyColor: this.isNavy
+  };
 }
