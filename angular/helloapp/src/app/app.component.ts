@@ -44,7 +44,7 @@ import { ChildComponent } from './child.component';
             <h3>AppModule</h3>
             <data-comp></data-comp>
             <h6>Directive</h6>
-            <p>Text 1</p>
+            <p>Text 1 - without</p>
             <p bold>Text 2 - with Directive</p>`,
   styles: [`h2, p {color: #333;}
             .verdanaFont {font-size: 33px; font-family: Verdana;}
