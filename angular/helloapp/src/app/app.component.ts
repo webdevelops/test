@@ -42,7 +42,10 @@ import { ChildComponent } from './child.component';
             <p>{{nameText.textContent}}</p>
             <button (click)="change()">Change</button>
             <h3>AppModule</h3>
-            <data-comp></data-comp>`,
+            <data-comp></data-comp>
+            <h6>Directive</h6>
+            <p>Text 1</p>
+            <p bold>Text 2</p>`,
   styles: [`h2, p {color: #333;}
             .verdanaFont {font-size: 33px; font-family: Verdana;}
             .segoePrintFont {font-size: 14px; font-family: "Segoe Print;}
