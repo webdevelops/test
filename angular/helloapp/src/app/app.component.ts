@@ -45,7 +45,7 @@ import { ChildComponent } from './child.component';
             <data-comp></data-comp>
             <h6>Directive</h6>
             <p>Text 1</p>
-            <p bold>Text 2</p>`,
+            <p bold>Text 2 - with Directive</p>`,
   styles: [`h2, p {color: #333;}
             .verdanaFont {font-size: 33px; font-family: Verdana;}
             .segoePrintFont {font-size: 14px; font-family: "Segoe Print;}
