@@ -22,30 +22,46 @@ import { ChildComponent } from './child.component';
 
 @Component({
   selector: 'my-app',
-  template: `<h2  [ngClass]="{verdanaFont:true}">Number of clicks: {{clicks}}</h2>
+  template: `<h4 red selectedSize="28px" [defaultSize]="'14px'" [ngClass]="{verdanaFont:true}">1. Number of clicks: {{clicks}}</h4>
             <child-comp 
               [(userName)]="name" [userAge]="age" 
               (onChanged)="onChanged($event)"
             >
-              <h3 #headerContent [ngClass]="currentClasses"> Welcom ContentChild !!!</h3>
+              <h4 #headerContent [ngClass]="currentClasses">2. Welcom ContentChild !!!</h4>
             </child-comp>
-            <p [ngClass]="{segoePrintFont:true}" >Hello {{name}}</p>
+            <p red [ngClass]="{segoePrintFont:true}" >Hello {{name}}</p>
             <input type="text" [(ngModel)]="name">
             <br/><br/>
             <input type="number" [(ngModel)]="age">
             <br/><br/>
-            <h5 [ngClass]="currentClasses">Template variables</h5>
+            <h4 [ngClass]="currentClasses">3. Template variables</h4>
             <button (click)="increment()">+</button>
             <button (click)="decrement()">-</button>
             <h5>ViewChild to Template variables</h5>
-            <h6 #nameText>{{nameVC}}</h6>
+            <h4 #nameText>4. {{nameVC}}</h4>
             <p>{{nameText.textContent}}</p>
             <button (click)="change()">Change</button>
-            <h3>AppModule</h3>
+            <h4>5. AppModule</h4>
             <data-comp></data-comp>
-            <h6>Directive</h6>
+            <h4>6. Directive</h4>
             <p>Text 1 - without</p>
-            <p bold>Text 2 - with Directive</p>`,
+            <p bold>Text 2 - with Directive</p>
+            <h4>7. ngIf, ngFor, ngSwitch</h4>
+            <p *ngIf="condition">Hello world</p>
+            <p *ngIf="!condition">Bye world</p>
+            <button (click)="toggle()">Toggle</button>
+            <p *ngIf="condition; else some">show ng-template</p>
+            <ng-template #unset>show unset</ng-template>
+            <ng-template #some>show something else...</ng-template>
+            <button (click)="toggle()">Toggle-2</button>
+            <ul>
+              <li *ngFor="let item of items; let i = index">{{i + 1}}. {{item}}</li>
+            </ul>
+            <div [ngSwitch]="count">
+              <ng-template ngSwitchCase="1">{{count * 10}}</ng-template>
+              <ng-template ngSwitchCase="2">{{count * 100}}</ng-template>
+              <ng-template ngSwitchDefault>{{count * 1000}}</ng-template>
+            </div>`,
   styles: [`h2, p {color: #333;}
             .verdanaFont {font-size: 33px; font-family: Verdana;}
             .segoePrintFont {font-size: 14px; font-family: "Segoe Print;}
@@ -91,4 +107,14 @@ export class AppComponent implements OnInit, OnDestroy {
     verdanaFont: this.isVerdana,
     navyColor: this.isNavy
   };
+
+  condition: boolean = true;
+
+  toggle() {
+    this.condition = !this.condition;
+  }
+
+  items = ["Tom", "Bob", "Sam", "Bill"];
+
+  count: number = 5;
 }
