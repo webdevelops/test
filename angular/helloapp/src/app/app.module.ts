@@ -6,10 +6,11 @@ import { ChildComponent } from './child.component';
 import { DataModule } from './data/data.module';
 import { BoldDirective } from './bold.directive';
 import { RedDirective } from './red.directive';
+import { WhileDirective } from './while.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, DataModule],
-  declarations: [AppComponent, ChildComponent, BoldDirective, RedDirective],
+  declarations: [AppComponent, ChildComponent, BoldDirective, RedDirective, WhileDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+
 import { ChildComponent } from './child.component';
+import { DataService } from './data.service';
+import { LogService } from './log.service';
 
 // @Component({
 //   selector: 'my-app',
@@ -22,7 +25,7 @@ import { ChildComponent } from './child.component';
 
 @Component({
   selector: 'my-app',
-  template: `<h4 red selectedSize="28px" [defaultSize]="'14px'" [ngClass]="{verdanaFont:true}">1. Number of clicks: {{clicks}}</h4>
+  template: `<h4 red selectedSize="28px" [defaultSize]="'14px'" [ngClass]="{verdanaFont:true}">1. Number of               clicks: {{clicks}}</h4>
             <child-comp 
               [(userName)]="name" [userAge]="age" 
               (onChanged)="onChanged($event)"
@@ -61,7 +64,24 @@ import { ChildComponent } from './child.component';
               <ng-template ngSwitchCase="1">{{count * 10}}</ng-template>
               <ng-template ngSwitchCase="2">{{count * 100}}</ng-template>
               <ng-template ngSwitchDefault>{{count * 1000}}</ng-template>
+            </div>
+            <h4>8. Structural directives</h4>
+            <p *while="condition">First paragraf</p>
+            <p *while="!condition">Second paragraf</p>
+            <button (click)="toggle()">Toggle()</button>
+            <h4>9. Services</h4>
+            <div class="panel">
+              <div>
+                <input [(ngModel)]="name2" placeholder="Model" />
+                <button (click)="addItem(name2)">Add</button>
+              </div>
+              <table>
+                <tr *ngFor="let item of items2">
+                  <td>{{item}}</td>
+                </tr>
+              </table>
             </div>`,
+  providers: [DataService, LogService],
   styles: [`h2, p {color: #333;}
             .verdanaFont {font-size: 33px; font-family: Verdana;}
             .segoePrintFont {font-size: 14px; font-family: "Segoe Print;}
@@ -71,9 +91,19 @@ export class AppComponent implements OnInit, OnDestroy {
   name: string = 'Pete';
   age: number = 45;
   clicks: number = 0;
+  items2: string[] = [];
+  name2: string;
 
-  constructor() { this.log(`constructor`); }
-  ngOnInit() { this.log(`onInit`); }
+  constructor(private dataService: DataService) { this.log(`constructor`); }
+
+  addItem(name: string) {
+    this.dataService.addData(name);
+  }
+
+  ngOnInit() {
+    this.log(`onInit`);
+    this.items2 = this.dataService.getData();
+  }
   ngOnDestroy() { this.log(`onDestroy`); }
 
   private log(msg: string) {
@@ -90,7 +120,7 @@ export class AppComponent implements OnInit, OnDestroy {
   increment() { this.counterComponent.increment(); }
   decrement() { this.counterComponent.decrement(); }
 
-  @ViewChild("nameText", {static: false})
+  @ViewChild("nameText", { static: false })
   nameParagraph: ElementRef;
 
   nameVC: string = "Tom";
@@ -117,4 +147,5 @@ export class AppComponent implements OnInit, OnDestroy {
   items = ["Tom", "Bob", "Sam", "Bill"];
 
   count: number = 5;
+
 }
