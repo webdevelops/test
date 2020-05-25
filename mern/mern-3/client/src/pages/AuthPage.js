@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHttp } from '../hooks/http.hook';
+import { useMessage } from '../hooks/message.hook';
 
 export function AuthPage() {
-  const { request, loading, error } = useHttp();
+  const { request, loading, error, clearError } = useHttp();
+  const message = useMessage();
   const [form, setForm] = useState({
     email: '',
     password: ''
   });
 
+  useEffect(() => {
+    // console.log("error: ", error);
+    message(error);
+    // clearError();
+  }, [error, message, clearError]);
+
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
-  }
+  };
 
   const handleRegister = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', form);
-      console.log("handleRegister -> data", data)
+      // console.log("handleRegister -> data", data)
 
     } catch (err) { }
-  }
+  };
 
   return (
     <div className="row">
