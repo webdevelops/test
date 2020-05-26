@@ -11,9 +11,8 @@ export function AuthPage() {
   });
 
   useEffect(() => {
-    // console.log("error: ", error);
     message(error);
-    // clearError();
+    clearError();
   }, [error, message, clearError]);
 
   const handleChange = event => {
@@ -23,9 +22,17 @@ export function AuthPage() {
   const handleRegister = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', form);
-      // console.log("handleRegister -> data", data)
+      console.log("handleRegister -> data", data);
 
     } catch (err) { }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const data = await request('/api/auth/login', 'POST', form);
+      console.log("handleLogin -> data", data);
+    
+    } catch (err) {}
   };
 
   return (
@@ -64,6 +71,7 @@ export function AuthPage() {
             <button
               className="btn yellow darken-4"
               style={{ marginRight: 10 }}
+              onClick={handleLogin}
               disabled={loading}
             >
               Enter
