@@ -1,4 +1,4 @@
-<div>
+<form #myForm="ngForm" class="container" novalidate (ngSubmit)="onSubmit(myForm)">
   <div class="form-group">
     <label>Name </label>
     <input type="text" class="form-control" name="name" [(ngModel)]="user.name" #name="ngModel" required />
@@ -18,7 +18,7 @@
       required
       pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"
     />
-    <div [hidden]="email.valid || email.untouched" class="aleft alert-danger">
+    <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
       Uncorrect email
     </div>
   </div><br>
@@ -34,13 +34,28 @@
       required
       pattern="[0-9]{10}"
     />
-    <div [hidden]="phone.valid || phone.untouched" class="alert alert-dander">
+    <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
       Uncorrect phone
     </div>
   </div><br>
 
   <div class="form-group">
-    <button class="btn btn-default" (click)="addUser()">Add</button>
+    <button 
+      class="btn btn-success" 
+      (click)="addUser()"
+      [disabled]="name.invalid || email.invalid || phone.invalid"
+    >
+      Add
+    </button>
+    <input
+      type="submit"
+      value="Send"
+      [disabled]="myForm.invalid"
+      class="btn btn-primary"
+    />
   </div>
-</div>
+</form>
+
+<div>Name: {{myForm.value.name}}</div>
+<div>Email: {{myForm.value.email}}</div>
 
