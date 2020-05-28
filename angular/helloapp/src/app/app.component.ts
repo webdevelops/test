@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class User {
   name: string;
@@ -14,6 +14,17 @@ export class User {
 })
 export class AppComponent {
   user: User = new User;
+  myForm2: FormGroup;
+  constructor() {
+    this.myForm2 = new FormGroup({
+      "userName": new FormControl("Tom", Validators.required),
+      "userEmail": new FormControl("", [
+        Validators.required,
+        Validators.email
+      ]),
+      "userPhone": new FormControl("", Validators.pattern("[0-9]{10}"))
+    });
+  }
 
   addUser() {
     console.log(this.user);
@@ -21,6 +32,10 @@ export class AppComponent {
 
   submit(form: NgForm) {
     console.log(form);
+  }
+
+  submit2() {
+    console.log(this.myForm2);
   }
 
   onSubmit(form: NgForm) {
