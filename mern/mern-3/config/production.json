@@ -1,0 +1,6 @@
+{
+  "port": 80,
+  "jwtSecret": "Oleg secret key",
+  "mongoUri": "mongodb+srv://Oleg:2305olos1@cluster0-f7zli.azure.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "https://pacific-coast-15167.herokuapp.com"
+}

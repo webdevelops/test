@@ -1,91 +1,100 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook';
+import { AuthContext } from '../context/AuthContext';
 
-export function AuthPage() {
-  const { request, loading, error, clearError } = useHttp();
+export const AuthPage = () => {
+  const auth = useContext(AuthContext);
   const message = useMessage();
+  const { loading, error, request, clearError } = useHttp();
   const [form, setForm] = useState({
-    email: '',
-    password: ''
+    email: "", password: ""
   });
 
   useEffect(() => {
     message(error);
-    clearError();
+    clearError(null);
+    window.M.updateTextFields();
   }, [error, message, clearError]);
 
   const handleChange = event => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleRegister = async () => {
+  const handleLogin = async () => {
     try {
-      const data = await request('/api/auth/register', 'POST', form);
-      console.log("handleRegister -> data", data);
+      const data = await request('/api/auth/login', 'POST', { ...form });
+      message(data.message);
+      console.log("handleLogin -> data", data)
+      auth.login(data.token, data.userId);
 
     } catch (err) { }
   };
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const data = await request('/api/auth/login', 'POST', form);
-      console.log("handleLogin -> data", data);
-    
-    } catch (err) {}
+      const data = await request('/api/auth/register', 'POST', { ...form });
+      message(data.message);
+
+    } catch (err) { }
   };
 
   return (
     <div className="row">
       <div className="col s6 offset-s3">
-        <div className="card blue darken-1">
+        <h3>Shorten Link</h3>
+        <div className="card blue darken-3">
           <div className="card-content white-text">
             <span className="card-title">Authorization</span>
+
             <div>
               <div className="input-field">
                 <input
-                  placeholder="Enter email"
+                  placeholder="Enter your email"
                   id="email"
-                  type="text"
+                  type="email"
                   name="email"
                   className="yellow-input"
+                  value={form.email}
                   onChange={handleChange}
                 />
-                <label htmlFor="first_name">Email</label>
+                <label htmlFor="email">First Name</label>
               </div>
+            </div>
 
+            <div>
               <div className="input-field">
                 <input
-                  placeholder="Enter password"
+                  placeholder="Enter your password"
                   id="password"
                   type="password"
                   name="password"
                   className="yellow-input"
+                  value={form.password}
                   onChange={handleChange}
                 />
-                <label htmlFor="first_name">Email</label>
+                <label htmlFor="password">First Name</label>
               </div>
             </div>
+
           </div>
           <div className="card-action">
             <button
               className="btn yellow darken-4"
-              style={{ marginRight: 10 }}
               onClick={handleLogin}
               disabled={loading}
             >
               Enter
             </button>
             <button
-              className="btn grey lighten-1 black-text"
+              className="btn green lighten-1"
               onClick={handleRegister}
               disabled={loading}
-            >
-              Registration
-            </button>
+            >Registration</button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};

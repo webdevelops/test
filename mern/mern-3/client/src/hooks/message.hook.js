@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback } from 'react';
 
 export const useMessage = () => {
   return useCallback(text => {
@@ -6,4 +6,4 @@ export const useMessage = () => {
       window.M.toast({ html: text });
     }
   }, []);
-}
+};
