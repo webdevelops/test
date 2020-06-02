@@ -1,5 +1,6 @@
 {
   "port": 5000,
   "jwtSecret": "Oleg secret key",
-  "mongoUri": "mongodb+srv://oleg-4:2305olos1@cluster0-emnrn.azure.mongodb.net/app?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://oleg-4:2305olos1@cluster0-emnrn.azure.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "localhost:5000"
 }

@@ -1,9 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+
+import { useHttp } from '../hooks/http.hook';
+import { AuthContext } from '../context/AuthContext';
 
 export function CreatePage() {
+  const auth = useContext(AuthContext);
+  console.log("CreatePage -> auth", auth)
+  const { request } = useHttp();
+  const [link, setLink] = useState('');
+
+  useEffect(() => {
+    window.M.updateTextFields();
+  }, []);
+
+  const handleKeyPress = async event => {
+    try {
+      if (event.key === 'Enter') {
+        const data = await request(
+          '/api/link/generate',
+          'POST',
+          { from: link },
+          { Authorization: `Bearer ${auth.token}` }
+        );
+        console.log("CreatePage -> data", data)
+      }
+
+    } catch (e) { }
+  };
+
   return (
     <div>
-      <h1>Create Page</h1>
+      <div className="col s8 offset-s2" style={{ paddingTop: '2rem' }}>
+        <div className="input-field">
+          <input
+            type="text"
+            id="link"
+            placeholder="Enter link"
+            value={link}
+            onChange={e => setLink(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+          <label htmlFor="link">Enter link</label>
+        </div>
+      </div>
     </div>
   );
 }
