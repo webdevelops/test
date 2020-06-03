@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { useHttp } from '../hooks/http.hook';
 import { AuthContext } from '../context/AuthContext';
 
 export function CreatePage() {
+  const history = useHistory();
   const auth = useContext(AuthContext);
-  console.log("CreatePage -> auth", auth)
   const { request } = useHttp();
   const [link, setLink] = useState('');
 
@@ -22,7 +23,7 @@ export function CreatePage() {
           { from: link },
           { Authorization: `Bearer ${auth.token}` }
         );
-        console.log("CreatePage -> data", data)
+        history.push(`/detail/${data.link._id}`);
       }
 
     } catch (e) { }

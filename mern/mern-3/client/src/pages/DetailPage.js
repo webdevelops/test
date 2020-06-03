@@ -1,19 +1,43 @@
-// import React from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-// export function DetailPage() {
-//   return (
-//     <div>
-//       <h1>Detail Page</h1>
-//     </div>
-//   );
-// }
+import { AuthContext } from '../context/AuthContext';
+import { useHttp } from '../hooks/http.hook';
+import { Loader } from '../components/Loader';
+import { LinkCard } from '../components/LinkCard';
 
-import React from 'react';
+export function DetailPage() {
+  const { token } = useContext(AuthContext);
+  const { request, loading } = useHttp();
+  const [link, setLink] = useState(null);
+  const linkId = useParams().id;
+  console.log("DetailPage -> link", link)
+  console.log("DetailPage -> linkId", linkId)
 
-export const DetailPage = () => {
+  const getLink = useCallback(async () => {
+    try {
+      console.log("getLink -> fetched 0")
+      const fetched = await request(`/api/link/${linkId}`, 'GET', null, {
+        Authorization: `Bearer ${token}`
+      });
+      console.log("getLink -> fetched", fetched)
+
+      setLink(fetched);
+
+    } catch (e) { }
+  }, [request, linkId, token]);
+
+  useEffect(() => {
+    getLink();
+  }, [getLink]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div>
-      <h1>Detail Page</h1>
+      {!loading && link && <LinkCard link={link} />}
     </div>
   );
 }
