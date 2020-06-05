@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function LinkCard({ link }) {
-  // console.log("LinkCard -> link", link)
   return (
     <div>
       <h2>Link</h2>

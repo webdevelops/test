@@ -1,7 +1,6 @@
 const { Router } = require('express');
-const router = Router();
-
 const Link = require('../models/Link');
+const router = Router();
 
 router.get('/:code', async (req, res) => {
   try {
@@ -10,14 +9,14 @@ router.get('/:code', async (req, res) => {
     if (link) {
       link.clicks++;
       await link.save();
-      
+
       return res.redirect(link.from);
     }
 
-    res.status(401).json({message: "Link not found"});
+    res.status(404).json({ message: 'Link not found' });
 
-  } catch (err) {
-    res.status(500).json({ message: "Something went wrong, try again." });
+  } catch (e) {
+    res.status(500).json({ message: 'Something went wrong, try again' });
   }
 });
 
