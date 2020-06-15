@@ -1,0 +1,52 @@
+<h1>Hello Angular World! </h1>
+
+<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
+<br><br>
+
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  border: '1px solid #ccc',
+  borderRadius: '5px',
+  background: backgroundToggle ? 'red' : 'blue'
+}"></div>
+
+<br>
+
+<!-- <p>{{ title }}</p>
+<p><strong>{{ number - 4 }}</strong></p>
+<p>{{ obj }}</p>
+<p>{{ obj.b.c }}</p>
+<p>{{ 40 + 5 }}</p>
+<p>{{ 'Hello' + ' World' }}</p> -->
+
+<!-- <img src="{{ img }}" alt="img">
+<img [src]=img alt="img"> -->
+
+<!-- <input type="text" (input)="onInput($event)"> -->
+<input 
+  type="text" 
+  (keyup.enter)="onInput($event)" 
+  (blur)="onBlur(myInput.value)"
+  #myInput
+>
+<p><strong>{{ eventValue }}</strong></p>
+
+<input type="text" [value]="titleValue" (input)="onInput($event)">
+
+<br><br>
+
+<input type="text" [(ngModel)]="titleValue">
+ 
+<p><strong>{{ titleValue }}</strong></p>
+
+<br><br>
+
+<button (click)="onClick()">Click Me!</button>
+
+<app-post></app-post>
+<!-- <app-post></app-post> -->
+
+<hr>
+
+<app-post4></app-post4>
