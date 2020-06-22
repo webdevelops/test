@@ -17,18 +17,31 @@ function App() {
     setTodos(prev => [newTodo, ...prev]);
   };
 
+  // const handleToggle = (id: number) => {
+  //   setTodos(prev => prev.map(todo => {
+  //     if (todo.id === id) {
+  //       todo.completed = !todo.completed;
+  //     }
+  //     return todo;
+  //   }));
+  // };
+
   const handleToggle = (id: number) => {
-    setTodos(prev => prev.map(todo => {
+    const newTodos = todos.map(todo => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
-        console.log(todo.completed);
       }
       return todo;
-    }));
-  };
+    });
+    setTodos(newTodos);
+  }
 
   const handleRemove = (id: number) => {
+    const showRemove = window.confirm('Are you sure to delete?');
 
+    if (showRemove) {
+      setTodos(prev => prev.filter(todo => todo.id !== id));
+    }
   };
 
   return <>
@@ -40,7 +53,7 @@ function App() {
         onToggle={handleToggle}
         onRemove={handleRemove}
       />
-    </div>
+    </div> 
   </>
 }
 

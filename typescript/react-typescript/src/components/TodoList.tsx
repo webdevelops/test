@@ -8,6 +8,10 @@ type TodoListProps = {
 };
 
 export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onRemove }) => {
+  if (todos.length === 0) {
+    return <h3 className="center">To-do list is empty.</h3>
+  }
+
   return (
     <ul>
       {todos.map(todo => {
@@ -17,19 +21,12 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onRemove })
           classes.push('completed');
         }
 
-        // const handleChange = (event: any) => {
-        //   event.target.checked = !event.target.checked;
-        //   todo.completed = !todo.completed;
-        //   // console.log(todo.completed);
-        // };
-
         return (
           <li className={classes.join(' ')} key={todo.id}>
             <label>
               <input
                 type="checkbox"
                 checked={todo.completed}
-                // onChange={() => onToggle(todo.id)}
                 onChange={onToggle.bind(null, todo.id)}
               />
               <span>{todo.title}</span>
