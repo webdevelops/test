@@ -24,4 +24,20 @@ export class AppComponent {
       id: 2
     }
   ];
+
+  ngOnInit(): void {
+    // setTimeout(() => {
+    //   console.log('Timeout');
+    //   this.posts[0].title = 'Changed';
+    // }, 5000);
+  }
+
+  updatePosts(post: Post) {
+    this.posts.unshift(post);
+  }
+
+  removePost(id: number) {
+    console.log('Id to remove: ', id);
+    this.posts = this.posts.filter(p => p.id !== id);
+  }
 }
