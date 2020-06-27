@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.height5000 {
+  height: 5000px;
+}
+
 .form-control {
   display: block;
   margin-top: 0.3rem;
@@ -16,7 +20,7 @@ textarea {
   padding: 0.4rem;
   font-size: 1.2rem;
   border: 1px solid #000;
-  margin: 1.2rem 0;
+  margin: .5rem 0 .2rem;
 }
 
 .card {
@@ -30,6 +34,10 @@ textarea {
   color: #ffffff;
   padding: 0.3rem 1.5rem;
   cursor: pointer;
+}
+
+.btn[disabled] {
+  background: #ccc;
 }
 
 .mr {

@@ -8,3 +8,23 @@ p {
   border: 1px dashed #000;
   padding: 1rem;
 }
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-invalid.ng-touched:focus {
+  outline: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+input.ng-valid.ng-touched:focus {
+  outline: 1px solid green;
+}
+
+.validation {
+  color: red;
+}

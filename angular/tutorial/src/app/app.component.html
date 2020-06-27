@@ -1,21 +1,75 @@
-<div class="container">
-  <h1>Angular Services</h1>
+<div class="container height5000">
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Angular Forms</h1>
 
-  <div class="card">
-    <h2>App Counter: {{appCounterService.counter}}</h2>
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="Email" formControlName="email">
+      <div *ngIf="form.get('email').invalid && form.get('email').touched" class="validation">
+        <small *ngIf="form.get('email').errors.required">
+          Email field is blank
+        </small>
 
-    <button class="btn mr" (click)="appCounterService.increase()">+</button>
-    <button class="btn" (click)="appCounterService.decrease()">-</button>
-  </div>
+        <small *ngIf="form.get('email').errors.email">
+          Enter correct email
+        </small>
 
-  <div class="card">
-    <h2>Local Counter: {{localCounterService.counter}}</h2>
-  
-    <button class="btn mr" (click)="localCounterService.increase()">+</button>
-    <button class="btn" (click)="localCounterService.decrease()">-</button>
-  </div>
+        <small *ngIf="form.get('email').errors.restrictedEmails">
+          Email {{form.get('email').value}} is forbidden
+        </small>
+      </div>
+    </div>
 
-  <hr>
+    <!-- <pre>{{form.get('email').errors | json}}</pre> -->
 
-  <app-counter></app-counter>
+    <div class="form-control">
+      <label>Password</label>
+      <input type="password" placeholder="Password" formControlName="password">
+      <div *ngIf="form.get('password').invalid && form.get('password').touched" class="validation">
+        <small *ngIf="form.get('password').errors.required">
+          Password field is blank
+        </small>
+
+        <small *ngIf="form.get('password').errors.minlength">
+          Enter correct password, at least: {{form.get('password').errors.minlength.requiredLength}}
+          Current number of characters: {{form.get('password').errors.minlength.actualLength}}
+        </small>
+      </div>
+    </div>
+
+    <!-- <pre>{{form.get('password').errors | json}}</pre> -->
+
+    <div class="card" formGroupName="address">
+      <h2>Address</h2>
+
+      <div class="form-control">
+        <label>Country</label>
+
+        <select formControlName="country">
+          <option value="ru">Russia</option>
+          <option value="ua">Ukraine</option>
+          <option value="en">USA</option>
+        </select>
+      </div>
+
+      <div class="form-controls">
+        <input type="text" placeholder="Kiev" formControlName="city">
+      </div>
+
+      <button class="btn" type="button" (click)="setCapital()">Choose the capital</button>
+    </div>
+
+    <div class="card">
+      <h2>Your skills</h2>
+      <button class="btn" type="button" (click)="addSkills()">Add skill</button>
+
+      <!-- <div class="form-control" *ngFor="let control of form.get('skills').controls; let idx = index">
+        <label>Skills {{idx + 1}}</label>
+        <input type="text">
+      </div> -->
+    </div>
+
+    <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+
 </div>
