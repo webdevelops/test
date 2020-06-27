@@ -12,6 +12,11 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onRemove })
     return <h3 className="center">To-do list is empty.</h3>
   }
 
+  const handleremove = (event: React.MouseEvent, id: number) => {
+    event.preventDefault();
+    onRemove(id);
+  }
+
   return (
     <ul>
       {todos.map(todo => {
@@ -30,7 +35,7 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onRemove })
                 onChange={onToggle.bind(null, todo.id)}
               />
               <span>{todo.title}</span>
-              <i className="material-icons red-text" onClick={() => onRemove(todo.id)}>delete</i>
+              <i className="material-icons red-text" onClick={(event) => handleremove(event, todo.id)}>delete</i>
             </label>
           </li>
         );
