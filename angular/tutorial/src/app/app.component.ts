@@ -9,6 +9,7 @@ import { MyValidators } from './my.validators';
 })
 export class AppComponent implements OnInit {
   form: FormGroup
+  appState = 'off'
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -61,5 +62,9 @@ export class AppComponent implements OnInit {
     const control = new FormControl('', Validators.required);
     // (<FormArray>this.form.get('skills')).push()
     (this.form.get('skills') as FormArray).push(control);
+  }
+
+  handleChange() {
+    console.log(this.appState);
   }
 }

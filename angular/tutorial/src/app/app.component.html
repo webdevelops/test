@@ -76,4 +76,13 @@
     <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
   </form>
 
+  <app-switch 
+    [(ngModel)]="appState"
+    (ngModelChange)="handleChange()"
+  ></app-switch>
+
+  <hr>
+
+  <p>appState: {{appState}}</p>
+
 </div>

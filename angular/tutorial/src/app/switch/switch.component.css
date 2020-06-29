@@ -1,0 +1,14 @@
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: orange;
+  border: none;
+  outline: none;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+button.active {
+  background: green;
+}
