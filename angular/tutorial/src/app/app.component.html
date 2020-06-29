@@ -15,7 +15,11 @@
         </small>
 
         <small *ngIf="form.get('email').errors.restrictedEmails">
-          Email {{form.get('email').value}} is forbidden
+          Email {{form.get('email').value}} is forbidden.
+        </small>
+
+        <small *ngIf="form.get('email').errors.uniqEmail">
+          Email {{form.get('email').value}} is busy.
         </small>
       </div>
     </div>
@@ -53,7 +57,7 @@
       </div>
 
       <div class="form-controls">
-        <input type="text" placeholder="Kiev" formControlName="city">
+        <input type="text" placeholder="City" formControlName="city">
       </div>
 
       <button class="btn" type="button" (click)="setCapital()">Choose the capital</button>
