@@ -5,7 +5,7 @@ export default ({ posts }) => {
     return (
       <div>
         <p className="">No posts yet.</p>
-        <button className="btn btn-primary">Loading</button>
+        <button className="btn btn-primary">Load</button>
       </div>
     )
   }
