@@ -40,6 +40,19 @@ textarea {
   background: #ccc;
 }
 
+.btn.btn-danger {
+  background: red;
+}
+
 .mr {
   margin-right: 1rem;
 }
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.title-button {
+  display: flex;
+  justify-content: space-between;
+} 

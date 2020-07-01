@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { MyValidators } from './my.validators';
+import { delay } from 'rxjs/operators';
+
+import { Todo, TodoService } from './todos.service';
 
 @Component({
   selector: 'app-root',
@@ -8,63 +9,55 @@ import { MyValidators } from './my.validators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  form: FormGroup
-  appState = 'off'
+  todos: Todo[] = [];
+  todoTitle = '';
+  loading = false;
+  error = '';
+
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl('', [
-        Validators.email,
-        Validators.required,
-        MyValidators.restrictedEmails
-      ], [MyValidators.uniqEmail]),
-      password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(6)
-      ]),
-      address: new FormGroup({
-        country: new FormControl('ua'),
-        city: new FormControl('', Validators.required)
-      }),
-      skills: new FormArray([])
-    });
+    this.fetchTodos();
   }
 
-  submit() {
-    if (this.form.valid) {
-      console.log('Form submited: ', this.form);
-      const formData = { ...this.form.value };
-
-      console.log('Form data: ', formData);
-
-      this.form.reset();
+  addTodo() {
+    if (!this.todoTitle.trim()) {
+      return;
     }
+
+    this.todoService.addTodo({
+      title: this.todoTitle,
+      completed: false,
+      id: 0
+    }).subscribe(todo => {
+        this.todos.push(todo);
+        this.todoTitle = '';
+      });
   }
 
-  setCapital() {
-    const cityMap = {
-      ru: 'Moskow',
-      ua: 'Kiev',
-      en: 'New-York'
-    };
-
-    const cityKey = this.form.get('address').get('country').value;
-    const city = cityMap[cityKey];
-
-    this.form.patchValue({ address: { city }, country: 2 });
-
-    console.log(this.form)
+  fetchTodos() {
+    this.loading = true;
+    this.todoService.fetchTodos()
+      .subscribe(todos => {
+        this.todos = todos;
+        this.loading = false;
+      }, error => {
+          // console.log('Error: ', error.message);
+          this.error = error.message;
+      });
+  }
+ 
+  removeTodo(id: number) {
+    this.todoService.removeTodo(id)
+      .subscribe(() => {
+        this.todos = this.todos.filter(todo => todo.id != id);
+      });
   }
 
-  addSkills() {
-    // console.log('1', this.form.get('skills'));
-    // console.log('2', this.form.get('skills').controls);
-    const control = new FormControl('', Validators.required);
-    // (<FormArray>this.form.get('skills')).push()
-    (this.form.get('skills') as FormArray).push(control);
-  }
-
-  handleChange() {
-    console.log(this.appState);
+  completeTodo(id: number) {
+    this.todoService.completeTodo(id)
+      .subscribe(todo => {
+        this.todos.find(t => t.id === todo.id).completed = true
+      });
   }
 }

@@ -1,88 +1,46 @@
 <div class="container height5000">
-  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
-    <h1>Angular Forms</h1>
+  <!-- <h1>Angular RxJS</h1>
 
-    <div class="form-control">
-      <label>Email</label>
-      <input type="text" placeholder="Email" formControlName="email">
-      <div *ngIf="form.get('email').invalid && form.get('email').touched" class="validation">
-        <small *ngIf="form.get('email').errors.required">
-          Email field is blank
-        </small>
+  <button class="btn mr" (click)="stop()">Stop interval</button>
 
-        <small *ngIf="form.get('email').errors.email">
-          Enter correct email
-        </small>
+  <button class="btn btn-danger" (click)="next()">Next value</button> -->
 
-        <small *ngIf="form.get('email').errors.restrictedEmails">
-          Email {{form.get('email').value}} is forbidden.
-        </small>
+  <h1>Angular HttpClient</h1>
 
-        <small *ngIf="form.get('email').errors.uniqEmail">
-          Email {{form.get('email').value}} is busy.
-        </small>
-      </div>
+  <div class="card">
+    <div class="form-control mb">
+      <input type="text" placeholder="Title" [(ngModel)]="todoTitle">
     </div>
+    <button class="btn mr" (click)="addTodo()">Add</button>
+    <button class="btn" (click)="fetchTodos()">Load</button>
+  </div>
 
-    <!-- <pre>{{form.get('email').errors | json}}</pre> -->
+  <p *ngIf="error; else todoBlock" class="error">{{error}}</p>
 
-    <div class="form-control">
-      <label>Password</label>
-      <input type="password" placeholder="Password" formControlName="password">
-      <div *ngIf="form.get('password').invalid && form.get('password').touched" class="validation">
-        <small *ngIf="form.get('password').errors.required">
-          Password field is blank
-        </small>
-
-        <small *ngIf="form.get('password').errors.minlength">
-          Enter correct password, at least: {{form.get('password').errors.minlength.requiredLength}}
-          Current number of characters: {{form.get('password').errors.minlength.actualLength}}
-        </small>
-      </div>
-    </div>
-
-    <!-- <pre>{{form.get('password').errors | json}}</pre> -->
-
-    <div class="card" formGroupName="address">
-      <h2>Address</h2>
-
-      <div class="form-control">
-        <label>Country</label>
-
-        <select formControlName="country">
-          <option value="ru">Russia</option>
-          <option value="ua">Ukraine</option>
-          <option value="en">USA</option>
-        </select>
+  <ng-template #todoBlock>
+    
+    <div *ngIf="!loading; else loadingBlock">
+      <div *ngIf="todos.length; else noTodos">
+        <div class="card" *ngFor="let todo of todos">
+          <p class="title-button">
+            <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
+            <span>
+              <button class="btn btn-danger mr" (click)="removeTodo(todo.id)">Delete</button>
+              <button class="btn" [disabled]="todo.completed" (click)="completeTodo(todo.id)">Complete</button>
+            </span>
+          </p>
+        </div>
       </div>
 
-      <div class="form-controls">
-        <input type="text" placeholder="City" formControlName="city">
-      </div>
-
-      <button class="btn" type="button" (click)="setCapital()">Choose the capital</button>
+      <ng-template #noTodos>
+        <h3>No todos</h3>
+      </ng-template>
     </div>
 
-    <div class="card">
-      <h2>Your skills</h2>
-      <button class="btn" type="button" (click)="addSkills()">Add skill</button>
+    <ng-template #loadingBlock>
+      <h3>Loading...</h3>
+    </ng-template>
 
-      <!-- <div class="form-control" *ngFor="let control of form.get('skills').controls; let idx = index">
-        <label>Skills {{idx + 1}}</label>
-        <input type="text">
-      </div> -->
-    </div>
-
-    <button class="btn" type="submit" [disabled]="form.invalid">Submit</button>
-  </form>
-
-  <app-switch 
-    [(ngModel)]="appState"
-    (ngModelChange)="handleChange()"
-  ></app-switch>
-
-  <hr>
-
-  <p>appState: {{appState}}</p>
+  </ng-template>
 
 </div>
