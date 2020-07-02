@@ -1,46 +1,22 @@
-<div class="container height5000">
-  <!-- <h1>Angular RxJS</h1>
+<nav class="navbar">
+  <h1>
+    <a [routerLink]="['/']">Angular Routing</a>
+  </h1>
 
-  <button class="btn mr" (click)="stop()">Stop interval</button>
+  <ul>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a [routerLink]="['/']">Home</a>
+    </li>
+    <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
 
-  <button class="btn btn-danger" (click)="next()">Next value</button> -->
+</nav>
 
-  <h1>Angular HttpClient</h1>
-
+<div class="container">
   <div class="card">
-    <div class="form-control mb">
-      <input type="text" placeholder="Title" [(ngModel)]="todoTitle">
-    </div>
-    <button class="btn mr" (click)="addTodo()">Add</button>
-    <button class="btn" (click)="fetchTodos()">Load</button>
+    <router-outlet></router-outlet>
   </div>
-
-  <p *ngIf="error; else todoBlock" class="error">{{error}}</p>
-
-  <ng-template #todoBlock>
-    
-    <div *ngIf="!loading; else loadingBlock">
-      <div *ngIf="todos.length; else noTodos">
-        <div class="card" *ngFor="let todo of todos">
-          <p class="title-button">
-            <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
-            <span>
-              <button class="btn btn-danger mr" (click)="removeTodo(todo.id)">Delete</button>
-              <button class="btn" [disabled]="todo.completed" (click)="completeTodo(todo.id)">Complete</button>
-            </span>
-          </p>
-        </div>
-      </div>
-
-      <ng-template #noTodos>
-        <h3>No todos</h3>
-      </ng-template>
-    </div>
-
-    <ng-template #loadingBlock>
-      <h3>Loading...</h3>
-    </ng-template>
-
-  </ng-template>
-
 </div>

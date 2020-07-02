@@ -40,3 +40,41 @@ p .completed {
 p .error {
   color: red;
 }
+
+/* ---------- */
+
+.container {
+  width: 80%;
+  margin: 2rem auto;  
+}
+
+.navbar {
+  background: rgb(233, 73, 73);
+  padding: .1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar ul li a{
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.navbar li button {
+  margin-left: 0.5rem;
+}
+
+.active a {
+  color: #000;
+}
