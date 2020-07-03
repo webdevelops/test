@@ -1,0 +1,12 @@
+<!-- <h1>About page</h1> -->
+<h1 appColor>{{'About page' | pageName}}</h1>
+
+<button class="btn" (click)="read = true">Mark as read</button>
+<p [ngStyle]="{color: read ? 'blue': 'red'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quos pariatur quia earum molestias labore culpa eos minus, corrupti consectetur.</p>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, dolores.</p>
+
+<p><a [routerLink]="['/about', 'extra']">Show Extra...</a></p>
+<p><a [routerLink]="['/about']">Hide Extra...</a></p>
+
+<router-outlet></router-outlet>
