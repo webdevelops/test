@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class PostForm extends React.Component {
+import {createPost} from '../redux/actions'
+
+class PostForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -28,9 +31,8 @@ export default class PostForm extends React.Component {
       id: Date.now().toString()
     }
 
+    this.props.createPost(newPost);
     this.setState({ title: '' });
-
-    console.log(newPost);
   };
 
   render() {
@@ -52,3 +54,9 @@ export default class PostForm extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = {
+  createPost
+}
+
+export default connect(null, mapDispatchToProps)(PostForm);
