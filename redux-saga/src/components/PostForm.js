@@ -26,6 +26,11 @@ class PostForm extends React.Component {
     event.preventDefault();
 
     const { title } = this.state;
+
+    if (!title.trim()) {
+      return;
+    }
+
     const newPost = {
       title,
       id: Date.now().toString()

@@ -1,18 +1,27 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import * as serviceWorker from './serviceWorker';
 import { rootReducer } from './redux/rootReducer';
 import App from './App';
 
 // const store = createStore(rootReducer, compose(
+//   applyMiddleware(thunk),
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // ));
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
-const store = createStore(rootReducer, composeEnhancers());
+const middleware = [thunk];
+const composeEnhancers =
+  typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(...middleware)
+));
 
 const app = (
   <Provider store={store}>
