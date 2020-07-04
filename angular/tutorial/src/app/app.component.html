@@ -1,16 +1,22 @@
-<nav class="navbar">
-  <h1>Angular Modules</h1>
+<ng-template appRef></ng-template>
 
-  <ul>
-    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
-    <li routerLinkActive="active"><a routerLink="/about">About</a></li>
-  </ul>
+<nav class="navbar">
+  <h1>Angular Dynamic components</h1>
+
 </nav>
 
 <div class="container">
   <div class="card">
 
-    <router-outlet></router-outlet>
+    <h2>Some content</h2>
+
+    <button class="btn" (click)="showModal()">Show</button>
+
+    <!-- <app-model
+      *ngIf="modal"
+      title="Modal window"
+      (click)="modal = false"
+    ></app-model> -->
 
   </div>
 </div>
