@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Posts = ({ syncPosts }) => {
   if (!syncPosts.length) {
-    return <p className="text-center">No post yet.</p>
+    return <p className="">No post yet.</p>
   }
 
   return syncPosts.map(post => <Post post={post} key={post.id} />);

@@ -1,5 +1,6 @@
 const initialState = {
-  loading: false
+  loading: false,
+  alert: false
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -9,6 +10,9 @@ export const appReducer = (state = initialState, action) => {
 
     case 'APP/HIDE_LOADER':
       return { ...state, loading: false };
+
+    case 'APP/SHOW_ALERT':
+      return {...state, alert: true};
 
     default: return state;
   }

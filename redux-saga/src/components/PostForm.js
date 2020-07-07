@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {createPost} from '../redux/actions'
+import {createPost, showAlert} from '../redux/actions'
+import { Warning } from './Alerts';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -28,7 +29,8 @@ class PostForm extends React.Component {
     const { title } = this.state;
 
     if (!title.trim()) {
-      return;
+      // this.props.showAlert();
+      return <Warning />
     }
 
     const newPost = {
@@ -61,7 +63,8 @@ class PostForm extends React.Component {
 }
 
 const mapDispatchToProps = {
-  createPost
+  createPost,
+  showAlert
 }
 
 export default connect(null, mapDispatchToProps)(PostForm);

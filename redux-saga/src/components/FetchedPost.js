@@ -11,7 +11,6 @@ export default () => {
   const loading = useSelector(state => state.app.loading);
 
   if (loading) {
-    console.log('loader');
     return <Loader />;
   }
 

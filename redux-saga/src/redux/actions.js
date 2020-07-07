@@ -1,4 +1,4 @@
-import { CREATE_POST, FETCH_POSTS, SHOW_LOADER, HIDE_LOADER } from "./types";
+import { CREATE_POST, FETCH_POSTS, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT } from "./types";
 
 export function createPost(post) {
   return {
@@ -26,9 +26,12 @@ export function fetchPosts() {
     const json = await response.json();
 
     setTimeout(() => {
-
       dispatch({ type: FETCH_POSTS, payload: json });
       dispatch(hideLoader());
-    }, 1000);
-    }
+    }, 500);
+  }
+}
+
+export function showAlert() {
+  return { type: SHOW_ALERT }
 }
