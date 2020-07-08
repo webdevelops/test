@@ -1,18 +1,23 @@
+import { SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT } from "./types";
+
 const initialState = {
   loading: false,
-  alert: false
+  alert: null
 };
 
 export const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'APP/SHOW_LOADER':
+    case SHOW_LOADER:
       return { ...state, loading: true };
 
-    case 'APP/HIDE_LOADER':
+    case HIDE_LOADER:
       return { ...state, loading: false };
 
-    case 'APP/SHOW_ALERT':
-      return {...state, alert: true};
+    case SHOW_ALERT:
+      return {...state, alert: action.payload};
+
+    case HIDE_ALERT:
+      return {...state, alert: null}
 
     default: return state;
   }
