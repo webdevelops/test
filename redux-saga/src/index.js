@@ -7,13 +7,14 @@ import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import { rootReducer } from './redux/rootReducer';
 import App from './App';
+import { forbiddenWordsMiddleware } from './redux/middleware';
 
 // const store = createStore(rootReducer, compose(
 //   applyMiddleware(thunk),
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // ));
 
-const middleware = [thunk];
+const middleware = [thunk, forbiddenWordsMiddleware];
 const composeEnhancers =
   typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?

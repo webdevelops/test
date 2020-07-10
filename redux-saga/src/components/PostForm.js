@@ -47,7 +47,7 @@ class PostForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         {this.props.alert && <Alert text={this.props.alert} />}
 
-        <div className="form-group">
+        <div className="form-group"> 
           <label htmlFor="title">Headline of Post</label>
           <input
             type="type"
