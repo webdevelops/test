@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FbAuthResponse, User } from '../../../shared/interfaces';
-import { Observable, throwError, Subject } from 'rxjs';
-import { environment } from '../../../../environments/environment';
-import { tap, catchError } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {FbAuthResponse, User} from '../../../shared/interfaces';
+import {Observable, Subject, throwError} from 'rxjs';
+import {environment} from '../../../../environments/environment';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-  public error$: Subject<string> = new Subject<string>();
 
-  constructor(private http: HttpClient) { }
+  public error$: Subject<string> = new Subject<string>()
+
+  constructor(private http: HttpClient) {}
 
   get token(): string {
     const expDate = new Date(localStorage.getItem('fb-token-exp'))
     if (new Date() > expDate) {
-      this.logout();
-      return null;
+      this.logout()
+      return null
     }
     return localStorage.getItem('fb-token')
   }
@@ -29,32 +30,30 @@ export class AuthService {
       )
   }
 
-  private handleError(error: HttpErrorResponse) {
-    const { message } = error.error.error;
-
-    switch (message) {
-      case 'INVALID_EMAIL':
-        this.error$.next('Invalid email');
-        break;
-      
-      case 'INVALID_PASSWORD':
-        this.error$.next('Invalid password');
-        break;
-      
-      case 'EMAIL_NOT_FOUND':
-        this.error$.next('Email not found');
-        break;
-    }
-
-    return throwError(error);
-  }
-
   logout() {
     this.setToken(null)
   }
 
   isAuthenticated(): boolean {
     return !!this.token
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    const {message} = error.error.error
+
+    switch (message) {
+      case 'INVALID_EMAIL':
+        this.error$.next('Неверный email')
+        break
+      case 'INVALID_PASSWORD':
+        this.error$.next('Неверный пароль')
+        break
+      case 'EMAIL_NOT_FOUND':
+        this.error$.next('Такого email нет')
+        break
+    }
+
+    return throwError(error)
   }
 
   private setToken(response: FbAuthResponse | null) {
