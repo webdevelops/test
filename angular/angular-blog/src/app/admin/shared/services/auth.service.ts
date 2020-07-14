@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {FbAuthResponse, User} from '../../../shared/interfaces';
-import {Observable, Subject, throwError} from 'rxjs';
-import {environment} from '../../../../environments/environment';
-import {catchError, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FbAuthResponse, User } from '../../../shared/interfaces';
+import { Observable, Subject, throwError } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { catchError, tap } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
 
   public error$: Subject<string> = new Subject<string>()
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get token(): string {
     const expDate = new Date(localStorage.getItem('fb-token-exp'))
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    const {message} = error.error.error
+    const { message } = error.error.error
 
     switch (message) {
       case 'INVALID_EMAIL':
