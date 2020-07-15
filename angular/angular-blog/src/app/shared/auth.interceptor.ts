@@ -15,7 +15,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('req: ', req)
     if (this.auth.isAuthenticated()) {
       req = req.clone({
         setParams: {
@@ -27,9 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(req)
       .pipe(
-        tap(() => console.log('Intercept')),
         catchError((error: HttpErrorResponse) => {
-          console.log('Interceptor Error: ', error);
           if (error.status === 401) {
             this.auth.logout();
             this.router.navigate(['/admin', 'login'], {
