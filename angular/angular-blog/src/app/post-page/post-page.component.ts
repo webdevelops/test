@@ -21,11 +21,15 @@ export class PostPageComponent implements OnInit {
 
   ngOnInit() {
     // console.log('params['id'] ', this.route.params._value['id']);
-    this.post$ = this.route.params
-      .pipe(switchMap((params: Params) => {
-        console.log('switchMap - params: ', params);
-        return this.postsService.getById(params['id']);
-      }))
+    // this.post$ = this.route.params
+    //   .pipe(switchMap((params: Params) => {
+    //     console.log('switchMap - params: ', params);
+    //     return this.postsService.getById(params['id']);
+    //   }))
+
+    this.route.paramMap.subscribe((params: Params) => {
+      this.post$ = this.postsService.getById(params.get('id'));
+    })
   }
 
 }
