@@ -11,6 +11,7 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { AuthGuard } from '../shared/auth.guard';
+import { SearchPipe } from '../shared/search.pipe';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { AuthGuard } from '../shared/auth.guard';
     AddPageComponent,
     EditPageComponent,
     OrdersPageComponent,
+    SearchPipe
   ]
 })
 export class AdminModule { }

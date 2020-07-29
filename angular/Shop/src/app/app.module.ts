@@ -25,7 +25,7 @@ const INTERCEPTER_PROVIDER = {
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
