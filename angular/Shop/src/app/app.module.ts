@@ -11,6 +11,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { AuthInterceptor } from './shared/auth.interseptor';
 import { ProductComponent } from './product/product.component';
+import { SortingPipe } from './shared/sorting.pipe';
 
 const INTERCEPTER_PROVIDER = {
   provide: HTTP_INTERCEPTORS,
@@ -26,6 +27,7 @@ const INTERCEPTER_PROVIDER = {
     ProductPageComponent,
     CartPageComponent,
     ProductComponent,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,
