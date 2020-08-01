@@ -19,13 +19,17 @@ export class MainLayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selecteLink(event) {
+    this.productService.selecteLink(event);
+  }
+
   setType(type) {
     this.type = type;
 
     if (this.type !== 'Cart') {
       this.router.navigate(['/'], {
         // queryParams: {
-          // type: this.type
+        // type: this.type
         // }
       });
 

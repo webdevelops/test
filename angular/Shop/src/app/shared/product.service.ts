@@ -11,6 +11,7 @@ import { FbResponse, Product } from './interfaces';
 export class ProductService {
   type = 'Phone';
   cartProducts: Product[] = [];
+  selectedLink = null;
 
   constructor(
     private http: HttpClient
@@ -71,5 +72,24 @@ export class ProductService {
 
   addProduct(product) {
     this.cartProducts.push(product);
+  }
+
+  selecteLink(event) {
+    let li = event.target.closest('li');
+
+    if (!li) return;
+
+    if (this.selectedLink) {
+      this.selectedLink.classList.remove('active');
+    }
+
+    this.selectedLink = li;
+    this.selectedLink.classList.add('active');
+  }
+
+  unselectLink() {
+    if (this.selectedLink) {
+      this.selectedLink.classList.remove('active');
+    }
   }
 }

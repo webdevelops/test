@@ -15,6 +15,8 @@ export class CartPageComponent implements OnInit {
   totalPrice = 0;
   form: FormGroup;
   submitted = false;
+  // added = false;
+  added = '';
 
   constructor(
     private productService: ProductService,
@@ -22,7 +24,9 @@ export class CartPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.productService.unselectLink();
     this.cartProducts = this.productService.cartProducts;
+
     // this.totalPrice = this.cartProducts.map(prod => prod.price).reduce((a, b) => +a + +b, 0);
 
     for (let i = 0; i < this.cartProducts.length; i++) {
@@ -63,6 +67,10 @@ export class CartPageComponent implements OnInit {
     this.orderService.create(order).subscribe(res => {
       this.form.reset();
       this.submitted = false;
+      this.cartProducts = [];
+      this.productService.cartProducts = [];
+      // this.added = 'Delivary framed';
+      this.added = 'Tanks for your order';
     })
   }
 }

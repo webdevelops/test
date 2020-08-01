@@ -26,4 +26,22 @@ export class OrderService {
         })
       )
   }
+
+  getAll() {
+    return this.http.get(`${environment.fbDbUrl}/orders.json`)
+      .pipe(map(res => {
+        // console.log('res', res);
+        return Object.keys(res).map(key => {
+          return {
+            ...res[key],
+            id: key,
+            date: new Date(res[key].date)
+          }
+        })
+      }));
+  }
+
+  delete(id) {
+    return this.http.delete(`${environment.fbDbUrl}/orders/${id}.json`);
+  }
 }

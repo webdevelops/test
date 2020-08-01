@@ -20,14 +20,22 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.pSub = this.productService.getAll().subscribe(products => {
-      // console.log('products', products);
       this.products = products;
     });
   }
 
-  remove(id) {
-    this.rSub = this.productService.remove(id).subscribe(() => {
-      this.products = this.products.filter(p => p.id !== id);
+  remove(product) {
+    if (product.isVisible) {
+      alert(
+`Do not delete examples, please!
+------------------------------------
+Try to create and remove your own product.`
+      );
+      return;
+    }
+
+    this.rSub = this.productService.remove(product.id).subscribe(() => {
+      this.products = this.products.filter(p => p.id !== product.id);
     });
   }
 
