@@ -69,7 +69,7 @@ export class CartPageComponent implements OnInit {
       this.submitted = false;
       this.cartProducts = [];
       this.productService.cartProducts = [];
-      // this.added = 'Delivary framed';
+      // this.added = 'Delivary is framed';
       this.added = 'Tanks for your order';
     })
   }

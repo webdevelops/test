@@ -1,4 +1,4 @@
-<div class="container" *ngIf="cartProducts.length; else empty || added">
+<div class="container" *ngIf="cartProducts.length; else empty">
 
   <div *ngIf="!added">
     <h2 class="text-center">Your order:</h2>
@@ -68,10 +68,10 @@
   </form>
 </div>
 
-<div class="text-center text-danger" *ngIf="added">
-  <h2>{{this.added}}</h2>
-</div>
-
 <ng-template #empty>
   <h2 class="text-center" *ngIf="!added">Your cart is empty, select product.</h2>
+
+  <div class="text-center text-danger" *ngIf="added">
+    <h2>{{this.added}}</h2>
+  </div>
 </ng-template>

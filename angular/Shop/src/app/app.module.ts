@@ -13,6 +13,8 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { AuthInterceptor } from './shared/auth.interseptor';
 import { ProductComponent } from './product/product.component';
 import { SortingPipe } from './shared/sorting.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const INTERCEPTER_PROVIDER = {
   provide: HTTP_INTERCEPTORS,
@@ -36,7 +38,8 @@ const INTERCEPTER_PROVIDER = {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [INTERCEPTER_PROVIDER],
   bootstrap: [AppComponent]

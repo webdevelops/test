@@ -41,7 +41,7 @@ export class OrderService {
       }));
   }
 
-  delete(id) {
+  remove(id) {
     return this.http.delete(`${environment.fbDbUrl}/orders/${id}.json`);
   }
 }

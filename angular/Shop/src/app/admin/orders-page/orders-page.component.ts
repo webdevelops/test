@@ -23,7 +23,7 @@ export class OrdersPageComponent implements OnInit, OnDestroy {
   }
 
   remove(id) {
-    this.orderService.delete(id).subscribe(() => {
+    this.orderService.remove(id).subscribe(() => {
       this.orders = this.orders.filter(order => order.id !== id);
     })
   }
