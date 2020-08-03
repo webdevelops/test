@@ -2,8 +2,10 @@
 @import "~quill/dist/quill.snow.css";
 
 :root {
-  --primary-color: #000000;
-  --dark-color: #000000;
+  // --primary-color: #000000;
+  --primary-color: #3F51B5;
+  --dark-color: #3F51B5;
+  // --dark-color: #000000;
   --light-color: #f4f4f4;
   --danger-color: #b10012;
   --success-color: #064b16;
@@ -21,6 +23,7 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  min-width: 480px;
 }
 
 a {
@@ -100,6 +103,14 @@ img {
     background: var(--light-color);
     color: #111;
   }
+}
+
+quill-editor img {
+  width: 25%;
+}
+
+.btn-success {
+  background: var(--success-color);
 }
 
 .btn-link {
@@ -228,6 +239,14 @@ button {
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.mt-1 {
+  margin-top: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }
 
 table th,

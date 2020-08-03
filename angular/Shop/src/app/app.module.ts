@@ -15,6 +15,7 @@ import { ProductComponent } from './product/product.component';
 import { SortingPipe } from './shared/sorting.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const INTERCEPTER_PROVIDER = {
   provide: HTTP_INTERCEPTORS,
@@ -31,6 +32,7 @@ const INTERCEPTER_PROVIDER = {
     CartPageComponent,
     ProductComponent,
     SortingPipe,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,12 +22,12 @@
 
     <div class="form-control photo">
       <label for="photo">Photo:</label>
-      <quill-view-html [content]="product.photo"></quill-view-html>
+      <quill-editor formControlName="photo"></quill-editor>
     </div>
 
     <div class="form-control">
       <label for="info">Info:</label>
-      <quill-view-html [content]="product.info"></quill-view-html>
+      <quill-editor formControlName="info"></quill-editor>
     </div>
 
     <div class="form-control">
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-dark btn-block" [disabled]="form.invalid || submitted">Update</button>
+    <button type="submit" class="btn btn-dark btn-block mt-1 mb-2" [disabled]="form.invalid || submitted">Update</button>
   </form>
 </div>
 

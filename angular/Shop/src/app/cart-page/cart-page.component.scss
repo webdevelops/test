@@ -5,4 +5,11 @@
 .right{
   display: flex;
   justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+table td{
+  white-space: nowrap;
+  padding: 1rem 0.3rem;
+  text-align: center;;
 }
