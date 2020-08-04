@@ -1,0 +1,7 @@
+<textarea rows="3" [value]="newPost" #postInput></textarea>
+<textarea rows="3" [(ngModel)]="enteredValue"></textarea>
+<p>{{newPost}}</p>
+<p>{{newPost2}}12</p>
+<hr>
+<button (click)="onAddPost(postInput)">Save Post</button>
+<button (click)="onAddPost2()">Save Post2</button>
