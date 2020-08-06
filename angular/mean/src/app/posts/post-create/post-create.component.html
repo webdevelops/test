@@ -1,9 +1,29 @@
 <mat-card class="card">
-  <mat-form-field class="card-field">
-    <textarea matInput rows="3" [value]="newPost" #postInput></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onAddPost(postInput)">Save Post</button>
+  <!-- <form> -->
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="enteredTitle">
+    </mat-form-field>
+
+    <mat-form-field class="card-field">
+      <textarea matInput rows="3" [(ngModel)]="enteredContent" #postInput></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onAddPost()">Save Post</button>
+  <!-- </form> -->
+
+  <!-- <form>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="enteredTitle">
+    </mat-form-field>
+
+    <mat-form-field class="card-field">
+      <textarea matInput rows="3" [(ngModel)]="enteredContent" #postInput></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onAddPost()">Save Post</button>
+  </form> -->
+
 </mat-card>
 
-<!-- <p>{{newPost}}</p> -->
+<!-- <p>{{newPost}}123</p> -->
 
