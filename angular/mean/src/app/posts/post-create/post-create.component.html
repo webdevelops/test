@@ -1,12 +1,29 @@
 <mat-card class="card">
   <form (ngSubmit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <input matInput type="text" name="title" #title="ngModel" ngModel required minlength="3">
+      <input
+        matInput
+        type="text"
+        name="title"
+        #title="ngModel"
+        ngModel
+        placeholder="Post Title"
+        required
+        minlength="3"
+      >
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
 
     <mat-form-field class="card-field">
-      <textarea matInput rows="3" name="content" #content="ngModel" ngModel required></textarea>
+      <textarea
+        matInput
+        rows="3"
+        name="content"
+        #content="ngModel"
+        placeholder="Post Content"
+        ngModel
+        required
+      ></textarea>
       <mat-error *ngIf="content.invalid">Please enter a post content.</mat-error>
     </mat-form-field>
 
