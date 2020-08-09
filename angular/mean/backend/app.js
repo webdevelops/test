@@ -9,7 +9,7 @@ app.use('/api/posts', (req, res, next) => {
   ];
 
   res.status(200).json({
-    message: "Posts fetched succesfully!!!",
+    message: "Posts fetched succesfully!!!!!!!!!",
     posts: posts
   })
 });
