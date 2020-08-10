@@ -1,4 +1,4 @@
-import { Injectable/* , EventEmitter */ } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
@@ -16,10 +16,9 @@ export class PostsService {
   ) { }
 
   getPosts() {
-    this.http.get<{}>('http://localhost:3000/api/posts')
+    this.http.get<{message: string, posts: Post[]}>('http://localhost:3000/api/posts')
       .subscribe(postData => {
-        console.log("posrData", postData)
-        // this.posts = postData.props;
+        this.posts = postData.posts;
         this.postsUpdated.next([...this.posts]);
 
       });
@@ -31,7 +30,10 @@ export class PostsService {
 
   addPost(title: string, content: string) {
     const post: Post = { id: null, title: title, content: content };
-    this.posts.push(post);
-    this.postsUpdated.next([...this.posts]);
+    this.http.post<{message: string}>('http://localhost:3000/api/posts', post)
+      .subscribe(() => {
+        this.posts.push(post);
+        this.postsUpdated.next([...this.posts]);
+      });
   }
 }
