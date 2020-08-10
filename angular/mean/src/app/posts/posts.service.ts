@@ -10,16 +10,16 @@ import { Post } from './post.model';
 export class PostsService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
-  // private postsUpdated2 = new EventEmitter<Post[]>(); // 2
 
   constructor(
     private http: HttpClient
   ) { }
 
   getPosts() {
-    this.http.get<{ message: string, props: Post[] }>('http://localhost:3000/api/posts')
+    this.http.get<{}>('http://localhost:3000/api/posts')
       .subscribe(postData => {
-        this.posts = postData.props;
+        console.log("posrData", postData)
+        // this.posts = postData.props;
         this.postsUpdated.next([...this.posts]);
 
       });
