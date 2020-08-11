@@ -1,7 +1,22 @@
 const express = require('express');
 // const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const Post = require('./models/post');
+const config = require('./config');
 
 const app = express();
+
+mongoose.connect(config.dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => {
+    console.log('Connected to database!');
+  })
+  .catch(() => {
+    console.log('Connection to data base failed');
+  });
 
 app.use(express.json({ extended: true }));  // such as bodyParser - convert json to javaScript
 
@@ -22,7 +37,14 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/posts", (req, res, next) => {
-  const post = req.body;
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content
+  });
+  console.log('req', req.body)
+  console.log('post', post)
+
+  post.save();
 
   res.status(201).json({
     message: "Post added successfully!"
@@ -30,15 +52,14 @@ app.post("/api/posts", (req, res, next) => {
 });
 
 app.get('/api/posts', (req, res, next) => {
-  const posts = [
-    { id: "123qwe", title: "First server-side post", content: "This is coming from the server" },
-    { id: "234wer", title: "Second server-side post", content: "This is coming from the server" },
-  ];
-
-  res.status(200).json({
-    message: "Posts fetched successfully!",
-    posts: posts
-  })
+  Post.find()
+    .then(documents => {
+      res.status(200).json({
+        mesaage: "Posts fetched successfully!",
+        posts: documents
+      })
+    })
+    .catch(err => console.log('Error: ', err));
 });
 
 module.exports = app;
