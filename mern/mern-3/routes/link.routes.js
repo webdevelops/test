@@ -28,7 +28,7 @@ router.post('/generate', auth, async (req, res) => {
     res.status(201).json({ link }); // 201 - Created
 
   } catch (err) {
-    res.status(500).json({ message: 'Something went wrong, try again-1' });
+    res.status(500).json({ message: 'Something went wrong, try again' });
   }
 });
 
@@ -38,7 +38,7 @@ router.get('/', auth, async (req, res) => {
     res.json(links);
 
   } catch (err) {
-    res.status(500).json({ message: 'Something went wrong, try again-2' });
+    res.status(500).json({ message: 'Something went wrong, try again' });
   }
 });
 
@@ -48,7 +48,7 @@ router.get('/:id', auth, async (req, res) => {
     res.json(link);
 
   } catch (err) {
-    res.status(500).json({ message: 'Something went wrong, try again-3' });
+    res.status(500).json({ message: 'Something went wrong, try again' });
   }
 });
 
