@@ -58,7 +58,7 @@ export const AuthPage = () => {
                   value={form.email}
                   onChange={handleChange}
                 />
-                <label htmlFor="email">First Name</label>
+                <label htmlFor="email">Email</label>
               </div>
             </div>
 
@@ -73,7 +73,7 @@ export const AuthPage = () => {
                   value={form.password}
                   onChange={handleChange}
                 />
-                <label htmlFor="password">First Name</label>
+                <label htmlFor="password">Password</label>
               </div>
             </div>
 

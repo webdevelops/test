@@ -20,7 +20,7 @@ router.post(
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
-        return res.status(422).json({
+        return res.status(422).json({          // 422 Unprocessable Entity («необрабатываемый экземпляр»)
           errors: errors.array(),
           message: 'Incorrect registration data.'
         });
@@ -30,7 +30,8 @@ router.post(
       const candidate = await User.findOne({ email: email });
 
       if (candidate) {
-        return res.status(400).json({ message: "This user already exists." });
+        // 400 Bad Request («плохой, неверный запрос»)[
+        return res.status(400).json({ message: "This user already exists." }); 
       }
 
       const hashedPassword = await bcrypt.hash(password, 12);
@@ -40,6 +41,7 @@ router.post(
       res.status(201).json({ message: "User created." });
 
     } catch (err) {
+      // 500 Internal Server Error («внутренняя ошибка сервера»)[
       res.status(500).json({ message: "Something went wrong, try again." });
     }
   });
