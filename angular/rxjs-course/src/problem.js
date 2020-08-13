@@ -47,5 +47,5 @@ rxjsBtn.addEventListener('click', () => {
     )
     .subscribe(res => {
       display.textContent = res.join(' ');
-    }, null, () => rxjsBtn.disabled = false)
+    }, null, () => rxjsBtn.disabled = false);
 });
