@@ -1,5 +1,5 @@
-import { fromEvent } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { fromEvent, interval } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 fromEvent(document.querySelector('canvas'), 'mousemove')
   .pipe(
