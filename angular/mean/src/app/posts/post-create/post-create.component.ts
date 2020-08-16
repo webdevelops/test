@@ -24,6 +24,7 @@ export class PostCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
+    // console.log("PostCreateComponent -> ngOnInit -> paramMap", paramMap.params.postId)
       if (paramMap.has('postId')) {
         this.mode = 'edit';
         this.postId = paramMap.get('postId');
@@ -36,6 +37,7 @@ export class PostCreateComponent implements OnInit {
         this.mode = 'create';
         this.postId = null;
       }
+      // console.log("PostCreateComponent -> ngOnInit -> this.mode", this.mode)
     })
   }
 

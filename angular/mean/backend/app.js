@@ -43,8 +43,9 @@ app.post("/api/posts", (req, res, next) => {
   });
   // console.log('req', req.body)
   // console.log('post', post)
-
+  
   post.save().then(createdPost => {
+  // console.log("createdPost", createdPost)
     res.status(201).json({
       message: "Post added successfully!",
       postId: createdPost._id
@@ -65,7 +66,9 @@ app.get('/api/posts', (req, res, next) => {
 });
 
 app.get('/api/posts/:id', (req, res, next) => {
+// console.log("req.params", req.params)
   Post.findById(req.params.id).then(post => {
+  // console.log("post", post)
     if (post) {
       res.status(200).json(post);
     
@@ -83,8 +86,8 @@ app.put('/api/posts/:id', (req, res, next) => {
   });
 
   Post.updateOne({ _id: req.params.id }, post)
-    .then(res => {
-      console.log('res-server', res);
+    .then(response => {
+      // console.log('response-server', response);
       res.status(200).json({message: 'Update succsessful!'});
     });
 });
