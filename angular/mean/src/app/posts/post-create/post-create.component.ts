@@ -31,7 +31,7 @@ export class PostCreateComponent implements OnInit {
       image: new FormControl(null, {validators: [Validators.required]})
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      // console.log("PostCreateComponent -> ngOnInit -> paramMap", paramMap.params.postId)
+      // console.log("PostCreateComponent -> ngOnInit -> paramMap", paramMap.params.postId) !
       if (paramMap.has('postId')) {
         this.mode = 'edit';
         this.postId = paramMap.get('postId');
