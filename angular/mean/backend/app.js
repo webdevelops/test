@@ -83,8 +83,8 @@ app.put('/api/posts/:id', (req, res, next) => {
   });
 
   Post.updateOne({ _id: req.params.id }, post)
-    .then(res => {
-      console.log('res-server', res);
+    .then(response => {
+      // console.log('response-server', response);
       res.status(200).json({message: 'Update succsessful!'});
     });
 });

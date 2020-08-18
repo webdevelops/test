@@ -9,14 +9,18 @@ import {SharedModule} from './shared/shared.module';
 import { ModelComponent } from './model/model.component'
 import { RefDirective } from './model/ref.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { DynamicComponent } from './dynamic/dynamic.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ModelComponent,
-    RefDirective
+    RefDirective,
+    DynamicComponent,
+    RxjsComponent
   ],
   imports: [
     BrowserModule,
