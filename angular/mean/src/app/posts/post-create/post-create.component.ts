@@ -19,11 +19,10 @@ export class PostCreateComponent implements OnInit {
   private postId: string;
   public post: Post;
 
-
   constructor(
     public postsService: PostsService,
-    public route: ActivatedRoute,
-  ) { }
+    public route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
