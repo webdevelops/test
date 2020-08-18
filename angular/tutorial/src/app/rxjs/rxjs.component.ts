@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { from, interval, fromEvent, of } from 'rxjs';
+import { from, interval, fromEvent, of, pipe } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { map } from 'rxjs/operators';
+import { map, filter, catchError, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -18,6 +18,7 @@ export class RxjsComponent implements OnInit {
     // complete() {console.log('Complete!')}
     // });
 
+
     const secondsCounter = interval(1000);
     // secondsCounter.subscribe(n => console.log(`It's been ${n} seconds since subscribing!`));
 
@@ -32,6 +33,7 @@ export class RxjsComponent implements OnInit {
     //   }
     // });;
 
+
     const apiData = ajax('https://api.github.com/search/users?q=vladilen');
 
     apiData.subscribe(res => {
@@ -43,10 +45,41 @@ export class RxjsComponent implements OnInit {
     const squareValue = map((val: number) => val * val);
     const squareNums = squareValue(nums);
 
-    squareNums.subscribe(sq => console.log(sq));
-  }
+    // squareNums.subscribe(sq => console.log(sq));
 
-  ngOnInit(): void {
-  }
+    const nums_2 = of(1, 2, 3, 4, 5);
+    const squareOddVals = pipe(
+      filter((n: number) => n % 2 !== 0),
+      map(n => n * n)
+    );
+    const squareOdd = squareOddVals(nums_2);
 
+    squareOdd.subscribe(x => console.log(x));
+    
+    
+    const apiData_2 = ajax('https://apis.github.com/search/users?q=vladilen').pipe(
+      retry(3),
+      map(res => {
+        if (!res.response) {
+          throw new Error('Value expected!');
+        }
+
+        return res.response;
+      }),
+      catchError(err => of([]))
+    );
+
+    // apiData_2.subscribe({
+    //   next(res) {console.log(res)},
+    //   error(err) {console.log('Error was cought but not run')},
+    //   complete() {console.log('Go ahead!')}
+    // });
+
+    apiData_2.subscribe(
+      res => console.log(res),
+      (error) => console.log('It\'serror', error)
+    );
+
+
+  };
 }
