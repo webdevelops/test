@@ -29,7 +29,7 @@ export class PostCreateComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       content: new FormControl(null, Validators.required),
-      image: new FormControl(null, Validators.required)
+      image: new FormControl(null, {validators: [Validators.required]})
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       // console.log("PostCreateComponent -> ngOnInit -> paramMap", paramMap.params.postId)
