@@ -8,7 +8,7 @@ import { map, filter, catchError, retry } from 'rxjs/operators';
   templateUrl: './rxjs.component.html',
   styleUrls: ['./rxjs.component.css']
 })
-export class RxjsComponent implements OnInit {
+export class RxjsComponent {
 
   constructor() {
     const data = from(fetch('https://api.github.com/search/users?q=vladilen'));
