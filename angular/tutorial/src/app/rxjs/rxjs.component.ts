@@ -57,7 +57,7 @@ export class RxjsComponent implements OnInit {
     squareOdd.subscribe(x => console.log(x));
     
     
-    const apiData_2 = ajax('https://apis.github.com/search/users?q=vladilen').pipe(
+    const apiData_2 = ajax('https://api.github.com/search/users?q=vladilen').pipe(
       retry(3),
       map(res => {
         if (!res.response) {
