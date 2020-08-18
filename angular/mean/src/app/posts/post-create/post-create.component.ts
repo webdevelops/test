@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { PostsService } from '../posts.service';
 import { Post } from '../post.model';
@@ -31,7 +31,7 @@ export class PostCreateComponent implements OnInit {
           .subscribe(post => {
             this.post = {id: post._id, title: post.title, content: post.content};
           });
-      
+
       } else {
         this.mode = 'create';
         this.postId = null;
