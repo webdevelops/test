@@ -12,7 +12,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { AngularrxjsComponent } from './fundamentals/angularrxjs/angularrxjs.component';
+import { ObservablesComponent } from './fundamentals/observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { AngularrxjsComponent } from './fundamentals/angularrxjs/angularrxjs.com
     RefDirective,
     DynamicComponent,
     RxjsComponent,
-    AngularrxjsComponent
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,

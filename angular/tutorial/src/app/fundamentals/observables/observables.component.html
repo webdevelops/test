@@ -1,0 +1,15 @@
+<h2>Observables works!</h2>
+
+<div (click)="toggle()">Toggle</div>
+<div [hidden]="!visible">
+  <ng-content></ng-content>
+  <br>
+  123
+</div>
+
+<hr>
+
+<div>
+  <code>Observable | async</code>:
+  Time: {{time | async}}
+</div>
