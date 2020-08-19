@@ -6,9 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { Post } from './post.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PostsService {
   private posts: Post[] = [];
   public postsUpdated = new Subject<Post[]>();
