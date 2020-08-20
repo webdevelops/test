@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NavigationStart, Router, ActivatedRoute } from '@angular/router';
+import { env } from 'process';
+import { filter } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-observables',
@@ -13,9 +17,29 @@ export class ObservablesComponent implements OnInit {
 
   time = new Observable<string>(observer => {
     setInterval(() => observer.next(new Date().toString()) ,1000);
-  })
+  });
+
+  navStart: Observable<NavigationStart>;
+
+  nameChangeLog: string[] = [];
+  heroForm: FormGroup;
   
-  constructor() {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.navStart = this.router.events.pipe(
+      filter(evt => evt instanceof NavigationStart)
+    ) as Observable<NavigationStart>;
+
+    this.navStart.subscribe(evt => console.log('Navigation Started!'));
+
+  }
+
+  ngOnInit(): void {
+    this.activatedRoute.url.subscribe(url => console.log('The URL is changed to: ' + url));
+    this.logNameChange();
+  }
 
   toggle() {
     this.visible = !this.visible;
@@ -28,7 +52,12 @@ export class ObservablesComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  logNameChange() {
+    const nameControl = this.heroForm.get('name');
+
+    nameControl.valueChanges.forEach((value: string) => {
+      this.nameChangeLog.push(value);
+    });
   }
 
 }
