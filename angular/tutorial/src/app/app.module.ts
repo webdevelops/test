@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ObservablesComponent } from './fundamentals/observables/observables.component';
+import { UsageComponent } from './fundamentals/usage/usage.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ObservablesComponent } from './fundamentals/observables/observables.com
     RefDirective,
     DynamicComponent,
     RxjsComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    UsageComponent
   ],
   imports: [
     BrowserModule,
