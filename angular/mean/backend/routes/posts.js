@@ -54,7 +54,7 @@ router.post("", upload.single("image"), (req, res, next) => {
   );
 });
 
-router.get("", (req, res, next) => {
+router.get("", upload.single('image'), (req, res, next) => {
   Post.find()
     .then(documents => {
     // console.log("documents", documents)
@@ -66,7 +66,7 @@ router.get("", (req, res, next) => {
     .catch(err => console.log('Error: ', err));
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', upload.single('image'), (req, res, next) => {
   Post.findById(req.params.id).then(post => {
     if (post) {
       res.status(200).json(post);
