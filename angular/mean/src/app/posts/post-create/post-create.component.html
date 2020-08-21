@@ -2,7 +2,7 @@
 
 <mat-card class="card">
   <form (ngSubmit)="onSavePost()" [formGroup]="form" *ngIf="!isLoading">
-    <mat-form-field>
+    <mat-form-field class="card-field">
       <input
         matInput
         type="text"

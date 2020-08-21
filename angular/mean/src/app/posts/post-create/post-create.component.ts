@@ -12,8 +12,8 @@ import { mimeType } from './mime-type.validator';
   styleUrls: ['./post-create.component.scss']
 })
 export class PostCreateComponent implements OnInit {
-  enteredTitle = '';
-  enteredContent = '';
+  // enteredTitle = '';
+  // enteredContent = '';
   isLoading = false;
   form: FormGroup;
   imagePreview: string;
@@ -44,9 +44,8 @@ export class PostCreateComponent implements OnInit {
           .subscribe(post => {
             this.isLoading = false;
             this.post = {
+              ...post,
               id: post._id,
-              title: post.title,
-              content: post.content,
               imagePath: null
             };
             this.form.setValue({
@@ -71,14 +70,15 @@ export class PostCreateComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = (reader.result as string);
+      // console.log('imagePreview', this.imagePreview);
     };
     reader.readAsDataURL(file);
   }
 
   onSavePost() {
-    // if (this.form.invalid) {
-    //   return;
-    // }
+    if (this.form.invalid) {
+      return;
+    }
 
     this.isLoading = true;
 
@@ -92,7 +92,7 @@ export class PostCreateComponent implements OnInit {
 
     else {
       this.postsService.updatePost(
-        this.postId, 
+        this.postId,
         this.form.value.title,
         this.form.value.content
       )

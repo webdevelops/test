@@ -33,9 +33,11 @@ export const mimeType = (
           break;
       }
 
+      // console.log("isValid", isValid)
+
       if (isValid) {
         observer.next(null);
-      
+
       } else {
         observer.next({invalidMimeType: true});
       }
