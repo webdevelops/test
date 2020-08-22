@@ -92,7 +92,7 @@ router.put('/:id', upload.single('image'), (req, res, next) => {
     imagePath: imagePath
   });
 
-  console.log('post', post);
+  // console.log('post', post);
   Post.updateOne({ _id: req.params.id }, post)
     .then(response => {
       // console.log('response-server', response);
