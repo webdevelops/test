@@ -55,7 +55,21 @@ router.post("", upload.single("image"), (req, res, next) => {
 });
 
 router.get("", upload.single('image'), (req, res, next) => {
-  Post.find()
+  const pageSize = +req.query.pagesize;
+  // console.log('pageSize', pageSize)
+  const currentPage = +req.query.page;
+  // console.log('currentPage', currentPage)
+  const postQuery = Post.find();
+
+  if (pageSize && currentPage) {
+    postQuery
+      .skip(pageSize * (currentPage - 1))
+      .limit(pageSize);
+
+    // console.log('postQuery', postQuery)
+  }
+
+  postQuery
     .then(documents => {
     // console.log("documents", documents)
       res.status(200).json({
