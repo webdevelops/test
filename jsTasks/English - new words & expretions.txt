@@ -1,4 +1,4 @@
-------------------------    -1 
+------------------------    -1 !
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -492,7 +492,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !!
+------------------------  +  13 !
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
