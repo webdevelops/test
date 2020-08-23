@@ -9,7 +9,7 @@ import { Post } from './post.model';
 @Injectable({ providedIn: 'root' })
 export class PostsService {
   private posts: Post[] = [];
-  public postsUpdated = new Subject<Post[]>();
+  public postsUpdated = new Subject<{ posts: Post[], postCount: number }>();
   // private postsUpdated = new Subject<Post[]>();
 
   constructor(
@@ -17,23 +17,31 @@ export class PostsService {
     private router: Router
   ) { }
 
-  getPosts() {
+  getPosts(postPerPage: number, currentPage: number) {
+    const queryParams = `?pagesize=${postPerPage}&page=${currentPage}`;
+    // console.log("PostsService -> getPosts -> queryParams", queryParams)
+
     this.http
-      .get<{ message: string, posts: any }>('http://localhost:3000/api/posts')
+      .get<{ message: string, posts: any, maxPosts: number }>('http://localhost:3000/api/posts' + queryParams)
       .pipe(map(postData => {
-        // console.log("PostsService -> getPosts -> postData.posts", postData.posts)
-        return postData.posts.map(post => {
-          return {
-            ...post,
-            id: post._id,
-            imagePath: post.imagePath
-          };
-        });
+        return {
+          posts: postData.posts.map(post => {
+            return {
+              ...post,
+              id: post._id,
+              imagePath: post.imagePath
+            };
+          }),
+          maxPosts: postData.maxPosts
+        };
       }))
-      .subscribe(transformsPost => {
+      .subscribe(transformsPostData => {
         // console.log("PostsService -> getPosts -> transformsPost", transformsPost)
-        this.posts = transformsPost;
-        this.postsUpdated.next([...this.posts]);
+        this.posts = transformsPostData.posts;
+        this.postsUpdated.next({
+          posts: [...this.posts],
+          postCount: transformsPostData.maxPosts
+        });
       })
   }
 
@@ -52,7 +60,7 @@ export class PostsService {
     postData.append('title', title);
     postData.append('content', content);
     postData.append('image', image, title)
-    
+
     this.http
       .post<{ message: string, post: Post }>('http://localhost:3000/api/posts', postData)
       .subscribe(responseData => {
