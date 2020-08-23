@@ -1,4 +1,4 @@
-------------------------    -1 ! test
+------------------------    -1 !
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -30,7 +30,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 
+------------------------    0 !
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
@@ -531,7 +531,7 @@ Do you think that hell and pa'radise exist? - Вы думаете, что ад и рай существую
 It was done for the salva'tion of hu'manity - Это было сделано для спасения человечества
 I expe'rienced some kind of thrill (exci'tement) - Я испытал какие-то острые ощущения \ возбуждение (волнение)
 
-------------------------  +  14 !!
+------------------------  +  14 !
 
 It's a very cosy bed - Это очень уютная кровать
 It was a stu'nning success - Это был потрясающий успех
