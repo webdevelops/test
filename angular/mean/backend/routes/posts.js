@@ -61,7 +61,7 @@ router.get("", upload.single('image'), (req, res, next) => {
   const currentPage = +req.query.page;
   // console.log('currentPage', currentPage)
   const postQuery = Post.find();
-  const fetchedPosts;
+  let fetchedPosts;
 
   if (pageSize && currentPage) {
     postQuery
