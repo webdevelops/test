@@ -59,7 +59,6 @@ export class PostCreateComponent implements OnInit {
         this.mode = 'create';
         this.postId = null;
       }
-      // console.log("PostCreateComponent -> ngOnInit -> this.mode", this.mode)
     })
   }
 
@@ -70,7 +69,6 @@ export class PostCreateComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = (reader.result as string);
-      // console.log('imagePreview', this.imagePreview);
     };
     reader.readAsDataURL(file);
   }
@@ -100,6 +98,4 @@ export class PostCreateComponent implements OnInit {
     }
     this.form.reset();
   }
-
-
 }

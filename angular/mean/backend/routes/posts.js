@@ -2,7 +2,6 @@ const express = require('express');
 const multer = require('multer');
 
 const Post = require('../models/post');
-const { count } = require('console');
 
 const router = express.Router();
 
@@ -33,15 +32,14 @@ const MIME_TYPE_MAP = {
 
 const upload = multer({ dest: 'backend/images' });
 
+// router.post("", multer({storage: storage}).single("image"), (req, res, next) => {
 router.post("", upload.single("image"), (req, res, next) => {
-  // router.post("", multer({storage: storage}).single("image"), (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
     imagePath: url + "/images/" + req.file.filename
   });
-  // console.log('post', post)
 
   post.save().then(createdPost => {
     res.status(201).json({
@@ -57,9 +55,7 @@ router.post("", upload.single("image"), (req, res, next) => {
 
 router.get("", upload.single('image'), (req, res, next) => {
   const pageSize = +req.query.pagesize;
-  // console.log('pageSize', pageSize)
   const currentPage = +req.query.page;
-  // console.log('currentPage', currentPage)
   const postQuery = Post.find();
   let fetchedPosts;
 
@@ -67,14 +63,12 @@ router.get("", upload.single('image'), (req, res, next) => {
     postQuery
       .skip(pageSize * (currentPage - 1))
       .limit(pageSize);
-
-    // console.log('postQuery', postQuery)
   }
 
   postQuery
     .then(documents => {
       fetchedPosts = documents;
-      return Post.count();
+      return Post.countDocuments();
     })
     .then(count => {
       res.status(200).json({
@@ -112,10 +106,8 @@ router.put('/:id', upload.single('image'), (req, res, next) => {
     imagePath: imagePath
   });
 
-  // console.log('post', post);
   Post.updateOne({ _id: req.params.id }, post)
     .then(response => {
-      // console.log('response-server', response);
       res.status(200).json({ message: 'Update succsessful!' });
     });
 });

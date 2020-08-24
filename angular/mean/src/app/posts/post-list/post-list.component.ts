@@ -26,14 +26,8 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isLoading = true;
     this.postsService.getPosts(this.postsPerPage, this.currentPage);
-    // this.postSub = this.postsService.getPostUpdateListener()
-    //   .subscribe((posts: Post[]) => {
-    //   // console.log("PostListComponent -> ngOnInit -> posts", posts)
-    //     this.posts = posts;
-    //   });
     this.postSub = this.postsService.postsUpdated
       .subscribe((postData: { posts: Post[], postCount: number }) => {
-        // console.log("PostListComponent -> ngOnInit -> posts", posts)
         this.isLoading = false;
         this.totalPosts = postData.postCount;
         this.posts = postData.posts;
@@ -48,7 +42,6 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   onChangedPage(pageData: PageEvent) {
-    // console.log("PostListComponent -> onChangedPage -> pageData", pageData)
     this.currentPage = pageData.pageIndex + 1;
     this.postsPerPage = pageData.pageSize;
     this.postsService.getPosts(this.postsPerPage, this.currentPage);
