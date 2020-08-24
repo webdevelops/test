@@ -15,6 +15,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { ObservablesComponent } from './fundamentals/observables/observables.component';
 import { UsageComponent } from './fundamentals/usage/usage.component';
 import { InputComponent } from './fundamentals/input/input.component';
+import { OperatorsComponent } from './fundamentals/operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InputComponent } from './fundamentals/input/input.component';
     RxjsComponent,
     ObservablesComponent,
     UsageComponent,
-    InputComponent
+    InputComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,

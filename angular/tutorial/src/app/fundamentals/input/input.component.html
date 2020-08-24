@@ -3,3 +3,9 @@
 <p>
   Today's item: {{item}}
 </p>
+
+<label>Add an item
+  <input type="text" #newItem>
+</label>
+
+<button (click)="addNewItem(newItem.value)">Click</button>

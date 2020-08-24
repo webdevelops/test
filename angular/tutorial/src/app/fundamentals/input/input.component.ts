@@ -14,4 +14,8 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+
 }
