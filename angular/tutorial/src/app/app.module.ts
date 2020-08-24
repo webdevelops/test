@@ -14,6 +14,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ObservablesComponent } from './fundamentals/observables/observables.component';
 import { UsageComponent } from './fundamentals/usage/usage.component';
+import { InputComponent } from './fundamentals/input/input.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UsageComponent } from './fundamentals/usage/usage.component';
     DynamicComponent,
     RxjsComponent,
     ObservablesComponent,
-    UsageComponent
+    UsageComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 
 const Post = require('../models/post');
+const { count } = require('console');
 
 const router = express.Router();
 
@@ -30,15 +31,15 @@ const MIME_TYPE_MAP = {
 //   }
 // });
 
-const upload = multer({dest: 'backend/images'});
+const upload = multer({ dest: 'backend/images' });
 
 router.post("", upload.single("image"), (req, res, next) => {
-// router.post("", multer({storage: storage}).single("image"), (req, res, next) => {
+  // router.post("", multer({storage: storage}).single("image"), (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
-    imagePath: url + "/images/" +  req.file.filename
+    imagePath: url + "/images/" + req.file.filename
   });
   // console.log('post', post)
 
@@ -60,6 +61,7 @@ router.get("", upload.single('image'), (req, res, next) => {
   const currentPage = +req.query.page;
   // console.log('currentPage', currentPage)
   const postQuery = Post.find();
+  let fetchedPosts;
 
   if (pageSize && currentPage) {
     postQuery
@@ -71,10 +73,14 @@ router.get("", upload.single('image'), (req, res, next) => {
 
   postQuery
     .then(documents => {
-    // console.log("documents", documents)
+      fetchedPosts = documents;
+      return Post.count();
+    })
+    .then(count => {
       res.status(200).json({
         message: "Posts fetched successfully!",
-        posts: documents
+        posts: fetchedPosts,
+        maxPosts: count
       })
     })
     .catch(err => console.log('Error: ', err));
@@ -86,7 +92,7 @@ router.get('/:id', upload.single('image'), (req, res, next) => {
       res.status(200).json(post);
 
     } else {
-      res.status(404).json({message: "Post not found!"});
+      res.status(404).json({ message: "Post not found!" });
     }
   })
 });
@@ -110,7 +116,7 @@ router.put('/:id', upload.single('image'), (req, res, next) => {
   Post.updateOne({ _id: req.params.id }, post)
     .then(response => {
       // console.log('response-server', response);
-      res.status(200).json({message: 'Update succsessful!'});
+      res.status(200).json({ message: 'Update succsessful!' });
     });
 });
 
