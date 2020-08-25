@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 
 const Post = require('../models/post');
+const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
@@ -33,7 +34,7 @@ const MIME_TYPE_MAP = {
 const upload = multer({ dest: 'backend/images' });
 
 // router.post("", multer({storage: storage}).single("image"), (req, res, next) => {
-router.post("", upload.single("image"), (req, res, next) => {
+router.post("", checkAuth, upload.single("image"), (req, res, next) => {
   const url = req.protocol + '://' + req.get('host');
   const post = new Post({
     title: req.body.title,
@@ -91,7 +92,7 @@ router.get('/:id', upload.single('image'), (req, res, next) => {
   })
 });
 
-router.put('/:id', upload.single('image'), (req, res, next) => {
+router.put('/:id', checkAuth, upload.single('image'), (req, res, next) => {
   let imagePath = req.body.imagePath;
 
   if (req.file) {

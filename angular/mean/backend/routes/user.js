@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
-const user = require('../models/user');
+const config = require('../config');
+const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
@@ -29,7 +30,7 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', checkAuth, (req, res, next) => {
   let fetchedUser;
 
   User
@@ -51,7 +52,7 @@ router.post('/login', (req, res, next) => {
       }
       const token = jwt.sign(
         { email: fetchedUser.email, userId: fetchedUser._id },
-        "sekret_should_be_longer",
+        config.secretKey,
         { expiresIn: '1h' }
       );
       res.status(200).json({
