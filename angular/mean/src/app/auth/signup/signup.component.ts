@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-singup',
-  templateUrl: './singup.component.html',
-  styleUrls: ['./singup.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class SingupComponent implements OnInit {
+export class SignupComponent implements OnInit {
   isLoading = false;
 
   constructor() { }
@@ -14,7 +14,7 @@ export class SingupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSingup(form: NgForm) {
+  onSignup(form: NgForm) {
     console.log('form', form.value);
   }
 
