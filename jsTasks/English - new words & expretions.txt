@@ -91,7 +91,7 @@ They were sitting in si'lence - Они сидели в тишине
 Don't forget to put a si'gnature here - Не забудьте поставить подпись здесь
 I teach students of mixed abilities - Я учу студентов смешанных (возможностей) способностейasd
 
-------------------------    2 
+------------------------    2 !
 
 You just need to use the right techni'que - Вам просто нужно использовать правильную технику  // ...1205 / 1.43.21
 Tell me this figure. I can't figure out how it works - Скажи мне эту цифру. Я не могу понять (вычислить), как это работает
@@ -235,12 +235,12 @@ We see a kite in the sky - Мы видим змея в небе ------- // ... 1620
 The fitness club provides different faci'lities - Фитнес-клуб предоставляет различные услуги (удобства, оборудование)
 The central hea'ting is off - Центральное отопление выключено
 I can't stand this heat - Я не могу выдержать это тепло
-I want to be fit - Я хочу быть в форме
+I want to be fit - Я хочу быть в форме (соответствующим)
 He is bald - Он лысый
 You need a hai'rcut / hai'rstyle - Вам нужна стрижка / прическа ------- // ... 1640
 It's a bu'llet wound - Это пулевое ранение
 Everything was in da'rkness - Все было в темноте
-She got fri'ghtened of that bat - Она испугалась этой летучей мыши
+She got (was) fri'ghtened of that bat - Она испугалась этой летучей мыши
 Are you afraid of a'liens - Ты боишься инопланетян? (иностранец, чужак)
 I need to charge it - Мне нужно зарядить его
 He dipped into the water - Он окунулся в воду
@@ -604,7 +604,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !!
+------------------------  +  16 !
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
