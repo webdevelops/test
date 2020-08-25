@@ -16,6 +16,7 @@ import { ObservablesComponent } from './fundamentals/observables/observables.com
 import { UsageComponent } from './fundamentals/usage/usage.component';
 import { InputComponent } from './fundamentals/input/input.component';
 import { OperatorsComponent } from './fundamentals/operators/operators.component';
+import { SvgComponent } from './fundamentals/svg/svg.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OperatorsComponent } from './fundamentals/operators/operators.component
     ObservablesComponent,
     UsageComponent,
     InputComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    SvgComponent
   ],
   imports: [
     BrowserModule,

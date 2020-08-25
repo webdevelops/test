@@ -2,3 +2,9 @@
 
 <p>Title through uppercase pipe: {{title | uppercase | lowercase}}</p>
 <p>Manufacture date is: {{manufacture.date | date: 'longDate'}}</p>
+
+<pre>Data in Json formate - manufacture: {{manufacture | json}}</pre>
+
+<!-- <p>Object or property "manufacture_2" may not exist or null: {{manufacture_2?.property}}</p> -->
+
+<p>The munufacture's colot is: {{manufacture.color.toUpperCase()}}</p>
