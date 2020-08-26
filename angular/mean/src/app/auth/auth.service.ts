@@ -8,7 +8,7 @@ import { AuthData } from './auth-data.module';
 export class AuthService {
   private isAuthenticated = false;
   private token: string;
-  private authStatusListener = new Subject<boolean>();
+  public authStatusListener = new Subject<boolean>();
 
   constructor(
     private http: HttpClient
@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   getIsAuth() {
+    // console.log('isAuthenticated-------------', this.isAuthenticated)
     return this.isAuthenticated;
   }
 
@@ -45,5 +46,11 @@ export class AuthService {
           this.authStatusListener.next(true);
         }
       });
+  }
+
+  logout() {
+    this.token = null;
+    this.isAuthenticated = false;
+    this.authStatusListener.next(false);
   }
 }
