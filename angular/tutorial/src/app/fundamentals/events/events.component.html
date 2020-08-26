@@ -1,0 +1,19 @@
+<h2>Events works!</h2>
+
+<button (click)="onClickMe()">Click Me</button>
+
+<p>{{clickMessage}}</p>
+
+<input type="text" (keyup)="onKey($event)">
+
+<p>{{value}}</p>
+
+<input type="text" #inputBox (keyup.enter)="onEnter(inputBox.value)">
+<!-- (keyup)="onKeyup(inputBox.value)" -->
+
+<p>{{keyValue}}</p>
+<p>{{enterValue}}</p>
+
+<input type="text" #box (keyup.enter)="update(box.value)" (blur)="update(box.value)">
+
+<p>{{updateValue}}</p>
