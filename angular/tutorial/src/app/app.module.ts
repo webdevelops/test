@@ -18,6 +18,7 @@ import { InputComponent } from './fundamentals/input/input.component';
 import { OperatorsComponent } from './fundamentals/operators/operators.component';
 import { SvgComponent } from './fundamentals/svg/svg.component';
 import { EventsComponent } from './fundamentals/events/events.component';
+import { HighlightDirective } from './fundamentals/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EventsComponent } from './fundamentals/events/events.component';
     InputComponent,
     OperatorsComponent,
     SvgComponent,
-    EventsComponent
+    EventsComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

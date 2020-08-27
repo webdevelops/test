@@ -11,6 +11,7 @@ export class EventsComponent implements OnInit {
   keyValue = '';
   enterValue = '';
   updateValue = '';
+  heroes: string[] = [];
 
   constructor() { }
 
@@ -36,5 +37,13 @@ export class EventsComponent implements OnInit {
 
   update(value) {
     this.updateValue = value;
+  }
+
+  addHero(newHero: string) {
+    if (!newHero) {
+      return;
+    }
+
+    this.heroes.push(newHero);
   }
 }
