@@ -28,7 +28,6 @@ export class PostListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // console.log('isAuthenticated-------------')
     this.isLoading = true;
     this.postsService.getPosts(this.postsPerPage, this.currentPage);
 
@@ -41,16 +40,18 @@ export class PostListComponent implements OnInit, OnDestroy {
 
     this.userIsAuthenticated = this.authService.getIsAuth();
 
-    this.authStatusSub = this.authService
-      .getAuthStatusListener()
+    // this.authStatusSub = this.authService
+    //   .getAuthStatusListener()
+    //   .subscribe(isAuthenticated => {
+    //     this.userIsAuthenticated = isAuthenticated;
+    //   });
+
+    this.authStatusSub = this.authService.authStatusListener
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
 
-    // this.authStatusSub = this.authService.authStatusListener
-    //   .subscribe(isAuthenticated => {
-    //     console.log('isAuthenticated - getAuthStatusListener', isAuthenticated)
-    //   });
+    // this.authService.autoAuthUser();
   }
 
   onDelete(postId: string) {
