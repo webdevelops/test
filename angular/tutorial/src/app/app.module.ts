@@ -17,6 +17,7 @@ import { UsageComponent } from './fundamentals/usage/usage.component';
 import { InputComponent } from './fundamentals/input/input.component';
 import { OperatorsComponent } from './fundamentals/operators/operators.component';
 import { SvgComponent } from './fundamentals/svg/svg.component';
+import { EventsComponent } from './fundamentals/events/events.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SvgComponent } from './fundamentals/svg/svg.component';
     UsageComponent,
     InputComponent,
     OperatorsComponent,
-    SvgComponent
+    SvgComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
