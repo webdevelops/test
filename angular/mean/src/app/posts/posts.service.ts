@@ -27,6 +27,7 @@ export class PostsService {
             return {
               ...post,
               id: post._id,
+              creator: post.creator,
               // imagePath: post.imagePath
             };
           }),
@@ -34,6 +35,7 @@ export class PostsService {
         };
       }))
       .subscribe(transformsPostData => {
+      console.log("PostsService -> getPosts -> transformsPostData", transformsPostData)
         this.posts = transformsPostData.posts;
         this.postsUpdated.next({
           posts: [...this.posts],
