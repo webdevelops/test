@@ -8,7 +8,7 @@ import { Component } from '@angular/core'
 export class AppComponent {
   currentItem = 'Hello';
   items = ['item1', 'item2', 'item3', 'item4'];
-  color = 'yellow';
+  color: string;
 
   addItem(newItem: string) {
     this.items.push(newItem);
