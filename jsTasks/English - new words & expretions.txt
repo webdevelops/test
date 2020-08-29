@@ -224,7 +224,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 
+------------------------    6 !
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -454,7 +454,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !
+------------------------  +  12 !!
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
