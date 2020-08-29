@@ -54,7 +54,7 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.userId = this.authService.getUserId();
       });
 
-    // this.authService.autoAuthUser();
+    // this.authService.autoAuthUser(); !
   }
 
   onDelete(postId: string) {
