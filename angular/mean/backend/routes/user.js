@@ -55,6 +55,7 @@ router.post('/login', (req, res, next) => {
         config.secretKey,
         { expiresIn: '1h' }
       );
+      console.log("token", token)
       res.status(200).json({
         token: token,
         expiresIn: 3600,

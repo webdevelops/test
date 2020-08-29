@@ -38,6 +38,7 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.totalPosts = postData.postCount;
         this.posts = postData.posts;
+        // console.log("PostListComponent -> ngOnInit -> this.posts", this.posts)
       });
 
     this.userIsAuthenticated = this.authService.getIsAuth();

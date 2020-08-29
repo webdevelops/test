@@ -24,10 +24,11 @@ export class PostsService {
       .pipe(map(postData => {
         return {
           posts: postData.posts.map(post => {
+          // console.log("PostsService -> getPosts -> post", post)
             return {
               ...post,
               id: post._id,
-              creator: post.creator,
+              // creator: post.creator,
               // imagePath: post.imagePath
             };
           }),
@@ -35,7 +36,7 @@ export class PostsService {
         };
       }))
       .subscribe(transformsPostData => {
-      console.log("PostsService -> getPosts -> transformsPostData", transformsPostData)
+      // console.log("PostsService -> getPosts -> transformsPostData", transformsPostData)
         this.posts = transformsPostData.posts;
         this.postsUpdated.next({
           posts: [...this.posts],
@@ -45,7 +46,7 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    return this.http.get<{ _id: string, title: string, content: string, imagePath: string }>(`http://localhost:3000/api/posts/${id}`);
+    return this.http.get<{ _id: string, title: string, content: string, imagePath: string, creator: string }>(`http://localhost:3000/api/posts/${id}`);
   }
 
   addPost(title: string, content: string, image: File) {
@@ -71,7 +72,7 @@ export class PostsService {
       postData.append('image', image, title);
 
     } else {
-      postData = { id, title, content, imagePath: image };
+      postData = { id, title, content, imagePath: image, creator: null };
     }
 
     this.http

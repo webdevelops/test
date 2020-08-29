@@ -42,6 +42,7 @@ export class PostCreateComponent implements OnInit {
         this.isLoading = true;
         this.postsService.getPost(this.postId)
           .subscribe(postData => {
+          console.log("PostCreateComponent -> ngOnInit -> postData", postData)
             this.isLoading = false;
             this.post = {
               ...postData,
