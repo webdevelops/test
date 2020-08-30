@@ -1,0 +1,21 @@
+<h2>Structural works!</h2>
+
+<p *ngIf="true">
+  Expression is true and ngIf is true.
+  This paragraph is in the DOM.
+</p>
+
+<p *ngIf="false">
+  Expression false and ngIf is false.
+  This paragrahp is not in the DOM.
+</p>
+
+<p [style.display]="'block'">
+  Expression sets display to 'block'.
+  This paragraph is visible.
+</p>
+
+<p [style.display]="'none'">
+  Expression sets display 'none'.
+  This paragraph in hidden but still in the DOM.
+</p>
