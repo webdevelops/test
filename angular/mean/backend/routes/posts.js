@@ -43,16 +43,23 @@ router.post("", checkAuth, upload.single("image"), (req, res, next) => {
     creator: req.userData.userId
   });
 
-  post.save().then(createdPost => {
-    res.status(201).json({
-      message: "Post added successfully!",
-      post: {
-        ...createdPost,
-        id: createdPost._id
-      }
-    })
-  }
-  );
+  post
+    .save()
+    .then(createdPost => {
+      res.status(201).json({
+        message: "Post added successfully!",
+        post: {
+          ...createdPost,
+          id: createdPost._id
+        }
+      });
+    }
+    )
+    .catch(error => {
+      res.status(500).json({
+        message: 'Creating a post failed!'
+      });
+    }) ;
 });
 
 router.get("", upload.single('image'), (req, res, next) => {
@@ -77,9 +84,13 @@ router.get("", upload.single('image'), (req, res, next) => {
         message: "Posts fetched successfully!",
         posts: fetchedPosts,
         maxPosts: count
-      })
+      });
     })
-    .catch(err => console.log('Error: ', err));
+    .catch(error => {
+      res.status(500).json({
+        message: 'Fetching posts failed!'
+      });
+    });
 });
 
 router.get('/:id', upload.single('image'), (req, res, next) => {
@@ -117,6 +128,11 @@ router.put('/:id', checkAuth, upload.single('image'), (req, res, next) => {
       } else {
         res.status(401).json({ mwssage: 'Not authorised!' });
       }
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: 'Couldn\'t undate post!'
+      })
     });
 });
 
