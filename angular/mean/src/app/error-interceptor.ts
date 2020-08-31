@@ -20,6 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error.error.message) {
           errorMessage = error.error.message;
         }
+        console.log('error', error)
 
         this.dialog.open(ErrorComponent, { data: { message: errorMessage} });
         
