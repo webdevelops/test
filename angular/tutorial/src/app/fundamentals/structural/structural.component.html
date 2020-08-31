@@ -19,3 +19,29 @@
   Expression sets display 'none'.
   This paragraph in hidden but still in the DOM.
 </p>
+
+<!-- <div>
+  <p *ngFor="let item of [1, 2, 3]">Item: {{item}}</p>
+  <p *ngFor="let item of [4, 5, 6] as items">Item: {{item}}</p>
+  <p *ngIf="2 + 3 as result">2 + 3 = {{result}}</p>
+</div> -->
+
+<!-- <div [ngSwitch]="hero?.emotion"> -->
+<!-- <app-svg *ngSwitchCase="'happy'" [hero]="hero"></app-svg>
+  <app-structural *ngSwitch="'confused'" [hero]="hero"></app-structural>
+  <app-unknow *ngSwitchDefault [hero]="hero"></app-unknow> -->
+<!-- </div> -->
+
+<div>
+  Pick your favorite hero
+  (<label>Show sad
+    <input type="checkbox" checked (change)="showSad = !showSad">
+  </label>)
+  <select [(ngModel)]="hero">
+    <span *ngFor="let h of heroes">
+      <!-- <span *ngIf="showSad || h.emotion !== 'sad'"> -->
+        <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+      <!-- </span> -->
+    </span>
+  </select>
+</div>
