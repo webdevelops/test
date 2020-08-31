@@ -263,7 +263,7 @@ We saw a bride and a groom - Мы видели невесту и жениха
 He confe'ssed that they were enga'ged - Он признался, что они были помолвлены (заняты)
 I'll be brief - Я буду краток
 
-------------------------    7 r!
+------------------------    7 !
 
 Adju'st the brightness - Отрегулируйте яркость
 There were gloomy pro'spects - Были мрачные перспективы
@@ -299,7 +299,7 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 !
+------------------------    8 r!
 
 I'll write it in the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
@@ -334,11 +334,11 @@ This rope is so long - Эта веревка такая длинная
 The bird was kept in a cage - Птица содержалась в клетке
 This is a goat - Это коза
 I was sent to a very good camp near the sea - Меня отправили в очень хороший лагерь у моря
-This ca'ndidate is sui'table for us - Этот кандидат подходит для нас
+This ca'ndidate is sui'table for us - Этот кандидат (подходящий) подходит для нас
 I'll take part in the elections - Я приму участие в выборах                  ------- // ... 1840
 I like ca'ndies - Я люблю конфеты
 
-------------------------    9 
+------------------------    9 !
 
 I'm not proud of our cantee'n - Я не горжусь нашей столовой
 He is inca'pable / ca'pable of doing it - Он неспособен / способен сделать это
@@ -531,7 +531,7 @@ Do you think that hell and pa'radise exist? - Вы думаете, что ад и рай существую
 It was done for the salva'tion of hu'manity - Это было сделано для спасения человечества
 I expe'rienced some kind of thrill (exci'tement) - Я испытал какие-то острые ощущения \ возбуждение (волнение)
 
-------------------------  +  14 !
+------------------------  +  14 !!
 
 It's a very cosy bed - Это очень уютная кровать
 It was a stu'nning success - Это был потрясающий успех
