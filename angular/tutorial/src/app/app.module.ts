@@ -20,7 +20,7 @@ import { SvgComponent } from './fundamentals/svg/svg.component';
 import { EventsComponent } from './fundamentals/events/events.component';
 import { HighlightDirective } from './fundamentals/highlight.directive';
 import { StructuralComponent } from './fundamentals/structural/structural.component';
-import { HappyHeroComponent } from './fundamentals/structural/happy-hero/happy-hero.component';
+import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { HappyHeroComponent } from './fundamentals/structural/happy-hero/happy-h
     EventsComponent,
     HighlightDirective,
     StructuralComponent,
-    HappyHeroComponent
+    HeroSwitchComponents
   ],
   imports: [
     BrowserModule,
