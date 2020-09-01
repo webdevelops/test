@@ -1,4 +1,4 @@
-------------------------    -1 !
+------------------------    -1 
 
 I can't keep up with you  - я не могу угнатьс€ за тобой
 He injured his arm - ќн повредил руку
@@ -568,7 +568,7 @@ It's covered with dust - ќн покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - ќн действительно болен. ≈го снова вырвало 20 минут назад.
 Everything is in diso'rder - ¬се в беспор€дке (расстройство)
 
-------------------------  +  15 !
+------------------------  +  15 !!
 
 I think we need some kind of diversity - я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Ётот домен (область, сфера) принадлежит вам?
