@@ -12,12 +12,12 @@ import { AuthService } from '../auth.service';
 export class SignupComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription
-
+  
   constructor(
     public authService: AuthService
-  ) { }
-
-  ngOnInit(): void {
+    ) { }
+    
+    ngOnInit(): void {
     this.authStatusSub = this.authService.authStatusListener.subscribe(
       authStatus => {
         this.isLoading = false;
