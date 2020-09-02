@@ -36,7 +36,7 @@
   <button (click)="hero ? null : heroes[0]">Toggle hero</button>
 
   Pick your favorite hero
-  <label>(Show sad 
+  <label>(Show sad
     <input type="checkbox" checked (change)="showSad = !showSad">)
   </label>
 
@@ -48,5 +48,11 @@
     </ng-container>
   </select>
 
-  
+  <div>
+    <span>The condition is currently {{condition}} </span>
+    <button (click)="changeCondition()">Toggle condition {{!condition}}</button>
+
+    <p *appUnless="condition" class="unless_a">Show this sentence unless if condition is true.</p>
+    <p *appUnless="!condition" class="unless_b">Although the condition is true, his paragraph is displaeyd becouse appUnless is set to false.</p>
+  </div>
 </div>

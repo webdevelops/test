@@ -20,7 +20,8 @@ import { SvgComponent } from './fundamentals/svg/svg.component';
 import { EventsComponent } from './fundamentals/events/events.component';
 import { HighlightDirective } from './fundamentals/highlight.directive';
 import { StructuralComponent } from './fundamentals/structural/structural.component';
-import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.component'
+import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.component';
+import { UnlessDirective } from './fundamentals/structural/unless.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.comp
     EventsComponent,
     HighlightDirective,
     StructuralComponent,
-    HeroSwitchComponents
+    HeroSwitchComponents,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

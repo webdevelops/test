@@ -11,10 +11,15 @@ export class StructuralComponent implements OnInit {
   heroes = heroes;
   hero = this.heroes[0];
   showSad = true;
+  condition = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeCondition() {
+    this.condition = !this.condition;
   }
 
 }
