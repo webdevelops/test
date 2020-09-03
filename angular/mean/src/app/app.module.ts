@@ -21,8 +21,8 @@ import { PostsModule } from './posts/posts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     AngularMaterialModule,
     PostsModule
   ],
