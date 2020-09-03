@@ -22,6 +22,9 @@ import { HighlightDirective } from './fundamentals/highlight.directive';
 import { StructuralComponent } from './fundamentals/structural/structural.component';
 import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.component';
 import { UnlessDirective } from './fundamentals/structural/unless.directive';
+import { DependencyComponent } from './fundamentals/dependency/dependency.component';
+import { HeroesComponent } from './fundamentals/dependency/heroes/heroes.component'
+import { HeroListComponent } from './fundamentals/dependency/heroes/hero-list.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { UnlessDirective } from './fundamentals/structural/unless.directive';
     HighlightDirective,
     StructuralComponent,
     HeroSwitchComponents,
-    UnlessDirective
+    UnlessDirective,
+    DependencyComponent,
+    HeroesComponent,
+    HeroListComponent
   ],
   imports: [
     BrowserModule,
