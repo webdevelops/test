@@ -46,6 +46,10 @@ app.use('/api/user', userRoutes);
 
 app.use((req, res, next) => {    // for production
   res.sendFile(path.join(__dirname, 'angular', 'index.html'));
-})
+});
+
+// app.use("*", (req, res) => {    // for production
+//   res.sendFile(path.join(__dirname, 'angular/index.html'));
+// });
 
 module.exports = app;
