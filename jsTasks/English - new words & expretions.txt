@@ -30,7 +30,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 !
+------------------------    0 
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
@@ -59,7 +59,7 @@ Everyone likes getting gifts - Всем нравится получать подарки
 Don't trick others - Не обманывай других
 I lack free time - Мне не хватает свободного времени  // ...1100 / 1.34.21
 
-------------------------    1 !
+------------------------    1 
 
 We went si'ghtseeing - Мы пошли на экскурсию (осмотр достопримечательностей)
 I'm i'nnocent - Я невиновен
@@ -299,13 +299,13 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 r!
+------------------------    8 !
 
-I'll write it in the blackbo'ard - Я напишу это на доске
+I'll write it on the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
 I'd like to hi'ghlight the impo'rtance of self-educa'tion - Я хотел бы подчеркнуть важность самообразования
 I put an e'mphasis on the  - Я делаю акцент на
-I need a wa'rmer bla'nket - Мне нужно теплое одеяло
+I need a wa'rmer bla'nket - Мне нужно более теплое одеяло
 The negotia'tions were pea'ceful - Переговоры были мирными
 Calm down! - Успойкойся!
 She saw the blood and pa'ssed out - Она увидела кровь и потеряла сознание  ------- // ... 1780
@@ -338,7 +338,7 @@ This ca'ndidate is sui'table for us - Этот кандидат (подходящий) подходит для на
 I'll take part in the elections - Я приму участие в выборах                  ------- // ... 1840
 I like ca'ndies - Я люблю конфеты
 
-------------------------    9 !
+------------------------    9 r!
 
 I'm not proud of our cantee'n - Я не горжусь нашей столовой
 He is inca'pable / ca'pable of doing it - Он неспособен / способен сделать это
@@ -604,7 +604,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !
+------------------------  +  16 !!
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
@@ -642,7 +642,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !
+------------------------  +  17 !!
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
