@@ -91,7 +91,7 @@ They were sitting in si'lence - Они сидели в тишине
 Don't forget to put a si'gnature here - Не забудьте поставить подпись здесь
 I teach students of mixed abilities - Я учу студентов смешанных (возможностей) способностейasd
 
-------------------------    2 !
+------------------------    2 
 
 You just need to use the right techni'que - Вам просто нужно использовать правильную технику  // ...1205 / 1.43.21
 Tell me this figure. I can't figure out how it works - Скажи мне эту цифру. Я не могу понять (вычислить), как это работает
@@ -359,13 +359,13 @@ I want to play by the ru'les - Я хочу играть по правилам
 What can we do about this cha'os? - Что мы можем сделать с этим хаосом?
 To take into acco'unt some other characteri'stics - Принять во внимание некоторые другие характеристики
 I think cha'rity isn't bad - Я думаю, что благотворительность не плохо
-She is so cha'rming / pre'tty - Она такая очаровательная / красивая
+She is so cha'rming / pre'tty - Она такая очаровательная / хорошенькая
 I'm aga'inst chea'ting - Я против мошенничества
 She decei'ved me. It's so disgu'sting! - Она обманула меня. Это так отвратительно!
 He is chee'rful all the time - Он веселый все время
 By the way, I'm re'alist and o'ptimistic - Кстати, я реалист и оптимист                ------- // ... 1900
 Cheers, Bless you! - Ура (аплодисменты), Будьте здоровы!
-He's at the chemist's(pharmacy) now - Он сейчас в аптеке
+He's at the chemist's(pharmacy) now - Он сейчас (у аптекаря) в аптеке
 There were ma'ssive walls in front of us - Перед нами были массивные стены
 He has a broad chest - У него широкая грудь
 It's a vi'cious circle - Это замкнутый круг
@@ -376,7 +376,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 !!
+------------------------  +  10 !
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
