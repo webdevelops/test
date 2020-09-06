@@ -152,7 +152,7 @@ I'm against ha'tred - Я против ненависти
 Let me admit that learning English is a fascina'ting pro'cess - Позвольте мне признать, что изучение английского языка является увлекательным процессом
 Admission free - Вход бесплатный
 
-------------------------    4 !
+------------------------    4 
 
 I decided to do it in adva'nce - Я решил сделать это заранее (аванс, авансово) ------- // ... 1403
 I like adventure. It's so thrilling - Мне нравится приключение. Это так волнующе
@@ -371,7 +371,7 @@ He has a broad chest - У него широкая грудь
 It's a vi'cious circle - Это замкнутый круг
 There was a small fra'ction of the workers - Там была небольшая часть рабочих
 He is 5 and he can su'btract, mu'ltiply, divi'de etc. - Ему 5 лет, и он может вычитать, умножать, делить и т.д.
-He is the head of a very big devi'sion in our company - Он является руководителем очень большого отдела в нашей компании.
+He is the head of a very big devi'sion (department) in our company - Он является руководителем очень большого подразделение (отдел) в нашей компании.
 When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в цирк?
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
@@ -454,7 +454,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !!
+------------------------  +  12 !
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
