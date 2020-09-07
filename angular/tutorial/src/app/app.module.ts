@@ -24,7 +24,10 @@ import { HeroSwitchComponents } from './fundamentals/structural/hero-switch.comp
 import { UnlessDirective } from './fundamentals/structural/unless.directive';
 import { DependencyComponent } from './fundamentals/dependency/dependency.component';
 import { HeroesComponent } from './fundamentals/dependency/heroes/heroes.component'
-import { HeroListComponent } from './fundamentals/dependency/heroes/hero-list.component'
+import { HeroListComponent } from './fundamentals/dependency/heroes/hero-list.component';
+import { RoutingComponent } from './fundamentals/routing/routing.component';
+import { FirstComponent } from './fundamentals/routing/first/first.component';
+import { SecondComponent } from './fundamentals/routing/second/second.component'
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { HeroListComponent } from './fundamentals/dependency/heroes/hero-list.co
     UnlessDirective,
     DependencyComponent,
     HeroesComponent,
-    HeroListComponent
+    HeroListComponent,
+    RoutingComponent,
+    FirstComponent,
+    SecondComponent
   ],
   imports: [
     BrowserModule,
