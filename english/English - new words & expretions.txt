@@ -187,7 +187,7 @@ It anno'ys me - Это меня раздражает
 His la'ziness i'rritates me - Его лень раздражает меня
 What's their a'nnual tu'rnover? - Каков их годовой оборот? ------- // ... 1500
 
-------------------------    5 !
+------------------------    5 
 
 She's a'nxious about her future - Она беспокоится о своем будущем
 She has a feeling of anxi'ety - У нее чувство тревоги
@@ -492,7 +492,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !!
+------------------------  +  13 !
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
