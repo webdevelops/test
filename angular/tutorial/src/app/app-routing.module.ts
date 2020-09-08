@@ -5,9 +5,10 @@ import { HomePageComponent } from './home-page/home-page.component'
 import { SvgComponent } from './fundamentals/svg/svg.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'svg', component: SvgComponent },
-  { path: 'about', loadChildren: () => import('./about-page/about-page.module').then(m => m.AboutPageModule) }
+  { path: 'about', loadChildren: () => import('./about-page/about-page.module').then(m => m.AboutPageModule) },
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
