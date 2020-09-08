@@ -27,19 +27,15 @@ export class PostsService {
       .pipe(map(postData => {
         return {
           posts: postData.posts.map(post => {
-          // console.log("PostsService -> getPosts -> post", post)
             return {
               ...post,
               id: post._id,
-              // creator: post.creator,
-              // imagePath: post.imagePath
             };
           }),
           maxPosts: postData.maxPosts
         };
       }))
       .subscribe(transformsPostData => {
-      // console.log("PostsService -> getPosts -> transformsPostData", transformsPostData)
         this.posts = transformsPostData.posts;
         this.postsUpdated.next({
           posts: [...this.posts],

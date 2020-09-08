@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 
-import { HEROES } from "./mock-heroes";
+// import { HEROES } from "./mock-heroes";
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'app-hero-list',
@@ -11,5 +13,13 @@ import { HEROES } from "./mock-heroes";
   `
 })
 export class HeroListComponent {
-  heroes = HEROES;
+  // heroes = HEROES;
+  heroes: Hero[];
+
+  constructor(private heroService: HeroService) { 
+    
+    this.heroes = this.heroService.getHeroes();
+    
+  }
+  
 }

@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { AuthData } from './auth-data.module';
 import { environment } from 'src/environments/environment';
 
-const BACKEND_URL = environment.apiUrl + "/user";
+const BACKEND_URL = environment.apiUrl + "/user/signup";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -33,13 +33,13 @@ export class AuthService {
     return this.userId;
   }
 
-  // getAuthStatusListener() {
-  //   return this.authStatusListener.asObservable(); !!!
-  // }
+  getAuthStatusListener() {
+    return this.authStatusListener.asObservable();
+  }
 
   createUser(email: string, password: string) {
     const authData: AuthData = { email: email, password: password }
-    this.http.post(BACKEND_URL + '/signup', authData)
+    this.http.post(BACKEND_URL, authData)
       .subscribe(() => {
         this.router.navigate(['/']);
       }, error => {
