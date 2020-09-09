@@ -48,10 +48,6 @@ const port = normalizePort(process.env.PORT || "3000");  // for development
 // const port = normalizePort(process.env.PORT || "8080");  // for  production
 app.set('port', port);
 
-// const server = http.createServer((req, res) => {
-//   res.end('This my ferst response');
-// })
-
 const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);

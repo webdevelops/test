@@ -20,10 +20,8 @@ mongoose.connect(config.dbUrl, {
     console.log('Connection to data base failed');
   });
 
+  // app.use(bodyParser.json());
 app.use(express.json({ extended: true }));  // such as bodyParser - convert json to javaScript
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/images", express.static(path.join("backend/images")));
 app.use("/", express.static(path.join(__dirname, "angular")));  // for production
