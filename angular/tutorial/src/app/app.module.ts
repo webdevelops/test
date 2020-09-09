@@ -27,7 +27,8 @@ import { HeroesComponent } from './fundamentals/dependency/heroes/heroes.compone
 import { HeroListComponent } from './fundamentals/dependency/heroes/hero-list.component';
 import { RoutingComponent } from './fundamentals/routing/routing.component';
 import { FirstComponent } from './fundamentals/routing/first/first.component';
-import { SecondComponent } from './fundamentals/routing/second/second.component'
+import { SecondComponent } from './fundamentals/routing/second/second.component';
+import { HeroComponent } from './fundamentals/dependency/heroes/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SecondComponent } from './fundamentals/routing/second/second.component'
     HeroListComponent,
     RoutingComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
