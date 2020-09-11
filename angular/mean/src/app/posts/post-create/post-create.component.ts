@@ -45,6 +45,14 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         asyncValidators: [mimeType]
       })
     });
+    
+    console.log('snapshot', this.route.params)
+    console.log('snapshot', this.route.paramMap)
+    // console.log('snapshot', this.route.paramMap.has(''))
+    console.log('snapshot---', this.route.snapshot)
+    console.log('snapshot---', this.route.snapshot.params)
+    console.log('snapshot---', this.route.snapshot.paramMap)
+    console.log('snapshot---', this.route.snapshot.paramMap.has('postId'))
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
@@ -52,7 +60,6 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.postsService.getPost(this.postId)
           .subscribe(postData => {
-          console.log("PostCreateComponent -> ngOnInit -> postData", postData)
             this.isLoading = false;
             this.post = {
               ...postData,
