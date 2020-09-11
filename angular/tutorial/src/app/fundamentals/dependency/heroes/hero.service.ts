@@ -16,4 +16,10 @@ export class HeroService {
     this.logger.log('Getting heroes...')
     return HEROES;
   }
+
+  getHero(id) {
+    this.logger.log('Getting hero...');
+    console.log('HEROES[id]', HEROES[id]);
+    return HEROES[id];
+  }
 }

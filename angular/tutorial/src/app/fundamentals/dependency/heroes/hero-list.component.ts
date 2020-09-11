@@ -17,7 +17,7 @@ import { switchMap } from 'rxjs/operators';
   `
 })
 export class HeroListComponent implements OnInit {
-  // heroes = HEROES;
+  // heroes = HEROES;тзь іеф
   heroes;
   heroes$: Observable<any>;
   selectedId: number;
