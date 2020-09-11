@@ -338,7 +338,7 @@ This ca'ndidate is sui'table for us - Этот кандидат (подходящий) подходит для на
 I'll take part in the elections - Я приму участие в выборах                  ------- // ... 1840
 I like ca'ndies - Я люблю конфеты
 
-------------------------    9 !
+------------------------    9 
 
 I'm not proud of our cantee'n - Я не горжусь нашей столовой
 He is inca'pable / ca'pable of doing it - Он неспособен / способен сделать это
@@ -642,7 +642,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !!
+------------------------  +  17 !
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
