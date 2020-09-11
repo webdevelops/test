@@ -19,7 +19,6 @@ export class HeroService {
 
   getHero(id) {
     this.logger.log('Getting hero...');
-    console.log('HEROES[id]', HEROES[id]);
-    return HEROES[id];
+    return HEROES.filter(hero => hero.id === id)[0];
   }
 }

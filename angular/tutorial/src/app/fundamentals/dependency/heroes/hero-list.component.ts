@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 // import { HEROES } from "./mock-heroes";
 import { Hero } from './hero';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HeroService } from './hero.service';
 import { Observable } from 'rxjs';
@@ -11,8 +11,9 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-hero-list',
   template: `
-    <div *ngFor="let hero of heroes">
+    <div *ngFor="let hero of heroes" (click)="goToItem(hero.id)">
       {{hero.id}} - {{hero.name}}
+      <!-- <a [routerLink]="['/heroes', hero.id]">{{hero.id}} - {{hero.name}}</a> -->
     </div>
   `
 })
@@ -24,7 +25,8 @@ export class HeroListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService
+    private heroService: HeroService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class HeroListComponent implements OnInit {
       //   // this.heroes = this.heroService.getHeroes();
       //   this.heroes = heroes;
       // });
+  }
+
+  goToItem(id) {
+    this.router.navigate(['/heroes', id]);
   }
 
 }

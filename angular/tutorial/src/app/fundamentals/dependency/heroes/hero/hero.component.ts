@@ -21,7 +21,7 @@ export class HeroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const heroId = this.route.snapshot.paramMap.get('id');
+    const heroId = +this.route.snapshot.paramMap.get('heroId');
     this.hero = this.heroService.getHero(heroId);
   }
 
