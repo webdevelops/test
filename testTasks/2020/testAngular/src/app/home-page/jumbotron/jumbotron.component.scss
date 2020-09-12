@@ -1,0 +1,27 @@
+.banner {
+  background: #cccccc;
+  background: center url(../../../assets/banner-photo.jpg);
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  padding: 180px 30px 130px;
+}
+
+.content {
+  max-width: 535px;
+}
+
+h1 {
+  font-size: 50px;
+  // line-height: 54px;
+  line-height: 60px;  // для соответствия Perfect Pixel
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+p {
+  color: #ffffff;
+  margin-bottom: 35px;
+  // line-height: 24px; // для соответствия Perfect Pixel (Технические требования 26)
+  line-height: 26px;
+}

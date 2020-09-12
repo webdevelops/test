@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 17px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 1140px;  // для соответствия Perfect Pixel (Технические требования 1170)
+  min-width: 360px;
+  margin: auto;
+}
+
+.logo {
+  display: inherit;
+}
+
+.menu {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-left: 42px;
+
+    a {
+      color: #212529;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
