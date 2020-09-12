@@ -1,0 +1,58 @@
+<h2>Structural works!</h2>
+
+<p *ngIf="true">
+  Expression is true and ngIf is true.
+  This paragraph is in the DOM.
+</p>
+
+<p *ngIf="false">
+  Expression false and ngIf is false.
+  This paragrahp is not in the DOM.
+</p>
+
+<p [style.display]="'block'">
+  Expression sets display to 'block'.
+  This paragraph is visible.
+</p>
+
+<p [style.display]="'none'">
+  Expression sets display 'none'.
+  This paragraph in hidden but still in the DOM.
+</p>
+
+<!-- <div>
+  <p *ngFor="let item of [1, 2, 3]">Item: {{item}}</p>
+  <p *ngFor="let item of [4, 5, 6] as items">Item: {{item}}</p>
+  <p *ngIf="2 + 3 as result">2 + 3 = {{result}}</p>
+</div> -->
+
+<!-- <div [ngSwitch]="hero?.emotion"> -->
+<!-- <app-svg *ngSwitchCase="'happy'" [hero]="hero"></app-svg>
+  <app-structural *ngSwitch="'confused'" [hero]="hero"></app-structural>
+  <app-unknow *ngSwitchDefault [hero]="hero"></app-unknow> -->
+<!-- </div> -->
+
+<div>
+  <button (click)="hero ? null : heroes[0]">Toggle hero</button>
+
+  Pick your favorite hero
+  <label>(Show sad
+    <input type="checkbox" checked (change)="showSad = !showSad">)
+  </label>
+
+  <select [(ngModel)]="hero">
+    <ng-container *ngFor="let h of heroes">
+      <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+        <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+      </ng-container>
+    </ng-container>
+  </select>
+
+  <div>
+    <span>The condition is currently {{condition}} </span>
+    <button (click)="changeCondition()">Toggle condition {{!condition}}</button>
+
+    <p *appUnless="condition" class="unless_a">Show this sentence unless if condition is true.</p>
+    <p *appUnless="!condition" class="unless_b">Although the condition is true, his paragraph is displaeyd becouse appUnless is set to false.</p>
+  </div>
+</div>

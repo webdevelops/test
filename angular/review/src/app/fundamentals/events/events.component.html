@@ -1,0 +1,34 @@
+<h2>Events works!</h2>
+
+<button (click)="onClickMe()">Click Me</button>
+
+<p>{{clickMessage}}</p>
+
+<input type="text" (keyup)="onKey($event)">
+
+<p>{{value}}</p>
+
+<input type="text" #inputBox (keyup.enter)="onEnter(inputBox.value)">
+<!-- (keyup)="onKeyup(inputBox.value)" -->
+
+<p>{{keyValue}}</p>
+<p>{{enterValue}}</p>
+
+<input type="text" #box (keyup.enter)="update(box.value)" (blur)="update(box.value)">
+
+<p>{{updateValue}}</p>
+
+<h2>Little Tour of Heroes!</h2>
+
+<input 
+  type="text" 
+  #newHero 
+  (keyup.enter)="addHero(newHero.value)"
+  (blur)="addHero(newHero.value); newHero.value=''"
+>
+
+<button (click)="addHero(newHero.value)">Enter Hero</button>
+
+<ul>
+  <li *ngFor="let hero of heroes">{{hero}}</li>
+</ul>

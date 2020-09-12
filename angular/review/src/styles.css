@@ -1,0 +1,98 @@
+You can add global styles to this file, and also import other style files
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  padding: 0 15px;
+}
+
+.height5000 {
+  height: 5000px;
+}
+
+.form-control {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #000;
+  margin: .5rem 0 .2rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px dotted #000;
+  margin: 0.7rem 0;
+}
+
+.btn {
+  background: #000;
+  color: #ffffff;
+  padding: 0.3rem 1.5rem;
+  cursor: pointer;
+}
+
+.btn[disabled] {
+  background: #ccc;
+}
+
+.btn.btn-danger {
+  background: red;
+}
+
+.mr {
+  margin-right: 1rem;
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.title-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  background: rgb(238, 71, 71);
+  padding: .2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar h1 {
+  color: #fff;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar ul a {
+  margin-left: 1rem;
+  font-weight: bold;
+  font-family: serif;
+  color: #fff;
+}
+
+li.active a {
+  color: #000;
+}

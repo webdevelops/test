@@ -1,0 +1,16 @@
+input {
+  display: inline;
+  width: auto;
+}
+
+.unless_a {
+  border: 3px solid rgb(160, 105, 3);
+  background:  rgb(240, 163, 20);
+  padding: 5px;
+}
+
+.unless_b {
+  border: 3px solid rgb(57, 126, 1);
+  background:  rgb(50, 163, 5);
+  padding: 5px;
+}

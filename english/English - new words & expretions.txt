@@ -1,4 +1,4 @@
-------------------------    -1 
+------------------------    -1 !
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -376,7 +376,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 r!
+------------------------  +  10 !!
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
@@ -415,7 +415,7 @@ The flight was delayed - Рейс задержался
 I set it on the floor - Я поставил это на пол
 We had to pay all the fees - Мы должны были заплатить все сборы
 
-------------------------  +  11 !
+------------------------  +  11 r!
 
 How much will they charge for this service - Сколько они будут взимать (заряжать, обязанности, расходы) за эту услугу
 Anyone would choose the same thing - Любой выбрал бы то же самое
