@@ -1,0 +1,19 @@
+.main-content {
+  max-width: 1025px;
+  min-width: 360px;
+  margin: auto;
+}
+
+.button {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 70px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: var(--primary-light-color);
+}
