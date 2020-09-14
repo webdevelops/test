@@ -30,7 +30,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 
+------------------------    0 !
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
@@ -454,7 +454,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !
+------------------------  +  12 !!
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
