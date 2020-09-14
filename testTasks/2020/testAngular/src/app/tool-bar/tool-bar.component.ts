@@ -9,7 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class ToolBarComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   // fillerNav = Array.from({ length: 5 }, (_, i) => `Nav Item ${i + 1}`);
-  fillerNav = [
+  filterNav = [
     { path: '/about', title: 'About me' },
     { path: '/relationships', title: 'Relationships' },
     { path: '/users', title: 'Users' },
