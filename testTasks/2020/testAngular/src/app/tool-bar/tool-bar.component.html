@@ -8,6 +8,7 @@
         <a mat-list-item routerLink="/" class="mobile-logo">
           <img src="../../assets/logo.svg" alt="logo">
         </a>
+
         <mat-divider></mat-divider>
 
         <mat-nav-list class="mobile-nav">
@@ -15,7 +16,14 @@
             <a [routerLink]='nav.path'>{{nav.title}}</a>
           </mat-list-item>
         </mat-nav-list>
+        
         <mat-divider></mat-divider>
+
+        <mat-nav-list class="mobile-nav">
+          <mat-list-item *ngFor="let nav of filterMobileNav">
+            <a [routerLink]='nav.path'>{{nav.title}}</a>
+          </mat-list-item>
+        </mat-nav-list>
       </mat-nav-list>
     </mat-sidenav>
 
