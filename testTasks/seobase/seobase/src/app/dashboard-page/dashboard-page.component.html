@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <a mat-icon-button routerLink="/">
+    <img src="../../assets/logo_white.svg" alt="logo">
+  </a>
+
+  <span class="title">Dashboard</span>
+
+  <span class="example-spacer"></span>
+
+  <a mat-icon-button routerLink="/">admin@email.com</a>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" [opened]="[isOpen]">
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let nav of filterNav">
+        <a [routerLink]="[nav.path]" routerLinkActive="active">
+          <span class="material-icons">{{nav.icon}}</span>
+          {{nav.title}}
+        </a>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+
+  <mat-drawer-content>Main content
+    <!-- <mat-selection-list>
+      <mat-list-option *ngFor="let nav of filterNav" [value]="nav.title">
+        {{nav.title}}
+      </mat-list-option>
+    </mat-selection-list> -->
+  </mat-drawer-content>
+</mat-drawer-container>

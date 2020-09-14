@@ -1,0 +1,46 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #3d7fdd, #3d7fdd);
+  color: #fff;
+}
+
+.title {
+  margin-right: auto;
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+.mat-icon-button {
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+}
+
+mat-drawer-container {
+  height: 100vh;
+}
+
+mat-drawer {
+  padding-left: 30px;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(97, 66, 66);
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+
+.mat-list-item {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  &:hover span {
+    color: #5784c7;
+  }
+}
