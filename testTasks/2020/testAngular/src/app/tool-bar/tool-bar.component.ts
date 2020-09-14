@@ -8,11 +8,26 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class ToolBarComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
-  fillerContent = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
+  // fillerNav = Array.from({ length: 5 }, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = [
+    { path: '/about', title: 'About me' },
+    { path: '/relationships', title: 'Relationships' },
+    { path: '/users', title: 'Users' },
+    { path: '/about', title: 'Relationships' },
+    { path: '/signup', title: 'Sign Up' }
+  ];
+  filterMobileNav = [
+    { path: '/about', title: 'About me' },
+    { path: '/relationships', title: 'Relationships' },
+    { path: '/users', title: 'Users' },
+    { path: '/about', title: 'Relationships' },
+    { path: '/signup', title: 'Sign Up' },
+    { path: '/therms', title: 'Therms and Conditions' }
+  ];
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 767px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }

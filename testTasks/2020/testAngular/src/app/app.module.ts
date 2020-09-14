@@ -7,9 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { JumbotronComponent } from './home-page/jumbotron/jumbotron.component';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
