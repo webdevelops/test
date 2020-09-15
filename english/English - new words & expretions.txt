@@ -59,7 +59,7 @@ Everyone likes getting gifts - Всем нравится получать подарки
 Don't trick others - Не обманывай других
 I lack free time - Мне не хватает свободного времени  // ...1100 / 1.34.21
 
-------------------------    1 
+------------------------    1 !
 
 We went si'ghtseeing - Мы пошли на экскурсию (осмотр достопримечательностей)
 I'm i'nnocent - Я невиновен
@@ -492,7 +492,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !
+------------------------  +  13 !!
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
