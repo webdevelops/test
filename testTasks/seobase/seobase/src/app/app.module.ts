@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { LoginPageComponent } from './auth/login-page/login-page.component';
+import { UsersComponent } from './dashboard-page/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardPageComponent,
+    LoginPageComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
