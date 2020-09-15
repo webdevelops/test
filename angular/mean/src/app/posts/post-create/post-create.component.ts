@@ -14,8 +14,6 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./post-create.component.scss']
 })
 export class PostCreateComponent implements OnInit, OnDestroy {
-  // enteredTitle = '';
-  // enteredContent = '';
   isLoading = false;
   form: FormGroup;
   imagePreview: string;
