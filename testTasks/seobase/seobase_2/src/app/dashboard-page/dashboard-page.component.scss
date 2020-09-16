@@ -1,0 +1,140 @@
+// -------------- toolbar -------------
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #3d7fdd, #3d7fdd);
+  color: #fff;
+}
+
+.mat-toolbar-single-row {
+  padding: 0 30px;
+}
+
+.title {
+  margin-right: auto;
+  margin-left: 55px;
+  font-size: 14px;
+}
+
+.mat-icon-button {
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+}
+
+// -------------- sidenav - drawer -------------
+mat-drawer-container {
+  height: 90vh;
+}
+
+mat-drawer {
+  padding-left: 30px;
+  width: 250px;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(97, 66, 66);
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+
+.mat-list-item {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  &:hover span {
+    color: #5784c7;
+  }
+}
+
+mat-drawer-content {
+  padding: 20px;
+}
+
+// -------------- main content -------------
+.top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h1 {
+    margin: 0;
+  }
+
+  button {
+    color: #cccccc;
+  }
+}
+
+mat-card {
+  padding: 20px;
+  height: 77vh;
+}
+
+.alert {
+  background: #FEEECC;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  p {
+    margin: 0;
+
+    span {
+      vertical-align: bottom;
+      margin-right: 10px;
+      color: orange;
+    }
+  }
+
+  button {
+    padding: 3px 10px;
+  }
+}
+
+// -------------- form - password -------------
+.password {
+  display: flex;
+  margin-top: 25px;
+  
+  span {
+    margin-top: 10px;
+  }
+}
+
+.field-title {
+  display: inline-block;
+  width: 90px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+
+  button[type='submit'] {
+    margin-top: -2px;
+    padding: 4px 33px;
+    background: #0cc6ec;
+    color: #ffffff;
+    border: none;
+  }
+}
+
+// ------------------
+mat-tab-group {
+  flex-direction: row;
+}
+
+mat-icon {
+  margin-right: 10px;
+}

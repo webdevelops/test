@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  white-space: nowrap;
+}
+
+// -------------- main content dashboard -------------
+mat-tab-group {
+  background: #EEF1F8;
+}
+
+.mat-tab-header {
+  width: 280px;
+  border: none;
+}
+
+.mat-tab-body-wrapper {
+  width: 100%;
+}
+
+.mat-tab-body-content {
+  padding: 30px;
+}
+
+.mat-tab-labels {
+  background: #ffffff;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 30px;
+  height: 100%;
+
+  .mat-tab-label {
+    height: 60px;
+  }
+}
+
+mat-tab-header .mat-tab-label {
+  justify-content: end;
+
+  .mat-tab-label-active,
+  &:hover {
+    background: #ccc;
+
+    mat-icon {
+      color: #0cc6ec;
+    }
+  }
+}
+
+mat-tab-header .mat-ink-bar {
+  height: 0;
+}
+
+.mat-form-field-infix {
+  border-top: 0;
+}
+
+.mat-form-field-outline {
+  top: -3px !important;
+}
+
+.mat-tab-label:focus:not(.mat-tab-disabled) {
+  background: #EEF1F8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .mat-icon {
+    color: #0cc6ec;
+  }
+}

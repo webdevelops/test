@@ -1,0 +1,56 @@
+<!-- <div class="top-line">
+  <h1>Account info</h1>
+  <button mat-stroked-button>Delete Accound</button>
+</div>
+
+<mat-card>
+  <div class="alert">
+    <p>
+      <span class="material-icons">campaign</span>
+      <b>Verify your email.</b> We sent the verification link to user@email.com
+    </p>
+    <button>Resend the link</button>
+  </div>
+
+  <div class="email">
+    <span class="field-title"><b>Email:</b></span>
+    <span>admin@email.com</span>
+  </div>
+
+  <div class="password">
+    <span class="field-title"><b>Password:</b></span>
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="form">
+      <mat-form-field class="password-field" appearance="outline">
+        <mat-label>Current password</mat-label>
+        <input matInput [type]="hideCurrentPass ? 'password' : 'text'" formControlName="currentPass"
+          placeholder="Current password">
+        <button mat-icon-button matSuffix (click)="hideCurrentPass = !hideCurrentPass" type="button">
+          <mat-icon>{{hideCurrentPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('currentPass').invalid">Please enter current password.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="password-field" appearance="outline">
+        <mat-label>Set new password</mat-label>
+        <input matInput [type]="hideNewPass ? 'password' : 'text'" formControlName="newPass"
+          placeholder="Set new password">
+        <button mat-icon-button matSuffix (click)="hideNewPass = !hideNewPass" type="button">
+          <mat-icon>{{hideNewPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('newPass').invalid">At least 8 characters.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="password-field" appearance="outline">
+        <mat-label>Confirm new password</mat-label>
+        <input matInput [type]="hideConfirmPass ? 'password' : 'text'" formControlName="confirmPass"
+          placeholder="Confirm new password">
+        <button mat-icon-button matSuffix (click)="hideConfirmPass = !hideConfirmPass" type="button">
+          <mat-icon>{{hideConfirmPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('confirmPass').invalid">Please confirm new password.</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit">Save</button>
+    </form>
+  </div>
+</mat-card> -->
