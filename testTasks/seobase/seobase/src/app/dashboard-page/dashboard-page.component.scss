@@ -72,65 +72,6 @@ mat-drawer-content {
   }
 }
 
-mat-card {
-  padding: 20px;
-  height: 77vh;
-}
-
-.alert {
-  background: #FEEECC;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-
-  p {
-    margin: 0;
-
-    span {
-      vertical-align: bottom;
-      margin-right: 10px;
-      color: orange;
-    }
-  }
-
-  button {
-    padding: 3px 10px;
-  }
-}
-
-// -------------- form - password -------------
-.password {
-  display: flex;
-  margin-top: 25px;
-  
-  span {
-    margin-top: 10px;
-  }
-}
-
-.field-title {
-  display: inline-block;
-  width: 90px;
-}
-
-.form {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  width: 100%;
-
-  button[type='submit'] {
-    margin-top: -2px;
-    padding: 4px 33px;
-    background: #0cc6ec;
-    color: #ffffff;
-    border: none;
-  }
-}
-
-// ------------------
 mat-tab-group {
   flex-direction: row;
 }
