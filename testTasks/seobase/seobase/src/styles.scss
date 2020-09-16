@@ -68,7 +68,7 @@ mat-tab-header .mat-ink-bar {
   top: -3px !important;
 }
 
-.mat-tab-label:focus:not(.mat-tab-disabled) {
+.mat-tab-label-active {
   background: #EEF1F8;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
