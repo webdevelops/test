@@ -40,6 +40,9 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.success.main,
       },
     },
+    '& > div': {
+      textAlign: 'right'
+    }
   },
 }));
 
@@ -75,6 +78,10 @@ export default function About() {
         fontSize={{ xs: 'h5.fontSize', sm: 'h4.fontSize' }}
       >
         I'm obsessed with making things and even more obsessed with making things better. I am a self taught web developer
+      </Box>
+
+      <Box>
+        <Link href="https://github.com/webdevelops/practice/blob/master/cv/pdf/en/CV.pdf">Want to know more? Welcome...</Link>
       </Box>
     </div>
   );
