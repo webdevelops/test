@@ -1,30 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-account',
-//   templateUrl: './account.component.html',
-//   styleUrls: ['./account.component.scss']
-// })
-// export class AccountComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-const links = [
-  { path: 'account', icon: 'settings', title: 'Account info' },
-  { path: 'users', icon: 'supervisor_account', title: 'Users' },
-  { path: 'subscripion', icon: 'sentiment_satisfied_alt', title: 'Subscripion' },
-  { path: 'billing', icon: 'credit_card', title: 'Billing' },
-  { path: 'invoices', icon: 'wysiwyg', title: 'Invoices' },
-  { path: 'gdpr', icon: 'security', title: 'GDPR' },
-  { path: 'logout', icon: 'login', title: 'Log Out' }
-];
 
 @Component({
   selector: 'app-account',
@@ -32,7 +7,6 @@ const links = [
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-  filterNav = links;
   isOpen = true;
   form: FormGroup;
   hideCurrentPass = true;
@@ -58,9 +32,6 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-
-  }
-
+  onSubmit() {}
 }
 
