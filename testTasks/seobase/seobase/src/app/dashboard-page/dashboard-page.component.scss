@@ -6,9 +6,13 @@ mat-toolbar {
   color: #fff;
 }
 
+.mat-toolbar-single-row {
+  padding: 0 30px;
+}
+
 .title {
   margin-right: auto;
-  margin-left: 30px;
+  margin-left: 55px;
   font-size: 14px;
 }
 
@@ -99,10 +103,10 @@ mat-card {
 // -------------- form - password -------------
 .password {
   display: flex;
-  margin-top: 20px;
+  margin-top: 25px;
   
   span {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 
@@ -118,10 +122,19 @@ mat-card {
   width: 100%;
 
   button[type='submit'] {
-    margin-top: 10px;
-    padding: 0 30px;
+    margin-top: -2px;
+    padding: 4px 33px;
     background: #0cc6ec;
     color: #ffffff;
     border: none;
   }
+}
+
+// ------------------
+mat-tab-group {
+  flex-direction: row;
+}
+
+mat-icon {
+  margin-right: 10px;
 }

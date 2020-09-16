@@ -9,6 +9,7 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { AngularMaterialModule } from './angular-material.module';
 import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { UsersComponent } from './dashboard-page/users/users.component';
+import { AccountComponent } from './dashboard-page/account/account.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UsersComponent } from './dashboard-page/users/users.component';
     DashboardPageComponent,
     LoginPageComponent,
     UsersComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
