@@ -7,6 +7,7 @@ import TabPanel from '../../components/TabPanel';
 import Lawyer from './Lawyer';
 import Quiz from './Quiz';
 import Store from './Store';
+import OnShop from './OnShop';
 
 function allyProps(index) {
   return {
@@ -50,12 +51,14 @@ export default function Work() {
           value={value}
           onChange={handleChange}
           textColor="primary"
-          variant="fullWidth"
+          variant="scrollable"
+          scrollButtons="auto"
           aria-label="full width tabs example"
         >
-          <Tab label="Lawyer" {...allyProps(0)} />
-          <Tab label="Quiz" {...allyProps(1)} />
-          <Tab label="Store" {...allyProps(2)} />
+          <Tab label="onShop" {...allyProps(0)} />
+          <Tab label="Store" {...allyProps(1)} />
+          <Tab label="Quiz" {...allyProps(2)} />
+          <Tab label="Lawyer" {...allyProps(3)} />
         </Tabs>
       </AppBar>
 
@@ -65,15 +68,20 @@ export default function Work() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0}>
-          <Lawyer lawyer={projects.lawyer} />
+          <OnShop onShop={projects.onShop} />
+          {/* <onShop store={projects.store} /> */}
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <Quiz quiz={projects.quiz} />
+          <Store store={projects.store} />
         </TabPanel>
 
         <TabPanel value={value} index={2}>
-          <Store store={projects.store} />
+          <Quiz quiz={projects.quiz} />
+        </TabPanel>
+
+        <TabPanel value={value} index={3}>
+          <Lawyer lawyer={projects.lawyer} />
         </TabPanel>
       </SwipeableViews>
       

@@ -44,13 +44,6 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       })
     });
     
-    console.log('snapshot', this.route.params)
-    console.log('snapshot', this.route.paramMap)
-    // console.log('snapshot', this.route.paramMap.has(''))
-    console.log('snapshot---', this.route.snapshot)
-    console.log('snapshot---', this.route.snapshot.params)
-    console.log('snapshot---', this.route.snapshot.paramMap)
-    console.log('snapshot---', this.route.snapshot.paramMap.has('postId'))
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('postId')) {
         this.mode = 'edit';
