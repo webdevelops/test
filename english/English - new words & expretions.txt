@@ -119,7 +119,7 @@ They struck him very hard - Они ударили его очень сильно
 He isn't a fool / silly / stupid - Он не дурак (глупый)
 Do you know English? Exactly, of course, certainly, sure, definitely - Вы знаете английский? Точно, конечно, - // -
 
-------------------------    3 
+------------------------    3 !
 
 He broke the world record - Он побил мировой рекорд  ---------- // ... 1305
 I used to listen to different po'dcasts in English - Я слушал разные подкасты на английском
@@ -152,7 +152,7 @@ I'm against ha'tred - Я против ненависти
 Let me admit that learning English is a fascina'ting pro'cess - Позвольте мне признать, что изучение английского языка является увлекательным процессом
 Admission free - Вход бесплатный
 
-------------------------    4 
+------------------------    4 !
 
 I decided to do it in adva'nce - Я решил сделать это заранее (аванс, авансово) ------- // ... 1403
 I like adventure. It's so thrilling - Мне нравится приключение. Это так волнующе
@@ -568,7 +568,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 !
+------------------------  +  15 !!
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
@@ -604,7 +604,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !
+------------------------  +  16 !!
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
