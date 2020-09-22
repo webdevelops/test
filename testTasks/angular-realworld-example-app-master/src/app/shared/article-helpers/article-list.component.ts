@@ -43,12 +43,13 @@ export class ArticleListComponent {
     }
 
     this.articlesService.query(this.query)
-    .subscribe(data => {
+      .subscribe(data => {
+        // console.log('data', data);
       this.loading = false;
       this.results = data.articles;
 
       // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
-      this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
+        this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
     });
   }
 }

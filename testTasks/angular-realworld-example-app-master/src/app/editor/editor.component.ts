@@ -38,10 +38,12 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     // If there's an article prefetched, load it
     this.route.data.subscribe((data: { article: Article }) => {
+      // console.log('this.article', this.article);
       if (data.article) {
         this.article = data.article;
         this.articleForm.patchValue(data.article);
       }
+      console.log('this.articleForm', this.articleForm);
     });
   }
 
@@ -62,7 +64,7 @@ export class EditorComponent implements OnInit {
 
   submitForm() {
     this.isSubmitting = true;
-
+    // console.log('this.articleForm.value', this.articleForm.value);
     // update the model
     this.updateArticle(this.articleForm.value);
 

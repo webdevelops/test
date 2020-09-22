@@ -21,6 +21,7 @@ export class ArticlesService {
       params[key] = config.filters[key];
     });
 
+    // console.log('new HttpParams({ fromObject: params })', new HttpParams({ fromObject: params }))
     return this.apiService
     .get(
       '/articles' + ((config.type === 'feed') ? '/feed' : ''),

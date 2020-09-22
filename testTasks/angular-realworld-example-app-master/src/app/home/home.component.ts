@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
       (authenticated) => {
         this.isAuthenticated = authenticated;
 
+        // console.log('authenticated', authenticated)
         // set the article list accordingly
         if (authenticated) {
           this.setListTo('feed');
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
 
     this.tagsService.getAll()
     .subscribe(tags => {
-      console.log('tags', tags)
+      // console.log('tags', tags)
       this.tags = tags;
       this.tagsLoaded = true;
     });
@@ -47,11 +48,11 @@ export class HomeComponent implements OnInit {
 
   setListTo(type: string = '', filters: Object = {}) {
     // If feed is requested but user is not authenticated, redirect to login
+    // console.log('type', type, '-------', 'filters', filters)
     if (type === 'feed' && !this.isAuthenticated) {
       this.router.navigateByUrl('/login');
       return;
     }
-
     // Otherwise, set the list object
     this.listConfig = {type: type, filters: filters};
   }
