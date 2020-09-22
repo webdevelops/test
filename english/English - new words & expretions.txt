@@ -187,7 +187,7 @@ It anno'ys me - Это меня раздражает
 His la'ziness i'rritates me - Его лень раздражает меня
 What's their a'nnual tu'rnover? - Каков их годовой оборот? ------- // ... 1500
 
-------------------------    5 
+------------------------    5 !
 
 She's a'nxious about her future - Она беспокоится о своем будущем
 She has a feeling of anxi'ety - У нее чувство тревоги
@@ -415,7 +415,7 @@ The flight was delayed - Рейс задержался
 I set it on the floor - Я поставил это на пол
 We had to pay all the fees - Мы должны были заплатить все сборы
 
-------------------------  +  11 r!
+------------------------  +  11 !!
 
 How much will they charge for this service - Сколько они будут взимать (заряжать, обязанности, расходы) за эту услугу
 Anyone would choose the same thing - Любой выбрал бы то же самое
@@ -454,7 +454,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !!
+------------------------  +  12 r!
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
@@ -465,17 +465,17 @@ It needs further development - Нуждается в дальнейшем развитии
 He accepted their award - Он принял их награду
 They had a decline in sales - У них было снижение продаж
 He got a letter concerning his dept - Он получил письмо о своем долге
-This add attraction my attention - Это добавит привлечение моего внимания
+This adds attraction my attention - Это добавит привлечение моего внимания
 What airlines do you know? - Какие авиакомпании вы знаете?
 This thing is called destiny - Эта вещь называется судьбой
 Don't leave me alone - Не оставляй меня одну
-He was furios with his boss - Он был зол на своего босса
+He was furious with his boss - Он был зол на своего босса
 Do you have this amount of free time? - У вас есть такое количество свободного времени?
 Be ready for weekly meetings - Будьте готовы к еженедельным встречам
-A'nyhow, it took place - Во всяком случае, это произошло
+A'nyhow, it took place - Во всяком случае, это произошло (имело место)
 We'll manage this problem so'mehow - Мы справимся с этой проблемой как-то
 He doesn't love it a'nymore - Он это больше не любит
-She depa'rted for London - Она отправилась (уходить) в Лондон
+She depa'rted for London - Она отправилась (уехала) в Лондон
 It became appa'rent that she was lying - Стало очевидно, что она лжет
 Appe'arance are dece'ptive - Внешность обманчива
 It was a result of their correspo'ndence - Это было результатом (соответствие) их переписки
@@ -642,7 +642,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !
+------------------------  +  17 !!
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
