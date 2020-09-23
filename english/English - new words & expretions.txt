@@ -224,7 +224,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 
+------------------------    6 !
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -376,7 +376,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 !!
+------------------------  +  10 !
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
@@ -683,5 +683,3 @@ Is this legisla'tion perfect? - Это законодательство идеально?
 Will the voting age be lowered? - Будет ли снижен возраст голосования?
 
 ----------
-
-0687236398 - Юлия - Honeycomb
