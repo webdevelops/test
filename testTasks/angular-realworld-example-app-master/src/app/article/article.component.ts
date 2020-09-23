@@ -35,10 +35,11 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched article
-    console.log('this.route.data', this.route.data);
     this.route.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
+
+        // console.log('this.article', this.article);
 
         // Load the comments on this article
         this.populateComments();
@@ -75,6 +76,7 @@ export class ArticleComponent implements OnInit {
     this.articlesService.destroy(this.article.slug)
       .subscribe(
         success => {
+          console.log('success', success);
           this.router.navigateByUrl('/');
         }
       );
@@ -83,6 +85,8 @@ export class ArticleComponent implements OnInit {
   populateComments() {
     this.commentsService.getAll(this.article.slug)
       .subscribe(comments => this.comments = comments);
+    
+    console.log('this.comments', this.comments);
   }
 
   addComment() {
@@ -109,6 +113,7 @@ export class ArticleComponent implements OnInit {
     this.commentsService.destroy(comment.id, this.article.slug)
       .subscribe(
         success => {
+          // console.log('comment', comment);
           this.comments = this.comments.filter((item) => item !== comment);
         }
       );
