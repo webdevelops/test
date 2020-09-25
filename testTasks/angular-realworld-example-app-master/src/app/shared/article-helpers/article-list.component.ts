@@ -15,6 +15,7 @@ export class ArticleListComponent {
   @Input()
   set config(config: ArticleListConfig) {
     if (config) {
+      // console.log('config', config);
       this.query = config;
       this.currentPage = 1;
       this.runQuery();

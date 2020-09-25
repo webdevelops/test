@@ -14,12 +14,14 @@ export class ArticlesService {
 
   query(config: ArticleListConfig): Observable<{articles: Article[], articlesCount: number}> {
     // Convert any filters over to Angular's URLSearchParams
-    const params = {};
+    const params = {};              
 
-    Object.keys(config.filters)
+    Object.keys(config.filters)          // variant 1
     .forEach((key) => {
       params[key] = config.filters[key];
     });
+
+    // Object.assign(params, config.filters) // --- the same as variant 1
 
     // console.log('new HttpParams({ fromObject: params })', new HttpParams({ fromObject: params }))
     return this.apiService
