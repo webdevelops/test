@@ -10,6 +10,7 @@ import {
   User,
   UserService
 } from '../core';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-article-page',
@@ -39,12 +40,26 @@ export class ArticleComponent implements OnInit {
       (data: { article: Article }) => {
         this.article = data.article;
 
-        // console.log('this.article', this.article);
+        console.log('this.article', this.article);
 
         // Load the comments on this article
         this.populateComments();
       }
     );
+
+    // --------- example 2
+
+    // this.route.params
+    //   .pipe(
+    //     switchMap(params => {
+    //       return this.articlesService.get(params['slug'])
+    //     })
+    // ).subscribe(article => {
+    //     console.log('article', article);   // HTML загружается до ответа с сервера (асинхронный запрос)
+    //     this.article = article;            // не видит article
+    //     this.populateComments();
+    //   });
+    
 
     // Load the current user's data
     this.userService.currentUser.subscribe(
@@ -76,7 +91,7 @@ export class ArticleComponent implements OnInit {
     this.articlesService.destroy(this.article.slug)
       .subscribe(
         success => {
-          console.log('success', success);
+          // console.log('success', success);
           this.router.navigateByUrl('/');
         }
       );
@@ -86,7 +101,7 @@ export class ArticleComponent implements OnInit {
     this.commentsService.getAll(this.article.slug)
       .subscribe(comments => this.comments = comments);
     
-    console.log('this.comments', this.comments);
+    // console.log('this.comments', this.comments);
   }
 
   addComment() {
