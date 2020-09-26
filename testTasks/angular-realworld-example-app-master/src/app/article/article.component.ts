@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './article.component.html'
 })
 export class ArticleComponent implements OnInit {
+  name: string;
   article: Article;
   currentUser: User;
   canModify: boolean;
@@ -32,7 +33,7 @@ export class ArticleComponent implements OnInit {
     private commentsService: CommentsService,
     private router: Router,
     private userService: UserService,
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Retreive the prefetched article
@@ -40,7 +41,7 @@ export class ArticleComponent implements OnInit {
       (data: { article: Article }) => {
         this.article = data.article;
 
-        console.log('this.article', this.article);
+        // console.log('this.article', this.article);
 
         // Load the comments on this article
         this.populateComments();
@@ -59,7 +60,8 @@ export class ArticleComponent implements OnInit {
     //     this.article = article;            // не видит article
     //     this.populateComments();
     //   });
-    
+
+    // --------- end
 
     // Load the current user's data
     this.userService.currentUser.subscribe(
@@ -100,7 +102,7 @@ export class ArticleComponent implements OnInit {
   populateComments() {
     this.commentsService.getAll(this.article.slug)
       .subscribe(comments => this.comments = comments);
-    
+
     // console.log('this.comments', this.comments);
   }
 

@@ -4,7 +4,9 @@
     <div class="container">
       <h1>{{ article.title }}</h1>
 
-      <app-article-meta [article]="article">
+      <input type="text" [(ngModel)]="name" style="color: black" />
+
+      <app-article-meta [article]="article" [name]="name">
 
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
