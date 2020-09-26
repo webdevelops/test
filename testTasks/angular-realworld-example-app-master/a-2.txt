@@ -1,0 +1,27 @@
+
+ParamMap {params: {…}}      // карта с параметрами
+  keys: Array(1)
+  params: {slug: "avsgw-g2d5di"}  // параметры
+  __proto__: Object
+
+route.params {slug: "avsgw-g2d5di"}
+
+---------------
+
+ resolve(
+    route: ActivatedRouteSnapshot,                  // только данные - без Observable
+    state: RouterStateSnapshot
+  ): Observable<any> {
+    console.log('route.params', route.params);
+    return this.articlesService.get(route.params['slug'])             // Resolver разрешает подгрузить компонент Article после получения данных
+      .pipe(catchError((err) => this.router.navigateByUrl('/')));
+  }
+
+- При переходе на другую страницу - (Resolver) подгружает данные с базы данных - после этого подгружаестя(отрисовываестя) страница.
+
+ActivatedRoute          // данные - с Observable
+ActivatedRouteSnapshot  // только данные - без Observable
+
+------------
+
+OnChanges - Ловушка жизненного цикла, вызываемая при изменении любого связанного с данными свойства директивы. Определите метод ngOnChanges () для обработки изменений.
