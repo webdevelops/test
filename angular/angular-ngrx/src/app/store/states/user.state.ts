@@ -5,7 +5,7 @@ export interface UserState {
   selectedUser: User;
 }
 
-export const initialState: UserState = {
+export const initialUserState: UserState = {
   users: null,
   selectedUser: null
 };
