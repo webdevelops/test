@@ -8,7 +8,10 @@ import { Article } from '../../core';
 })
 export class ArticleMetaComponent implements OnInit, OnChanges {
   @Input() article: Article;
+  counter: number = 0;
   
+  // ------------
+
   @Input() name: string;
 
   ngOnInit() {
@@ -19,5 +22,15 @@ export class ArticleMetaComponent implements OnInit, OnChanges {
     console.log('ngOnChanges');
 
     console.log('changes.name', changes.name);
+  }
+
+  // ------------
+
+  increment() {
+    this.counter++;
+  }
+
+  decrement() {
+    this.counter--;
   }
 }

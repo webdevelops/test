@@ -36,5 +36,4 @@ export class ArticleCommentComponent implements OnInit, OnDestroy {
     this.deleteComment.emit(true);
   }
 
-
 }

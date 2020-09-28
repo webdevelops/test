@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import {
   UserService
 } from '../core';
 import { switchMap } from 'rxjs/operators';
+import { ArticleMetaComponent } from '../shared';
 
 @Component({
   selector: 'app-article-page',
@@ -27,13 +28,31 @@ export class ArticleComponent implements OnInit {
   isSubmitting = false;
   isDeleting = false;
 
+  // --------- example 2
+
+  @ViewChild(ArticleMetaComponent)
+  private counterComponent: ArticleMetaComponent;
+
+  increment() { 
+    this.counterComponent.increment();
+    console.log(this.counterComponent.counter);
+    // this.counterComponent.counter += 5;
+  }
+
+  decrement() {
+    this.counterComponent.decrement();
+    console.log(this.counterComponent.counter);
+  }
+
+  // --------- end example 2
+
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService,
     private commentsService: CommentsService,
     private router: Router,
     private userService: UserService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Retreive the prefetched article
@@ -48,7 +67,7 @@ export class ArticleComponent implements OnInit {
       }
     );
 
-    // --------- example 2
+    // --------- example 1
 
     // this.route.params
     //   .pipe(
@@ -61,7 +80,7 @@ export class ArticleComponent implements OnInit {
     //     this.populateComments();
     //   });
 
-    // --------- end
+    // --------- end example 1
 
     // Load the current user's data
     this.userService.currentUser.subscribe(
@@ -72,6 +91,7 @@ export class ArticleComponent implements OnInit {
       }
     );
   }
+
 
   onToggleFavorite(favorited: boolean) {
     this.article.favorited = favorited;
