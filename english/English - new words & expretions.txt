@@ -1,7 +1,5 @@
-https://meet.google.com/pmp-vjme-oua
-meet.google.com/gzp-dapb-coh
-https://meet.google.com/gzp-dapb-coh
-------------------------    -1 !
+
+------------------------    -1 
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -33,7 +31,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 !
+------------------------    0 
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
@@ -457,7 +455,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 r!
+------------------------  +  12 !
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
@@ -467,8 +465,8 @@ It's a domestic flight - Это внутренний рейс
 It needs further development - Нуждается в дальнейшем развитии
 He accepted their award - Он принял их награду
 They had a decline in sales - У них было снижение продаж
-He got a letter concerning his dept - Он получил письмо о своем долге
-This adds attraction my attention - Это добавит привлечение моего внимания
+He got a letter concerning his dept - Он получил письмо о (относительно) своем долге
+This adds attraction my attention - Это добавляет привлечение моего внимания
 What airlines do you know? - Какие авиакомпании вы знаете?
 This thing is called destiny - Эта вещь называется судьбой
 Don't leave me alone - Не оставляй меня одну
@@ -495,7 +493,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !
+------------------------  +  13 r!
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
@@ -571,7 +569,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 !!
+------------------------  +  15 !
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
@@ -607,7 +605,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !!
+------------------------  +  16 !
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
