@@ -13,4 +13,4 @@ export const selectUserList = createSelector(
 export const selectSelectedUser = createSelector(
   selectUsers,
   (state: UserState) => state.selectedUser
-)
+);
