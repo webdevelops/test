@@ -3,6 +3,8 @@ import { RouterReducerState } from '@ngrx/router-store';
 import { UserState, initialUserState } from './user.state';
 import { ConfigState, initialConfigState } from './config.state';
 
+// console.log("state.users --------------")
+
 export interface AppState {
   router?: RouterReducerState;
   users: UserState;
