@@ -25,10 +25,10 @@ const scoreboardReducer = createReducer(
     home: 0,
     away: 0
   })),
-  // on(ScoreboardPageActions.setScores, (state, { game }) => ({
-  //   home: game.home,
-  //   away: game.away
-  // }))
+  on(ScoreboardPageActions.setScores, (state, { game }) => ({
+    home: game.home,
+    away: game.away
+  }))
 );
 
 export const scoreboardFeatureKey = 'game';
