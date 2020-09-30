@@ -1,6 +1,6 @@
 export interface User {
-  id: number;
+  id: string;
   name: string;
-  cardNumber: string;
-  cardType: string;
+  cardNumber?: string;
+  cardType?: string;
 }
