@@ -11,15 +11,15 @@ export const reducers: ActionReducerMap<State> = {
 
 export const selectUserState = createFeatureSelector<fromUser.State>('users');
 
-export const selectUserIds = createSelector(
-  selectUserState,
-  fromUser.selectUserIds
-);
+// export const selectUserIds = createSelector(
+//   selectUserState,
+//   fromUser.selectUserIds
+// );
 
-export const selectUserEntities = createSelector(
-  selectUserState,
-  fromUser.selectUserEntities
-);
+// export const selectUserEntities = createSelector(
+//   selectUserState,
+//   fromUser.selectUserEntities
+// );
 
 export const selectAllUsers = createSelector(
   selectUserState,
@@ -31,13 +31,13 @@ export const selectUserTotal = createSelector(
   fromUser.selectUserTotal
 );
 
-export const selectCurrentUserId = createSelector(
-  selectUserState,
-  fromUser.getSelectedUserId
-);
+// export const selectCurrentUserId = createSelector(
+//   selectUserState,
+//   fromUser.getSelectedUserId
+// );
 
-export const selectCurrentUser = createSelector(
-  selectUserEntities,
-  selectCurrentUserId,
-  (userEntities, userId) => userEntities[userId]
-);
+// export const selectCurrentUser = createSelector(
+//   selectUserEntities,
+//   selectCurrentUserId,
+//   (userEntities, userId) => userEntities[userId]
+// );

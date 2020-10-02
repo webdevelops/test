@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { addUser } from '../store/actions/user.actions';
+import { addUser, deleteUser } from '../store/actions/user.actions';
 import { User } from '../core/models';
 import * as userSelectors from '../store/selectors/user.selectors';
 
@@ -13,9 +13,8 @@ import * as userSelectors from '../store/selectors/user.selectors';
 })
 export class UserComponent implements OnInit {
   userCount$: Observable<number>;
-  userCount: number;
   name: string;
-  users;
+  users: User[];
   user: User = {
     id: null,
     name: ''
@@ -26,19 +25,19 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal);
     
-    // this.store.select<number>(userSelectors.selectUserTotal).subscribe(
-    //   totalCount => {
-    //     // console.log('totalCount', totalCount);
-    //     this.userCount = totalCount
-    //   }
-    // );
+    this.store.select<User[]>(userSelectors.selectAllUsers).subscribe(
+      users => {
+        this.users = users;
+        console.log('Users on Store', users);
+      }
+    );
   }
 
   addUser() {
     if (this.name === '' || this.name === undefined) {
       alert('Enter name, please!')
       return;
-    };
+    }
 
     const randomId = `${this.name}-${Math.random()}`;
     this.user = {
@@ -47,7 +46,11 @@ export class UserComponent implements OnInit {
       name: this.name
     };
 
-    this.store.dispatch(addUser({ user: this.user }));
+    this.store.dispatch(addUser({ user: this.user }));  // --- выность в сервис ???
     this.name = '';
+  }
+
+  deleteUser(id) {
+    this.store.dispatch(deleteUser({id: id}));
   }
 }

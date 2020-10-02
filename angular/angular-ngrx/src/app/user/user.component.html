@@ -4,8 +4,13 @@
 
 <button (click)="addUser()">Add User</button>
 
-<p>Name: {{name}}</p>
+<h4>Users count: {{userCount$ | async}}</h4>
 
-<!-- <p>Users count: {{userCount}}</p> -->
-
-<!-- <p>Users count: {{userCount$ | async}}</p> -->
+<ul>
+  <li *ngFor="let user of users">
+    {{user.name}}
+    <button (click)="deleteUser(user.id)">
+      <i class="ion-trash-a"></i>
+    </button>
+  </li>
+</ul>

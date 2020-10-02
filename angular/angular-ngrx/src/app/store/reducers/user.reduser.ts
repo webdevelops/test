@@ -17,7 +17,6 @@ export const initialState: State = adapter.getInitialState({
 const reducer = createReducer(
   initialState,
   on(UserActions.addUser, (state, { user }) => {
-    console.log('user', user);
     return adapter.addOne(user, state);
   }),
   on(UserActions.addUsers, (state, { users }) => {
@@ -57,11 +56,11 @@ const reducer = createReducer(
     return adapter.setAll(users, state);
   }),
   on(UserActions.clearUsers, state => {
-    return adapter.removeAll({ ...state, selectedUserId: null });  // удаляем только users
+    return adapter.removeAll({ ...state, selectedUserId: null });
   })
 );
 
-export const userFeatureKey = 'user';
+export const userFeatureKey = 'users';
 
 export function userReducer(state: State | undefined, action: Action) {
   return reducer(state, action);
