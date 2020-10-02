@@ -1,4 +1,4 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
 
 export interface User {
   id: number;
@@ -30,4 +30,33 @@ export const selectVisibleBooks = createSelector(
       return allBooks;
     }
   }
+);
+
+// --------------- use props - на основе данных, отсутствующих в хранилище
+
+export const selectBookById = createSelector(
+  selectAllBooks,
+  (allBooks, props) => {
+    return allBooks.filter((book: Book) => book.id === props.bookId);
+  }
+);
+
+// ----------------  createFeatureSelector 
+
+export const featureKey = 'feature';
+
+export interface FeatureState {
+  counter: number;
+}
+
+export interface AppState {
+  feature: FeatureState;
+}
+
+export const selectFeature = createFeatureSelector<AppState, FeatureState>(featureKey);
+// export const selectFeature_2 = (state: AppState) => state.feature; // the same result?
+
+export const selectedFeatureCount = createSelector(
+  selectFeature,
+  (state: FeatureState) => state.counter
 );

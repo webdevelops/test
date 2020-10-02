@@ -2,8 +2,11 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 
 import { User } from 'src/app/core/models';
-import * as UserActions from '../actions/doc-user.actions';
+import * as UserActions from '../actions/user.actions';
 
+console.log('user -----------');
+
+// ------------ additional methods for adapter
 // export function selectUserId(a: User) {
 //   return a.id;
 // }
@@ -27,9 +30,12 @@ export const initialState: State = adapter.getInitialState({
   selectedUserId: null
 })
 
+console.log('user -----------');
+
 const userReducer = createReducer(
   initialState,
   on(UserActions.addUser, (state, { user }) => {
+    console.log('user', user);
     return adapter.addOne(user, state);
   }),
   on(UserActions.addUsers, (state, { users }) => {
@@ -76,3 +82,17 @@ const userReducer = createReducer(
 export function reducer(state: State | undefined, action: Action) {
   return userReducer(state, action);
 }
+
+export const getSelectedUserId = (state: State) => state.selectedUserId;
+
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal
+} = adapter.getSelectors();  // собственный API for selectors
+
+export const selectUserIds = selectIds;
+export const selectUserEntities = selectEntities;
+export const selectAllUsers = selectAll;
+export const selectUserTotal = selectTotal;
