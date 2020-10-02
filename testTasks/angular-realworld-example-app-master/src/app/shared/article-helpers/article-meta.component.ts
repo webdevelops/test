@@ -21,7 +21,7 @@ export class ArticleMetaComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     console.log('ngOnChanges');
 
-    // console.log('changes.name', changes.name);
+    console.log('changes.name', changes.name);
   }
 
   // ------------

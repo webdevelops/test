@@ -30,10 +30,10 @@ export class ArticleComponent implements OnInit {
 
   // --------- example 2
 
-  @ViewChild(ArticleMetaComponent)
-  private counterComponent: ArticleMetaComponent;
+  @ViewChild('counter')
+  private counterComponent: any;
 
-  increment() { 
+  increment() {
     this.counterComponent.increment();
     console.log(this.counterComponent.counter);
     // this.counterComponent.counter += 5;
@@ -56,11 +56,10 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched article
+
     this.route.data.subscribe(
       (data: { article: Article }) => {
         this.article = data.article;
-
-        // console.log('this.article', this.article);
 
         // Load the comments on this article
         this.populateComments();
@@ -72,7 +71,7 @@ export class ArticleComponent implements OnInit {
     // this.route.params
     //   .pipe(
     //     switchMap(params => {
-    //       return this.articlesService.get(params['slug'])
+    //       return this.articlesService.get(params['slug']);
     //     })
     // ).subscribe(article => {
     //     console.log('article', article);   // HTML загружается до ответа с сервера (асинхронный запрос)

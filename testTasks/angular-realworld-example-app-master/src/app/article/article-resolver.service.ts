@@ -17,7 +17,6 @@ export class ArticleResolver implements Resolve<Article> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    // console.log('route.params', route.params);
     return this.articlesService.get(route.params['slug'])
       .pipe(catchError((err) => this.router.navigateByUrl('/')));
   }

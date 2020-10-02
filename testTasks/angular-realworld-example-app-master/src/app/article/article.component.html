@@ -9,7 +9,7 @@
       <button (click)="increment()" style="color: black">Increment</button>
       <button (click)="decrement()" style="color: black">Decrement</button>
 
-      <app-article-meta [article]="article" [name]="name">
+      <app-article-meta #counter [article]="article" [name]="name">
 
           <span [hidden]="!canModify">
           <a class="btn btn-sm btn-outline-secondary"
