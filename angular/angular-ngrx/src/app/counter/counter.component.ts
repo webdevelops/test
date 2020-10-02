@@ -14,6 +14,8 @@ export class CounterComponent implements OnInit {
 
   constructor(private store: Store<{ count: number }>) {
     this.count$ = store.select('count');
+
+    // console.log('this.count$', this.count$);
   }
 
   ngOnInit(): void {

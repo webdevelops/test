@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
 
 import { CounterModule } from './counter/counter.module';
+import { UserModule } from './store/actions/user.module';
 
 @NgModule({
   exports: [
-    CounterModule
+    CounterModule,
+    UserModule
   ]
 })
 export class StoreFeatureModule { }

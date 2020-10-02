@@ -3,8 +3,6 @@ import { increment, decrement, reset } from '../actions/couter.actions';
 
 export const initialState = 0;
 
-console.log('counter -----------');
-
 const reducer = createReducer(
   initialState,
   on(increment, (state) => state + 1),

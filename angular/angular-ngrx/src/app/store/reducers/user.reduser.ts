@@ -4,22 +4,6 @@ import { EntityState, createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { User } from 'src/app/core/models';
 import * as UserActions from '../actions/user.actions';
 
-console.log('user -----------');
-
-// ------------ additional methods for adapter
-// export function selectUserId(a: User) {
-//   return a.id;
-// }
-
-// export function sortByName(a: User, b: User) {
-//   return a.name.localeCompare(b.name);
-// }
-
-// export const adapter: EntityAdapter<User> = createEntityAdapter<User>({
-//   selectId: selectUserId,
-//   sortComparer: sortByName
-// })
-
 export interface State extends EntityState<User> {
   selectedUserId: number | null;
 }
@@ -30,9 +14,7 @@ export const initialState: State = adapter.getInitialState({
   selectedUserId: null
 })
 
-console.log('user -----------');
-
-const userReducer = createReducer(
+const reducer = createReducer(
   initialState,
   on(UserActions.addUser, (state, { user }) => {
     console.log('user', user);
@@ -56,12 +38,12 @@ const userReducer = createReducer(
   on(UserActions.updateUsers, (state, { updates }) => {
     return adapter.updateMany(updates, state);
   }),
-  on(UserActions.mapUser, (state, { entityMap }) => {
-    return adapter.map(entityMap, state);                   // doc. pos. - 14
-  }),
-  on(UserActions.mapUsers, (state, { entityMap }) => {
-    return adapter.map(entityMap, state);                   // doc. pos. - 15
-  }),
+  // on(UserActions.mapUser, (state, { entityMap }) => {
+  //   return adapter.map(entityMap, state);                   // doc. pos. - 14
+  // }),
+  // on(UserActions.mapUsers, (state, { entityMap }) => {
+  //   return adapter.map(entityMap, state);                   // doc. pos. - 15
+  // }),
   on(UserActions.deleteUser, (state, { id }) => {
     return adapter.removeOne(id, state);
   }),
@@ -79,8 +61,10 @@ const userReducer = createReducer(
   })
 );
 
-export function reducer(state: State | undefined, action: Action) {
-  return userReducer(state, action);
+export const userFeatureKey = 'user';
+
+export function userReducer(state: State | undefined, action: Action) {
+  return reducer(state, action);
 }
 
 export const getSelectedUserId = (state: State) => state.selectedUserId;
@@ -90,7 +74,7 @@ const {
   selectEntities,
   selectAll,
   selectTotal
-} = adapter.getSelectors();  // собственный API for selectors
+} = adapter.getSelectors();
 
 export const selectUserIds = selectIds;
 export const selectUserEntities = selectEntities;
