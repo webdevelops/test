@@ -188,7 +188,7 @@ It anno'ys me - Это меня раздражает
 His la'ziness i'rritates me - Его лень раздражает меня
 What's their a'nnual tu'rnover? - Каков их годовой оборот? ------- // ... 1500
 
-------------------------    5 !
+------------------------    5 
 
 She's a'nxious about her future - Она беспокоится о своем будущем
 She has a feeling of anxi'ety - У нее чувство тревоги
@@ -225,7 +225,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 !
+------------------------    6 
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -505,7 +505,7 @@ You can take this handout - Вы можете взять этот раздаточный материал
 It was a slight i'njury - Это была легкая травма
 They burnt down the house - Они сожгли дом
 Disgusting! He exclaimed - Отвратительно! Он воскликнул
-He put an emphasis on its disadvantages - Он сделал упор на его недостатки
+He put an emphasis on his disadvantages - Он сделал упор на его недостатки
 It was so pea'ceful there - Там было так мирно
 He needs first aid - Ему нужна первая (поддержка) помощь 
 It's his right lung - Это его правое легкое
@@ -525,14 +525,14 @@ Do you like conte'mporary li'terature? - Вам нравится современная литература?
 It was a co'ntest - Это был конкурс
 He is her di'stant re'lative - Он ее дальний родственник
 I'm absolutely convi'nced - Я абсолютно убежден
-I co'operate with their team very closely - Я тесно сотрудничаю с их командой
+I co'operate with their team very closely - Я очень тесно сотрудничаю с их командой
 There was a very close co'operation between them - Между ними было очень тесное сотрудничество
 The corn we'ighs 2 tons - Кукуруза (зерно) весит 2 тонны
 Do you think that hell and pa'radise exist? - Вы думаете, что ад и рай существуют?
 It was done for the salva'tion of hu'manity - Это было сделано для спасения человечества
 I expe'rienced some kind of thrill (exci'tement) - Я испытал какие-то острые ощущения \ возбуждение (волнение)
 
-------------------------  +  14 !
+------------------------  +  14 !!
 
 It's a very cosy bed - Это очень уютная кровать
 It was a stu'nning success - Это был потрясающий успех
@@ -569,7 +569,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 !
+------------------------  +  15 !!
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
