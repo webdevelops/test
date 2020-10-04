@@ -13,8 +13,8 @@ import * as userSelectors from '../store/selectors/user.selectors';
 })
 export class UserComponent implements OnInit {
   userCount$: Observable<number>;
-  name: string;
-  users: User[];
+  name = '';
+  users: User[] = [];
   user: User = {
     id: null,
     name: ''
@@ -34,7 +34,7 @@ export class UserComponent implements OnInit {
   }
 
   addUser() {
-    if (this.name === '' || this.name === undefined) {
+    if (this.name.trim() === '') {
       alert('Enter name, please!')
       return;
     }
@@ -46,7 +46,7 @@ export class UserComponent implements OnInit {
       name: this.name
     };
 
-    this.store.dispatch(addUser({ user: this.user }));  // --- выность в сервис ???
+    this.store.dispatch(addUser({ user: this.user }));  // --- выносить в сервис ???
     this.name = '';
   }
 

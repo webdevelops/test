@@ -8,19 +8,33 @@ import { CounterComponent } from './counter/counter.component';
 import { StoreFeatureModule } from './store.module';
 import { UserComponent } from './user/user.component';
 import { SharedModule } from './shared/shared.module';
+import { ChildComponent, LifecycleComponent } from './lifecycle.component';
+import { EffectsModule } from '@ngrx/effects';
+import { ShopEffect } from './store/effects/shop.effects';
+import { ShopModule } from './shop/shop.module';
+import { ShopComponent } from './shop/shop.component';
+import { PhonesComponent } from './phones/phones.component';
+import { PhonesModule } from './phones/phones.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LifecycleComponent,
+    ChildComponent,
     CounterComponent,
-    UserComponent
+    UserComponent,
+    PhonesComponent,
+    // ShopComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     StoreModule.forRoot({}),
-    StoreFeatureModule
+    StoreFeatureModule,
+    // PhonesModule
+    // EffectsModule.forRoot([ShopEffect]),
+    // ShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]
