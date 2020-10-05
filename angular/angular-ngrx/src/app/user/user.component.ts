@@ -15,10 +15,6 @@ export class UserComponent implements OnInit {
   userCount$: Observable<number>;
   name = '';
   users: User[] = [];
-  user: User = {
-    id: null,
-    name: ''
-  };
 
   constructor(private store: Store<{ user: User }>) {}
 
@@ -40,13 +36,12 @@ export class UserComponent implements OnInit {
     }
 
     const randomId = `${this.name}-${Math.random()}`;
-    this.user = {
-      ...this.user,
+    const user: User = {
       id: randomId,
       name: this.name
     };
 
-    this.store.dispatch(addUser({ user: this.user }));  // --- выносить в сервис ???
+    this.store.dispatch(addUser({ user }));  // --- выносить в сервис ???
     this.name = '';
   }
 
