@@ -15,13 +15,13 @@ export class ArticleMetaComponent implements OnInit, OnChanges {
   @Input() name: string;
 
   ngOnInit() {
-    console.log('ngOnInit');
+    // console.log('ngOnInit');
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges');
+    // console.log('ngOnChanges');
 
-    console.log('changes.name', changes.name);
+    // console.log('changes.name', changes.name);
   }
 
   // ------------
