@@ -10,8 +10,8 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
-  private currentUserSubject = new Subject<User>();
-  // private currentUserSubject = new BehaviorSubject<User>({} as User);
+  // private currentUserSubject = new Subject<User>();
+  private currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
