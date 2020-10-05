@@ -264,7 +264,7 @@ We saw a bride and a groom - Мы видели невесту и жениха
 He confe'ssed that they were enga'ged - Он признался, что они были помолвлены (заняты)
 I'll be brief - Я буду краток
 
-------------------------    7 !
+------------------------    7 
 
 Adju'st the brightness - Отрегулируйте яркость
 There were gloomy pro'spects - Были мрачные перспективы
@@ -493,7 +493,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 r!
+------------------------  +  13 !!
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
@@ -532,10 +532,10 @@ Do you think that hell and pa'radise exist? - Вы думаете, что ад и рай существую
 It was done for the salva'tion of hu'manity - Это было сделано для спасения человечества
 I expe'rienced some kind of thrill (exci'tement) - Я испытал какие-то острые ощущения \ возбуждение (волнение)
 
-------------------------  +  14 !!
+------------------------  +  14 r!
 
 It's a very cosy bed - Это очень уютная кровать
-It was a stu'nning success - Это был потрясающий успех
+It was a stu'nning success - Это был оглушающий (потрясающий) успех
 He cracked the nut - Он сломал (расколол, треснувший) орех
 Admi'nisters our affa'irs - Управляет нашими делами
 I'm against this vi'olence - Я против этого насилия
@@ -605,7 +605,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !
+------------------------  +  16 !!
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
