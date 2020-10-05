@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,12 +10,8 @@ import { StoreFeatureModule } from './store.module';
 import { UserComponent } from './user/user.component';
 import { SharedModule } from './shared/shared.module';
 import { ChildComponent, LifecycleComponent } from './lifecycle.component';
-import { EffectsModule } from '@ngrx/effects';
-import { ShopEffect } from './store/effects/shop.effects';
-import { ShopModule } from './shop/shop.module';
-import { ShopComponent } from './shop/shop.component';
-import { PhonesComponent } from './phones/phones.component';
-import { PhonesModule } from './phones/phones.module';
+import { environment } from 'src/environments/environment.prod';
+// import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -22,9 +19,7 @@ import { PhonesModule } from './phones/phones.module';
     LifecycleComponent,
     ChildComponent,
     CounterComponent,
-    UserComponent,
-    PhonesComponent,
-    // ShopComponent
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +27,11 @@ import { PhonesModule } from './phones/phones.module';
     SharedModule,
     StoreModule.forRoot({}),
     StoreFeatureModule,
-    // PhonesModule
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    })
     // EffectsModule.forRoot([ShopEffect]),
-    // ShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]

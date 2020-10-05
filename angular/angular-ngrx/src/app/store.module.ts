@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 
 import { CounterModule } from './counter/counter.module';
-import { UserModule } from './store/actions/user.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   exports: [

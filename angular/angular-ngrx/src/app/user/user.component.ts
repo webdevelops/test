@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { addUser, deleteUser } from '../store/actions/user.actions';
 import { User } from '../core/models';
 import * as userSelectors from '../store/selectors/user.selectors';
+import { delay, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
@@ -15,23 +16,26 @@ export class UserComponent implements OnInit {
   userCount$: Observable<number>;
   name = '';
   users: User[] = [];
+  isLoading = false;
 
-  constructor(private store: Store<{ user: User }>) {}
+  constructor(private store: Store<{ user: User }>) { }
 
   ngOnInit(): void {
-    this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal);
-    
-    this.store.select<User[]>(userSelectors.selectAllUsers).subscribe(
-      users => {
-        this.users = users;
-        console.log('Users on Store', users);
-      }
-    );
+    this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(1000));
+
+    this.store.select<User[]>(userSelectors.selectAllUsers)
+      .pipe(delay(1000))
+      .subscribe(
+        users => {
+          this.isLoading = false;
+          this.users = users;
+        }
+      );
   }
 
   addUser() {
     if (this.name.trim() === '') {
-      alert('Enter name, please!')
+      alert('Enter name, please!');
       return;
     }
 
@@ -41,11 +45,13 @@ export class UserComponent implements OnInit {
       name: this.name
     };
 
+    this.isLoading = true;
+
     this.store.dispatch(addUser({ user }));  // --- выносить в сервис ???
     this.name = '';
   }
 
   deleteUser(id) {
-    this.store.dispatch(deleteUser({id: id}));
+    this.store.dispatch(deleteUser({ id: id }));
   }
 }

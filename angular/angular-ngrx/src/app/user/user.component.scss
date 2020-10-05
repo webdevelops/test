@@ -1,5 +1,11 @@
 h2 {
   text-align: center;
+  margin: 30px 0;
+  font-size: 24px;
+}
+
+input {
+  margin-bottom: 20px;
 }
 
 ul {
@@ -20,10 +26,16 @@ ul {
       border: none;
       background: none;
       font-size: 20px;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
 
 button {
   margin-left: 10px;
+  padding: 3px 10px;
+  border: none;
 }

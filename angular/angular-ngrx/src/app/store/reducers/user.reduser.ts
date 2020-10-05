@@ -3,6 +3,7 @@ import { EntityState, createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 
 import { User } from 'src/app/core/models';
 import * as UserActions from '../actions/user.actions';
+import { delay } from 'rxjs/operators';
 
 export interface State extends EntityState<User> {
   selectedUserId: number | null;
