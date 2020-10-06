@@ -300,7 +300,7 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 !
+------------------------    8 
 
 I'll write it on the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
@@ -558,7 +558,7 @@ This products are in demand - Эта продукция пользуется спросом
 He feels frustra'ted / disappo'inted - Он чувствует разочарование
 The seme'ster is incre'dibly di'fficult - Семестр невероятно сложный
 He feels that he lives in de'sert. - Он чувствует, что живет в пустыне
-The desse'rt quite o'rdinary - Десерт вполне обычный (ординарный)
+The desse'rt is quite o'rdinary - Десерт вполне обычный (ординарный)
 Can you describe this chart / diagram? - Можете ли вы описать этот график / диаграмму?
 Dial [дайл] the number - Набери номер
 He wrote a prescri'ption. I need to take some me'dicine - Он написал рецепт. Мне нужно принять лекарство
@@ -643,7 +643,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !
+------------------------  +  17 !!
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
