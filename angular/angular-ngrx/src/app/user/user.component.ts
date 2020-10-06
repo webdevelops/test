@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { addUser, deleteUser } from '../store/actions/user.actions';
+import { addUser, deleteUser, upsertUser } from '../store/actions/user.actions';
 import { User } from '../core/models';
 import * as userSelectors from '../store/selectors/user.selectors';
 import { delay, take } from 'rxjs/operators';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-user',
@@ -15,8 +16,11 @@ import { delay, take } from 'rxjs/operators';
 export class UserComponent implements OnInit {
   userCount$: Observable<number>;
   name = '';
+  updateName = '';
   users: User[] = [];
+  userId = '';
   isLoading = false;
+  isVisible = false;
 
   constructor(private store: Store<{ user: User }>) { }
 
@@ -24,10 +28,11 @@ export class UserComponent implements OnInit {
     this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(1000));
 
     this.store.select<User[]>(userSelectors.selectAllUsers)
-      .pipe(delay(1000))
+      // .pipe(delay(1000))
       .subscribe(
         users => {
           this.isLoading = false;
+          this.isVisible = false;
           this.users = users;
         }
       );
@@ -47,8 +52,25 @@ export class UserComponent implements OnInit {
 
     this.isLoading = true;
 
-    this.store.dispatch(addUser({ user }));  // --- выносить в сервис ???
+    setTimeout(() => this.store.dispatch(addUser({ user })), 1000);
+
+    // this.store.dispatch(addUser({ user }));
     this.name = '';
+  }
+
+  showEditField(id) {
+    this.isVisible = true;
+    this.userId = id;
+  }
+
+  updateUser() {
+    const user: User = {
+      id: this.userId,
+      name: this.updateName
+    }
+
+    this.store.dispatch(upsertUser({ user }));
+    this.updateName = '';
   }
 
   deleteUser(id) {

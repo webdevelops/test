@@ -9,9 +9,14 @@
 <ul *ngIf="!isLoading; else loading">
   <li *ngFor="let user of users">
     {{user.name}}
-    <button (click)="deleteUser(user.id)">
-      <i class="ion-trash-a"></i>
-    </button>
+    <div>
+      <button (click)="showEditField(user.id)">
+        <i class="ion-compose ml-5"></i>
+      </button>
+      <button (click)="deleteUser(user.id)">
+        <i class="ion-trash-a"></i>
+      </button>
+    </div>
   </li>
 </ul>
 
@@ -22,6 +27,11 @@
     </div>
   </div>
 </ng-template>
+
+<div class="update-field" *ngIf="isVisible">
+  <input type="text" [(ngModel)]="updateName">
+  <button (click)="updateUser()">Save</button>
+</div>
 
 
 <!-- <app-spinner></app-spinner> -->
