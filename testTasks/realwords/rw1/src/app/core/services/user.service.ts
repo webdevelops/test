@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from 'rxjs';
+import { ReplaySubject, Subject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 import { JwtService } from './jwt.service';
@@ -15,6 +15,8 @@ export class UserService {
 
   private currentUserSubject = new Subject();
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
+  public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   populate() {
     if (this.jwtService.getToken()) {
@@ -32,10 +34,12 @@ export class UserService {
   setAuth(user) {
     this.jwtService.saveToken(user.token);
     this.currentUserSubject.next(user);
+    this.isAuthenticatedSubject.next(true);
   }
 
   purgeAuth() {
     this.jwtService.destroyToken();
     this.currentUserSubject.next({} as User);
+    this.isAuthenticatedSubject.next(false);
   }
 }

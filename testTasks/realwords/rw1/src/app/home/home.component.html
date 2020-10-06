@@ -1,0 +1,45 @@
+<div class="home-page">
+
+  <div class="bunner">
+    <div class="container">
+      <h1 class="logo-font">conduit</h1>
+      <p>A place for share your <i>Angular</i> nowleadge</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-9">
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li class="nav-item">
+              <a 
+                class="nav-link"
+                [ngClass]="{'active': listConfig.type === 'feed'}"
+                (click)="setListTo('feed')"
+              >Your Feed</a>
+            </li>
+
+            <li class="nav-item">
+              <a 
+                class="nav-link"
+                [ngClass]="{'active': listConfig.type === 'all'}"
+                (click)="setListTo('all')"
+              >Global Feed</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" >
+                <i class="ion-pound"></i> Ok!
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3"></div>
+
+    </div>
+  </div>
+</div>
