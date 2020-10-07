@@ -10,11 +10,14 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormsModule,
     HttpClientModule
   ],
+  declarations: [
+    SpinnerComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
-  ],
-  declarations: [SpinnerComponent]
+    HttpClientModule,
+    SpinnerComponent
+  ]
 })
 export class SharedModule { }

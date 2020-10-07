@@ -6,7 +6,7 @@
 
 <h5>Users count: {{userCount$ | async}}</h5>
 
-<ul *ngIf="!isLoading; else loading">
+<ul [hidden]="!userLoaded">
   <li *ngFor="let user of users">
     {{user.name}}
     <div>
@@ -20,18 +20,9 @@
   </li>
 </ul>
 
-<ng-template #loading>
-  <div class="text-center mt-5">
-    <div class="spinner-border text-primary text-center" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-</ng-template>
-
 <div class="update-field" *ngIf="isVisible">
   <input type="text" [(ngModel)]="updateName">
   <button (click)="updateUser()">Save</button>
 </div>
 
-
-<!-- <app-spinner></app-spinner> -->
+<app-spinner [hidden]="userLoaded"></app-spinner>
