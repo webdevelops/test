@@ -27,13 +27,11 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(1000));
 
-    console.log("UserComponent -> ngOnInit -> this.userLoaded-1", this.userLoaded)
     this.store.select<User[]>(userSelectors.selectAllUsers)
       // .pipe(delay(1000))
       .subscribe(
         users => {
           this.userLoaded = true;
-          console.log("UserComponent -> ngOnInit -> this.userLoaded-2", this.userLoaded)
           this.isVisible = false;
           this.users = users;
         }
