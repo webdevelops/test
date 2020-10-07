@@ -1,5 +1,4 @@
 <div class="home-page">
-
   <div class="bunner">
     <div class="container">
       <h1 class="logo-font">conduit</h1>
@@ -9,37 +8,47 @@
 
   <div class="container">
     <div class="row">
-
       <div class="col-md-9">
         <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
             <li class="nav-item">
-              <a 
-                class="nav-link"
-                [ngClass]="{'active': listConfig.type === 'feed'}"
-                (click)="setListTo('feed')"
-              >Your Feed</a>
+              <a class="nav-link" [ngClass]="{ active: listConfig.type === 'feed' }" (click)="setListTo('feed')">Your
+                Feed</a>
             </li>
 
             <li class="nav-item">
-              <a 
-                class="nav-link"
-                [ngClass]="{'active': listConfig.type === 'all'}"
-                (click)="setListTo('all')"
-              >Global Feed</a>
+              <a class="nav-link" [ngClass]="{ active: listConfig.type === 'all' }" (click)="setListTo('all')">Global
+                Feed</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" >
-                <i class="ion-pound"></i> Ok!
-              </a>
+              <a class="nav-link"> <i class="ion-pound"></i> Ok! </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="col-md-3"></div>
+      <app-article-list></app-article-list>
 
+      <div class="col-md-3">
+        <div class="side-bar">
+          <p>Popular tags</p>
+
+          <div class="tag-list">
+            <a *ngFor="let tag of tags" class="tag-default tag-pill">
+              {{ tag }}
+            </a>
+          </div>
+
+          <div [hidden]="tagsLoaded">
+            Loading tags...
+          </div>
+
+          <div [hidden]="!tagsLoaded || tags.length > 0">
+            No tags are here ...yet.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

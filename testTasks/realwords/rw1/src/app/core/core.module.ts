@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { UserService } from './services/user.service';
 import { JwtService } from './services/jwt.service';
 import { ApiService } from './services/api.service';
+import { TagsService } from './services/tags.service';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import { ApiService } from './services/api.service';
   providers: [
     UserService,
     JwtService,
-    ApiService
+    ApiService,
+    TagsService
   ]
 })
-export class CoreModule {}
+export class CoreModule { }

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // this.userService.currentUser.subscribe(
-      // (userData) => this.currentUser = userData;
+    //   (userData) => this.currentUser = userData;
     // )
   }
 

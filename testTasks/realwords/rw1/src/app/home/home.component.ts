@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ArticleListConfig } from '../core/models/article-list-config.model';
+import { TagsService } from '../core/services/tags.service';
 import { UserService } from '../core/services/user.service';
 
 @Component({
@@ -15,8 +16,14 @@ export class HomeComponent implements OnInit {
     type: 'all',
     filters: {},
   };
+  tagsLoaded = false;
+  tags: Array<string> = [];
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private tagsService: TagsService
+  ) { }
 
   ngOnInit() {
     this.userService.isAuthenticated.subscribe((authenticated) => {
@@ -27,6 +34,11 @@ export class HomeComponent implements OnInit {
       } else {
         this.setListTo('all');
       }
+    });
+
+    this.tagsService.getAll().subscribe(tags => {
+      this.tags = tags;
+      this.tagsLoaded = true;
     });
   }
 
