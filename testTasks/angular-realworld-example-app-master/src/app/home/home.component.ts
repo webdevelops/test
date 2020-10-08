@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private tagsService: TagsService,
     private userService: UserService
-  ) {}
+  ) { }
 
   isAuthenticated: boolean;
   listConfig: ArticleListConfig = {
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
+    console.log("HomeComponent -> listConfig", this.listConfig)
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
@@ -38,11 +39,11 @@ export class HomeComponent implements OnInit {
     );
 
     this.tagsService.getAll()
-    .subscribe(tags => {
-      // console.log('tags', tags)
-      this.tags = tags;
-      this.tagsLoaded = true;
-    });
+      .subscribe(tags => {
+        // console.log('tags', tags)
+        this.tags = tags;
+        this.tagsLoaded = true;
+      });
   }
 
   setListTo(type: string = '', filters: Object = {}) {
@@ -53,6 +54,6 @@ export class HomeComponent implements OnInit {
       return;
     }
     // Otherwise, set the list object
-    this.listConfig = {type: type, filters: filters};
+    this.listConfig = { type: type, filters: filters };
   }
 }

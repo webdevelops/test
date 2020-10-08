@@ -7,15 +7,26 @@ import { Article, ArticleListConfig, ArticlesService } from '../../core';
   templateUrl: './article-list.component.html'
 })
 export class ArticleListComponent {
-  constructor (
+
+  // @Input() config: ArticleListConfig;  // --- config(undefined) ???
+  constructor(
     private articlesService: ArticlesService
-  ) {}
+  ) {
+    // console.log("ArticleListComponent -> config", this.config)
+    // console.log("ArticleListComponent -> limit", this.limit)
+    // if (this.config !== undefined) {
+    //   this.query = this.config;
+    //   this.currentPage = 1;
+    //   this.runQuery();
+    // }
+  }
 
   @Input() limit: number;
+
   @Input()
-  set config(config: ArticleListConfig) {
+  set config(config: ArticleListConfig) {  // --- config(data) ???
     if (config) {
-      // console.log('config', config);
+      // console.log('configs', config);
       this.query = config;
       this.currentPage = 1;
       this.runQuery();
@@ -40,17 +51,18 @@ export class ArticleListComponent {
     // Create limit and offset filter (if necessary)
     if (this.limit) {
       this.query.filters.limit = this.limit;
-      this.query.filters.offset =  (this.limit * (this.currentPage - 1));
+      this.query.filters.offset = (this.limit * (this.currentPage - 1));
     }
 
     this.articlesService.query(this.query)
       .subscribe(data => {
         // console.log('data', data);
-      this.loading = false;
-      this.results = data.articles;
+        this.loading = false;
+        this.results = data.articles;
 
-      // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
+        // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
-    });
+      });
   }
+
 }
