@@ -1,5 +1,5 @@
 
-------------------------    -1 
+------------------------    -1 !
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -416,7 +416,7 @@ The flight was delayed - Рейс задержался
 I set it on the floor - Я поставил это на пол
 We had to pay all the fees - Мы должны были заплатить все сборы
 
-------------------------  +  11 !!
+------------------------  +  11 !
 
 How much will they charge for this service - Сколько они будут взимать (заряжать, обязанности, расходы) за эту услугу
 Anyone would choose the same thing - Любой выбрал бы то же самое
@@ -553,7 +553,7 @@ He cycles to work - Он ездит (на велосипеде) на работу
 He can do it if he da'res - Он может сделать это, если посмеет
 I'm a'bsolutely deli'ghted to see you - Я очень рад (восхищенный) видеть тебя
 We were greatly surpri'sed by that takeo'ver - Мы были очень удивлены этим поглощением (захват)
-He dema'nded an explana'tion - Он потребовал объяснения
+He dema'nded an explana'tion - Он потребовал объяснение
 This products are in demand - Эта продукция пользуется спросом
 He feels frustra'ted / disappo'inted - Он чувствует разочарование
 The seme'ster is incre'dibly di'fficult - Семестр невероятно сложный
