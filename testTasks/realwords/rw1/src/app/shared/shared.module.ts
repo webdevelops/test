@@ -14,7 +14,7 @@ import { ArticleListComponent } from './article-helpers/article-list/article-lis
   ],
   exports: [
     CommonModule,
-    // HttpClientModule
+    // HttpClientModule,
     ArticleListComponent
   ],
 })
