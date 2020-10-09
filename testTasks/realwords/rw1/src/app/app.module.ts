@@ -15,10 +15,10 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

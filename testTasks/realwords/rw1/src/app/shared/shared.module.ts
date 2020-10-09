@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { ArticleListComponent } from './article-helpers/article-list/article-list.component';
+import { ArticlePreviewComponent } from './article-helpers/article-preview/article-preview.component';
 
 @NgModule({
   imports: [
@@ -10,12 +11,14 @@ import { ArticleListComponent } from './article-helpers/article-list/article-lis
     HttpClientModule
   ],
   declarations: [
-    ArticleListComponent
+    ArticleListComponent,
+    ArticlePreviewComponent
   ],
   exports: [
     CommonModule,
-    // HttpClientModule,
-    ArticleListComponent
+    HttpClientModule,
+    ArticleListComponent,
+    ArticlePreviewComponent
   ],
 })
 export class SharedModule { }
