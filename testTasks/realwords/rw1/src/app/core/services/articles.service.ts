@@ -28,8 +28,11 @@ export class ArticlesService {
       );
   }
 
-  favorite(slug) {
-    // favorite(slug): Observable<Article> {
+  favorite(slug): Observable<Article> {
     return this.apiService.post('/article/' + slug + '/favorite')
+  }
+
+  unfavorite(slug): Observable<Article> {
+    return this.apiService.delete('/article/' + slug + '/favorite')
   }
 }

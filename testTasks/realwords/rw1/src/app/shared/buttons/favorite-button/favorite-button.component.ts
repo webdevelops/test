@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { concatMap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 
 import { Article } from 'src/app/core/models/article.model';
 import { ArticlesService } from 'src/app/core/services/articles.service';
@@ -37,9 +37,26 @@ export class FavoriteButtonComponent {
         }
 
         if (this.article.favorited) {
-          this.articlesService
+          return this.articlesService.favorite(this.article.slug)
+            .pipe(tap(
+              data => {
+                this.isSubmitting = false;
+                this.toggle.emit(true);
+              },
+              err => this.isSubmitting = false
+            ));
+
+        } else {
+          return this.articlesService.unfavorite(this.article.slug)
+            .pipe(tap(
+              data => {
+                this.isSubmitting = false;
+                this.toggle.emit(false);
+              },
+              err => this.isSubmitting = false
+            ));
         }
       }
-    ))
+    )).subscribe();
   }
 }

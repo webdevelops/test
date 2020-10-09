@@ -20,7 +20,16 @@ export class ApiService {
       .pipe(catchError(this.formatError));
   }
 
-  post() {
-    return;
+  post(path: string, body: Object = {}): Observable<any> {
+    return this.http.post(
+      `${environment.api_url}${path}`,
+      JSON.stringify(body)
+    ).pipe(catchError(this.formatError));
+  }
+
+  delete(path): Observable<any> {
+    return this.http.delete(
+      `${environment.api_url}${path}`
+    ).pipe(catchError(this.formatError));
   }
 }
