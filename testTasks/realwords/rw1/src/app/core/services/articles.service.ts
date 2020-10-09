@@ -27,4 +27,9 @@ export class ArticlesService {
         new HttpParams({ fromObject: params })
       );
   }
+
+  favorite(slug) {
+    // favorite(slug): Observable<Article> {
+    return this.apiService.post('/article/' + slug + '/favorite')
+  }
 }

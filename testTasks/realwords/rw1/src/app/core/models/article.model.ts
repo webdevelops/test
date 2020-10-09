@@ -8,7 +8,7 @@ export interface Article {
   tagList: string[];
   createdAt: string;
   updatedAt: string;
-  favorited: string;
-  favoritesCount: string;
+  favorited: boolean;
+  favoritesCount: number;
   author: Profile
 }

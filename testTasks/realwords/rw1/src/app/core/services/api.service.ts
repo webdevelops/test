@@ -19,4 +19,8 @@ export class ApiService {
     return this.http.get(`${environment.api_url}/${path}`, { params: params })
       .pipe(catchError(this.formatError));
   }
+
+  post() {
+    return;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Article } from 'src/app/core/models/article.model';
 
@@ -7,12 +7,18 @@ import { Article } from 'src/app/core/models/article.model';
   templateUrl: './article-preview.component.html',
   styleUrls: ['./article-preview.component.scss']
 })
-export class ArticlePreviewComponent implements OnInit {
+export class ArticlePreviewComponent {
   @Input() article: Article;
 
-  constructor() { }
+  onToggleFavorite(favorited: boolean) {
+    this.article['favorited'] = favorited;
 
-  ngOnInit() {
+    if (favorited) {
+      this.article['favoritesCount']++;
+
+    } else {
+      this.article['favoritesCount']--;
+    }
   }
 
 }
