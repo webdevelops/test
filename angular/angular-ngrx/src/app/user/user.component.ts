@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 import { addUser, deleteUser, upsertUser } from '../store/actions/user.actions';
 import { User } from '../core/models';
 import * as userSelectors from '../store/selectors/user.selectors';
-import { delay, take } from 'rxjs/operators';
-import { Update } from '@ngrx/entity';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
