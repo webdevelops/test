@@ -10,12 +10,15 @@
   <li *ngFor="let user of users">
     {{user.name}}
     <div>
+
       <button (click)="showEditField(user.id)">
         <i class="ion-compose ml-5"></i>
       </button>
+
       <button (click)="deleteUser(user.id)">
         <i class="ion-trash-a"></i>
       </button>
+      
     </div>
   </li>
 </ul>
