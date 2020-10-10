@@ -1,6 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ArticleListConfig } from '../models/article-list-config.model';
 import { Article } from '../models/article.model';
@@ -26,6 +27,11 @@ export class ArticlesService {
         '/articles' + ((config.type === 'feed') ? '/feed' : ''),
         new HttpParams({ fromObject: params })
       );
+  }
+
+  get(slug): Observable<Article> {
+    return this.apiService.get('/articles/' + slug)
+      .pipe(map(data => data.article));
   }
 
   favorite(slug): Observable<Article> {
