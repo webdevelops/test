@@ -8,11 +8,11 @@ import { Article } from '../../core';
 })
 export class ArticleMetaComponent implements OnInit, OnChanges {
   @Input() article: Article;
-  counter: number = 0;
-  
+  // counter: number = 0;
+
   // ------------
 
-  @Input() name: string;
+  // @Input() name: string;
 
   ngOnInit() {
     // console.log('ngOnInit');
@@ -24,13 +24,13 @@ export class ArticleMetaComponent implements OnInit, OnChanges {
     // console.log('changes.name', changes.name);
   }
 
-  // ------------
+  // // ------------
 
-  increment() {
-    this.counter++;
-  }
+  // increment() {
+  //   this.counter++;
+  // }
 
-  decrement() {
-    this.counter--;
-  }
+  // decrement() {
+  //   this.counter--;
+  // }
 }

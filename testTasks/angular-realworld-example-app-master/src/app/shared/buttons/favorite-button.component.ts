@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { Article, ArticlesService, UserService } from '../../core';
 import { of } from 'rxjs';
-import { concatMap ,  tap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-favorite-button',
@@ -14,7 +14,7 @@ export class FavoriteButtonComponent {
     private articlesService: ArticlesService,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) { }
 
   @Input() article: Article;
   @Output() toggle = new EventEmitter<boolean>();
@@ -37,23 +37,23 @@ export class FavoriteButtonComponent {
             .pipe(tap(
               data => {
                 // console.log('data', data)
-              this.isSubmitting = false;
-              this.toggle.emit(true);
-            },
-            err => this.isSubmitting = false
-          ));
+                this.isSubmitting = false;
+                this.toggle.emit(true);
+              },
+              err => this.isSubmitting = false
+            ));
 
-        // Otherwise, unfavorite the article
+          // Otherwise, unfavorite the article
         } else {
           return this.articlesService.unfavorite(this.article.slug)
-          .pipe(tap(
-            data => {
-              // console.log('data', data)
-              this.isSubmitting = false;
-              this.toggle.emit(false);
-            },
-            err => this.isSubmitting = false
-          ));
+            .pipe(tap(
+              data => {
+                // console.log('data', data)
+                this.isSubmitting = false;
+                this.toggle.emit(false);
+              },
+              err => this.isSubmitting = false
+            ));
         }
 
       }
