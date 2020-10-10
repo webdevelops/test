@@ -30,19 +30,19 @@ export class ArticleComponent implements OnInit {
 
   // --------- example 2
 
-  @ViewChild('counter')
-  private counterComponent: any;
+  // @ViewChild('counter')
+  // private counterComponent: any;
 
-  increment() {
-    this.counterComponent.increment();
-    console.log(this.counterComponent.counter);
-    // this.counterComponent.counter += 5;
-  }
+  // increment() {
+  //   this.counterComponent.increment();
+  //   console.log(this.counterComponent.counter);
+  //   // this.counterComponent.counter += 5;
+  // }
 
-  decrement() {
-    this.counterComponent.decrement();
-    console.log(this.counterComponent.counter);
-  }
+  // decrement() {
+  //   this.counterComponent.decrement();
+  //   console.log(this.counterComponent.counter);
+  // }
 
   // --------- end example 2
 
@@ -65,21 +65,6 @@ export class ArticleComponent implements OnInit {
         this.populateComments();
       }
     );
-
-    // --------- example 1
-
-    // this.route.params
-    //   .pipe(
-    //     switchMap(params => {
-    //       return this.articlesService.get(params['slug']);
-    //     })
-    // ).subscribe(article => {
-    //     console.log('article', article);   // HTML загружается до ответа с сервера (асинхронный запрос)
-    //     this.article = article;            // не видит article
-    //     this.populateComments();
-    //   });
-
-    // --------- end example 1
 
     // Load the current user's data
     this.userService.currentUser.subscribe(

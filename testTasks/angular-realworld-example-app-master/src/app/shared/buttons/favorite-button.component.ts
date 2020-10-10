@@ -39,6 +39,10 @@ export class FavoriteButtonComponent {
                 // console.log('data', data)
                 this.isSubmitting = false;
                 this.toggle.emit(true);
+
+                // this.article.favorited = true;  // --- можно вместо: onToggleFavorite
+                // this.article.favoritesCount++;
+
               },
               err => this.isSubmitting = false
             ));
@@ -51,6 +55,9 @@ export class FavoriteButtonComponent {
                 // console.log('data', data)
                 this.isSubmitting = false;
                 this.toggle.emit(false);
+
+                // this.article['favorited'] = false;  // --- можно вместо: onToggleFavorite
+                // this.article['favoritesCount']--;
               },
               err => this.isSubmitting = false
             ));
