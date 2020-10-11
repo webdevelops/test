@@ -92,7 +92,7 @@ They were sitting in si'lence - Они сидели в тишине
 Don't forget to put a si'gnature here - Не забудьте поставить подпись здесь
 I teach students of mixed abilities - Я учу студентов смешанных (возможностей) способностейasd
 
-------------------------    2 
+------------------------    2 !
 
 You just need to use the right techni'que - Вам просто нужно использовать правильную технику  // ...1205 / 1.43.21
 Tell me this figure. I can't figure out how it works - Скажи мне эту цифру. Я не могу понять (вычислить), как это работает
@@ -493,7 +493,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !!
+------------------------  +  13 !
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
