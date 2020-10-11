@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { Observable } from 'rxjs';
 
 import { Article } from '../core/models/article.model';
 import { Comment } from '../core/models/comment.model';
+import { User } from '../core/models/user.model';
 import { ArticlesService } from '../core/services/articles.service';
 import { CommentsService } from '../core/services/comments.service';
+// import { UserService } from '../core/services/user.service';
 
 @Component({
   selector: 'app-article',
@@ -17,13 +21,20 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private commentsService: CommentsService,
     private articlesService: ArticlesService,
-    private router: Router
+    private router: Router,
+    // private userService: UserService
   ) { }
 
+  // isAuthenticated$: Observable<boolean>;
   article: Article;
   canModify: boolean;
   isDeleting = false;
   comments: Comment[];
+  // appShowAuthed: true;
+  commentFormErrors = {};
+  isSubmitting = false;
+  commentControl = new FormControl();
+  currentUser: User;
 
   ngOnInit() {
     this.route.data.subscribe(
@@ -33,6 +44,8 @@ export class ArticleComponent implements OnInit {
         this.populateComments();
       }
     )
+
+    // this.isAuthenticated$ = this.userService.isAuthenticated;
   }
 
   populateComments() {
@@ -65,4 +78,7 @@ export class ArticleComponent implements OnInit {
     this.article.author.following = following;
   }
 
+  addComment() {
+
+  }
 }

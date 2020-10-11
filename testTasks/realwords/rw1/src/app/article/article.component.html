@@ -72,6 +72,39 @@
       </app-article-meta>
     </div>
 
+    <div class="row">
+      <div class="col-xs-12 col-md-8 offset-md-2">
+
+        <!-- <div [hidden]="!isAuthenticated$ | async"> -->
+        <div *appShowAuthed="true">
+          <app-list-errors [errors]="commentFormErrors"></app-list-errors>
+
+          <form class="card comment-form" (ngSubmit)="addComment()">
+            <fieldset [disabled]="isSubmitting">
+              <div class="card-block">
+                <textarea rows="3" class="form-control" placeholder="Write a comment..."
+                  [formControl]="commentControl"></textarea>
+              </div>
+
+              <div class="card-footer">
+                <img [src]="currentUser.image" class="comment-auth-img">
+                <button class="btn tbn-sm btn-primary" type="submit">
+                  Post Comment
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div *appShowAuthed="false">
+          <a [routerLink]="['/login']">Sign in</a> or
+          <a [routerLink]="['/register']">sign up</a>
+          to add comments on this article.
+        </div>
+
+
+      </div>
+    </div>
   </div>
 
 </div>
