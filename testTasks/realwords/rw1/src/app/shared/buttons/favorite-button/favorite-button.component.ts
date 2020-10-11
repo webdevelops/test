@@ -31,12 +31,12 @@ export class FavoriteButtonComponent {
 
     this.userService.isAuthenticated.pipe(concatMap(
       (authenticated) => {
-        if (authenticated) {
+        if (!authenticated) {
           this.router.navigateByUrl('/login');
           return of(null);
         }
 
-        if (this.article.favorited) {
+        if (!this.article.favorited) {
           return this.articlesService.favorite(this.article.slug)
             .pipe(tap(
               data => {
@@ -50,6 +50,7 @@ export class FavoriteButtonComponent {
           return this.articlesService.unfavorite(this.article.slug)
             .pipe(tap(
               data => {
+                console.log("FavoriteButtonComponent -> toggleFavorite -> data", data)
                 this.isSubmitting = false;
                 this.toggle.emit(false);
               },

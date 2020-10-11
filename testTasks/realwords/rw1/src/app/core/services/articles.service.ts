@@ -35,10 +35,14 @@ export class ArticlesService {
   }
 
   favorite(slug): Observable<Article> {
-    return this.apiService.post('/article/' + slug + '/favorite')
+    return this.apiService.post('/articles/' + slug + '/favorite');
   }
 
   unfavorite(slug): Observable<Article> {
-    return this.apiService.delete('/article/' + slug + '/favorite')
+    return this.apiService.delete('/articles/' + slug + '/favorite');
+  }
+
+  destroy(slug) {
+    return this.apiService.delete('/articles/' + slug);
   }
 }

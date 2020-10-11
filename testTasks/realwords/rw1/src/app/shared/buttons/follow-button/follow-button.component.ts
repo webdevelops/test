@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 
 import { Profile } from 'src/app/core/models/profile.model';
 import { ProfileService } from 'src/app/core/services/profile.service';
@@ -30,7 +30,7 @@ export class FollowButtonComponent implements OnInit {
   toggleFollowing() {
     this.isSubmitting = true;
 
-    this.userService.isAuthenticated.pipe(
+    this.userService.isAuthenticated.pipe(concatMap(
       (authenticated) => {
         if (!authenticated) {
           this.router.navigateByUrl('/login');
@@ -58,7 +58,7 @@ export class FollowButtonComponent implements OnInit {
             ));
         }
       }
-    ).subscribe();
+    )).subscribe();
   }
 
 }

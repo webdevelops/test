@@ -4,6 +4,7 @@ import { ArticlesService } from '../core/services/articles.service';
 import { SharedModule } from '../shared/shared.module';
 import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './article.component';
+import { MarkdownPipe } from './markdown.pipe';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { ArticleComponent } from './article.component';
     ArticleRoutingModule
   ],
   declarations: [
-    ArticleComponent
+    ArticleComponent,
+    MarkdownPipe
   ],
   providers: [
     // ArticlesService
