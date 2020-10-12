@@ -11,6 +11,8 @@ import { UserComponent } from './user/user.component';
 import { SharedModule } from './shared/shared.module';
 import { ChildComponent, LifecycleComponent } from './lifecycle.component';
 import { environment } from 'src/environments/environment.prod';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 // import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
@@ -23,7 +25,9 @@ import { environment } from 'src/environments/environment.prod';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule,
     StoreModule.forRoot({}),
     StoreFeatureModule,

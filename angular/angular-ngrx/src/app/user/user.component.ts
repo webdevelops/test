@@ -6,6 +6,7 @@ import { addUser, deleteUser, upsertUser } from '../store/actions/user.actions';
 import { User } from '../core/models';
 import * as userSelectors from '../store/selectors/user.selectors';
 import { delay } from 'rxjs/operators';
+import { ApiService, UserService } from '../core';
 
 @Component({
   selector: 'app-user',
@@ -21,9 +22,21 @@ export class UserComponent implements OnInit {
   userLoaded = false;
   isVisible = false;
 
-  constructor(private store: Store<{ user: User }>) { }
+  mockUsers: User[] = [];
+
+  constructor(
+    private store: Store<{ user: User }>,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe(
+      mockUsers => {
+        this.mockUsers = mockUsers;
+        console.log("UserComponent -> ngOnInit -> this.mockUsers", this.mockUsers)
+      }
+    )
+
     this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(100));
 
     this.store.select<User[]>(userSelectors.selectAllUsers)
@@ -54,6 +67,8 @@ export class UserComponent implements OnInit {
     const timerId = setTimeout(() => this.store.dispatch(addUser({ user })), 1000);
 
     // this.store.dispatch(addUser({ user }));
+
+    this.userService.addUser(user).subscribe(); // to mock API
     this.name = '';
   }
 
