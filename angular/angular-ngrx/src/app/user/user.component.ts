@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   constructor(private store: Store<{ user: User }>) { }
 
   ngOnInit(): void {
-    this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(1000));
+    this.userCount$ = this.store.select<number>(userSelectors.selectUserTotal).pipe(delay(100));
 
     this.store.select<User[]>(userSelectors.selectAllUsers)
       // .pipe(delay(1000))
@@ -51,7 +51,7 @@ export class UserComponent implements OnInit {
 
     this.userLoaded = false;
 
-    setTimeout(() => this.store.dispatch(addUser({ user })), 1000);
+    const timerId = setTimeout(() => this.store.dispatch(addUser({ user })), 1000);
 
     // this.store.dispatch(addUser({ user }));
     this.name = '';
