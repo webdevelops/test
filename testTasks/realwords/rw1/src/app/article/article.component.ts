@@ -81,4 +81,8 @@ export class ArticleComponent implements OnInit {
   addComment() {
 
   }
+
+  onDeleteComment() {
+
+  }
 }
