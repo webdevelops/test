@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -12,10 +13,8 @@ import { UserComponent } from './user/user.component';
 import { SharedModule } from './shared/shared.module';
 import { ChildComponent, LifecycleComponent } from './lifecycle.component';
 import { environment } from 'src/environments/environment.prod';
-import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticlesEffects } from './store/effects/articles.effects';
 import { ArticleListModule } from './article-list/article-list.module';
 
 @NgModule({
