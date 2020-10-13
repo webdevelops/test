@@ -9,11 +9,11 @@ export class ApiService {
   ) { }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
+    console.log('params', params)
     return this.http.get(path, { params: params });
   }
 
   post(path, body) {
-    console.log("ApiService -> post -> body", body)
     return this.http.post(
       path,
       JSON.stringify(body)

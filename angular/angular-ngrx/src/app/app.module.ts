@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,9 @@ import { ChildComponent, LifecycleComponent } from './lifecycle.component';
 import { environment } from 'src/environments/environment.prod';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
-// import { EffectsModule } from '@ngrx/effects';
+import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticlesEffects } from './store/effects/articles.effects';
+import { ArticleListModule } from './article-list/article-list.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { CoreModule } from './core/core.module';
     LifecycleComponent,
     ChildComponent,
     CounterComponent,
-    UserComponent
+    UserComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,13 +33,14 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    ArticleListModule,
+    EffectsModule.forRoot([]),   // !!! работает только если добавить в imports: ArticleListModule
     StoreModule.forRoot({}),
     StoreFeatureModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
-    })
-    // EffectsModule.forRoot([ShopEffect]),
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
