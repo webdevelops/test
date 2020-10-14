@@ -1,16 +1,19 @@
 {
-  "teams": [
+  "articles": [
     {
       "id": 1,
-      "name": "FC Barcelona",
-      "coach": "Ernesto Valverde",
-      "description": "The best football team in the world!"
+      "title": "Article 1",
+      "description": "Some quick example text to build on the article title and make up the bulk of the articles's content...."
     },
     {
       "id": 2,
-      "name": "Real Madrid",
-      "coach": "Zinedine Zidane",
-      "description": "The worst football team in the world!"
+      "title": "Article 2",
+      "description": "Some quick example text to build on the article title and make up the bulk of the articles's content...."
+    },
+    {
+      "id": 3,
+      "title": "Article 3",
+      "description": "Some quick example text to build on the article title and make up the bulk of the articles's content...."
     }
   ],
   "users": [
@@ -21,20 +24,6 @@
     {
       "id": 2,
       "name": "Dima"
-    }
-  ],
-  "articles": [
-    {
-      "id": 1,
-      "title": "Article-1"
-    },
-    {
-      "id": 2,
-      "title": "Article-2"
-    },
-    {
-      "id": 3,
-      "title": "Article-3"
     }
   ]
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { Article } from '../core';
-import * as ArticleActions from '../store/actions';
+import * as ArticlesActions from '../store/actions';
+import * as ArticlesSelections from '../store/selectors';
 
 @Component({
   selector: 'app-article-list',
@@ -15,11 +17,12 @@ export class ArticleListComponent implements OnInit {
     private store: Store
   ) { }
 
-  articles: Article[] = [];
-  // articles$ = 
+  articles$: Observable<Article[]>;
 
   ngOnInit(): void {
-    this.store.dispatch(ArticleActions.LoadArticles());
+    this.store.dispatch(ArticlesActions.LoadArticles());
+
+    this.articles$ = this.store.select(ArticlesSelections.selectAllArticles);
   }
 
 }
