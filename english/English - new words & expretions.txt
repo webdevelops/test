@@ -188,7 +188,7 @@ It anno'ys me - Это меня раздражает
 His la'ziness i'rritates me - Его лень раздражает меня
 What's their a'nnual tu'rnover? - Каков их годовой оборот? ------- // ... 1500
 
-------------------------    5 
+------------------------    5 !
 
 She's a'nxious about her future - Она беспокоится о своем будущем
 She has a feeling of anxi'ety - У нее чувство тревоги
@@ -225,7 +225,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 
+------------------------    6 !
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -377,7 +377,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 !
+------------------------  +  10 !!
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
@@ -643,7 +643,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !!
+------------------------  +  17 !
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
