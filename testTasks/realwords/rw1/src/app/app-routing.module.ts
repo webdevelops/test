@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ArticleResolver } from './article/article-resolver.service';
 import { ArticleComponent } from './article/article.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
     resolve: {
       article: ArticleResolver
     }
-  }
+  },
   // {
   //   path: 'article',
   //   loadChildren: './article/article.module#ArticleModule'

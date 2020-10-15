@@ -12,7 +12,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class ArticleCommentComponent implements OnInit, OnDestroy {
   constructor(
-    private userService: UserService;
+    private userService: UserService
   ) { }
 
   @Input() comment: Comment;

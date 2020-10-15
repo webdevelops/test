@@ -9,19 +9,19 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { ArticleModule } from './article/article.module';
 import { ArticleResolver } from './article/article-resolver.service';
-// import { ArticleComponent } from './article/article.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    // ArticleComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
     HomeModule,
+    AuthModule,
     AppRoutingModule,
 
     ArticleModule         // --- without lazyload loadChildren
