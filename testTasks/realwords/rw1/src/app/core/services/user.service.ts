@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { ReplaySubject, Subject } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { ReplaySubject, Subject, Observable } from 'rxjs';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { JwtService } from './jwt.service';
 import { ApiService } from './api.service';
@@ -11,7 +11,7 @@ export class UserService {
   constructor(
     private jwtService: JwtService,
     private apiService: ApiService
-  ) {}
+  ) { }
 
   private currentUserSubject = new Subject();
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
@@ -25,7 +25,7 @@ export class UserService {
           data => this.setAuth(data.user),
           err => this.purgeAuth()
         );
-    
+
     } else {
       this.purgeAuth();
     }
@@ -41,5 +41,18 @@ export class UserService {
     this.jwtService.destroyToken();
     this.currentUserSubject.next({} as User);
     this.isAuthenticatedSubject.next(false);
+  }
+
+  attamptAuth(type, credentials): Observable<User> {
+    const route = (type === 'login') ? '/login' : '';
+
+    return this.apiService
+      .post('/user' + route, { user: credentials })
+      .pipe(map(
+        data => {
+          this.setAuth(data.user);
+          return data;
+        }
+      ))
   }
 }
