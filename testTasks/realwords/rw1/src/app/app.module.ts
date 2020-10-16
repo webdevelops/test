@@ -10,11 +10,13 @@ import { HomeModule } from './home/home.module';
 import { ArticleModule } from './article/article.module';
 import { ArticleResolver } from './article/article-resolver.service';
 import { AuthModule } from './auth/auth.module';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

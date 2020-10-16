@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ReplaySubject, Subject, Observable } from 'rxjs';
+import { ReplaySubject, Observable, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { JwtService } from './jwt.service';
@@ -13,7 +13,7 @@ export class UserService {
     private apiService: ApiService
   ) { }
 
-  private currentUserSubject = new Subject();
+  private currentUserSubject = new BehaviorSubject<User>({} as User);
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
   private isAuthenticatedSubject = new ReplaySubject<boolean>(1);
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
@@ -47,12 +47,26 @@ export class UserService {
     const route = (type === 'login') ? '/login' : '';
 
     return this.apiService
-      .post('/user' + route, { user: credentials })
+      .post('/users' + route, { user: credentials })
       .pipe(map(
         data => {
+          // data.user.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1024px-SNice.svg.png"
           this.setAuth(data.user);
           return data;
         }
-      ))
+      ));
+  }
+
+  getCurrentUser(): User {
+    return this.currentUserSubject.value;
+  }
+
+  update(user): Observable<User> {
+    return this.apiService
+      .put('/user', { user })
+      .pipe(map(data => {
+        this.currentUserSubject.next(data.user);
+        return data.user;
+      }))
   }
 }

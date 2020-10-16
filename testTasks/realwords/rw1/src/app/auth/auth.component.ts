@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Errors, UserService } from '../core';
 
@@ -19,6 +19,7 @@ export class AuthComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private userService: UserService
   ) {
     this.authForm = this.fb.group({
@@ -30,7 +31,7 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe(data => {
       this.authType = data[data.length - 1].path;
-      this.title = (this.authType === 'login') ? 'Sign In' : 'Sign Up';
+      this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
 
       if (this.authType === 'register') {
         this.authForm.addControl('username', new FormControl());
@@ -43,7 +44,13 @@ export class AuthComponent implements OnInit {
     this.errors = { errors: {} };
     // console.log('this.errors', this.errors);
     const credentials = this.authForm.value;
-    // console.log('credentials', credentials);
-    this.userService
+    this.userService.attamptAuth(this.authType, credentials)
+      .subscribe(
+        data => this.router.navigateByUrl('/'),
+        err => {
+          this.errors = err,
+            this.isSubmitting = false;
+        }
+      );
   }
 }
