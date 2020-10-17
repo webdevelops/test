@@ -300,7 +300,7 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 
+------------------------    8 !
 
 I'll write it on the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
@@ -455,7 +455,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !
+------------------------  +  12 !!
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
