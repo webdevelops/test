@@ -11,12 +11,14 @@ import { ArticleModule } from './article/article.module';
 import { ArticleResolver } from './article/article-resolver.service';
 import { AuthModule } from './auth/auth.module';
 import { SettingsComponent } from './settings/settings.component';
+import { ProfileResolver } from './profile/profile-resolver.service';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SettingsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,11 +28,13 @@ import { SettingsComponent } from './settings/settings.component';
     AuthModule,
     AppRoutingModule,
 
-    ArticleModule         // --- without lazyload loadChildren
+    ArticleModule,      // --- without lazyload loadChildren
+    ProfileModule       // --- without lazyload loadChildren
 
   ],
   providers: [
-    ArticleResolver        // --- without lazyload loadChildren
+    ArticleResolver,        // --- without lazyload loadChildren
+    ProfileResolver         // --- without lazyload loadChildren
   ],
   bootstrap: [AppComponent]
 })

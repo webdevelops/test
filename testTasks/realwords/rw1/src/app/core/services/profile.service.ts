@@ -11,6 +11,11 @@ export class ProfileService {
     private apiService: ApiService
   ) { }
 
+  get(username: string): Observable<Profile> {
+    return this.apiService.get('/profiles/' + username)
+      .pipe(map((data: { profile: Profile }) => data.profile));
+  }
+
   follow(username: string): Observable<Profile> {
     return this.apiService.get('/profiles/' + username + '/follow')
       .pipe(map((data: { profile: Profile }) => data.profile));
