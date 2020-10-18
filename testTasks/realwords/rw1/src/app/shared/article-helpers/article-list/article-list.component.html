@@ -8,7 +8,7 @@
   Not articles are here... yet.
 </div>
 
-<nav [hidden]="loading || totalPages.length <= 1">
+<nav [hidden]="loading || totalPages.length < 1">
   <div class="pagination">
 
     <li class="page-item" [ngClass]="{'active': pageNumber === currentPage}" *ngFor="let pageNumber of totalPages"
