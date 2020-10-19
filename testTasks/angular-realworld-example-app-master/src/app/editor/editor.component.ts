@@ -42,7 +42,7 @@ export class EditorComponent implements OnInit {
       // console.log('data.article', data.article);
       if (data.article) {
         this.article = data.article;
-        this.articleForm.patchValue(data.article);  
+        this.articleForm.patchValue(data.article);
       }
       // console.log('this.articleForm', this.articleForm);
     });

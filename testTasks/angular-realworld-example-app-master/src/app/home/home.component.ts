@@ -52,5 +52,6 @@ export class HomeComponent implements OnInit {
     }
     // Otherwise, set the list object
     this.listConfig = { type: type, filters: filters };
+    // console.log("HomeComponent -> setListTo -> this.listConfig", this.listConfig)
   }
 }

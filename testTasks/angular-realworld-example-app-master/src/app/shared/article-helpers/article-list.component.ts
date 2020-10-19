@@ -8,25 +8,15 @@ import { Article, ArticleListConfig, ArticlesService } from '../../core';
 })
 export class ArticleListComponent {
 
-  // @Input() config: ArticleListConfig;  // --- config(undefined) ???
   constructor(
     private articlesService: ArticlesService
-  ) {
-    // console.log("ArticleListComponent -> config", this.config)
-    // console.log("ArticleListComponent -> limit", this.limit)
-    // if (this.config !== undefined) {
-    //   this.query = this.config;
-    //   this.currentPage = 1;
-    //   this.runQuery();
-    // }
-  }
+  ) { }
 
   @Input() limit: number;
 
   @Input()
-  set config(config: ArticleListConfig) {  // --- config(data) ???
+  set config(config: ArticleListConfig) {
     if (config) {
-      // console.log('configs', config);
       this.query = config;
       this.currentPage = 1;
       this.runQuery();

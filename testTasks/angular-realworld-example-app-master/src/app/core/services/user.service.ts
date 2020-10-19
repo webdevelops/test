@@ -30,7 +30,11 @@ export class UserService {
     if (this.jwtService.getToken()) {
       this.apiService.get('/user')
         .subscribe(
-          data => this.setAuth(data.user),
+          data => {
+            // console.log("UserService -> populate -> data", data)
+            return this.setAuth(data.user)
+          },
+
           err => this.purgeAuth()
         );
     } else {
