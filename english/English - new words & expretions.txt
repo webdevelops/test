@@ -1,5 +1,5 @@
 
-------------------------    -1 !
+------------------------    -1 
 
 I can't keep up with you  - я не могу угнатьс€ за тобой
 He injured his arm - ќн повредил руку
@@ -339,7 +339,7 @@ This ca'ndidate is sui'table for us - Ётот кандидат (подход€щий) подходит дл€ на
 I'll take part in the elections - я приму участие в выборах                  ------- // ... 1840
 I like ca'ndies - я люблю конфеты
 
-------------------------    9 
+------------------------    9 !
 
 I'm not proud of our cantee'n - я не горжусь нашей столовой
 He is inca'pable / ca'pable of doing it - ќн неспособен / способен сделать это
@@ -493,7 +493,7 @@ We treat them as indivi'duals - ћы относимс€ к ним как к личност€м
 He went bald - ќн облысел
 He was standing beside - ќн сто€л р€дом
 
-------------------------  +  13 !
+------------------------  +  13 !!
 
 It was a rough estimate - Ёто была груба€ оценка
 He u'nderestimates his oppo'nent - ќн недооценивает своего противника
@@ -532,7 +532,7 @@ Do you think that hell and pa'radise exist? - ¬ы думаете, что ад и рай существую
 It was done for the salva'tion of hu'manity - Ёто было сделано дл€ спасени€ человечества
 I expe'rienced some kind of thrill (exci'tement) - я испытал какие-то острые ощущени€ \ возбуждение (волнение)
 
-------------------------  +  14 !
+------------------------  +  14 !!
 
 It's a very cosy bed - Ёто очень уютна€ кровать
 It was a stu'nning success - Ёто был оглушающий (потр€сающий) успех
