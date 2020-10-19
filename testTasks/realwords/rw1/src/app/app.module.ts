@@ -13,12 +13,14 @@ import { AuthModule } from './auth/auth.module';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileResolver } from './profile/profile-resolver.service';
 import { ProfileModule } from './profile/profile.module';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SettingsComponent
+    SettingsComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

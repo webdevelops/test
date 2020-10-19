@@ -9,6 +9,7 @@ import { ProfileFivoritesComponent } from './profile/profile-fivorites/profile-f
 import { ProfileResolver } from './profile/profile-resolver.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { EditorComponent } from './editor/editor.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
         component: ProfileFivoritesComponent
       }
     ]
+  },
+  {
+    path: 'editor',
+    component: EditorComponent
   }
 
 
@@ -52,6 +57,10 @@ const routes: Routes = [
   // {
   //   path: 'profile',
   //   loadChildren: './profile/profile.module#ProfileModule'
+  // },
+  // {
+  //   path: 'editor',
+  //   loadChildren: './editor/editor.module#EditorModule'
   // }
 ];
 

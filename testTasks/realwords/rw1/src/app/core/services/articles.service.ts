@@ -34,6 +34,19 @@ export class ArticlesService {
       .pipe(map(data => data.article));
   }
 
+  save(article: Article): Observable<Article> {
+    if (article.slug) {
+      return this.apiService
+        .put('/articles/' + article.slug, { article: article })
+        .pipe(map(data => data.article));
+
+    } else {
+      return this.apiService
+        .post('/articles', { article: article })
+        .pipe(map(data => data.article));
+    }
+  }
+
   favorite(slug): Observable<Article> {
     return this.apiService.post('/articles/' + slug + '/favorite');
   }
