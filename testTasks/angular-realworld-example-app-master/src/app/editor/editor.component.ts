@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Article, ArticlesService } from '../core';
+import { Article, ArticlesService, UserService } from '../core';
 
 @Component({
   selector: 'app-editor-page',
@@ -19,7 +19,8 @@ export class EditorComponent implements OnInit {
     private articlesService: ArticlesService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
   ) {
     // use the FormBuilder to create a form group
     this.articleForm = this.fb.group({
@@ -38,12 +39,12 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     // If there's an article prefetched, load it
     this.route.data.subscribe((data: { article: Article }) => {
-      // console.log('this.article', this.article);
+      // console.log('data.article', data.article);
       if (data.article) {
         this.article = data.article;
-        this.articleForm.patchValue(data.article);
+        this.articleForm.patchValue(data.article);  
       }
-      console.log('this.articleForm', this.articleForm);
+      // console.log('this.articleForm', this.articleForm);
     });
   }
 
@@ -64,7 +65,6 @@ export class EditorComponent implements OnInit {
 
   submitForm() {
     this.isSubmitting = true;
-    // console.log('this.articleForm.value', this.articleForm.value);
     // update the model
     this.updateArticle(this.articleForm.value);
 
