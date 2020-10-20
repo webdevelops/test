@@ -28,24 +28,6 @@ export class ArticleComponent implements OnInit {
   isSubmitting = false;
   isDeleting = false;
 
-  // --------- example 2
-
-  // @ViewChild('counter')
-  // private counterComponent: any;
-
-  // increment() {
-  //   this.counterComponent.increment();
-  //   console.log(this.counterComponent.counter);
-  //   // this.counterComponent.counter += 5;
-  // }
-
-  // decrement() {
-  //   this.counterComponent.decrement();
-  //   console.log(this.counterComponent.counter);
-  // }
-
-  // --------- end example 2
-
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService,
