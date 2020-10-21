@@ -31,7 +31,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 !
+------------------------    0 
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
@@ -60,7 +60,7 @@ Everyone likes getting gifts - Всем нравится получать подарки
 Don't trick others - Не обманывай других
 I lack free time - Мне не хватает свободного времени  // ...1100 / 1.34.21
 
-------------------------    1 !
+------------------------    1 
 
 We went si'ghtseeing - Мы пошли на экскурсию (осмотр достопримечательностей)
 I'm i'nnocent - Я невиновен
@@ -569,7 +569,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 r!
+------------------------  +  15 !!
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
@@ -605,7 +605,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !
+------------------------  +  16 r!
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
@@ -615,16 +615,16 @@ Ge'nerally it was a great discovery - Вообще это было великое открытие
 Genero'sity is a great qua'lity. I wish I had it - Щедрость - это отличное качество. Я (желал)хотел бы иметь это
 It was a ge'ntle touch - Это было нежное прикосновение
 He is a ski'llful ri'der - Он умелый гонщик
-He gla'nced at her - Он посмотрел на нее
-It was gra'dually disappe'aring - Постепенно исчезал
+He gla'nced at her - Он взглянул (посмотрел) на нее
+It was gra'dually disappe'aring - Это постепенно исчезало
 He is a po'stgraduate student - Он аспирант
-I really love my gra'nny - Я (реально)очень люблю свою бабушку
+I really love my gra'nny - Я (реально) очень люблю свою бабушку
 I'm so gra'teful to you - Я так благодарна тебе
 I guess it's a pre'sent for me - Я думаю (предположение), что это (подарок) для меня
 He used to guide her. It's over now - Он (управлял ею) имел обыкновение вести ее. Теперь с этим покончено
 Do you think that you need someone guidance? - Вы думаете, что вам нужно какое-то руководство?
 He was chewing gum - Он жевал жвачку
-It's my habit. I've got used to it - Это моя привычка. Я привык к этому
+It's my habit. I've got used to it (I'm used to it) - Это моя привычка. Я привык к этому
 It's about habi'tual events - Это о привычных события
 She works as a hairdresser - Она работает парикмахером
 Where is my powder? - Где мой порошок (пудра)?
@@ -643,7 +643,7 @@ He was wearing a he'lmet. It was thanks to his sword - Он был (носил) в шлеме. Э
 It was a mi'ssile attack - Это был ракетный удар
 Don't he'sitate - Не стесняйтесь
 
-------------------------  +  17 !
+------------------------  +  17 !!
 
 Hey, what's up - Эй, как жизнь
 There were some hens not far from our country house - Рядом с нашим (не далеко) загородным домом было несколько кур
