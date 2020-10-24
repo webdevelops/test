@@ -1,0 +1,19 @@
+@import "../../../../../styles/mixin.scss";
+
+.header {
+  @include content-container;
+  
+  height: 60px;
+
+  &__logo {
+    @include logo;
+  }
+
+  button:focus {
+    background-color: inherit;
+  }
+
+  &__cart-btn {
+    display: flex;
+  }
+}

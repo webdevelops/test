@@ -1,0 +1,70 @@
+<app-modal-window (modalClose)="modalClose($event)" #modal="modal">
+  <div modal-left-part>
+    <cdk-virtual-scroll-viewport itemSize="4" class="shopping__container">
+      <div class="header__wrapper">
+        <div modal-header-left class="shopping__header">Shopping Cart</div>
+      </div>
+      <div class="shopping">
+        <div class="shopping__item-wrap" fxLayout="row" *cdkVirtualFor="let item of items">
+          <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
+          <div class="shopping__item"> {{item}} </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+  <div modal-header-right class="sending-form__header">Sending Form</div>
+  <div modal-right-part>
+    <div class="sending-form__content">
+      <form [formGroup]="sendForm">
+        <mat-form-field appearance="standart" class="sending-form__field">
+          <mat-label>Name & Company</mat-label>
+          <input matInput class="underlined-field" type="text" autocomplete="off" formControlName="nameCompany"
+            [ngClass]="{'touched': sendForm.controls.nameCompany.touched}">
+          <mat-error class="error" *ngIf="sendForm.controls.nameCompany.hasError('required')">Field is
+            <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standart" class="sending-form__field" fxLayout="column"
+          fxLayoutAlign="space-between center">
+          <mat-label> {{ selected }} </mat-label>
+          <mat-select [(value)]="selected" class="underlined-field" formControlName="messenger"
+            [ngClass]="{'touched': sendForm.controls.messenger.touched}">
+            <mat-option value="Chose messenger" disabled class="default-option">
+              Messenger
+              <app-svg-icons class="option-icon" [iconType]="iconList.ArrowDown"></app-svg-icons>
+            </mat-option>
+            <mat-option *ngFor="let option of options" [value]="option.name">
+              {{option.name}}
+              <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
+            </mat-option>
+          </mat-select>
+          <mat-select-trigger>
+            <app-svg-icons class="selected-icon" [ngClass]="{'error': sendForm.controls.messenger.hasError('required') && sendForm.controls.messenger.touched}" [iconType]="selected === 'Chose messenger' ? iconList.ArrowDown: selected">
+            </app-svg-icons>
+          </mat-select-trigger>
+          <mat-error class="error" *ngIf="sendForm.controls.messenger.hasError('required')">Field is
+            <strong>required</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standart" class="sending-form__field comment">
+          <mat-label>Comment/Breif</mat-label>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" formControlName="comment"
+            [ngClass]="{'touched': sendForm.controls.comment.touched && sendForm.controls.comment.value !== ''}"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <div class="sending-form__footer" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="17px">
+      <div class="sending-form__addition" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>items: 5</span>
+        <span>105-135 h</span>
+      </div>
+      <button mat-stroked-button class="sending-form__btn" (click)="modal.closeModal({submitted: true})">
+        <span>Send</span>
+      </button>
+    </div>
+  </div>
+</app-modal-window>

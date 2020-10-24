@@ -1,0 +1,172 @@
+@import '../styles/variables';
+
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 .65em;
+  min-width: 3em;
+  line-height: 36.4px
+}
+
+.mat-standard-chip {
+  padding: .5em .85em;
+  min-height: 2.5em;
+}
+
+.mat-tab-labels {
+  justify-content: center
+}
+
+.mat-ink-bar {
+  color: gray
+}
+
+.mat-tab-header {
+  position: absolute !important;
+  width: 100%;
+  z-index: 1000;
+}
+
+.mat-tab-group-inverted-header .mat-tab-nav-bar,
+.mat-tab-group-inverted-header .mat-tab-header {
+  border-top: none !important;
+}
+
+.mat-ink-bar {
+  display: none !important;
+}
+
+.mat-tab-label {
+  opacity: 1 !important;
+  padding: 0 10px !important;
+  min-width: 70px !important;
+}
+
+.mat-drawer {
+  width: 100%;
+  background: none;
+}
+
+.mat-button-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+  position: absolute;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $green-color;
+}
+
+.mat-form-field-wrapper {
+  width: 100%;
+
+  .mat-form-field-flex {
+    align-items: center;
+    width: 100%;
+
+    .mat-form-field-infix {
+      border-top: none;
+      display: flex;
+      border-bottom: 2.16148px solid $underline-color;
+      padding: 0;
+      height: 36px;
+    }
+
+    .mat-form-field-infix .touched {
+      border-bottom: 2.16148px solid $white-color;
+
+      .mat-select-value {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+.mat-form-field-label,
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $green-color;
+  text-transform: capitalize;
+}
+
+.mat-form-field-empty.mat-form-field-label {
+  color: $placeholder-color;
+}
+
+.mat-form-field.mat-form-field-invalid {
+  .mat-form-field-label {
+    color: $red-color;
+  }
+}
+
+input[type=text]:not(.browser-default) {
+  border-bottom: none;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=text]:not(.browser-default).touched,
+textarea:focus,
+textarea.touched {
+  height: 35px;
+  color: $white-color;
+  font-size: 18px;
+  line-height: 22px;
+  border-bottom: 2.16148px solid $white-color;
+  margin-bottom: 3px;
+  box-shadow: none;
+  caret-color: $green-color;
+}
+
+.mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow {
+  opacity: 0;
+}
+
+.mat-option .mat-option-text,
+.mat-select-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $green-color;
+}
+
+.cdk-overlay-pane {
+  transform: translateX(0) translateY(-16px) !important;
+
+  .mat-select-panel {
+    min-width: 100% !important;
+  }
+}
+
+.comment {
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      height: 35px;
+
+      .mat-form-field-infix {
+        min-height: 35px;
+        height: fit-content;
+
+        textarea {
+          height: 35px;
+          margin-top: 5px;
+          max-height: 215px;
+        }
+
+        textarea.touched {
+          height: 45px;
+        }
+      }
+    }
+  }
+}

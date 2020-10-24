@@ -1,0 +1,33 @@
+@import './variables';
+
+@mixin content-container {
+  padding: 0 calc(50% - 590px)
+}
+
+@mixin carusel-counter {
+  background-color: $slider-line-color;
+
+  height: 2px;
+  width: 70px;
+
+  &_active {
+    background-color: $green-color;
+  }
+
+  // @media (max-width: $breakpoint-gt-xs) {
+  //   height: 15px;
+  //   width: 15px;
+  //   border-radius: 50%;
+  // }
+}
+
+@mixin logo {
+  width: 168px;
+  height: 36px;
+}
+
+@mixin error {
+ color: $red-color;
+ font-size: 12px;
+ fill: $red-color;
+}

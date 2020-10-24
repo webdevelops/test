@@ -1,0 +1,17 @@
+@import "../../../styles/mixin.scss";
+
+.product-list {
+  @include content-container;
+  padding-top: 83px;
+  flex-wrap: wrap;
+  min-height: 300px;
+  position: relative;
+
+  &__item {
+    margin-bottom: 42px;
+  }
+}
+
+.wrap {
+  position: relative;
+}

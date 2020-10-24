@@ -1,0 +1,45 @@
+@import '../../../../../styles/variables';
+@import "../../../../../styles/mixin.scss";
+
+.footer {
+  @include content-container;
+  background-color: $footer-background;
+  height: 95px;
+  color: $white-color;
+  padding-bottom: 45px;
+
+  &__logo {
+    @include logo;
+
+    margin-top: 16px;
+
+    &__mobile {
+      padding-left: 16px;
+    }
+  }
+
+  &__item {
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 28px;
+    // @media (max-width: $breakpoint-gt-md) {
+    //   font-size: 17px;
+    //   line-height: 20px;
+    // }
+  }
+
+  &__mobile {
+    height: 200px;
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    fill: $white-color;
+  }
+
+  &__icon:hover {
+    cursor: pointer;
+    fill: $green-color;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="cart-modal">
+  <div class="cart-modal__content" fxLayout="row" fxLayout.lt-md="column">
+    <div class="cart-modal__product-list" fxLayoutAlign="flex-start center" fxLayout="column"
+      ngClass.lt-md="cart-modal__product-list_mobile">
+      <div class="cart-modal__header header">
+        <ng-content select="[modal-header-left]"></ng-content>
+      </div>
+      <div class="cart-modal__body">
+        <ng-content select="[modal-left-part]"></ng-content>
+      </div>
+    </div>
+
+    <div class="cart-modal__sending-form" fxLayoutAlign="flex-start center" fxLayout="column"
+      ngClass.lt-md="cart-modal__sending-form_mobile">
+      <div class="cart-modal__header header">
+        <ng-content select="[modal-header-right]"></ng-content>
+      </div>
+      <div class="cart-modal__body">
+        <ng-content select="[modal-right-part]"></ng-content>
+      </div>
+      <div class="cart-modal__footer">
+        <ng-content select="[modal-footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
