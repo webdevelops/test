@@ -1,0 +1,25 @@
+@import "../../../../../styles/mixin.scss";
+
+.header {
+  @include content-container;
+
+  height: 60px;
+
+  // without FlesLayout
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+
+  &__logo {
+    @include logo;
+  }
+
+  button {
+    background-color: inherit;
+  }
+
+  &__card-btn {
+    display: flex;
+  }
+}
