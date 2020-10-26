@@ -11,8 +11,8 @@ import { MaterialModule } from '../shared/material/material.module';
   ],
   imports: [
     CommonModule,
-    // RouterModule,
-    // MaterialModule,
+    RouterModule, // ?
+    MaterialModule, // ?
   ],
   exports: [
     SvgIconsComponent,

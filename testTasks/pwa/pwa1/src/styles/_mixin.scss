@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin content-container {
   padding: 0 calc(50% - 590px);
 }
@@ -5,4 +7,15 @@
 @mixin logo {
   width: 168px;
   height: 36px;
+}
+
+@mixin carusel-counter {
+  background-color: $slider-line-color;
+
+  height: 2px;
+  width: 70px;
+
+  &_active {
+    background-color: $green-color;
+  }
 }
