@@ -26,6 +26,7 @@
   position: absolute !important;
   width: 100%;
   z-index: 1000;
+  bottom: 20px;   // !  mat-tab-label
 }
 
 .mat-tab-group-inverted-header .mat-tab-nav-bar,
@@ -169,4 +170,8 @@ textarea.touched {
       }
     }
   }
+}
+
+*::-webkit-scrollbar-thumb {   // !  Нижний зеленый бордер у слайдера
+  background: none !important; 
 }
