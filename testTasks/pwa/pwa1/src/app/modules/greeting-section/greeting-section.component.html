@@ -6,7 +6,8 @@
     </ng-template>
 
     <div class="slider__content" (click)="customSlider()" fxLayoutAlign="center center">
-      <div class="slider__body" fxLayout="row" fxLayoutAlign="space-between start">
+      <div class="slider__body" [ngClass.lt-lg]="{'slider__body_mobile': true}" fxLayout="row"
+        fxLayoutAlign="space-between start">
         <div class="slider__detail" fxLayout="column" fxLayoutAlign="space-between start"
           fxLayoutAlign.lt-md="center center">
           <!-- // ? - class="slider__title">

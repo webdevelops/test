@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { SvgIconsComponent } from '../shared/svg-icons/svg-icons.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { LoadingComponent } from '../shared/layout/partials/loading/loading.component';
 
 @NgModule({
   declarations: [
-    SvgIconsComponent
+    SvgIconsComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MaterialModule } from '../shared/material/material.module';
   exports: [
     SvgIconsComponent,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,4 @@
-<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+<div class="header" [ngClass.lt-lg]="{'header__mobile': true}" fxLayout="row" fxLayoutAlign="space-between center">
   <app-svg-icons class="header__logo" [iconType]="iconList.Logo"></app-svg-icons>
   <button mat-button class="header__cart-btn">
     <a fxLayoutAlign="center center" [routerLink]="[{outlets: {modal: 'cart'}}]">

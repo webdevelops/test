@@ -1,0 +1,32 @@
+// Angular
+import { Component, OnInit } from '@angular/core';
+
+// Libs
+import { Observable } from 'rxjs';
+
+// App
+import { ProductSelectors } from "../../core/store/product/product.selectors";
+import { ProductActions } from '../../core/store/product/product.actions';
+
+const PAGE_SIZE = 5;
+
+@Component({
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss']
+})
+export class ProductListComponent implements OnInit {
+  public loading$: Observable<boolean>;
+  readonly pageSize = PAGE_SIZE;
+
+  constructor(
+    private productSelector: ProductSelectors,
+    private productActions: ProductActions
+  ) { }
+
+  ngOnInit(): void {
+    this.loading$ = this.productSelector.selectLoading$();
+    this.productActions.loadProductList(this.pageSize);
+  }
+
+}

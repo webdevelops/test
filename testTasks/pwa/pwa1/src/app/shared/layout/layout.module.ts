@@ -5,20 +5,22 @@ import { SharedModule } from '../shared.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { GreetingSectionComponent } from 'src/app/modules/greeting-section/greeting-section.component';
+import { ProductListModule } from '../../modules/product-list/product-list.module';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     HeaderComponent,
-    GreetingSectionComponent
+    GreetingSectionComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ProductListModule
   ],
   exports: [
     HeaderComponent,
-    GreetingSectionComponent
+    GreetingSectionComponent,
   ]
 })
 export class LayoutModule { }
