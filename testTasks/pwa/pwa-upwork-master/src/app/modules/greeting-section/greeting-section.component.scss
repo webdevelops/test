@@ -127,11 +127,15 @@
 }
 
 // ! mat-slider - фиксация для mat-tab-label (position absolute, bottom: 20px)
-*,
-*:before,
-*:after {
+* {
   position: relative;
 }
+
+// *,
+// *:before,
+// *:after {
+//   position: relative;
+// }
 
 // .mat-tab-header:before {
 //   position: relative;
