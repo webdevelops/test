@@ -6,6 +6,7 @@ import { createAction, props, Store } from '@ngrx/store';
 
 // App
 import { RootState } from './../index';
+import { ProductModel } from '../../models/product.model';
 
 export const SHOW_LOADER = createAction(
   '[LOading] Show Loader',
@@ -18,6 +19,16 @@ export const HIDE_LOADER = createAction(
 export const PRODUCT_LIST_LOAD = createAction(
   '[Product] Load Product List',
   props<{ itemCountToLoad: number }>()
+);
+
+export const PRODUCT_LIST_LOAD_SUCCESS = createAction(
+  '[ProductList] Load Product List Success',
+  props<{ productList: ProductModel[], lastDownloadedProductId: number }>()
+);
+
+export const PRODUCT_LIST_LOAD_FAILURE = createAction(
+  '[ProductList] Load Product List Failure',
+  props<{ error: TypeError }>()
 );
 
 @Injectable({

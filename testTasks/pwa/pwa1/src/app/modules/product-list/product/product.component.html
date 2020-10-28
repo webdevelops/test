@@ -1,0 +1,31 @@
+<ng-container *ngIf="isWide else simpleTemplate">
+  <ng-container *ngTemplateOutlet="wideTemplate"></ng-container>
+</ng-container>
+
+<ng-template #simpleTemplate>
+  <div class="product-card" fxLayout="column-reverse" [routerLink]="['/product', product.productId]">
+    <div class="product-card__header">
+      <a class="product-card__title">
+        {{product.productName}}
+      </a>
+    </div>
+
+    <div class="product-card__content" fxLayoutAlign="center center">
+      <img src="../../../../assets/images/ImageItem.png" alt="Photo of the product" class="product-card__image">
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #wideTemplate>
+  <div class="product-card product-card_wide" fxLayout="column-reverse" [routerLink]="['/product', product.productId]">
+    <div class="product-card__header">
+      <a class="product-card__title">
+        {{product.productName}}
+      </a>
+    </div>
+
+    <div class="product-card__content" fxLayoutAlign="center center">
+      <img src="../../../../assets/images//ImageItem.png" alt="Photo of the product" class="product-card__image">
+    </div>
+  </div>
+</ng-template>

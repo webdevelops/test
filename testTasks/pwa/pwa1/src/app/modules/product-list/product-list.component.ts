@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 // App
 import { ProductSelectors } from "../../core/store/product/product.selectors";
 import { ProductActions } from '../../core/store/product/product.actions';
+import { ProductModel } from 'src/app/core/models/product.model';
 
 const PAGE_SIZE = 5;
 
@@ -17,6 +18,7 @@ const PAGE_SIZE = 5;
 })
 export class ProductListComponent implements OnInit {
   public loading$: Observable<boolean>;
+  productList$: Observable<Array<ProductModel>>;
   readonly pageSize = PAGE_SIZE;
 
   constructor(
@@ -27,6 +29,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.loading$ = this.productSelector.selectLoading$();
     this.productActions.loadProductList(this.pageSize);
+    this.productList$ = this.productSelector.selectAllProducts$();
+    // console.log("ProductListComponent -> ngOnInit -> this.productList$", this.productList$)
   }
 
 }

@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class LoadingComponent {
   @Input()
-  public show: boolean = true;
+  public show: boolean = false;
 
 
   constructor() { }
