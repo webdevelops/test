@@ -9,7 +9,7 @@ import { RootState } from './../index';
 import { ProductModel } from '../../models/product.model';
 
 export const SHOW_LOADER = createAction(
-  '[LOading] Show Loader',
+  '[Loading] Show Loader',
 );
 
 export const HIDE_LOADER = createAction(
@@ -31,6 +31,21 @@ export const PRODUCT_LIST_LOAD_FAILURE = createAction(
   props<{ error: TypeError }>()
 );
 
+export const LOAD_PRODUCT_BY_ID = createAction(
+  '[ProductDetail] Load Product By Id',
+  props<{ productId: string }>()
+);
+
+export const LOAD_PRODUCT_BY_ID_SUCCESS = createAction(
+  '[ProductDetail] Load Product By Id Success',
+  props<{ product: ProductModel }>()
+);
+
+export const LOAD_PRODUCT_BY_ID_FAILURE = createAction(
+  '[ProductDetail] Load Product By Id Failure',
+  props<{ error: TypeError }>()
+);
+
 @Injectable({
   providedIn: 'root',
 })
@@ -39,5 +54,9 @@ export class ProductActions {
 
   public loadProductList(itemCountToLoad: number): void {
     this.store$.dispatch(PRODUCT_LIST_LOAD({ itemCountToLoad }));
+  }
+
+  public loadProductById(productId: string): void {
+    this.store$.dispatch(LOAD_PRODUCT_BY_ID({ productId }));
   }
 }

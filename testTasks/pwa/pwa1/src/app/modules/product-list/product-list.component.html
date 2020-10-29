@@ -1,5 +1,5 @@
 <div class="wrap">
-  <app-loading [show]="true"></app-loading>
+  <app-loading [show]="loading$ | async"></app-loading>
 
   <div class="product-list" fxLayout="row" fxLayoutAlign="space-between">
     <div class="product-list__item" *ngFor="let product of productList$ | async index as index">

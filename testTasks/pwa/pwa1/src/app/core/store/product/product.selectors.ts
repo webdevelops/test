@@ -2,11 +2,11 @@
 import { Injectable } from '@angular/core';
 
 // Libs
-import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
+import { createAction, createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // App
-import { productAdapter, ProductState } from './product.state';
+import { productAdapter, ProductState, selectProductId } from './product.state';
 import { productFeatureKey } from './product.reducers';
 import { ProductModel } from '../../models/product.model';
 
@@ -24,6 +24,16 @@ export const selectLoading = createSelector(
   (state: ProductState) => state.isLoading,
 );
 
+export const selectProductEntities = createSelector(
+  selectProductState,
+  selectEntities
+);
+
+export const selectProductById = (id: string) => createSelector(
+  selectProductEntities,
+  entities => entities[id]
+);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,5 +46,10 @@ export class ProductSelectors {
 
   public selectLoading$(): Observable<boolean> {
     return this.store$.select(selectLoading);
+  }
+
+  public selectProductById$(id: string): Observable<ProductModel> {
+    // console.log("ProductSelectors -> constructor -> id", id)
+    return this.store$.select(selectProductById(id));
   }
 }

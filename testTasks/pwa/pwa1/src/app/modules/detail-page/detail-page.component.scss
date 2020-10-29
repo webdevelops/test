@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+
+.detail-page {
+  text-align: center;
+
+  button {
+    background: $green-color;
+    color: #fff;
+  }
+}

@@ -9,6 +9,5 @@ export class LoadingComponent {
   @Input()
   public show: boolean = false;
 
-
   constructor() { }
 }

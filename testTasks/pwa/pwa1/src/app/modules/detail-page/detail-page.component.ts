@@ -21,7 +21,10 @@ export class DetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.product$ = this.route.data.pipe(
-      map(data => data.product)
+      map(data => {
+        // console.log("DetailPageComponent -> ngOnInit -> data", data)
+        return data.product
+      })
     );
   }
 

@@ -17,7 +17,6 @@ export class ProductService {
   constructor(private firestore: AngularFirestore) { }
 
   loadProductList(itemCountToLoad: number): Observable<Array<ProductModel>> {
-    console.log("ProductService -> constructor -> itemCountToLoad", itemCountToLoad)
     return this.firestore.collection('product-list', ref =>
       ref.orderBy('productId', 'asc').limit(itemCountToLoad)
     ).valueChanges()
@@ -26,6 +25,18 @@ export class ProductService {
           return response;
         })
       )
+  }
+
+  loadProductById(id: string): Observable<ProductModel> {
+    // console.log("ProductService -> constructor -> id", id)
+    if (id !== undefined) {
+      return this.firestore.collection('product-list', ref => {
+        return ref.where('productId', '==', +id).limit(1);
+      }).valueChanges()
+        .pipe(
+          map((result: ProductModel[]) => result[0])
+        );
+    }
   }
 
 }
