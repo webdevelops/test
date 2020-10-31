@@ -1,32 +1,32 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 .mat-raised-button,
 .mat-stroked-button,
 .mat-flat-button {
   padding: 0 1.15em;
-  margin: 0 .65em;
+  margin: 0 0.65em;
   min-width: 3em;
-  line-height: 36.4px
+  line-height: 36.4px;
 }
 
 .mat-standard-chip {
-  padding: .5em .85em;
+  padding: 0.5em 0.85em;
   min-height: 2.5em;
 }
 
 .mat-tab-labels {
-  justify-content: center
+  justify-content: center;
 }
 
 .mat-ink-bar {
-  color: gray
+  color: gray;
 }
 
 .mat-tab-header {
   position: absolute !important;
   width: 100%;
   z-index: 1000;
-  bottom: 20px;   // ?  mat-tab-label
+  bottom: 20px; // ?  mat-tab-label
 }
 
 .mat-tab-group-inverted-header .mat-tab-nav-bar,
@@ -106,12 +106,12 @@
   }
 }
 
-input[type=text]:not(.browser-default) {
+input[type="text"]:not(.browser-default) {
   border-bottom: none;
 }
 
-input[type=text]:not(.browser-default):focus:not([readonly]),
-input[type=text]:not(.browser-default).touched,
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="text"]:not(.browser-default).touched,
 textarea:focus,
 textarea.touched {
   height: 35px;
@@ -172,6 +172,11 @@ textarea.touched {
   }
 }
 
-*::-webkit-scrollbar-thumb {   // ?  Нижний зеленый бордер у слайдера
-  background: none !important; 
+*::-webkit-scrollbar-thumb {
+  // ?  Нижний зеленый бордер у слайдера
+  background: none !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: transparent;
 }

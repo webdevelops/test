@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 // Libs
-import { createAction, createFeatureSelector, createSelector, Store } from '@ngrx/store';
+import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // App

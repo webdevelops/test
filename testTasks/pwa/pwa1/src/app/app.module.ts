@@ -35,8 +35,9 @@ import { ProductListModule } from './modules/product-list/product-list.module';
     AppRoutingModule,
     SharedModule,
     LayoutModule,
-    ProductListModule,
+    ProductListModule, // ?
     FlexLayoutModule,
+    // FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md', 'lt-lg'] }),
     // AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     EffectsModule.forRoot([ProductEffects]),
     StoreModule.forRoot(reducers),

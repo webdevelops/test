@@ -4,19 +4,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatButtonModule,
+    // MatButtonModule,
     // FlexLayoutModule, // ?
     // MatProgressSpinnerModule, // ?
   ],
   exports: [
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatSelectModule,
     MatButtonModule,
     MatTabsModule,
-    FlexLayoutModule,
-    MatProgressSpinnerModule
+    MatInputModule, // ?
+    ScrollingModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class MaterialModule { }

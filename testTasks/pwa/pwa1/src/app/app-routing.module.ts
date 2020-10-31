@@ -12,6 +12,7 @@ import { ProductActions } from './core/store/product/product.actions';
 import { ProductSelectors } from './core/store/product/product.selectors';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { CartWindowComponent } from './shared/layout/partials/header/cart-window/cart-window.component';
 
 @Injectable({ providedIn: 'root' })
 
@@ -36,6 +37,11 @@ export class ProductResolver implements Resolve<ProductModel>{
 }
 
 const routes: Routes = [
+  {
+    path: 'cart',
+    component: CartWindowComponent,
+    outlet: 'modal'
+  },
   {
     path: 'product/:id',
     component: DetailPageComponent,
