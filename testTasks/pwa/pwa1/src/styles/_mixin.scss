@@ -23,5 +23,5 @@
 @mixin error {
   color: $red-color;
   font-size: 12px;
-  fill: $red-color;
+  fill: $red-color; // ?
 }

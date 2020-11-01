@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-window',
@@ -6,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './modal-window.component.html',
   styleUrls: ['./modal-window.component.scss']
 })
-export class ModalWindowComponent implements OnInit {
+export class ModalWindowComponent {
+  @Output() modalClose: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    // console.log("CartWindowComponent -> iconList")
+  closeModal($event) {
+    this.router.navigate([{ outlets: { modal: null } }]);
+    this.modalClose.next($event);
   }
-
 }

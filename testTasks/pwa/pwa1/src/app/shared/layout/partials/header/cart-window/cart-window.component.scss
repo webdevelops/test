@@ -1,19 +1,19 @@
 @import "../../../../../../styles/variables";
 @import "../../../../../../styles/mixin";
 
-.header__wrapper {
-  height: 104px;
-  position: sticky;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  background-color: $white-color;
-}
+// .header__wrapper {  // ? header
+//   height: 104px;
+//   position: sticky;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+//   z-index: 10;
+//   background-color: $white-color;
+// }
 
 .shopping {
   padding: 0 90px;
-  margin-top: 55px;
+  // margin-top: 55px;  // ? header
 
   &__container {
     height: 670px;
@@ -32,6 +32,7 @@
     left: 0;
     top: 40px;
     right: 0;
+    margin-bottom: 40px; // ? header
   }
 
   &__item {

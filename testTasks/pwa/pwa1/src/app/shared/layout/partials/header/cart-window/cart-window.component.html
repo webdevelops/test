@@ -1,11 +1,10 @@
-<app-modal-window #modal="modal">
-  <div class="test"></div>
+<app-modal-window #modal="modal" (modalClose)="modalClose($event)">
+  <div modal-header-left class="shopping__header">Shopping Cart</div>
   <div modal-left-part>
     <cdk-virtual-scroll-viewport itemSize="4" class="shopping__container">
-      <div class="header__wrapper">
+      <!-- <div class="header__wrapper">
         <div modal-header-left class="shopping__header">Shopping Cart</div>
-      </div>
-
+      </div> -->
       <div class="shopping">
         <div class="shopping__item-wrap" fxLayout="row" *cdkVirtualFor="let item of items">
           <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
@@ -28,7 +27,8 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="sending-form__field" fxLayout="column" fxLayoutAlign="space-between center">
+        <mat-form-field appearance="standart" class="sending-form__field" fxLayout="column"
+          fxLayoutAlign="space-between center">
           <mat-label>{{selected}}</mat-label>
           <mat-select [(value)]="selected" class="underlined-field" formControlName="messenger"
             [ngClass]="{'touched': sendForm.controls.messenger.touched}">
@@ -60,6 +60,18 @@
             [ngClass]="{'touched': sendForm.controls.comment.touched && sendForm.controls.comment.value !== ''}"></textarea>
         </mat-form-field>
       </form>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <div class="sending-form__footer" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="17px">
+      <div class="sending-form__addition" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>item: 5</span>
+        <span>105-135 h</span>
+      </div>
+      <button mat-stroked-button class="sending-form__btn" (click)="modal.closeModal({submitted: true})">
+        <span>Send</span>
+      </button>
     </div>
   </div>
 </app-modal-window>
