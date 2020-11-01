@@ -40,7 +40,9 @@
             </mat-option>
           </mat-select>
           <mat-select-trigger>
-            <app-svg-icons class="selected-icon" [ngClass]="{'error': sendForm.controls.messenger.hasError('required') && sendForm.controls.messenger.touched}" [iconType]="selected === 'Chose messenger' ? iconList.ArrowDown: selected">
+            <app-svg-icons class="selected-icon"
+              [ngClass]="{'error': sendForm.controls.messenger.hasError('required') && sendForm.controls.messenger.touched}"
+              [iconType]="selected === 'Chose messenger' ? iconList.ArrowDown: selected">
             </app-svg-icons>
           </mat-select-trigger>
           <mat-error class="error" *ngIf="sendForm.controls.messenger.hasError('required')">Field is

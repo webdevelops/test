@@ -1,7 +1,7 @@
-@import './variables';
+@import "./variables";
 
 @mixin content-container {
-  padding: 0 calc(50% - 590px)
+  padding: 0 calc(50% - 590px);
 }
 
 @mixin carusel-counter {
@@ -27,7 +27,7 @@
 }
 
 @mixin error {
- color: $red-color;
- font-size: 12px;
- fill: $red-color;
+  color: $red-color;
+  font-size: 12px;
+  fill: $red-color;
 }
