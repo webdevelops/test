@@ -3,7 +3,12 @@
 .detail-page {
   text-align: center;
 
-  button {
+  &__go-home {
+    background: $grey-background-btn;
+    color: #fff;
+  }
+
+  &__add-to-cart {
     background: $green-color;
     color: #fff;
   }

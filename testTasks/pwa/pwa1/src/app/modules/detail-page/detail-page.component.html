@@ -5,8 +5,14 @@
   <div *ngIf="product$ | async as product">
     <h1>Product: {{product.productId}}</h1>
 
-    <button mat-flat-button [routerLink]="['/']">
+    <button class="detail-page__go-home" mat-flat-button [routerLink]="['/']">
       <span>Go Home</span>
+    </button>
+
+    <hr>
+
+    <button class="detail-page__add-to-cart" mat-flat-button (click)="addToCart(product)">
+      <span>Add To Cart</span>
     </button>
   </div>
 

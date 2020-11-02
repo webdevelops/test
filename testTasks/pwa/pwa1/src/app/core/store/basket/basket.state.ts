@@ -2,9 +2,9 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
 // App
-import { ProductModel } from "../../models/product.model";
+import { ProductModel } from '../../models/product.model';
 
-export const productAdapter: EntityAdapter<ProductModel> =
+export const basketAdapter: EntityAdapter<ProductModel> =
   createEntityAdapter<ProductModel>({
     selectId: selectProductId
   });
@@ -13,18 +13,14 @@ export function selectProductId(a: ProductModel): string | null {
   return a.productId;
 }
 
-export interface ProductState extends EntityState<ProductModel> {
+export interface BasketState extends EntityState<ProductModel> {
   selectedProductId: string | null;
   error: TypeError | string;
-  page: number;
-  lastDownloadedProductId: number;
   isLoading: boolean;
 }
 
-export const initialProductState: ProductState = productAdapter.getInitialState({
+export const initialBasketState: BasketState = basketAdapter.getInitialState({
   selectedProductId: null,
   error: null,
-  page: 1,
-  lastDownloadedProductId: null,
   isLoading: true,
 });

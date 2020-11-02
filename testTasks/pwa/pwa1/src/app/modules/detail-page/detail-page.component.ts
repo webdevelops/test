@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 
 // App
 import { ProductModel } from 'src/app/core/models/product.model';
+import { BasketService } from 'src/app/core/services/basket.service';
+import { BasketActions } from '../../core/store/basket/basket.actions';
 
 @Component({
   selector: 'app-detail-page',
@@ -17,7 +19,11 @@ import { ProductModel } from 'src/app/core/models/product.model';
 export class DetailPageComponent implements OnInit {
   public product$: Observable<ProductModel>
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private basketAction: BasketActions,
+    private baskerService: BasketService
+  ) { }
 
   ngOnInit(): void {
     this.product$ = this.route.data.pipe(
@@ -28,4 +34,8 @@ export class DetailPageComponent implements OnInit {
     );
   }
 
+  addToCart(product: ProductModel) {
+    this.basketAction.addToCart(product);
+    this.baskerService.addToCart(product);
+  }
 }
