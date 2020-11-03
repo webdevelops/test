@@ -1,6 +1,6 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Libs
 import { Observable } from 'rxjs';
@@ -8,8 +8,8 @@ import { map } from 'rxjs/operators';
 
 // App
 import { ProductModel } from 'src/app/core/models/product.model';
-import { BasketService } from 'src/app/core/services/basket.service';
 import { BasketActions } from '../../core/store/basket/basket.actions';
+import { IconList } from 'src/app/core/mock/icon.list';
 
 @Component({
   selector: 'app-detail-page',
@@ -17,25 +17,23 @@ import { BasketActions } from '../../core/store/basket/basket.actions';
   styleUrls: ['./detail-page.component.scss']
 })
 export class DetailPageComponent implements OnInit {
-  public product$: Observable<ProductModel>
+  public product$: Observable<ProductModel>;
+  public iconList = IconList;
 
   constructor(
     private route: ActivatedRoute,
     private basketAction: BasketActions,
-    private baskerService: BasketService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.product$ = this.route.data.pipe(
-      map(data => {
-        // console.log("DetailPageComponent -> ngOnInit -> data", data)
-        return data.product
-      })
+      map(data => data.product)
     );
   }
 
   addToCart(product: ProductModel) {
     this.basketAction.addToCart(product);
-    this.baskerService.addToCart(product);
+    this.router.navigate(['/']);
   }
 }

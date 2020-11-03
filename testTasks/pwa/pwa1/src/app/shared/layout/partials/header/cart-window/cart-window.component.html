@@ -1,14 +1,18 @@
 <app-modal-window #modal="modal" (modalClose)="modalClose($event)">
   <div modal-header-left class="shopping__header">Shopping Cart</div>
   <div modal-left-part>
-    <cdk-virtual-scroll-viewport itemSize="4" class="shopping__container">
+    <cdk-virtual-scroll-viewport cdkVirtualForOf itemSize="4" class="shopping__container">
       <!-- <div class="header__wrapper">
         <div modal-header-left class="shopping__header">Shopping Cart</div>
       </div> -->
       <div class="shopping">
-        <div class="shopping__item-wrap" fxLayout="row" *cdkVirtualFor="let item of items">
-          <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
-          <div class="shopping__item">{{item}}</div>
+        <div class="shopping__item-wrap" fxLayout="row"
+          *cdkVirtualFor="let productFromBasket of productFromBasket$ | async">
+          <button mat-fab color="" aria-label="Example icon button with a delete icon"
+            (click)="removeFromCart(productFromBasket.productId)">
+            <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
+          </button>
+          <div class="shopping__item">{{productFromBasket.productName}}</div>
         </div>
       </div>
     </cdk-virtual-scroll-viewport>

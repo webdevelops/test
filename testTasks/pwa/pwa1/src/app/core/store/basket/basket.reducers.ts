@@ -1,9 +1,18 @@
 // Libs
-import { createReducer } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
 // App
-import { initialBasketState } from './basket.state';
+import { basketAdapter, initialBasketState } from './basket.state';
+import * as BasketActions from './basket.actions';
+
+export const basketFeatureKey = 'basket';
 
 export const basketReducer = createReducer(
-  initialBasketState
-);
+  initialBasketState,
+  on(BasketActions.ADD_TO_CART_SUCCESS, (state, { product }) => ({
+    ...basketAdapter.setOne(product, state)
+  })),
+  on(BasketActions.REMOVE_FROM_CART_SUCCESS, (state, { productId }) => ({
+    ...basketAdapter.removeOne(productId, state)
+  })),
+)

@@ -26,6 +26,7 @@ import { CartWindowComponent } from './partials/header/cart-window/cart-window.c
     ProductListModule
   ],
   exports: [
+    LayoutComponent,        // ?
     HeaderComponent,
     GreetingSectionComponent,
     ProductListComponent        // ?

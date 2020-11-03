@@ -22,14 +22,14 @@ export class ProductListComponent implements OnInit {
   readonly pageSize = PAGE_SIZE;
 
   constructor(
-    private productSelector: ProductSelectors,
+    private productSelectors: ProductSelectors,
     private productActions: ProductActions
   ) { }
 
   ngOnInit(): void {
-    this.loading$ = this.productSelector.selectLoading$();
+    this.loading$ = this.productSelectors.selectLoading$();
     this.productActions.loadProductList(this.pageSize);
-    this.productList$ = this.productSelector.selectAllProducts$();
+    this.productList$ = this.productSelectors.selectAllProducts$();
     // console.log("ProductListComponent -> ngOnInit -> this.productList$", this.productList$)
   }
 

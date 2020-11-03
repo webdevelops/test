@@ -23,6 +23,21 @@ export const ADD_TO_CART_FAILURE = createAction(
   props<{ error: TypeError }>()
 );
 
+export const REMOVE_FROM_CART = createAction(
+  '[Basket] Remove From Cart',
+  props<{ productId: string }>()
+);
+
+export const REMOVE_FROM_CART_SUCCESS = createAction(
+  '[Basket] Remove From Cart Success',
+  props<{ productId: string }>()
+);
+
+export const REMOVE_FROM_CART_FAILURE = createAction(
+  '[Basket] Remove From Cart Feilure',
+  props<{ error: TypeError }>()
+);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,5 +46,9 @@ export class BasketActions {
 
   public addToCart(product: ProductModel) {
     this.store$.dispatch(ADD_TO_CART({ product }));
+  }
+
+  public removeFromCart(productId: string) {
+    this.store$.dispatch(REMOVE_FROM_CART({ productId }));
   }
 }

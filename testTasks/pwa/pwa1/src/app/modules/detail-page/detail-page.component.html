@@ -6,14 +6,20 @@
     <h1>Product: {{product.productId}}</h1>
 
     <button class="detail-page__go-home" mat-flat-button [routerLink]="['/']">
-      <span>Go Home</span>
+      <span>Back to store</span>
     </button>
 
     <hr>
 
     <button class="detail-page__add-to-cart" mat-flat-button (click)="addToCart(product)">
-      <span>Add To Cart</span>
+      <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+      <span>Add to cart</span>
     </button>
+
+    <!-- <button mat-flat-button class="add-to-cart-btn slider__btn">
+      <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+      <span>Add to cart</span>
+    </button> -->
   </div>
 
 </div>

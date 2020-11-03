@@ -1,20 +1,27 @@
 // Angulat
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+// Libs
+import { Observable } from 'rxjs';
 
 // App
 import { IconList } from 'src/app/core/mock/icon.list';
+import { ProductModel } from 'src/app/core/models/product.model';
+import { BasketActions } from 'src/app/core/store/basket/basket.actions';
+import { BasketSelectors } from '../../../../../core/store/basket/basket.selectors';
 
 @Component({
   selector: 'app-cart-window',
   templateUrl: './cart-window.component.html',
   styleUrls: ['./cart-window.component.scss']
 })
-export class CartWindowComponent {
+export class CartWindowComponent implements OnInit {
   items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
   public iconList = IconList;
   public selected = 'Chose messenger';
   public options: Array<ServiceList> = [];
+  productFromBasket$: Observable<Array<ProductModel>>;
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [
@@ -28,7 +35,10 @@ export class CartWindowComponent {
 
   // fb: FormBuilder
 
-  constructor() {
+  constructor(
+    private basketSelectors: BasketSelectors,
+    private basketActions: BasketActions
+  ) {
     this.options = [
       {
         name: 'telegram',
@@ -49,8 +59,15 @@ export class CartWindowComponent {
     ];
   }
 
+  ngOnInit() {
+    this.productFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
+  }
+
   modalClose($event) { }
 
+  removeFromCart(productId: string) {
+    this.basketActions.removeFromCart(productId);
+  }
 }
 
 export interface ServiceList {
