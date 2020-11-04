@@ -1,5 +1,5 @@
 
-------------------------    -1 
+------------------------    -1 !
 
 I can't keep up with you  - я не могу угнатьс€ за тобой
 He injured his arm - ќн повредил руку
@@ -31,7 +31,7 @@ He is at the butcher's - ќн у м€сника
 I don't want to put on weight - я не хочу прибавл€ть в весе
 I put it on the carpet - я положил это на ковер
 
-------------------------    0 
+------------------------    0 !
 
 The ca'rtoons were absolutely hi'larious (very funny) - ћультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - я (раньше слушал) привык слушать кассету
@@ -455,7 +455,7 @@ Don't rush. Wait - Ќе торопись. ѕодожди
 It can cause a stomach ache - Ёто может вызвать боль в животе
 My legs ached - ” мен€ болели ноги
 
-------------------------  +  12 !
+------------------------  +  12 !!
 
 The workers can go on strike - –абочие могут объ€вить забастовку
 You are safe now - “еперь вы в безопасности
@@ -532,7 +532,7 @@ Do you think that hell and pa'radise exist? - ¬ы думаете, что ад и рай существую
 It was done for the salva'tion of hu'manity - Ёто было сделано дл€ спасени€ человечества
 I expe'rienced some kind of thrill (exci'tement) - я испытал какие-то острые ощущени€ \ возбуждение (волнение)
 
-------------------------  +  14 !!
+------------------------  +  14 !
 
 It's a very cosy bed - Ёто очень уютна€ кровать
 It was a stu'nning success - Ёто был оглушающий (потр€сающий) успех
@@ -569,7 +569,7 @@ It's covered with dust - ќн покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - ќн действительно болен. ≈го снова вырвало 20 минут назад.
 Everything is in diso'rder - ¬се в беспор€дке (расстройство)
 
-------------------------  +  15 !!
+------------------------  +  15 !
 
 I think we need some kind of diversity - я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Ётот домен (область, сфера) принадлежит вам?
@@ -605,7 +605,7 @@ Don't touch this fur! - Ќе трогай этот мех!
 Fu'rthermore, they have a huge debt now -  роме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - “ем не менее он счастлив
 
-------------------------  +  16 !!
+------------------------  +  16 !
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Ёто место намного дальше. я приобрел много опыта
 Your channel is real trea'sure - ¬аш канал - насто€щее сокровище
@@ -643,7 +643,7 @@ He was wearing a he'lmet. It was thanks to his sword - ќн был (носил) в шлеме. Ё
 It was a mi'ssile attack - Ёто был ракетный удар
 Don't he'sitate - Ќе стесн€йтесь
 
-------------------------  +  17 !!
+------------------------  +  17 !
 
 Hey, what's up - Ёй, как жизнь
 There were some hens not far from our country house - –€дом с нашим (не далеко) загородным домом было несколько кур
