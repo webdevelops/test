@@ -34,6 +34,16 @@ export const selectProductById = (id: string) => createSelector(
   entities => entities[id]
 );
 
+export const selectPage = createSelector(
+  selectProductState,
+  (state: ProductState) => state.page
+);
+
+export const selectLastDownloadedId = createSelector(
+  selectProductState,
+  (state: ProductState) => state.lastDownloadedProductId
+);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,7 +59,14 @@ export class ProductSelectors {
   }
 
   public selectProductById$(id: string): Observable<ProductModel> {
-    // console.log("ProductSelectors -> constructor -> id", id)
     return this.store$.select(selectProductById(id));
+  }
+
+  public selectPage$(): Observable<number> {
+    return this.store$.select(selectPage);
+  }
+
+  public selectLastDownloadedId$(): Observable<number> {
+    return this.store$.select(selectLastDownloadedId);
   }
 }

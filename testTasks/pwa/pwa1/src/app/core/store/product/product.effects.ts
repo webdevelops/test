@@ -4,18 +4,20 @@ import { Injectable } from '@angular/core';
 // Libs
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from 'rxjs';
-import { catchError, filter, map, mergeMap, switchMap, take } from 'rxjs/operators';
+import { catchError, filter, map, mergeMap, switchMap, take, withLatestFrom } from 'rxjs/operators';
 
 // App
 import { ProductService } from '../../services/product.service';
 import { ProductModel } from '../../models/product.model';
 import * as ProductActions from './product.actions';
+import { ProductSelectors } from './product.selectors';
 
 @Injectable()
 export class ProductEffects {
   constructor(
     private actions$: Actions,
     private productService: ProductService,
+    private productSelectors: ProductSelectors
   ) { }
 
   public showLoader$ = createEffect(() =>
@@ -54,24 +56,28 @@ export class ProductEffects {
           catchError((error: TypeError) => of(ProductActions.LOAD_PRODUCT_BY_ID_FAILURE({ error })))
         )
       )
-
-      // mergeMap(({ productId }) => {
-      //   // console.log("ProductEffects -> productId", productId)
-      //   return this.productService.loadProductById(productId)
-      //     .pipe(
-      //       filter((product: ProductModel) => {                         // ----------- для чего ???
-      //         // console.log("ProductEffects -> product", product)
-      //         // console.log("ProductEffects -> product ------- !!", !!product)
-      //         return !!product;
-      //       }),
-      //       map((product: ProductModel) => {
-      //         // console.log("ProductEffects -> product - map((product: ProductModel)", product)
-      //         return ProductActions.LOAD_PRODUCT_BY_ID_SUCCESS({ product });
-      //       }),
-      //       catchError((error: TypeError) => of(ProductActions.LOAD_PRODUCT_BY_ID_FAILURE({ error })))
-      //     )
-      // }
-      // )
     )
   );
+
+  public loadNexrPage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductActions.LOAD_NEXT_PAGE),
+      withLatestFrom(this.productSelectors.selectPage$(), this.productSelectors.selectLastDownloadedId$()),
+      mergeMap(([action, page, lastDownloadedProductId]) => {
+        console.log("ProductEffects -> page", page)
+        const nextPage: number = page + 1;
+        console.log("ProductEffects -> nextPage", nextPage)
+        return this.productService.loadNextPage(lastDownloadedProductId, action.itemCountToLoad)
+          .pipe(
+            switchMap((productList: Array<ProductModel>) => {
+              const lastInResponse = +productList[productList.length - 1].productId;
+              return [
+                ProductActions.HIDE_LOADER(),
+                ProductActions.LOAD_NEXT_PAGE_SUCCESS({ productList, page: nextPage, lastDownloadedProductId: lastInResponse })
+              ];
+            })
+          )
+      })
+    )
+  )
 }
