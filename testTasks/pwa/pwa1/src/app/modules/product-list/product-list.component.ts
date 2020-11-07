@@ -38,14 +38,22 @@ export class ProductListComponent implements OnInit {
     this.productList$ = this.productSelectors.selectAllProducts$();
     this.pageIndex$ = this.productSelectors.selectPage$().pipe(
       map((page: number) => {
-        console.log("ProductListComponent -> ngOnInit -> page * this.pageSize", page * this.pageSize)
+        // console.log("ProductListComponent -> ngOnInit -> page * this.pageSize", page * this.pageSize)
         return page * this.pageSize;
       })
     )
   }
 
-  loadNextPage(): void {
-    this.productActions.loadNextPages(this.nextPageSize);
+  loadNextPage(event): void {
+    const previousPage = event.previousPageIndex + 1;
+    const currentPage = event.pageIndex + 1;
+    // console.log("ProductListComponent -> loadNextPage -> previousPage", previousPage)
+    // const e = $event;
+    this.productActions.loadNextPages(this.nextPageSize, previousPage, currentPage);
+    // console.log('length', event.length);
+    // console.log('pageIndex', event.pageIndex + 1);
+    // console.log('pageSize', event.pageSize);
+    // console.log('previousPageIndex', event.previousPageIndex + 1);
   }
 
 }

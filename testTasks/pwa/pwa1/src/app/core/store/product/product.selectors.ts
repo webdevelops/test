@@ -44,6 +44,11 @@ export const selectLastDownloadedId = createSelector(
   (state: ProductState) => state.lastDownloadedProductId
 );
 
+export const selectProductIds = createSelector(
+  selectProductState,
+  selectIds
+);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -68,5 +73,9 @@ export class ProductSelectors {
 
   public selectLastDownloadedId$(): Observable<number> {
     return this.store$.select(selectLastDownloadedId);
+  }
+
+  public selectProductIds$(): Observable<string[] | number[]> {
+    return this.store$.select(selectProductIds);
   }
 }

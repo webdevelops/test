@@ -14,10 +14,12 @@ import { ProductSelectors } from './product.selectors';
 
 @Injectable()
 export class ProductEffects {
+  // public oldPreviousPage: number = 0;
+
   constructor(
     private actions$: Actions,
     private productService: ProductService,
-    private productSelectors: ProductSelectors
+    private productSelectors: ProductSelectors,
   ) { }
 
   public showLoader$ = createEffect(() =>
@@ -62,14 +64,24 @@ export class ProductEffects {
   public loadNexrPage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProductActions.LOAD_NEXT_PAGE),
-      withLatestFrom(this.productSelectors.selectPage$(), this.productSelectors.selectLastDownloadedId$()),
-      mergeMap(([action, page, lastDownloadedProductId]) => {
-        console.log("ProductEffects -> page", page)
-        const nextPage: number = page + 1;
-        console.log("ProductEffects -> nextPage", nextPage)
+      // withLatestFrom(this.productSelectors.selectPage$(), this.productSelectors.selectLastDownloadedId$()),
+      withLatestFrom(
+        this.productSelectors.selectPage$(),
+        this.productSelectors.selectProductIds$(),
+        this.productSelectors.selectLastDownloadedId$()
+      ),
+      mergeMap(([action, page, productIds, lastDownloadedProductId]) => {
+
+        const nextPage = action.currentPage > action.previousPage ? ++page : --page;
+
+        // console.log("ProductEffects -> action.previousPage", action.previousPage)
+        // console.log("ProductEffects -> action.currentPage", action.currentPage)
+        // console.log("ProductEffects -> nextPage", nextPage)
+
         return this.productService.loadNextPage(lastDownloadedProductId, action.itemCountToLoad)
           .pipe(
             switchMap((productList: Array<ProductModel>) => {
+              // console.log("ProductEffects -> productList", productList)
               const lastInResponse = +productList[productList.length - 1].productId;
               return [
                 ProductActions.HIDE_LOADER(),

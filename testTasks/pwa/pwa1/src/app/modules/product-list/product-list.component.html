@@ -8,6 +8,6 @@
     </div>
   </div>
 
-  <mat-paginator [length]="productListLength" [pageSize]="pageSize" (page)="loadNextPage()">
+  <mat-paginator [length]="productListLength" [pageSize]="pageSize" (page)="loadNextPage($event)">
   </mat-paginator>
 </div>

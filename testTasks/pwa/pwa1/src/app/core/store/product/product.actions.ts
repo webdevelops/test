@@ -48,7 +48,7 @@ export const LOAD_PRODUCT_BY_ID_FAILURE = createAction(
 
 export const LOAD_NEXT_PAGE = createAction(
   '[ProductList] Load Next Page',
-  props<{ itemCountToLoad: number }>()
+  props<{ itemCountToLoad: number, previousPage: number, currentPage: number }>()
 );
 
 export const LOAD_NEXT_PAGE_SUCCESS = createAction(
@@ -70,7 +70,7 @@ export class ProductActions {
     this.store$.dispatch(LOAD_PRODUCT_BY_ID({ productId }));
   }
 
-  public loadNextPages(itemCountToLoad: number): void {
-    this.store$.dispatch(LOAD_NEXT_PAGE({ itemCountToLoad }));
+  public loadNextPages(itemCountToLoad: number, previousPage: number, currentPage: number): void {
+    this.store$.dispatch(LOAD_NEXT_PAGE({ itemCountToLoad, previousPage, currentPage }));
   }
 }

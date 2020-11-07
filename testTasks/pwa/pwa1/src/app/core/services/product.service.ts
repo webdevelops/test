@@ -40,11 +40,12 @@ export class ProductService {
   }
 
   loadNextPage(lastDownloadedProductId: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
-    // console.log("ProductService -> constructor -> lastDownloadedProductId", lastDownloadedProductId)
+    console.log("ProductService -> constructor -> lastDownloadedProductId", lastDownloadedProductId)
     return this.firestore.collection('product-list', ref =>
       ref.orderBy('productId', 'asc').startAfter(lastDownloadedProductId).limit(itemCountToLoad))
       .valueChanges().pipe(
         map((response: ProductModel[]) => {
+          console.log("ProductService -> constructor -> response", response)
           return response;
         })
       )
