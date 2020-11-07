@@ -13,7 +13,7 @@ import { ProductModel } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-
+  oldLastLoadedProduct: number = -1;
   constructor(private firestore: AngularFirestore) { }
 
   loadProductList(itemCountToLoad: number): Observable<Array<ProductModel>> {
@@ -28,7 +28,6 @@ export class ProductService {
   }
 
   loadProductById(id: string): Observable<ProductModel> {
-    // console.log("ProductService -> constructor -> id", id)
     if (id !== undefined) {
       return this.firestore.collection('product-list', ref => {
         return ref.where('productId', '==', +id).limit(1);
@@ -39,13 +38,12 @@ export class ProductService {
     }
   }
 
-  loadNextPage(lastDownloadedProductId: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
-    console.log("ProductService -> constructor -> lastDownloadedProductId", lastDownloadedProductId)
+  loadAnotherPage(lastDownloadedProduct: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
+    if (lastDownloadedProduct > this.oldLastLoadedProduct) {}
     return this.firestore.collection('product-list', ref =>
-      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProductId).limit(itemCountToLoad))
+      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProduct).limit(itemCountToLoad))
       .valueChanges().pipe(
         map((response: ProductModel[]) => {
-          console.log("ProductService -> constructor -> response", response)
           return response;
         })
       )

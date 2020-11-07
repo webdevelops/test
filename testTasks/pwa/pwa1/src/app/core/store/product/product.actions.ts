@@ -46,15 +46,19 @@ export const LOAD_PRODUCT_BY_ID_FAILURE = createAction(
   props<{ error: TypeError }>()
 );
 
-export const LOAD_NEXT_PAGE = createAction(
+export const LOAD_ANOTHER_PAGE = createAction(
   '[ProductList] Load Next Page',
-  props<{ itemCountToLoad: number, previousPage: number, currentPage: number }>()
+  props < { lastDownloadedProduct: number, itemCountToLoad: number }>()
 );
 
-export const LOAD_NEXT_PAGE_SUCCESS = createAction(
+export const LOAD_ANOTHER_PAGE_SUCCESS = createAction(
   '[Product] Load Naxt Page Success',
-  props<{ productList: ProductModel[], page: number, lastDownloadedProductId: number }>()
+  props<{ productList: ProductModel[] }>()
 );
+// export const LOAD_NEXT_PAGE_SUCCESS = createAction(
+//   '[Product] Load Naxt Page Success',
+//   props<{ productList: ProductModel[], page: number, lastDownloadedProductId: number }>()
+// );
 
 @Injectable({
   providedIn: 'root',
@@ -70,7 +74,8 @@ export class ProductActions {
     this.store$.dispatch(LOAD_PRODUCT_BY_ID({ productId }));
   }
 
-  public loadNextPages(itemCountToLoad: number, previousPage: number, currentPage: number): void {
-    this.store$.dispatch(LOAD_NEXT_PAGE({ itemCountToLoad, previousPage, currentPage }));
+  public loadAnotherPage(lastDownloadedProduct: number, itemCountToLoad: number): void {
+    this.store$.dispatch(LOAD_ANOTHER_PAGE({ lastDownloadedProduct, itemCountToLoad }));
+    // this.store$.dispatch(SHOW_LOADER());
   }
 }

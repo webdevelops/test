@@ -27,7 +27,7 @@ export const productReducer = createReducer(
   on(ProductActions.LOAD_PRODUCT_BY_ID_FAILURE, (state, { error }) => ({
     ...state, error: error.message
   })),
-  on(ProductActions.LOAD_NEXT_PAGE_SUCCESS, (state, { productList, page, lastDownloadedProductId }) => ({
-    ...productAdapter.upsertMany(productList, state), page, lastDownloadedProductId
+  on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
+    ...productAdapter.upsertMany(productList, state)
   })),
 );
