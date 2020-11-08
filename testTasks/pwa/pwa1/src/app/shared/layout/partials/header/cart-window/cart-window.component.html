@@ -1,7 +1,7 @@
 <app-modal-window #modal="modal" (modalClose)="modalClose($event)">
   <div modal-header-left class="shopping__header">Shopping Cart</div>
   <div modal-left-part>
-    <cdk-virtual-scroll-viewport cdkVirtualForOf itemSize="4" class="shopping__container">
+    <cdk-virtual-scroll-viewport itemSize="4" class="shopping__container">
       <!-- <div class="header__wrapper">
         <div modal-header-left class="shopping__header">Shopping Cart</div>
       </div> -->
@@ -31,31 +31,85 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="standart" class="sending-form__field" fxLayout="column"
+        <!-- <mat-form-field appearance="standart" class="sending-form__field" fxLayout="column"
           fxLayoutAlign="space-between center">
-          <mat-label>{{selected}}</mat-label>
-          <mat-select [(value)]="selected" class="underlined-field" formControlName="messenger"
-            [ngClass]="{'touched': sendForm.controls.messenger.touched}">
-            <mat-option value="Chose messenger" disabled class="default-option">
+          <mat-label
+            [ngClass]="{'sending-form__field_error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}">
+            <ng-container *ngIf="sendForm.controls.messenger.value; else defaultLabel">
+              {{ sendForm.controls.messenger.value }} 
+            </ng-container>
+            <ng-template #defaultLabel>
+              Select messenger
+            </ng-template>
+          </mat-label>
+
+          <input type="text" matInput formControlName="messengerData" [matAutocomplete]="auto" class="underlined-field"
+            [value]="sendForm.controls.messengerData.value"
+            [ngClass]="{'touched': sendForm.controls.messengerData.touched}">
+          <app-svg-icons matSuffix class="selected-icon"
+            [ngClass]="{'error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}"
+            [iconType]="sendForm.controls.messenger.value === '' ? iconList.ArrowDown: sendForm.controls.messenger.value">
+          </app-svg-icons>
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched)">
+            Field is <strong>required</strong>
+          </mat-hint>
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')">
+            Select your messenger
+          </mat-hint>
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" autoActiveFirstOption="false"
+            (optionSelected)="getUserData($event)">
+            <mat-option value="Select messenger" disabled class="default-option">
               Messenger
               <app-svg-icons class="option-icon" [iconType]="iconList.ArrowDown"></app-svg-icons>
             </mat-option>
-
-            <mat-option *ngFor="let option of options" [value]="option.name">
+            <mat-option *ngFor="let option of options" [value]="option" fxLayout="row"
+              fxLayoutAlign="space-between center">
               {{option.name}}
               <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
             </mat-option>
-          </mat-select>
+          </mat-autocomplete>
+        </mat-form-field> -->
 
-          <mat-select-trigger>
-            <app-svg-icons class="selected-icon"
-              [ngClass]="{'error': sendForm.controls.messenger.hasError('required') && sendForm.controls.messenger.touched}"
-              [iconType]="selected === 'Chose messenger' ? iconList.ArrowDown : selected">
-            </app-svg-icons>
-          </mat-select-trigger>
-          <mat-error class="error" *ngIf="sendForm.controls.messenger.hasError('required')">
+        <mat-form-field appearance="standart" class="sending-form__field" fxLayout="column"
+          fxLayoutAlign="space-between center">
+          <mat-label
+            [ngClass]="{'sending-form__field_error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}">
+            <ng-container *ngIf="sendForm.controls.messenger.value; else defaultLabel">
+              {{ sendForm.controls.messenger.value }}
+            </ng-container>
+            <ng-template #defaultLabel>
+              Select messenger
+            </ng-template>
+          </mat-label>
+
+          <input type="text" matInput formControlName="messengerData" [matAutocomplete]="auto" class="underlined-field"
+            [value]="sendForm.controls.messengerData.value" [ngClass]="{'touched': sendForm.controls.messengerData.touched}">
+          <app-svg-icons matSuffix class="selected-icon"
+            [ngClass]="{'error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}"
+            [iconType]="sendForm.controls.messenger.value === '' ? iconList.ArrowDown: sendForm.controls.messenger.value">
+          </app-svg-icons>
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched)">
             Field is <strong>required</strong>
-          </mat-error>
+          </mat-hint>
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')">
+            Select your messenger
+          </mat-hint>
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" autoActiveFirstOption="false"
+            (optionSelected)="getUserData($event)">
+            <mat-option value="Select messenger" disabled class="default-option">
+              Messenger
+              <app-svg-icons class="option-icon" [iconType]="iconList.ArrowDown"></app-svg-icons>
+            </mat-option>
+            <mat-option *ngFor="let option of options" [value]="option" fxLayout="row"
+              fxLayoutAlign="space-between center">
+              {{option.name}}
+              <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
 
         <mat-form-field appearance="standart" class="sending-form__field comment">
@@ -73,7 +127,7 @@
         <span>item: 5</span>
         <span>105-135 h</span>
       </div>
-      <button mat-stroked-button class="sending-form__btn" (click)="modal.closeModal({submitted: true})">
+      <button mat-stroked-button class="sending-form__btn" (click)="modal.closeModal({submitted: true})" [disabled]="sendForm.status === 'INVALID'">
         <span>Send</span>
       </button>
     </div>

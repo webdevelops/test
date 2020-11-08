@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     // MatButtonModule,
     // FlexLayoutModule, // ?
     // MatProgressSpinnerModule, // ?
+    // MatAutocompleteModule
   ],
   exports: [
     MatFormFieldModule,
@@ -28,7 +30,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ScrollingModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatAutocompleteModule,
   ]
 })
 export class MaterialModule { }

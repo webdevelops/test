@@ -3,10 +3,16 @@
 
   <div class="product-list" fxLayout="row" fxLayoutAlign="space-between">
     <div class="product-list__item"
-      *ngFor="let product of productList$ | async | slice : fromProduct : toProduct index as index">
+      *ngFor="let product of productList$ | async index as index">
       <app-product [product]="product" [isWide]="index < 2 ? true : false"></app-product>
     </div>
   </div>
+  <!-- <div class="product-list" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="product-list__item"
+      *ngFor="let product of productList$ | async | slice : fromProduct : toProduct index as index">
+      <app-product [product]="product" [isWide]="index < 2 ? true : false"></app-product>
+    </div>
+  </div> -->
   <!-- <div class="product-list" fxLayout="row" fxLayoutAlign="space-between">
     <div class="product-list__item"
       *ngFor="let product of productList$ | async | slice : 0 : (pageIndex$ | async) index as index">

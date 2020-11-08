@@ -24,8 +24,8 @@ export class ProductListComponent implements OnInit {
   readonly pageSize = PAGE_SIZE;
   readonly nextPageSize = NEXT_PAGE_SIZE;
   readonly productListLength = PRODUCT_LIST_LENGTH;
-  public fromProduct: number = 0;
-  public toProduct: number = 5;
+  // public fromProduct: number = 0;
+  // public toProduct: number = 5;
   // public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
 
@@ -51,8 +51,8 @@ export class ProductListComponent implements OnInit {
     
     this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
 
-    this.fromProduct = lastDownloadedProduct;
-    this.toProduct = lastDownloadedProduct + this.nextPageSize;
+    // this.fromProduct = lastDownloadedProduct;
+    // this.toProduct = lastDownloadedProduct + this.nextPageSize;
   }
 
 }

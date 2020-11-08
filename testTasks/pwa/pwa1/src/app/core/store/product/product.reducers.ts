@@ -28,6 +28,9 @@ export const productReducer = createReducer(
     ...state, error: error.message
   })),
   on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
-    ...productAdapter.upsertMany(productList, state)
+    ...productAdapter.setAll(productList, state)
   })),
+  // on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
+  //   ...productAdapter.upsertMany(productList, state)
+  // })),
 );

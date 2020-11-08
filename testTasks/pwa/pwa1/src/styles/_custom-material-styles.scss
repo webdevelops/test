@@ -180,3 +180,15 @@ textarea.touched {
 .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: transparent;
 }
+
+.mat-paginator-container {
+  padding: 0 calc(50% - 590px) !important;
+}
+
+.mat-button.mat-button-base.mat-button-disabled {
+  background-color: #72ac0d87;
+}
+
+.mat-autocomplete-panel {
+  margin-top: 17px;
+}

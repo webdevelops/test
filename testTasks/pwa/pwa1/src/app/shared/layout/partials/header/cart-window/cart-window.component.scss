@@ -87,6 +87,11 @@
 
   &__field {
     min-height: 100px;
+
+    &_error {
+      font-size: 18px;
+      color: $red-color;
+    }
   }
 
   &__addition {
@@ -123,7 +128,7 @@
   fill: $green-color;
   position: absolute;
   right: 12px;
-  bottom: 5px;
+  bottom: -12px;
   height: inherit;
 }
 

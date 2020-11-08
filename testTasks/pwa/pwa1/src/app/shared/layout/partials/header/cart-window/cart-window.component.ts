@@ -1,6 +1,7 @@
 // Angulat
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 // Libs
 import { Observable } from 'rxjs';
@@ -17,9 +18,9 @@ import { BasketSelectors } from '../../../../../core/store/basket/basket.selecto
   styleUrls: ['./cart-window.component.scss']
 })
 export class CartWindowComponent implements OnInit {
-  items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
+  // items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
   public iconList = IconList;
-  public selected = 'Chose messenger';
+  public onlyRead: boolean = true;
   public options: Array<ServiceList> = [];
   productFromBasket$: Observable<Array<ProductModel>>;
 
@@ -30,6 +31,7 @@ export class CartWindowComponent implements OnInit {
       Validators.maxLength(30)
     ]),
     messenger: new FormControl('', [Validators.required]),
+    messengerData: new FormControl(''),
     comment: new FormControl('')
   });
 
@@ -42,19 +44,28 @@ export class CartWindowComponent implements OnInit {
     this.options = [
       {
         name: 'telegram',
-        icon: this.iconList.Telegram
+        icon: this.iconList.Telegram,
+        userData: ''
       },
       {
         name: 'skype',
-        icon: this.iconList.Skype
+        icon: this.iconList.Skype,
+        userData: ''
+      },
+      {
+        name: 'messenger',
+        icon: this.iconList.Messenger,
+        userData: ''
       },
       {
         name: 'whatsapp',
-        icon: this.iconList.Whatsapp
+        icon: this.iconList.Whatsapp,
+        userData: ''
       },
       {
         name: 'email',
-        icon: this.iconList.Email
+        icon: this.iconList.Email,
+        userData: ''
       }
     ];
   }
@@ -63,7 +74,18 @@ export class CartWindowComponent implements OnInit {
     this.productFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
   }
 
-  modalClose($event) { }
+  getUserData($event) {
+    this.sendForm.controls.messenger.setValue($event.option.value.name);
+    this.sendForm.controls.messengerData.setValue($event.option.value.userData);
+
+    console.log('getUserData - messengerData', this.sendForm.controls.messengerData);
+    console.log('getUserData - messenger', this.sendForm.controls.messenger);
+  }
+
+  modalClose($event) {
+    console.log('userData: ', this.sendForm.controls.messengerData.value);
+    console.log('messanger: ', this.sendForm.controls.messenger.value);
+  }
 
   removeFromCart(productId: string) {
     this.basketActions.removeFromCart(productId);
@@ -73,4 +95,5 @@ export class CartWindowComponent implements OnInit {
 export interface ServiceList {
   name: string;
   icon: string;
+  userData: string;
 }
