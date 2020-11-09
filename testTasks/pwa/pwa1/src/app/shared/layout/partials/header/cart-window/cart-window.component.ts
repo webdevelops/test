@@ -1,7 +1,7 @@
 // Angulat
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+// import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 // Libs
 import { Observable } from 'rxjs';
@@ -34,8 +34,6 @@ export class CartWindowComponent implements OnInit {
     messengerData: new FormControl(''),
     comment: new FormControl('')
   });
-
-  // fb: FormBuilder
 
   constructor(
     private basketSelectors: BasketSelectors,

@@ -1,3 +1,4 @@
+@import "../../../styles/shared-styles";
 @import "../../../styles/mixin";
 @import "../../../styles/variables";
 
@@ -115,18 +116,18 @@
   }
 }
 
-.get-price-btn {
-  background-color: $grey-background-btn;
-  font-weight: 300;
-}
+// .get-price-btn {
+//   background-color: $grey-background-btn;
+//   font-weight: 300;
+// }
 
-.add-to-cart-btn {
-  background-color: $green-color;
+// .add-to-cart-btn {
+//   background-color: $green-color;
 
-  span {
-    font-weight: 500;
-  }
-}
+//   span {
+//     font-weight: 500;
+//   }
+// }
 
 // ! mat-slider - фиксация для mat-tab-label (position absolute, bottom: 20px)
 * {

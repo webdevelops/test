@@ -17,4 +17,5 @@ export enum IconList {
   Youtube = 'youtube',
   GitHub = 'github',
   Email = 'email',
+  Clock = 'clock',
 }
