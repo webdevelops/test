@@ -40,7 +40,7 @@
             <span>Get Price</span>
           </button>
 
-          <button mat-flat-button class="add-to-cart-btn product__btn">
+          <button mat-flat-button class="add-to-cart-btn product__btn" (click)="addToCart(product)">
             <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
             <span>Add to cart</span>
           </button>

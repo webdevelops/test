@@ -7,7 +7,7 @@
       </div> -->
       <div class="shopping">
         <div class="shopping__item-wrap" fxLayout="row"
-          *cdkVirtualFor="let productFromBasket of productFromBasket$ | async">
+          *cdkVirtualFor="let productFromBasket of productsFromBasket$ | async">
           <button mat-fab color="" aria-label="Example icon button with a delete icon"
             (click)="removeFromCart(productFromBasket.productId)">
             <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>

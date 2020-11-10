@@ -22,7 +22,7 @@ export class CartWindowComponent implements OnInit {
   public iconList = IconList;
   public onlyRead: boolean = true;
   public options: Array<ServiceList> = [];
-  productFromBasket$: Observable<Array<ProductModel>>;
+  productsFromBasket$: Observable<Array<ProductModel>>;
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [
@@ -69,7 +69,7 @@ export class CartWindowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
+    this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
   }
 
   getUserData($event) {

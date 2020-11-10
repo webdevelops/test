@@ -1,0 +1,44 @@
+@import "../../../../../styles/shared-styles";
+@import "../../../../../styles/mixin";
+@import "../../../../../styles/variables";
+
+.footer {
+  @include content-container;
+  background-color: $footer-background;
+  height: 95px;
+  color: $white-color;
+  padding-bottom: 45px;
+
+  &__logo {
+    @include logo;
+
+    margin-top: 16px;
+
+    &__mobile {
+      padding-left: 16px;
+    }
+  }
+
+  &__item {
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 28px;
+  }
+
+  &__mobile {
+    height: 200px;
+  }
+
+  &__icon {
+    height: 25px;
+    width: 25px;
+    fill: $white-color;
+
+    &:hover {
+      cursor: pointer;
+      fill: $green-color;
+      transition: 0.3s;
+    }
+  }
+  
+}

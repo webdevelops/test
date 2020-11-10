@@ -11,6 +11,7 @@ import { ProductListModule } from '../../modules/product-list/product-list.modul
 import { ModalWindowComponent } from './partials/modal-window/modal-window.component';
 import { ProductListComponent } from 'src/app/modules/product-list/product-list.component';
 import { CartWindowComponent } from './partials/header/cart-window/cart-window.component';
+import { FooterComponent } from './partials/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CartWindowComponent } from './partials/header/cart-window/cart-window.c
     GreetingSectionComponent,
     ModalWindowComponent,
     CartWindowComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
