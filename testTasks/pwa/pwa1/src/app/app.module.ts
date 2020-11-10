@@ -39,13 +39,13 @@ import { ProductListModule } from './modules/product-list/product-list.module';
     ProductListModule, // ?
     FlexLayoutModule,
     // FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md', 'lt-lg'] }),
-    // AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     EffectsModule.forRoot([
       ProductEffects,
       BasketEffects
     ]),
     StoreModule.forRoot(reducers),
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production

@@ -60,7 +60,7 @@ export class ProductEffects {
     )
   );
 
-  public loadNexrPage$ = createEffect(() =>
+  public loadAnotherPage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProductActions.LOAD_ANOTHER_PAGE),
       mergeMap(action => {
