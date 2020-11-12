@@ -15,4 +15,7 @@ export const basketReducer = createReducer(
   on(BasketActions.REMOVE_FROM_CART_SUCCESS, (state, { productId }) => ({
     ...basketAdapter.removeOne(productId, state)
   })),
+  on(BasketActions.ADD_CART_TO_LOCAL_STORAGE, (state, {products}) => ({
+    ...basketAdapter.setAll(products, state)
+  })),
 )

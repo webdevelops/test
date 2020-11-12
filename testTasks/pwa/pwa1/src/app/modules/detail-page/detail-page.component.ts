@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 import { ProductModel } from 'src/app/core/models/product.model';
 import { BasketActions } from '../../core/store/basket/basket.actions';
 import { IconList } from 'src/app/core/mock/icon.list';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -23,7 +24,8 @@ export class DetailPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private basketAction: BasketActions,
-    private router: Router
+    private router: Router,
+    private localStorage: LocalStorageService
   ) { }
 
   ngOnInit(): void {

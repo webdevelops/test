@@ -11,18 +11,20 @@ import { IconList } from 'src/app/core/mock/icon.list';
 import { ProductModel } from 'src/app/core/models/product.model';
 import { BasketActions } from 'src/app/core/store/basket/basket.actions';
 import { BasketSelectors } from '../../../../../core/store/basket/basket.selectors';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-cart-window',
   templateUrl: './cart-window.component.html',
   styleUrls: ['./cart-window.component.scss']
 })
-export class CartWindowComponent implements OnInit {
+export class CartWindowComponent implements OnInit, OnDestroy {
   // items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
   public iconList = IconList;
   public onlyRead: boolean = true;
   public options: Array<ServiceList> = [];
-  productsFromBasket$: Observable<Array<ProductModel>>;
+  // productsFromBasket$: Observable<Array<ProductModel>>;
+  productsFromBasket: ProductModel[] = [] as ProductModel[];
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [
@@ -30,14 +32,17 @@ export class CartWindowComponent implements OnInit {
       Validators.minLength(2),
       Validators.maxLength(30)
     ]),
-    messenger: new FormControl('', [Validators.required]),
+    messenger: new FormControl('', [
+      Validators.required
+    ]),
     messengerData: new FormControl(''),
     comment: new FormControl('')
   });
 
   constructor(
     private basketSelectors: BasketSelectors,
-    private basketActions: BasketActions
+    private basketActions: BasketActions,
+    private localStorage: LocalStorageService
   ) {
     this.options = [
       {
@@ -69,15 +74,29 @@ export class CartWindowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
+    // this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
+
+    this.basketSelectors.selectAllProductsFromBasket$()
+      .subscribe(products => {
+        if (products.length > 0) {
+          this.productsFromBasket = products;
+          return this.productsFromBasket;
+        }
+
+        if (this.localStorage.get('basket')) {
+          this.productsFromBasket = this.localStorage.get('basket');
+          this.basketActions.addCartToLocalStorage(this.productsFromBasket);
+        }
+      });
   }
 
   getUserData($event) {
     this.sendForm.controls.messenger.setValue($event.option.value.name);
     this.sendForm.controls.messengerData.setValue($event.option.value.userData);
 
-    console.log('getUserData - messengerData', this.sendForm.controls.messengerData);
-    console.log('getUserData - messenger', this.sendForm.controls.messenger);
+    // console.log('$event.option.value', $event.option.value)
+    // console.log('getUserData - messengerData', this.sendForm.controls.messengerData);
+    // console.log('getUserData - messenger', this.sendForm.controls.messenger);
   }
 
   modalClose($event) {
@@ -87,6 +106,10 @@ export class CartWindowComponent implements OnInit {
 
   removeFromCart(productId: string) {
     this.basketActions.removeFromCart(productId);
+  }
+
+  ngOnDestroy() {
+
   }
 }
 

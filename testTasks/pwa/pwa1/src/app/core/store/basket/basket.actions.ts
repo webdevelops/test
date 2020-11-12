@@ -38,6 +38,11 @@ export const REMOVE_FROM_CART_FAILURE = createAction(
   props<{ error: TypeError }>()
 );
 
+export const ADD_CART_TO_LOCAL_STORAGE = createAction(
+  '[Basket] Add To Cart From Local Storage',
+  props<{ products: ProductModel[]}>()
+);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,5 +55,9 @@ export class BasketActions {
 
   public removeFromCart(productId: string) {
     this.store$.dispatch(REMOVE_FROM_CART({ productId }));
+  }
+
+  public addCartToLocalStorage(products: ProductModel[]) {
+    this.store$.dispatch(ADD_CART_TO_LOCAL_STORAGE({products}));
   }
 }
