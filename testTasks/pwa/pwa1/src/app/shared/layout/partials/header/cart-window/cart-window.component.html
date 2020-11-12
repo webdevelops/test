@@ -6,22 +6,22 @@
         <div modal-header-left class="shopping__header">Shopping Cart</div>
       </div> -->
       <div class="shopping">
-        <div class="shopping__item-wrap" fxLayout="row"
+        <!-- <div class="shopping__item-wrap" fxLayout="row" 
           *cdkVirtualFor="let productFromBasket of productsFromBasket">
           <button mat-fab color="" aria-label="Example icon button with a delete icon"
             (click)="removeFromCart(productFromBasket.productId)">
             <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
           </button>
           <div class="shopping__item">{{productFromBasket.productName}}</div>
-        </div>
-        <!-- <div class="shopping__item-wrap" fxLayout="row"
+        </div> -->
+        <div class="shopping__item-wrap" fxLayout="row"
           *cdkVirtualFor="let productFromBasket of productsFromBasket$ | async">
           <button mat-fab color="" aria-label="Example icon button with a delete icon"
             (click)="removeFromCart(productFromBasket.productId)">
             <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
           </button>
           <div class="shopping__item">{{productFromBasket.productName}}</div>
-        </div> -->
+        </div>
       </div>
     </cdk-virtual-scroll-viewport>
   </div>
@@ -67,7 +67,7 @@
             *ngIf="(sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')">
             Select your messenger
           </mat-hint>
-          
+
           <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption="false"
             (optionSelected)="getUserData($event)">
             <mat-option value="Select messenger" disabled class="default-option">

@@ -1,5 +1,5 @@
 // Angulat
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 // import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
@@ -18,12 +18,12 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
   templateUrl: './cart-window.component.html',
   styleUrls: ['./cart-window.component.scss']
 })
-export class CartWindowComponent implements OnInit, OnDestroy {
+export class CartWindowComponent implements OnInit {
   // items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
   public iconList = IconList;
   public onlyRead: boolean = true;
   public options: Array<ServiceList> = [];
-  // productsFromBasket$: Observable<Array<ProductModel>>;
+  productsFromBasket$: Observable<Array<ProductModel>>;
   productsFromBasket: ProductModel[] = [] as ProductModel[];
 
   public sendForm = new FormGroup({
@@ -74,20 +74,25 @@ export class CartWindowComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
+    this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
 
-    this.basketSelectors.selectAllProductsFromBasket$()
-      .subscribe(products => {
-        if (products.length > 0) {
-          this.productsFromBasket = products;
-          return this.productsFromBasket;
-        }
+    // this.basketSelectors.selectAllProductsFromBasket$()
+    //   .subscribe(products => {
+    //     console.log('products - 1', products);
+    //     if (products.length > 0) {
+    //       console.log('products - 2', products);
+    //       this.productsFromBasket = products;
+    //       // return this.productsFromBasket;
 
-        if (this.localStorage.get('basket')) {
-          this.productsFromBasket = this.localStorage.get('basket');
-          this.basketActions.addCartToLocalStorage(this.productsFromBasket);
-        }
-      });
+    //     } else if (this.localStorage.get('basket')) {
+    //       console.log('products - 3', products);
+    //       this.productsFromBasket = this.localStorage.get('basket');
+    //       this.basketActions.addCartToLocalStorage(this.productsFromBasket);
+        
+    //     } else {
+    //       this.productsFromBasket = products;
+    //     }
+    //   });
   }
 
   getUserData($event) {
@@ -108,9 +113,9 @@ export class CartWindowComponent implements OnInit, OnDestroy {
     this.basketActions.removeFromCart(productId);
   }
 
-  ngOnDestroy() {
+  // ngOnDestroy() {
 
-  }
+  // }
 }
 
 export interface ServiceList {
