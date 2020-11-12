@@ -188,7 +188,7 @@ It anno'ys me - Это меня раздражает
 His la'ziness i'rritates me - Его лень раздражает меня
 What's their a'nnual tu'rnover? - Каков их годовой оборот? ------- // ... 1500
 
-------------------------    5 
+------------------------    5 !
 
 She's a'nxious about her future - Она беспокоится о своем будущем
 She has a feeling of anxi'ety - У нее чувство тревоги
@@ -225,7 +225,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 
+------------------------    6 !
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -264,7 +264,7 @@ We saw a bride and a groom - Мы видели невесту и жениха
 He confe'ssed that they were enga'ged - Он признался, что они были помолвлены (заняты)
 I'll be brief - Я буду краток
 
-------------------------    7 
+------------------------    7 !
 
 Adju'st the brightness - Отрегулируйте яркость
 There were gloomy pro'spects - Были мрачные перспективы
@@ -300,7 +300,7 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 
+------------------------    8 !
 
 I'll write it on the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
@@ -377,7 +377,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 !!
+------------------------  +  10 !
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
@@ -416,7 +416,7 @@ The flight was delayed - Рейс задержался
 I set it on the floor - Я поставил это на пол
 We had to pay all the fees - Мы должны были заплатить все сборы
 
-------------------------  +  11 !!
+------------------------  +  11 !
 
 How much will they charge for this service - Сколько они будут взимать (заряжать, обязанности, расходы) за эту услугу
 Anyone would choose the same thing - Любой выбрал бы то же самое
@@ -455,7 +455,7 @@ Don't rush. Wait - Не торопись. Подожди
 It can cause a stomach ache - Это может вызвать боль в животе
 My legs ached - У меня болели ноги
 
-------------------------  +  12 !!
+------------------------  +  12 !
 
 The workers can go on strike - Рабочие могут объявить забастовку
 You are safe now - Теперь вы в безопасности
@@ -493,7 +493,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !!
+------------------------  +  13 !
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
