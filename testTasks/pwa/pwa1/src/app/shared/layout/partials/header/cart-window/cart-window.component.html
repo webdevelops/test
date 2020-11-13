@@ -6,14 +6,6 @@
         <div modal-header-left class="shopping__header">Shopping Cart</div>
       </div> -->
       <div class="shopping">
-        <!-- <div class="shopping__item-wrap" fxLayout="row" 
-          *cdkVirtualFor="let productFromBasket of productsFromBasket">
-          <button mat-fab color="" aria-label="Example icon button with a delete icon"
-            (click)="removeFromCart(productFromBasket.productId)">
-            <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
-          </button>
-          <div class="shopping__item">{{productFromBasket.productName}}</div>
-        </div> -->
         <div class="shopping__item-wrap" fxLayout="row"
           *cdkVirtualFor="let productFromBasket of productsFromBasket$ | async">
           <button mat-fab color="" aria-label="Example icon button with a delete icon"
@@ -78,11 +70,6 @@
               {{option.name}}
               <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
             </mat-option>
-            <!-- <mat-option *ngFor="let option of options" [value]="option" fxLayout="row"
-              fxLayoutAlign="space-between center">
-              {{option.name}}
-              <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
-            </mat-option> -->
           </mat-autocomplete>
         </mat-form-field>
 

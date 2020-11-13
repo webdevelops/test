@@ -34,16 +34,7 @@ export class BasketService {
       .collection('basket')
       .doc(`${product.productId}`)
       .set(product))
-    // .then(() => console.log('Product added!'))
-    // .catch(error => console.log('Error: ', error))
   }
-
-
-  // addToCart(product: ProductModel): Observable<boolean> {
-  //   return of(true);
-  // }
-
-  // ----------------------------------
 
   removeFromCart(productId: string): Observable<void> {
     this.removeFromLocalStorage(productId);
