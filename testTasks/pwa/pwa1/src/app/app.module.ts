@@ -19,7 +19,7 @@ import { LayoutModule } from '../app/shared/layout/layout.module';
 import { SharedModule } from '../app/shared/shared.module';
 import { ProductEffects } from './core/store/product/product.effects';
 import { BasketEffects } from './core/store/basket/basket.effects';
-import { reducers } from './core/store';
+import { reducers, metaReducers } from './core/store';
 import { environment } from 'src/environments/environment';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { ProductListModule } from './modules/product-list/product-list.module';
@@ -44,6 +44,7 @@ import { ProductListModule } from './modules/product-list/product-list.module';
       BasketEffects
     ]),
     StoreModule.forRoot(reducers),
+    // StoreModule.forRoot(reducers, { metaReducers }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     StoreDevtoolsModule.instrument({
