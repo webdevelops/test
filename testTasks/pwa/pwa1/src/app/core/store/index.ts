@@ -1,5 +1,6 @@
 // Libs
-import { ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap, ActionReducer, MetaReducer } from '@ngrx/store';
+import { localStorageSync } from 'ngrx-store-localstorage';
 
 // App
 import { ProductState } from './product/product.state';
@@ -16,3 +17,13 @@ export const reducers: ActionReducerMap<RootState> = {
   product: productReducer,
   basket: basketReducer
 }
+
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ 
+    keys: ['basket'],
+    storageKeySerializer: (key) => `upwork_${key}`,
+    rehydrate: true,
+})(reducer);
+}
+
+export const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
