@@ -5,7 +5,7 @@
       <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
     </ng-template>
 
-    <div class="slider__content" (click)="customSlider()" fxLayoutAlign="center center">
+    <div class="slider__content" (click)="customSlider()" fxLayout="row" fxLayoutAlign="center center">
       <div class="slider__body" [ngClass.lt-lg]="{'slider__body_mobile': true}" fxLayout="row"
         fxLayoutAlign="space-between start">
         <div class="slider__detail" fxLayout="column" fxLayoutAlign="space-between start"
@@ -17,7 +17,7 @@
             <div class="slider__title" [ngClass.lt-md]="{'slider__title_mobile': true}">
               {{tab.title}}
             </div>
-            <!-- // ? - slider__description
+            <!-- // ? - slider__description - lt-lg/lt-md
             <div class="slider__description" [ngClass.lt-lg]="{'slider__text_mobile': true}"> -->
             <div class="slider__description" [ngClass.lt-md]="{'slider__description_mobile': true}">
               {{tab.description}}
