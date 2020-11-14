@@ -1,0 +1,34 @@
+@import "../../../../../styles/variables";
+@import "../../../../../styles/mixin";
+
+.header {
+  @include section-container;
+  background-color: $grey-ground-color;
+  height: 60px;
+
+  @media (max-width: $breakpoint-gt-md) {
+    padding: 0 16px;
+  }
+
+  &__logo {
+    width: 168px;
+    height: 36px;
+
+    &_mobile {
+      padding-left: 16px;
+    }
+  }
+
+  &__item {
+    color: $grey-font-color;
+
+    &:hover {
+      color: $green-color;
+      cursor: pointer;
+    }
+  }
+
+  &__menu-icon {
+    padding-right: 18px;
+  }
+}

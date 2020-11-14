@@ -1,1 +1,23 @@
-<p>header works!</p>
+<mat-toolbar-row>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap.lt-md="16px" class="header">
+    <a href="#greeting" fxLayout="row" fxLayoutAlign="center">
+      <app-svg-icons class="header__logo" [iconType]="iconList.Logo" [ngClass.lt-md]="{'header__logo_mobile': true}">
+      </app-svg-icons>
+    </a>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="30px" fxHide.lt-lg>
+      <div class="header__item"><a href="#product">Product</a></div>
+      <div class="header__item"><a href="#technologies">Technologies</a></div>
+      <div class="header__item"><a href="#client">Who our Clients</a></div>
+      <div class="header__item"><a href="#caseStudies">Case Studies</a></div>
+      <div class="header__item"><a href="#feedbacks">Feed backs</a></div>
+      <div class="header__item"><a href="#contactUs">Contact Us</a></div>
+    </div>
+
+    <div class="header__menu-icon" fxShow.lt-lg fxHide.gt-md>
+      <mat-icon [style.color]="'white'" (click)="openSideNav()">
+        {{getMenuIcon()}}
+      </mat-icon>
+    </div>
+  </div>
+</mat-toolbar-row>
