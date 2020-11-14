@@ -1,9 +1,5 @@
 // Angulat
-<<<<<<< HEAD
 import { Component, OnDestroy, OnInit } from '@angular/core';
-=======
-import { Component, OnInit, OnDestroy } from '@angular/core';
->>>>>>> ef4a34c75237278549ebdb41d661cb0da824e6b0
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 // import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
