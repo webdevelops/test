@@ -9,7 +9,7 @@ import { ProductModel } from '../models/product.model';
 })
 export class LocalStorageService {
   public localStorage: Storage;
-  public productsFromBasket: ProductModel[];
+  public productsFromBasket: ProductModel[] = [];
 
   constructor() {
     this.localStorage = window.localStorage;
