@@ -1,6 +1,23 @@
 <div class="layout">
   <div class="layout__header">
-    <app-header></app-header>
-    <!-- <app-header [sidenavState]="sidenav.opened" (toggleSidenav)="sidenav.toggle()"></app-header> -->
+    <app-header (toggleSidenav)="sidenav.toggle()" [sidenavState]="sidenav.opened"></app-header>
   </div>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" fixedInViewport="false" position="end">
+
+      <div class="layout__sidenav" (click)="sidenav.toggle()">
+        <div class="layout__sidenav_item" *ngFor="let item of sidenavArray" (click)="scroll(item.sectionId)">
+          {{item.label}}
+        </div>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="layout__content" [ngClass.lt-lg]="{'layout__content_mobile': true}">
+        <app-greeting-section id="greeting"></app-greeting-section>
+        <app-client-section id="client"></app-client-section>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
