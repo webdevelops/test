@@ -1,8 +1,26 @@
+@import "./variables";
+
 @mixin section-container {
   padding: 0 calc(50% - 590px);
 
   @media (max-width: $breakpoint-gt-md) {
     padding-left: 25px;
     padding-right: 25px;
+  }
+}
+
+@mixin carusel-counter {
+  background-color: $white-color;
+  height: 2px;
+  width: 50px;
+
+  &_active {
+    background-color: $green-color;
+  }
+
+  @media (max-width: $breakpoint-gt-xs) {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
   }
 }

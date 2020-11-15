@@ -1,1 +1,29 @@
-<p>greeting-section works!</p>
+<div class="tab-group-container">
+  <mat-tab-group headerPosition="below" [selectedIndex]="activeTabIndex" #slider
+    (selectedTabChange)="selectedTabChange($event)">
+
+    <!-- label="tab.label" -->
+    <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
+      <ng-template mat-tab-label>
+        <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
+      </ng-template>
+
+      <div class="slider__content">
+        <div class="parallelogram"></div>
+        <div class="slider__body" fxLayout="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center"
+          fxLayoutGap.gt-sm="15px">
+          <div class="slider__title" [ngClass.lt-md]="{'slider__title_mobile': true}">
+            {{tab.title}}
+          </div>
+
+          <div class="slider__description" [ngClass.lt-md]="{'slider__description_mobile': true}">
+            {{tab.description}}
+          </div>
+        </div>
+
+        <div class="slider__background-image" [style.backgroundImage]="tab.imageSrc"></div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

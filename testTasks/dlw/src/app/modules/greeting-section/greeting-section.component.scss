@@ -1,0 +1,81 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+.slider {
+  @include section-container;
+
+  &__counter {
+    @include carusel-counter;
+  }
+
+  &__content {
+    background-color: #061c06;
+    height: 80vh;
+    width: 100%;
+    color: $white-color;
+
+    @media (max-width: $breakpoint-gt-sm) {
+      height: calc(100vh - 60px);
+    }
+  }
+
+  &__background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+  }
+
+  &__body {
+    padding-top: 210px;
+    padding: 0 calc(50% - 590px);
+    position: absolute;
+    z-index: 10;
+
+    @media (min-width: $breakpoint-lt-md) and (max-width: $breakpoint-gt-md) {
+      padding: 0 25px;
+    }
+
+    @media (max-width: $breakpoint-gt-sm) {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    font: 700 60px/73px Montserrat;
+    text-transform: uppercase;
+    width: 80vw;
+
+    &_mobile {
+      height: auto;
+      font-size: 30px;
+      line-height: 37px;
+    }
+  }
+
+  &__description {
+    font: 400 18px/26px Montserrat;
+    width: 30vw;
+    padding-top: 25px;
+
+    &_mobile {
+      padding-top: 15px;
+      font-size: 16px;
+      width: 60vw;
+    }
+  }
+}
+
+.parallelogram {
+  position: absolute;
+  width: 400px;
+  height: 58vh;
+  transform: skew(-15deg);
+  background-color: $green-color;
+  opacity: 0.89;
+  margin: 0 calc(50% - 530px);
+  z-index: 5;
+  top: 10vh;
+}
