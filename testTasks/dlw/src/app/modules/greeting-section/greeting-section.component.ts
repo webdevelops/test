@@ -27,21 +27,24 @@ export class GreetingSectionComponent implements OnInit {
       {
         isActive: true,
         label: 'First',
-        title: 'Angular expertise /br sinse 2016',
+        title: 'Angular expertise',
+        title2: 'sinse 2016',
         description: description_labelFirst,
         imageSrc: 'url(assets/slider/greeting/Slide_02.jpg)'
       },
       {
         isActive: false,
         label: 'Second',
-        title: 'Better than in-house /br Angular web development',
+        title: 'Better than in-house',
+        title2: 'Angular web development',
         description: description_labelSecond,
         imageSrc: 'url(assets/slider/greeting/Slide_01.jpg)'
       },
       {
         isActive: false,
         label: 'Second',
-        title: 'What do /br we value?',
+        title: 'What do',
+        title2: 'we value?',
         description: description_labelThird,
         imageSrc: 'url(assets/slider/greeting/Slide_03.jpg)'
       }

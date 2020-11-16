@@ -16,7 +16,6 @@ export class HeaderComponent {
   constructor() { console.log("HeaderComponent -> getMenuIcon -> this.sidenavState", this.sidenavState) }
 
   openSideNav(): void {
-    console.log('open')
     this.toggleSidenav.emit(true);
   }
 

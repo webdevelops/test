@@ -1,0 +1,144 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+.product {
+  &__header {
+    @include header;
+    color: $black-color;
+  }
+
+  &__content {
+    @include section-container;
+    @include container-padding;
+    text-align: center;
+    padding-bottom: 90px;
+  }
+
+  &__image {
+    height: 50vh;
+    width: 100%;
+    background-repeat: no-repeat, repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__list-item {
+    border-bottom: 1px solid $grey-font-color;
+    width: 100%;
+
+    &_first {
+      border-top: 1px solid $grey-font-color;
+    }
+  }
+}
+
+.product-body {
+  &__image-wrap {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    transform: scale(0);
+    height: 0;
+    overflow: hidden;
+    background-position: center;
+
+    -webkit-transition: all 0.75s;
+    -moz-transition: all 0.75s;
+    -o-transition: all 0.75s;
+    transition: all 0.75s;
+
+    &_expand {
+      margin-top: 25px;
+      height: 20vh;
+      transform: scale(1);
+      background-repeat: no-repeat, repeat;
+      background-size: contain;
+      width: 100%;
+
+      -webkit-transition: all 0.75s;
+      -moz-transition: all 0.75s;
+      -o-transition: all 0.75s;
+      transition: all 0.75s;
+    }
+  }
+
+  &__title {
+    font: 400 20px/24px Monserrat;
+    padding: 25px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    @media (max-width: $breakpoint-gt-md) {
+      font-size: 18px;
+      line-height: 22px;
+      padding: 20px 9px;
+    }
+
+    &-icon {
+      color: $grey-font-color;
+      transform: rotate(180deg);
+
+      -webkit-transition: transform 0.5s;
+      -moz-transition: transform 0.5s;
+      -o-transition: transform 0.5s;
+      transition: transform 0.5s;
+
+      &_expand {
+        color: $green-color;
+        transform: rotate(0deg);
+      }
+    }
+
+    &_active {
+      font-weight: 500px;
+    }
+  }
+
+  &__description-wrap {
+    padding-top: 0;
+    text-align: left;
+  }
+
+  &__descriptions {
+    height: 0;
+    padding-left: 73px;
+    padding-right: 23px;
+    overflow: hidden;
+    font: 300 16px/24px Monserrat;
+
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+
+    @media (max-width: $breakpoint-gt-md) {
+      padding-left: 60px;
+    }
+
+    @media (max-width: $breakpoint-lt-md) {
+      font-size: 15px;
+      max-height: 250px;
+      padding-left: 43px;
+      padding-right: 0;
+    }
+
+    &_expand {
+      padding-bottom: 23px;
+      height: 170px;
+
+      -webkit-transition: height 0.5s ease-in-out;
+      -moz-transition: height 0.5s ease-in-out;
+      -o-transition: height 0.5s ease-in-out;
+      transition: height 0.5s ease-in-out;
+
+      @media (max-width: $breakpoint-lt-md) {
+        height: 220px;
+      }
+    }
+  }
+}

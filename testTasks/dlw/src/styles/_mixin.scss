@@ -9,6 +9,11 @@
   }
 }
 
+@mixin container-padding {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 @mixin carusel-counter {
   background-color: $white-color;
   height: 2px;
@@ -22,5 +27,21 @@
     height: 15px;
     width: 15px;
     border-radius: 50%;
+  }
+}
+
+@mixin header {
+  text-align: center;
+  letter-spacing: 0;
+  opacity: 1;
+  vertical-align: middle;
+  height: 53px;
+  padding-top: 71px;
+  position: relative;
+  
+  h1 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 0;
   }
 }

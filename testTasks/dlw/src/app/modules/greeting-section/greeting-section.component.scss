@@ -27,13 +27,13 @@
   }
 
   &__body {
-    padding-top: 210px;
     padding: 0 calc(50% - 590px);
     position: absolute;
     z-index: 10;
 
     @media (min-width: $breakpoint-lt-md) and (max-width: $breakpoint-gt-md) {
       padding: 0 25px;
+      padding-top: 210px;
     }
 
     @media (max-width: $breakpoint-gt-sm) {
@@ -46,7 +46,7 @@
   &__title {
     font: 700 60px/73px Montserrat;
     text-transform: uppercase;
-    width: 80vw;
+    width: 60vw;
 
     &_mobile {
       height: auto;
