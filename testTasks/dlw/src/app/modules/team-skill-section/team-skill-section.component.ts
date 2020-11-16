@@ -31,10 +31,10 @@ export class TeamSkillSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getCurrentImage(): string {
-    const currentExpendedIndex = this.productArray.findIndex(product => product.isExpanded);
-    return this.productArray[currentExpendedIndex].image;
-  }
+  // public getCurrentImage(): string {
+  //   const currentExpendedIndex = this.productArray.findIndex(product => product.isExpanded);
+  //   return this.productArray[currentExpendedIndex].image;
+  // }
 
   public setCurrentExpandedPanel(item: Product): void {
     this.productArray.map(product => {
@@ -43,7 +43,7 @@ export class TeamSkillSectionComponent implements OnInit {
     })
   }
 
-  currentImage(): string {
+  get currentImage(): string {
     const currentExpendedIndex = this.productArray.findIndex(product => product.isExpanded);
     return this.productArray[currentExpendedIndex].image;
   }
