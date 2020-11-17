@@ -20,15 +20,15 @@ export class BasketService {
     private basketActions: BasketActions
   ) { }
 
-  putCartFromLoalStoregeToStore() {
+  putCartFromLoadStoregeToStore() {
     if (this.localStorage.get('basket')) {
       const productsFromBasket = this.localStorage.get('basket');
-      this.basketActions.fromLoalStoregeToStore(productsFromBasket);
+      this.basketActions.loadFromLocalStorageToStore(productsFromBasket);
     }
   }
 
   addToCart(product: ProductModel): Observable<void> {
-    this.addToLocalStorage(product);
+    // this.addToLocalStorage(product);
 
     return from(this.firestore
       .collection('basket')
@@ -37,7 +37,7 @@ export class BasketService {
   }
 
   removeFromCart(productId: string): Observable<void> {
-    this.removeFromLocalStorage(productId);
+    // this.removeFromLocalStorage(productId);
 
     return from(this.firestore
       .collection('basket')

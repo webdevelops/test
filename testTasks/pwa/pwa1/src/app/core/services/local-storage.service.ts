@@ -24,11 +24,11 @@ export class LocalStorageService {
 
   public set(key: string, value: any): boolean {
     if (this.isLocalStorage) {
-      this.localStorage.setItem(key, JSON.stringify(value));
-
+      this.localStorage.setItem(key, JSON.stringify(value));  
+      
       return true;
     }
-
+    
     return false;
   }
 

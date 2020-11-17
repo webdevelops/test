@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'pwa1';
 
   constructor(private basketService: BasketService) {
-    this.basketService.putCartFromLoalStoregeToStore();
+    // this.basketService.putCartFromLoadStoregeToStore();
   }
 }

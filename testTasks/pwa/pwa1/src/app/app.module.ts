@@ -43,8 +43,7 @@ import { ProductListModule } from './modules/product-list/product-list.module';
       ProductEffects,
       BasketEffects
     ]),
-    StoreModule.forRoot(reducers),
-    // StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, { metaReducers }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     StoreDevtoolsModule.instrument({

@@ -57,7 +57,7 @@ export class BasketActions {
     this.store$.dispatch(REMOVE_FROM_CART({ productId }));
   }
 
-  public fromLoalStoregeToStore(productsFromBasket: ProductModel[]) {
+  public loadFromLocalStorageToStore(productsFromBasket: ProductModel[]) {
     this.store$.dispatch(FROM_LOCAL_STORAGE_TO_STORE({ productsFromBasket }));
   }
 }
