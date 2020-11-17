@@ -12,6 +12,7 @@ import { ModalWindowComponent } from './partials/modal-window/modal-window.compo
 import { ProductListComponent } from 'src/app/modules/product-list/product-list.component';
 import { CartWindowComponent } from './partials/header/cart-window/cart-window.component';
 import { FooterComponent } from './partials/footer/footer.component';
+import { CartDialogComponent } from './partials/header/cart-dialog/cart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './partials/footer/footer.component';
     ModalWindowComponent,
     CartWindowComponent,
     FooterComponent,
+    CartDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { FooterComponent } from './partials/footer/footer.component';
     LayoutComponent,        // ?
     HeaderComponent,
     GreetingSectionComponent,
-    ProductListComponent        // ?
+    ProductListComponent,        // ?
+    // CartDialogComponent,
   ]
 })
 export class LayoutModule { }

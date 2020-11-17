@@ -1,19 +1,9 @@
 @import "../../../../../../styles/variables";
 @import "../../../../../../styles/mixin";
 
-// .header__wrapper {  // ? header
-//   height: 104px;
-//   position: sticky;
-//   left: 0;
-//   top: 0;
-//   right: 0;
-//   z-index: 10;
-//   background-color: $white-color;
-// }
-
 .shopping {
   padding: 0 90px;
-  // margin-top: 55px;  // ? header
+  margin-top: 55px;  // ? header
 
   &__container {
     height: 670px;
@@ -38,10 +28,10 @@
   &__item {
     background-color: $light-grey-color;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // font-size: 30px;
 
     &-wrap {
       position: relative;
