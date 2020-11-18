@@ -17,7 +17,7 @@
 </ng-template>
 
 <ng-template #wideTemplate>
-  <div class="product-card product-card_wide" fxLayout="column-reverse" [routerLink]="['/product', product.productId]">
+  <div class="product-card product-card_wide" fxLayout="column-reverse" fxFlax="50%" [routerLink]="['/product', product.productId]">
     <div class="product-card__header">
       <a class="product-card__title">
         {{product.productName}}

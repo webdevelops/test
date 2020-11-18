@@ -12,6 +12,7 @@ $base-grey-background: #3f4a4e;
 //buttons
 $grey-background-btn: #707e84;
 $dark-grey-background-btn: #3F4A4E;
+$disabled-green-btn: #546733b3;
 
 //lines
 $slider-line-color: #c9d3d6;
@@ -19,7 +20,14 @@ $header-cart-line: #dddddd;
 
 //fonts
 $light-grey-color: #c9d3d6;
+$disabled-grey-color: #BBB;
 
 //forms
 $placeholder-color: #c4c4c4;
 $underline-color: #5a676b;
+
+// media
+$breakpoint-gt-xs: 600px;
+$breakpoint-gt-sm: 959px;
+$breakpoint-lt-md: 960px;
+$breakpoint-gt-md: 1200px;

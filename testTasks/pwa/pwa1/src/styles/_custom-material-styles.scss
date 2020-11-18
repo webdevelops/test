@@ -26,7 +26,6 @@
   position: absolute !important;
   width: 100%;
   z-index: 1000;
-  // bottom: 20px !important; // ?  mat-tab-label
 }
 
 .mat-tab-group-inverted-header .mat-tab-nav-bar,
@@ -172,11 +171,6 @@ textarea.touched {
   }
 }
 
-*::-webkit-scrollbar-thumb {
-  // ?  Нижний зеленый бордер у слайдера
-  background: none !important;
-}
-
 .mat-form-field-appearance-legacy .mat-form-field-underline {
   background-color: transparent;
 }
@@ -223,9 +217,8 @@ textarea.touched {
     line-height: 24px;
     border-bottom: 4px solid $green-color;
   }
-}
 
-// ! - фиксация для mat-tab-label
-.mat-tab-body-content {
-  overflow: hidden !important;
+  @media (max-width: $breakpoint-lt-md) { // new
+    width: 150px;
+  }
 }

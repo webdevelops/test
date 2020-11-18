@@ -22,7 +22,7 @@ import { CartDialogComponent } from './partials/header/cart-dialog/cart-dialog.c
     ModalWindowComponent,
     CartWindowComponent,
     FooterComponent,
-    CartDialogComponent,
+    // CartDialogComponent,
   ],
   imports: [
     CommonModule,

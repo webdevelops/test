@@ -2,14 +2,17 @@
   (selectedTabChange)="selectedTabChange($event)">
   <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
     <ng-template mat-tab-label>
-      <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
+      <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}" [ngClass.lt-md]="{'slider__counter_mobile': true}"></div>
     </ng-template>
 
+    <!-- fxLayoutAlign="space-between start"
+    fxLayoutAlign.lt-md="center" fxLayoutGap="25px" -->
+
     <div class="slider__content" (click)="customSlider()" fxLayout="row" fxLayoutAlign="center center">
-      <div class="slider__body" [ngClass.lt-lg]="{'slider__body_mobile': true}" fxLayout="row"
-        fxLayoutAlign="space-between start">
+      <div class="slider__body" [ngClass.lt-lg]="{'slider__body_mobile': true}" fxLayout="row" fxLayout.lt-md="column"
+        fxLayoutAlign="space-between start" fxLayoutAlign.lt-md="space-around center">
         <div class="slider__detail" fxLayout="column" fxLayoutAlign="space-between start"
-          fxLayoutAlign.lt-md="center center">
+          fxLayoutAlign.lt-md="center center" [ngClass.lt-md]="{'slider__detail_mobile': true}">
           <!-- // ? - class="slider__title">
           <div [ngClass.lt-md]="{'slider__title_mobile': true}">
             <div class="slider__title"> -->

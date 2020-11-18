@@ -23,13 +23,25 @@ import { reducers, metaReducers } from './core/store';
 import { environment } from 'src/environments/environment';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { ProductListModule } from './modules/product-list/product-list.module';
+// --- dialog-test -----
+import { CartDialogComponent, ExampleDialog } from './shared/layout/partials/header/cart-dialog/cart-dialog.component';
+import { FormsModule } from '@angular/forms';
+// ---- dialog-test ... //
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailPageComponent,
+    CartDialogComponent,
+
+    // dialog-test ----
+    ExampleDialog
+    // --- dialog-test
+
+    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     // HttpClientModule,
     // BrowserAnimationsModule, // ?  Просит в консоли - Found the synthetic listener @translateTab.start

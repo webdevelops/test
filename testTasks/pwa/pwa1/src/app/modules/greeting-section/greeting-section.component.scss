@@ -5,6 +5,10 @@
 .slider {
   &__counter {
     @include carusel-counter;
+
+    &_mobile {
+      width: 46px;
+    }
   }
 
   &__content {
@@ -45,6 +49,10 @@
 
   &__detail {
     min-height: 370px;
+
+    &_mobile {
+      min-height: auto;
+    }
   }
 
   &__title-wrap {
@@ -68,6 +76,7 @@
       height: auto;
       font-size: 30px;
       line-height: 37px;
+      text-align: center;
     }
   }
 
@@ -88,6 +97,8 @@
       padding-top: 15px;
       font-size: 16px;
       width: 60vw;
+      text-align: center;
+      margin: auto;
     }
   }
 
