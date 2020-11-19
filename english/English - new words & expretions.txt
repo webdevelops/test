@@ -120,7 +120,7 @@ They struck him very hard - Они ударили его очень сильно
 He isn't a fool / silly / stupid - Он не дурак (глупый)
 Do you know English? Exactly, of course, certainly, sure, definitely - Вы знаете английский? Точно, конечно, - // -
 
-------------------------    3 !
+------------------------    3 
 
 He broke the world record - Он побил мировой рекорд  ---------- // ... 1305
 I used to listen to different po'dcasts in English - Я слушал разные подкасты на английском
@@ -416,7 +416,7 @@ The flight was delayed - Рейс задержался
 I set it on the floor - Я поставил это на пол
 We had to pay all the fees - Мы должны были заплатить все сборы
 
-------------------------  +  11 !
+------------------------  +  11 !!
 
 How much will they charge for this service - Сколько они будут взимать (заряжать, обязанности, расходы) за эту услугу
 Anyone would choose the same thing - Любой выбрал бы то же самое
