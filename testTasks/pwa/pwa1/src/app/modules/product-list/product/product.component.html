@@ -15,9 +15,10 @@
     </div>
   </div>
 </ng-template>
-
+<!-- [ngClass.lt-lg]="{'product-card product-card_wide_mobile': true}" -->
 <ng-template #wideTemplate>
-  <div class="product-card product-card_wide" fxLayout="column-reverse" fxFlax="50%" [routerLink]="['/product', product.productId]">
+  <div class="product-card product-card_wide" [ngClass.lt-sm]="{'product-card product-card_wide_mobile': true}"
+    fxLayout="column-reverse" [routerLink]="['/product', product.productId]">
     <div class="product-card__header">
       <a class="product-card__title">
         {{product.productName}}
