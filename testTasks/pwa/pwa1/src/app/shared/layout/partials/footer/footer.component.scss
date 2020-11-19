@@ -4,18 +4,20 @@
 
 .footer {
   @include content-container;
+  // padding: 0 calc(50% - 400px);
   background-color: $footer-background;
-  height: 95px;
+  // height: 95px;
   color: $white-color;
+  padding-top:25px;
   padding-bottom: 45px;
 
   &__logo {
     @include logo;
-
-    margin-top: 16px;
-
-    &__mobile {
+    
+    &_mobile {
+      margin-top: 16px;
       padding-left: 16px;
+      width: auto;
     }
   }
 
@@ -23,10 +25,15 @@
     font-weight: 300;
     font-size: 23px;
     line-height: 28px;
+
+    // &_mobile {
+    //   margin-bottom: 10px;
+    // }
   }
 
   &__mobile {
-    height: 200px;
+    // height: 200px;
+    padding: 25px 25px 35px;
   }
 
   &__icon {

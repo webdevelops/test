@@ -1,13 +1,13 @@
 <mat-toolbar-row>
   <div class="footer" fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutAlign="space-between center"
-    fxLayoutAlign.lt-md="space-around center" fxLayoutGap.lt-md="16px" [ngClass.lt-md]="{'footer__mobile': true}">
+    fxLayoutAlign.lt-md="space-around center" [ngClass.lt-lg]="{'footer__mobile': true}">
     <div fxLayout="row" fxLayourAlign="center">
-      <app-svg-icons class="footer__logo" [iconType]="iconList.Logo"></app-svg-icons>
+      <app-svg-icons class="footer__logo" [iconType]="iconList.Logo" [ngClass.lt-md]="{'footer__logo_mobile': true}"></app-svg-icons>
     </div>
 
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.gt-sm="space-around stretch"
-      fxLayoutGap="30px">
-      <div class="footer__item">Follow us:</div>
+      fxLayoutGap="30px" fxLayoutGap.lt-md="15px">
+      <div class="footer__item" [ngClass.lt-lg]="{'footer__item_mobile': true}">Follow us:</div>
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
 
         <a href="https://github.com/darklimeteam">
