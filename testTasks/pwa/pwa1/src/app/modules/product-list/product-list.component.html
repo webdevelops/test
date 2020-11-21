@@ -1,7 +1,7 @@
 <div class="wrap">
   <app-loading [show]="loading$ | async"></app-loading>
 
-  <div class="product-list" fxLayout="row wrap" fxLayoutAlign.gt-md="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-lg="15px" [ngClass.lt-lg]="{'product-list_mobile': true}">
+  <div class="product-list" fxLayout="row wrap" fxLayoutAlign.gt-md="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-md="15px" [ngClass.lt-lg]="{'product-list_mobile': true}">
     <div class="product-list__item"  [ngClass.lt-sm]="{'product-list__item_mobile': true}"
       *ngFor="let product of productList$ | async index as index">
       <app-product [product]="product" [isWide]="index < 2 ? true : false"></app-product>

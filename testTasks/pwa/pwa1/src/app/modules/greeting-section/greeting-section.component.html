@@ -2,32 +2,28 @@
   (selectedTabChange)="selectedTabChange($event)">
   <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
     <ng-template mat-tab-label>
-      <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}" [ngClass.lt-md]="{'slider__counter_mobile': true}"></div>
+      <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
     </ng-template>
 
-    <!-- fxLayoutAlign="space-between start"
-    fxLayoutAlign.lt-md="center" fxLayoutGap="25px" -->
-
     <div class="slider__content" (click)="customSlider()" fxLayout="row" fxLayoutAlign="center center">
-      <div class="slider__body" [ngClass.lt-lg]="{'slider__body_mobile': true}" fxLayout="row" fxLayout.lt-md="column"
-        fxLayoutAlign="space-between start" fxLayoutAlign.lt-md="space-around center">
+      <div class="slider__body" fxLayout="row" fxLayout.lt-md="column"
+        fxLayoutAlign="space-between start" fxLayoutAlign.lt-lg="center center" [ngClass.lt-lg]="{'slider__body_mobile': true}">
+
         <div class="slider__detail" fxLayout="column" fxLayoutAlign="space-between start"
-          fxLayoutAlign.lt-md="center center" [ngClass.lt-md]="{'slider__detail_mobile': true}">
-          <!-- // ? - class="slider__title">
-          <div [ngClass.lt-md]="{'slider__title_mobile': true}">
-            <div class="slider__title"> -->
-          <div class="slider__title-wrap">
+          fxLayoutAlign.lt-md="center center">
+          <div class="slider__title-wrap mobile">
             <div class="slider__title" [ngClass.lt-md]="{'slider__title_mobile': true}">
               {{tab.title}}
             </div>
-            <!-- // ? - slider__description - lt-lg/lt-md
-            <div class="slider__description" [ngClass.lt-lg]="{'slider__text_mobile': true}"> -->
+
             <div class="slider__description" [ngClass.lt-md]="{'slider__description_mobile': true}">
               {{tab.description}}
             </div>
           </div>
 
-          <div class="slider__buttons" fxLayout="row">
+          <img class="slider__image_mobile" src="{{tab.imageSrc}}" alt="product-image" fxHide.gt-sm [ngClass.lt-md]="">
+
+          <div class="slider__buttons" fxLayout="row" fxLayout.lt-sm="column">
             <button mat-flat-button class="get-price-btn slider__btn">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
               <span>Get Price</span>
@@ -40,7 +36,8 @@
           </div>
         </div>
 
-        <img src="{{tab.imageSrc}}" alt="product-image" class="slider__image">
+        <img src="{{tab.imageSrc}}" alt="product-image" class="slider__image"
+        fxHide.lt-md>
 
       </div>
       <div [style.backgroundImage]="'url(' + 'assets/images/slider/slider-background.png' + ')'"

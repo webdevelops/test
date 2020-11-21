@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./custom-breakpoints";
 
 @mixin content-container {
   padding: 0 calc(50% - 590px);
@@ -17,6 +18,12 @@
 
   &_active {
     background-color: $green-color;
+  }
+
+  @media (max-width: $breakpoint-gt-xs) {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
   }
 }
 
