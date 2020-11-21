@@ -12,25 +12,22 @@ export interface DialogData {
   styleUrls: ['./cart-dialog.component.scss']
 })
 export class CartDialogComponent implements OnInit {
-  // animal: string;
-  // name: string;
+  animal: string;
+  name: string;
 
-  // constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(ExampleDialog, {
-  //     width: '250',
-  //     data: { name: this.name, animal: this.animal }
-  //   });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ExampleDialog, {
+      width: '250',
+      data: { name: this.name, animal: this.animal }
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   })
-  // }
-
-  public isMobileMode = false;
-  public isShowSendingForm = false;
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    })
+  }
 
   ngOnInit(): void {
   }

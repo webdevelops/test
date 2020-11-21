@@ -1,0 +1,14 @@
+@import "../../../../../../styles/variables";
+@import "../../../../../../styles/mixin";
+
+:host {
+
+  .content.mobile {
+    .modal-left-part {
+      width: 100%;
+      margin: 0;
+      padding-top: 30px;
+    }
+  }
+  
+}

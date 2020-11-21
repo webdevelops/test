@@ -1,16 +1,11 @@
-<p>cart-dialog works!</p>
+<div mat-dialog-content class="content" [ngClass]="{'mobile': isMobileMode, 'show-sending-form': isShowSendingForm}">
 
-<ol>
-  <li>
-    <mat-form-field>
-      <mat-label>What's your name?</mat-label>
-      <input matInput [(ngModel)]="name">
-    </mat-form-field>
-  </li>
-  <li>
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
-  </li>
-  <li *ngIf="animal">
-    You chose: <i>{{animal}}</i>
-  </li>
-</ol>
+  <div class="content">
+
+    <div class="modal-left-part shopping">
+      
+    </div>
+
+  </div>
+
+</div>
