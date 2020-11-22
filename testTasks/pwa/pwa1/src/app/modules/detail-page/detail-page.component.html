@@ -15,6 +15,12 @@
           <span>40-60 h</span>
         </div>
 
+        <div class="product__image mobile" fxLayout="column-reverse">
+          <div class="product__image__content" fxLayoutAlign="center center">
+            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product__image__image">
+          </div>
+        </div>
+
         <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start">
           <div>
             <span class="title">Customers needs</span>
@@ -123,41 +129,9 @@
         <span>More Products</span>
       </div>
 
-      <div class="more-products__product-list" *ngIf="product$ | async as product" fxLayout="row"
-        fxLayoutAlign="space-between center">
-        <div class="product-card" fxLayout="column-reverse">
-          <div class="product-card__header">
-            <a class="product-card__title">
-              {{product.productName}}
-            </a>
-          </div>
-
-          <div class="product-card__content" fxLayoutAlign="center center">
-            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product-card__image">
-          </div>
-        </div>
-
-        <div class="product-card" fxLayout="column-reverse">
-          <div class="product-card__header">
-            <a class="product-card__title">
-              {{product.productName}}
-            </a>
-          </div>
-        
-          <div class="product-card__content" fxLayoutAlign="center center">
-            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product-card__image">
-          </div>
-        </div>
-        <div class="product-card" fxLayout="column-reverse">
-          <div class="product-card__header">
-            <a class="product-card__title">
-              {{product.productName}}
-            </a>
-          </div>
-        
-          <div class="product-card__content" fxLayoutAlign="center center">
-            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product-card__image">
-          </div>
+      <div class="product-list">
+        <div class="item" *ngFor="let product of randomProductList$ | async">
+          <!-- <app-product [product]></app-product> -->
         </div>
       </div>
     </div>

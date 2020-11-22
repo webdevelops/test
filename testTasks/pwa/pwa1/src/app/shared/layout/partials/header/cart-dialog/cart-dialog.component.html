@@ -3,7 +3,34 @@
   <div class="content">
 
     <div class="modal-left-part shopping">
-      
+      <div class="header-wrapper" *ngIf="!isMobileMode">
+        <div class="header shopping-cart">
+          Shopping cart
+        </div>
+      </div>
+      <div class="header-wrapper" *ngIf="isMobileMode">
+        <div class="header shopping-cart" (click)="isShowSendingForm = true">
+          Shopping cart!
+          <app-svg-icons [iconType]="iconList.Next"></app-svg-icons>
+        </div>
+      </div>
+    </div>
+
+    <div class="container shopping-cart" *ngIf="(cartProducts$ | async).length == 0">
+      <p>
+        Don't miss out on great deals! <br>
+        Start shopping and add a service to shopping cart!
+      </p>
+      <button class="btn" (click)="close({submit: false})">
+        <span>Start shopping</span>
+      </button>
+    </div>
+
+    <div class="container shopping-items" *ngIf="(cartProducts$ | async).length > 1">
+      <div class="product-wrapper" fxLayout="row" *ngFor="let product of cartProducts$">
+        <app-svg-icons class="delete-icon" [iconType]="iconList.Delete" (click)="removeFromCart(product)"></app-svg-icons>
+        <app-product [product]="product" [viewMode]="'LIST_ITEM'"></app-product>
+      </div>
     </div>
 
   </div>

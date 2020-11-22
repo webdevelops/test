@@ -8,9 +8,10 @@ import { map } from 'rxjs/operators';
 
 // App
 import { ProductModel } from 'src/app/core/models/product.model';
-import { BasketActions } from '../../core/store/basket/basket.actions';
+// import { BasketActions } from '../../core/store/basket/basket.actions';
 import { IconList } from 'src/app/core/mock/icon.list';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { CartActions } from 'src/app/core/store/cart/cart.actions';
 
 @Component({
   selector: 'app-detail-page',
@@ -20,10 +21,11 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class DetailPageComponent implements OnInit {
   public product$: Observable<ProductModel>;
   public iconList = IconList;
+  public randomProductList$: Observable<ProductModel[]>;
 
   constructor(
     private route: ActivatedRoute,
-    private basketAction: BasketActions,
+    private cartAction: CartActions,
     private router: Router,
     private localStorage: LocalStorageService
   ) { }
@@ -35,7 +37,7 @@ export class DetailPageComponent implements OnInit {
   }
 
   addToCart(product: ProductModel) {
-    this.basketAction.addToCart(product);
+    this.cartAction.addProductToCart(product);
     this.router.navigate(['/']);
   }
 }

@@ -20,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule, // for animation - почему именно здесь ???
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductComponent
   ],
   providers: [ProductService]
 })

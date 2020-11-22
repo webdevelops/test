@@ -2,8 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Libs
-import { fromEvent, interval, Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 // App
 import { ProductSelectors } from "../../core/store/product/product.selectors";
@@ -24,9 +23,6 @@ export class ProductListComponent implements OnInit {
   readonly pageSize = PAGE_SIZE;
   readonly nextPageSize = NEXT_PAGE_SIZE;
   readonly productListLength = PRODUCT_LIST_LENGTH;
-  // public fromProduct: number = 0;
-  // public toProduct: number = 5;
-  // public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
 
   constructor(
@@ -38,21 +34,12 @@ export class ProductListComponent implements OnInit {
     this.loading$ = this.productSelectors.selectLoading$();
     this.productActions.loadProductList(this.pageSize);
     this.productList$ = this.productSelectors.selectAllProducts$();
-    // this.pageIndex$ = this.productSelectors.selectPage$().pipe(
-    //   map((page: number) => {
-    //     // console.log("ProductListComponent -> ngOnInit -> page * this.pageSize", page * this.pageSize)
-    //     return page * this.pageSize;
-    //   })
-    // )
   }
 
   loadAnotherPage(event): void {
     const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
     
     this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
-
-    // this.fromProduct = lastDownloadedProduct;
-    // this.toProduct = lastDownloadedProduct + this.nextPageSize;
   }
 
 }

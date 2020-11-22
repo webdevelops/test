@@ -7,14 +7,18 @@ import { ProductState } from './product/product.state';
 import { productReducer } from './product/product.reducers';
 import { BasketState } from './basket/basket.state';
 import { basketReducer } from './basket/basket.reducers';
+import { CartState } from './cart/cart.state';
+import { cartReducer } from './cart/cart.reducers';
 
 export interface RootState {
   product: ProductState;
+  cart: CartState;
   basket: BasketState;
 }
 
 export const reducers: ActionReducerMap<RootState> = {
   product: productReducer,
+  cart: cartReducer,
   basket: basketReducer
 }
 

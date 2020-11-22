@@ -4,6 +4,8 @@ import { Component, Input } from '@angular/core';
 // App
 import { ProductModel } from 'src/app/core/models/product.model';
 
+export type ProductViewMode = 'LIST_ITEM' | 'SIMPLE_CARD' | 'WIDE_CARD' | 'CARD';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -11,7 +13,7 @@ import { ProductModel } from 'src/app/core/models/product.model';
 })
 export class ProductComponent {
   @Input() product: ProductModel;
-  @Input() isWide: boolean = false;
+  @Input() viewMode: ProductViewMode = 'SIMPLE_CARD'
 
   constructor() { }
 

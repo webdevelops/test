@@ -13,6 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatAutocompleteModule,
     MatToolbarModule,
     MatDialogModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

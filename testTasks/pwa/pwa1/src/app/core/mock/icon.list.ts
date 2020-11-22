@@ -18,4 +18,6 @@ export enum IconList {
   GitHub = 'github',
   Email = 'email',
   Clock = 'clock',
+  Next = 'next',
+  Prev = 'previous',
 }
