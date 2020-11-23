@@ -1,11 +1,11 @@
-<mat-tab-group headerPosition="below" [selectedIndex]="activeTabIndex" #slider
+<mat-tab-group headerPosition="below" [selectedIndex]="activeTabIndex$" #slider
   (selectedTabChange)="selectedTabChange($event)">
   <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
     <ng-template mat-tab-label>
       <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
     </ng-template>
 
-    <div class="slider__content" (click)="customSlider()" fxLayout="row" fxLayoutAlign="center center">
+    <div class="slider__content" fxLayout="row" fxLayoutAlign="center center" (click)="customSlider()">
       <div class="slider__body" fxLayout="row" fxLayout.lt-md="column"
         fxLayoutAlign="space-between start" fxLayoutAlign.lt-lg="center center" [ngClass.lt-lg]="{'slider__body_mobile': true}">
 
@@ -30,7 +30,7 @@
             </button>
 
             <button mat-flat-button class="add-to-cart-btn slider__btn">
-              <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+              <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart" *ngIf="!(isProductInCart$ | async)" (click)="addToCart()"></app-svg-icons>
               <span>Add to cart</span>
             </button>
           </div>

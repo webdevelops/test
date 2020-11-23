@@ -15,6 +15,8 @@ export class ProductComponent {
   @Input() product: ProductModel;
   @Input() viewMode: ProductViewMode = 'SIMPLE_CARD'
 
-  constructor() { }
+  constructor() { 
+    // console.log('product', this.product)
+  }
 
 }

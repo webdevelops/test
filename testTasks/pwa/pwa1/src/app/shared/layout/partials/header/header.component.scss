@@ -6,11 +6,16 @@
 
   &__logo {
     @include logo;
+    cursor: pointer;
   }
 
   button {
     background-color: inherit;
     box-shadow: none;
+  }
+
+  .mat-badge {
+    display: block;
   }
 
   &__card-btn {

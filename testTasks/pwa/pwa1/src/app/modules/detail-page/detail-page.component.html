@@ -5,7 +5,7 @@
 
   <div class="layout__content detail-page">
     <div class="product" *ngIf="product$ | async as product" fxLayout="row" fxLayoutAlign="space-between center">
-      <div class="product__details">
+      <div class="product__details" fxFlex="90">
         <div class="product__title">
           {{product.productName}}
         </div>
@@ -15,13 +15,13 @@
           <span>40-60 h</span>
         </div>
 
-        <div class="product__image mobile" fxLayout="column-reverse">
-          <div class="product__image__content" fxLayoutAlign="center center">
-            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product__image__image">
+        <div class="product__image-wrapper mobile" fxLayout="column-reverse" fxHide.gt-sm>
+          <div class="product__image-background" fxLayoutAlign="center center">
+            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product__image">
           </div>
         </div>
 
-        <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start">
+        <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start" fxLayoutAlign.lt-md="center">
           <div>
             <span class="title">Customers needs</span>
             <br>
@@ -40,24 +40,28 @@
           </div>
         </div>
 
-        <div class="product__buttons" fxLayout="row">
+        <div class="product__buttons" fxLayout="row" fxLayout.xs="column">
           <button mat-flat-button class="get-price-btn product__btn">
             <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
             <span>Get Price</span>
           </button>
 
-          <button mat-flat-button class="add-to-cart-btn product__btn" (click)="addToCart(product)">
+          <button mat-flat-button class="add-to-cart-btn product__btn" *ngIf="!(isProductInCart$ | async)" (click)="addToCart(product)">
             <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
             <span>Add to cart</span>
+          </button>
+          <button mat-flat-button class="remove-from-cart-btn product__btn" *ngIf="isProductInCart$ | async" (click)="removeFromCart(product)">
+            <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
+            <span>Remove from cart</span>
           </button>
 
           <!-- <input type="text" (input)="persist('test', $event.target.value)"> -->
         </div>
       </div>
 
-      <div class="product__image" fxLayout="column-reverse">
-        <div class="product__image__content" fxLayoutAlign="center center">
-          <img src="../../../assets/images/ImageItem.png" alt="Photo on the product" class="product__image__image">
+      <div class="product__image-wrapper" fxLayout="column-reverse" fxHide.lt-md>
+        <div class="product__image-background" fxLayoutAlign="center center">
+          <img src="../../../assets/images/ImageItem.png" alt="Photo on the product" class="product__image">
         </div>
       </div>
     </div>
@@ -131,7 +135,7 @@
 
       <div class="product-list">
         <div class="item" *ngFor="let product of randomProductList$ | async">
-          <!-- <app-product [product]></app-product> -->
+          <app-product [product]="product" [viewMode]="'SIMPLE_CARD'"></app-product>
         </div>
       </div>
     </div>

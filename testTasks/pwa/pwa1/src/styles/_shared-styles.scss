@@ -35,3 +35,12 @@
     font-weight: 500;
   }
 }
+
+button.remove-from-cart-btn {
+  background-color: $red-color;
+  width: 235px;
+
+  span {
+    font-weight: 500;
+  }
+}

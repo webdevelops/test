@@ -5,7 +5,7 @@
   height: 350px;
   background: $base-grey-background;
   cursor: pointer;
-  margin: auto;
+  margin: 0 auto 30px;
 
   &_wide {
     min-width: 500px;
@@ -16,12 +16,21 @@
     }
   }
 
-  &__image {
-    // width: 272px;
-    // height: 218px;
-    // object-fit: contain;
-    width: 70%;
-    height: auto;
+  .image-wrapper {
+    width: 271px;
+    height: 218px;
+    display: flex;
+    margin: auto;
+    // align-self: center;
+    // justify-self: center;
+    // margin-bottom: 46px;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 
   &__content {

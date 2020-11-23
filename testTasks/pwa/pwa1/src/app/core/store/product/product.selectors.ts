@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { productAdapter, ProductState, selectProductId } from './product.state';
 import { productFeatureKey } from './product.reducers';
 import { ProductModel } from '../../models/product.model';
+import { map } from 'rxjs/operators';
 
 export const selectProductState = createFeatureSelector<ProductState>(productFeatureKey)
 
@@ -77,5 +78,23 @@ export class ProductSelectors {
 
   public selectProductIds$(): Observable<string[] | number[]> {
     return this.store$.select(selectProductIds);
+  }
+
+  public selecRandomProductList$(count: number): Observable<ProductModel[]> {
+    return this.selectAllProducts$().pipe(
+      map(productList => {
+        const randomProducts = new Set();
+        const maxRandomCount = Math.min(productList.length, count);
+
+        while (maxRandomCount > randomProducts.size) {
+          const randomIndex = Math.round(Math.random() * productList.length);
+
+          if (productList[randomIndex]) {
+            randomProducts.add(productList[randomIndex]);
+          }
+        }
+        return Array.from(randomProducts) as ProductModel[];
+      })
+    )
   }
 }

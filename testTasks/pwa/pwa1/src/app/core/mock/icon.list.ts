@@ -3,6 +3,7 @@ export enum IconList {
   Cart = "cart",
   Invoice = 'invoice',
   AddToCart = 'addToCart',
+  RemoveFromCart = 'removeFromCart',
   Delete = 'delete',
   ArrowDown = 'arrow_down',
   Telegram = 'telegram',
