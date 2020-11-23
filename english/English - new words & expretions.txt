@@ -225,7 +225,7 @@ He is still awa'ke - Он еще не спит (все еще бодрствует)
 She remembers her slee'pless night - Она помнит свою бессонную ночь
 They did great harm to our planet - Они нанесли большой вред нашей планете ------- // ... 1600
 
-------------------------    6 !
+------------------------    6 
 
 It's ha'rmful / ha'rmless to the envi'ronment - Это вредно / безвредно для окружающей среды
 Where is our ba'bysitter? - Где наша няня?
@@ -493,7 +493,7 @@ We treat them as indivi'duals - Мы относимся к ним как к личностям
 He went bald - Он облысел
 He was standing beside - Он стоял рядом
 
-------------------------  +  13 !
+------------------------  +  13 !!
 
 It was a rough estimate - Это была грубая оценка
 He u'nderestimates his oppo'nent - Он недооценивает своего противника
