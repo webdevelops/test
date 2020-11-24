@@ -29,9 +29,13 @@
               <span>Get Price</span>
             </button>
 
-            <button mat-flat-button class="add-to-cart-btn slider__btn">
-              <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart" *ngIf="!(isProductInCart$ | async)" (click)="addToCart()"></app-svg-icons>
+            <button mat-flat-button class="add-to-cart-btn slider__btn" *ngIf="!(isProductInCart$ | async)" (click)="addToCart(); $event.stopPropagation();">
+              <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
               <span>Add to cart</span>
+            </button>
+            <button mat-flat-button class="remove-from-cart-btn slider__btn" *ngIf="isProductInCart$ | async" (click)="removeFromCart(); $event.stopPropagation();">
+              <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
+              <span>Remove from cart</span>
             </button>
           </div>
         </div>

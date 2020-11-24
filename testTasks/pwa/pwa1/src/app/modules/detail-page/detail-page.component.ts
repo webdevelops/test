@@ -47,7 +47,7 @@ export class DetailPageComponent implements OnInit {
     );
   }
 
-  addToCart(product: ProductModel) {
+  addToCart(product: ProductModel): void {
     this.cartActions.addProductToCart(product);
     // this.router.navigate(['/']);
   }

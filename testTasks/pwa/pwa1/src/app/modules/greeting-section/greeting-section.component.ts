@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 // App
 import { IconList } from 'src/app/core/mock/icon.list';
 import { CartSelectors } from 'src/app/core/store/cart/cart.selectors';
+import { CartActions } from 'src/app/core/store/cart/cart.actions';
+import { ProductSelectors } from 'src/app/core/store/product/product.selectors';
 
 @Component({
   selector: 'app-greeting-section',
@@ -22,7 +24,9 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
   public iconList = IconList;
 
   constructor(
-    private cartSelectors: CartSelectors
+    private cartSelectors: CartSelectors,
+    private productSelectors: ProductSelectors,
+    private cartActions: CartActions
   ) {
     this.tabs = [
       {
@@ -56,10 +60,12 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
     this.activeTabIndex$.subscribe(activeTabIndex => {
       const productId = this.tabs[activeTabIndex].productId;
       this.isProductInCart$ = this.cartSelectors.selectProductById$(productId).pipe(
-        map(foundProduct => !!foundProduct)
+        map(foundProduct => {
+          return !!foundProduct
+        })
       );
     });
-    this.activeTabIndex$.next(0);
+    // this.activeTabIndex$.next(0);
   }
 
   public selectedTabChange(event: MatTabChangeEvent): void {
@@ -67,20 +73,32 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
     this.tabs.forEach(tab => tab !== this.tabs[event.index] ? tab.isActive = false : tab.isActive = true);
   }
 
-  public customSlider(): void {
-    const tabIndex = this.activeTabIndex$.getValue();
-    this.activeTabIndex$.next(tabIndex > 1 ? 0 : tabIndex + 1);
+  public addToCart(): void {
+    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
+    this.productSelectors.selectProductById$(productId)
+      .subscribe(product => {
+        this.cartActions.addProductToCart(product);
+      })
   }
 
-  addToCart() {
-    
+  public removeFromCart(): void {
+    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
+    this.productSelectors.selectProductById$(productId)
+      .subscribe(product => {
+        this.cartActions.removeProductFromCart(product);
+      })
   }
 
   ngOnDestroy(): void {
     this.activeTabIndex$.unsubscribe();
   }
 
-  // customSlider() {
+  public customSlider(): void {
+    const tabIndex = this.activeTabIndex$.getValue();
+    this.activeTabIndex$.next(tabIndex > 1 ? 0 : tabIndex + 1);
+  }
+
+  // customSlider(): void {
   //   this.activeTabIndex = this.activeTabIndex > 1 ? 0 : ++this.activeTabIndex;
   // }
 

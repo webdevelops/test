@@ -24,7 +24,7 @@ export const reducers: ActionReducerMap<RootState> = {
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({ 
-    keys: ['basket'],
+    keys: ['cart'],
     storageKeySerializer: (key) => `upwork_${key}`,
     rehydrate: true,
 })(reducer);
