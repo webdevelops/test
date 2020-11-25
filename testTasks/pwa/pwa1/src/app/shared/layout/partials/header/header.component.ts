@@ -18,6 +18,7 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 export class HeaderComponent implements OnInit {
   public iconList = IconList;
   public cartCountProducts$: Observable<number>;
+
   constructor(
     private cartSelectors: CartSelectors,
     public dialogCart: MatDialog

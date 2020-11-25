@@ -92,16 +92,19 @@ export class CartDialogComponent implements OnInit {
   }
 
   removeFromCart(product: ProductModel): void {
-    // this.cartActions.deleteProductFromCart(product);
+    this.cartActions.removeProductFromCart(product);
   }
 
   private checkMobileMode(): void {
+    console.log("CartDialogComponent -> isShowSendingFormPart-1", this.isShowSendingFormPart)
     this.isMobileMode = false;
     if (document) {
       const width = document.body.clientWidth;
-      this.isMobileMode = width < 800;
+      this.isMobileMode = width < 1100;
+      console.log("CartDialogComponent -> checkMobileMode -> isMobileMode", this.isMobileMode)
     }
     if (!this.isMobileMode) {
+      console.log("CartDialogComponent -> isShowSendingFormPart-2", this.isShowSendingFormPart)
       this.isShowSendingFormPart = false;
     }
   }
