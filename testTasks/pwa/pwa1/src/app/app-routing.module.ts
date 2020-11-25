@@ -37,7 +37,7 @@ export class ProductResolver implements Resolve<ProductModel>{
 }
 
 const routes: Routes = [
-  // {
+  // {                          // --- changed for modal window - can remove: cart-window & modal-window
   //   path: 'cart',
   //   component: CartWindowComponent,
   //   outlet: 'modal'

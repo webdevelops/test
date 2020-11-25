@@ -38,8 +38,19 @@ export class ProductService {
     }
   }
 
+  loadNextPage(lastDownloadedProductId: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
+    // console.log('lastDownloadedProductId', lastDownloadedProductId);
+    return this.firestore.collection('product-list', ref =>
+      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProductId).limit(itemCountToLoad))
+      .valueChanges().pipe(
+        map((response: ProductModel[]) => {
+          return response;
+        })
+      );
+  }
+
   loadAnotherPage(lastDownloadedProduct: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
-    if (lastDownloadedProduct > this.oldLastLoadedProduct) {}
+    if (lastDownloadedProduct > this.oldLastLoadedProduct) { }
     return this.firestore.collection('product-list', ref =>
       ref.orderBy('productId', 'asc').startAfter(lastDownloadedProduct).limit(itemCountToLoad))
       .valueChanges().pipe(

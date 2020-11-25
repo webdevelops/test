@@ -12,6 +12,8 @@ import { ProductModel } from '../../models/product.model';
 import * as ProductActions from './product.actions';
 import { ProductSelectors } from './product.selectors';
 
+const BACKGROUND_LOAD_PRODUCT_LIST_ITEM_COUNT = 3;
+
 @Injectable()
 export class ProductEffects {
 
@@ -58,6 +60,36 @@ export class ProductEffects {
         )
       )
     )
+  );
+
+  public loadNextPage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductActions.LOAD_NEXT_PAGE),
+      withLatestFrom(this.productSelectors.selectPage$(), this.productSelectors.selectLastDownloadedId$()),
+      mergeMap(([action, page, lastDownloadedProductId]) => {
+        const nextPage: number = page + 1;
+        return this.productService.loadNextPage(lastDownloadedProductId, action.itemCountToLoad)
+          .pipe(
+            switchMap((productList: Array<ProductModel>) => {
+              const lastInResponse: number = +productList[productList.length - 1].productId;
+              return [
+                ProductActions.HIDE_LOADER(),
+                ProductActions.LOAD_NEXT_PAGE_SUCCESS({ productList, page: nextPage, lastDownloadedProductId: lastInResponse })
+              ];
+            })
+          );
+      }),
+    ),
+  );
+
+  public loadProductListOnBackground$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductActions.PRODUCT_LIST_LOAD_SUCCESS, ProductActions.LOAD_NEXT_PAGE_SUCCESS),
+      withLatestFrom(this.productSelectors.selectLastDownloadedId$()),
+      mergeMap(([action, lastDownloadedProductId]) => {
+        return this.productService.loadNextPage(lastDownloadedProductId, BACKGROUND_LOAD_PRODUCT_LIST_ITEM_COUNT);
+      })),
+    { dispatch: false }
   );
 
   public loadAnotherPage$ = createEffect(() =>

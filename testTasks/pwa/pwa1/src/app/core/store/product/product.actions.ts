@@ -48,17 +48,23 @@ export const LOAD_PRODUCT_BY_ID_FAILURE = createAction(
 
 export const LOAD_ANOTHER_PAGE = createAction(
   '[ProductList] Load Next Page',
-  props < { lastDownloadedProduct: number, itemCountToLoad: number }>()
+  props<{ lastDownloadedProduct: number, itemCountToLoad: number }>()
 );
 
 export const LOAD_ANOTHER_PAGE_SUCCESS = createAction(
   '[Product] Load Naxt Page Success',
   props<{ productList: ProductModel[] }>()
 );
-// export const LOAD_NEXT_PAGE_SUCCESS = createAction(
-//   '[Product] Load Naxt Page Success',
-//   props<{ productList: ProductModel[], page: number, lastDownloadedProductId: number }>()
-// );
+
+export const LOAD_NEXT_PAGE = createAction(
+  '[ProductList] Load Next Page',
+  props<{ itemCountToLoad: number }>()
+);
+
+export const LOAD_NEXT_PAGE_SUCCESS = createAction(
+  '[ProductList] Load Next Page Success',
+  props<{ productList: ProductModel[], page: number, lastDownloadedProductId: number }>()
+);
 
 @Injectable({
   providedIn: 'root',
@@ -72,6 +78,10 @@ export class ProductActions {
 
   public loadProductById(productId: string): void {
     this.store$.dispatch(LOAD_PRODUCT_BY_ID({ productId }));
+  }
+
+  public loadNextPage(itemCountToLoad: number): void {
+    this.store$.dispatch(LOAD_NEXT_PAGE({ itemCountToLoad }))
   }
 
   public loadAnotherPage(lastDownloadedProduct: number, itemCountToLoad: number): void {

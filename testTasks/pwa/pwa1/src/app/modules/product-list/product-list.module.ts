@@ -2,6 +2,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Libs
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 // App
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductListComponent } from './product-list.component';
@@ -18,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     SharedModule,
     BrowserAnimationsModule, // for animation - почему именно здесь ???
+    InfiniteScrollModule,
   ],
   exports: [
     ProductListComponent,

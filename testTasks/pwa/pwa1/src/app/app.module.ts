@@ -1,6 +1,7 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // ?
@@ -11,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // App
 import { AppRoutingModule } from './app-routing.module';
@@ -23,22 +25,21 @@ import { reducers, metaReducers } from './core/store';
 import { environment } from 'src/environments/environment';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { ProductListModule } from './modules/product-list/product-list.module';
-// --- dialog-test -----
-// import { CartDialogComponent, ExampleDialog } from './shared/layout/partials/header/cart-dialog/cart-dialog.component';
-import { FormsModule } from '@angular/forms';
-// ---- dialog-test ... //
+
+// --- test-component -----
+import { TestComponent } from './shared/layout/partials/test/test.component';
+// ---- test-component ... //
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailPageComponent,
-    // CartDialogComponent,
 
-    // dialog-test ----
-    // ExampleDialog
-    // --- dialog-test
+    // test-component ----
+    TestComponent
+    // --- test-component
 
-    
+
   ],
   imports: [
     FormsModule,
@@ -61,7 +62,8 @@ import { FormsModule } from '@angular/forms';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    // InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

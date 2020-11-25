@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // Libs
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // App
 import { ProductSelectors } from "../../core/store/product/product.selectors";
@@ -10,7 +11,8 @@ import { ProductActions } from '../../core/store/product/product.actions';
 import { ProductModel } from 'src/app/core/models/product.model';
 
 const PAGE_SIZE = 5;
-const NEXT_PAGE_SIZE = 5;
+const NEXT_PAGE_SIZE = 3;
+// const NEXT_PAGE_SIZE = 5;
 const PRODUCT_LIST_LENGTH = 11;
 
 @Component({
@@ -23,6 +25,7 @@ export class ProductListComponent implements OnInit {
   readonly pageSize = PAGE_SIZE;
   readonly nextPageSize = NEXT_PAGE_SIZE;
   readonly productListLength = PRODUCT_LIST_LENGTH;
+  public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
 
   constructor(
@@ -34,12 +37,24 @@ export class ProductListComponent implements OnInit {
     this.loading$ = this.productSelectors.selectLoading$();
     this.productActions.loadProductList(this.pageSize);
     this.productList$ = this.productSelectors.selectAllProducts$();
+    this.pageIndex$ = this.productSelectors.selectPage$().pipe(
+      map((page: number) => page * this.pageSize)
+    )
+  }
+
+  loadNextPage(): void {
+    // this.productActions.loadNextPage(this.nextPageSize);
   }
 
   loadAnotherPage(event): void {
     const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
     
     this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
+  }
+
+  onScroll() {
+    console.log('scrolled!!');
+    this.productActions.loadNextPage(this.nextPageSize);
   }
 
 }
