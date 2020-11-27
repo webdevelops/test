@@ -8,8 +8,8 @@
 
   &__header {
     background-color: $header-grey-background;
-    // position: sticky;
-    position: fixed;
+    position: sticky;
+    // position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -19,7 +19,7 @@
 
   &__content {
     flex: 1 0 auto;
-    padding-top: 60px;
+    // padding-top: 60px;
   }
 }
 
