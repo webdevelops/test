@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule, LayoutGapStyleBuilder } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // ?
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
@@ -25,6 +25,7 @@ import { reducers, metaReducers } from './core/store';
 import { environment } from 'src/environments/environment';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { ProductListModule } from './modules/product-list/product-list.module';
+import { CustomLayoutGapStyleBuilder } from './core/services/layout-gap.service';
 
 // --- test-component -----
 import { TestComponent } from './shared/layout/partials/test/test.component';
@@ -65,7 +66,9 @@ import { TestComponent } from './shared/layout/partials/test/test.component';
     }),
     // InfiniteScrollModule
   ],
-  providers: [],
+  providers: [
+    { provide: LayoutGapStyleBuilder, useClass: CustomLayoutGapStyleBuilder }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

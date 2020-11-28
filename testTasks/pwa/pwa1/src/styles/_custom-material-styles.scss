@@ -141,13 +141,13 @@ textarea.touched {
   stroke: $green-color;
 }
 
-.cdk-overlay-pane {
-  transform: translateX(0) translateY(-16px) !important;
+// .cdk-overlay-pane {
+//   transform: translateX(0) translateY(-16px) !important;
 
-  .mat-select-panel {
-    min-width: 100% !important;
-  }
-}
+//   .mat-select-panel {
+//     min-width: 100% !important;
+//   }
+// }
 
 .comment {
   .mat-form-field-wrapper {
@@ -184,9 +184,9 @@ textarea.touched {
   background-color: #72ac0d87;
 }
 
-.cdk-overlay-pane {
-  top: 633px !important;
-}
+// .cdk-overlay-pane {
+// top: 633px !important;
+// }
 
 .mat-tab-header {
   display: flex;
@@ -208,7 +208,7 @@ textarea.touched {
   border-bottom: 4px solid #c9d3d6;
 
   // &-content {
-    // min-width: 270px;
+  // min-width: 270px;
   // }
 
   &-active {

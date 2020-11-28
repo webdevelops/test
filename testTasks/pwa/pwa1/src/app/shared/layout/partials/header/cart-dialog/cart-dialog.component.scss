@@ -7,12 +7,19 @@
     width: 100%;
     margin: 0;
     padding-top: 30px;
+    display: block;
+    position: absolute;
+    transition: left 0.4s;
   }
   .modal-right-part {
     padding-top: 0;
+    left: 100%;
   }
   .modal-right-part-content {
     top: 135px;
+  }
+  .modal-left-part {
+    left: 0;
   }
   .header-wrapper {
     height: auto;
@@ -290,26 +297,23 @@
     height: 738px;
   }
 
+  .cart-modal .mat-dialog-container {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    .mat-dialog-content {
+      margin: 0;
+      padding: 0;
+      max-height: 100%;
+    }
+  }
+
   @media (max-width: 1100px) {
     .cdk-overlay-pane.cart-modal {
       width: 70vw;
       height: 80vh;
       margin-top: 60px;
-
-      .modal-left-part,
-      .modal-right-part {
-        display: block;
-        position: absolute;
-        transition: left 0.4s;
-      }
-
-      .modal-left-part {
-        left: 0;
-      }
-
-      .modal-right-part {
-        left: 100%;
-      }
 
       .mat-dialog-content.mobile.show-sending-form {
         .modal-left-part {
@@ -331,23 +335,4 @@
       margin-top: 90px;
     }
   }
-
-  .cart-modal .mat-dialog-container {
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-
-    .mat-dialog-content {
-      margin: 0;
-      padding: 0;
-      max-height: 100%;
-    }
-  }
-}
-
-.field {
-  position: relative;
-}
-mat-autocomplete {
-  position: absolute;
 }
