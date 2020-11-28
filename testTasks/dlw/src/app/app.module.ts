@@ -15,7 +15,7 @@ import { LayoutRoutingModule } from './shared/layout/layout-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutRoutingModule,
+    // LayoutRoutingModule,
     BrowserAnimationsModule
     // SharedModule,
     // LayoutModule

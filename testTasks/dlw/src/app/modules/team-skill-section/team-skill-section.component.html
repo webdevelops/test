@@ -1,9 +1,9 @@
 <div class="product" id="products">
   <div class="product__header">
-    <h1><span>Key products</span></h1>
+    <h2 class="product__header-title"><span>Key products</span></h2>
   </div>
 
-  <div class="product__content">
+  <div class="product__content" ngClass="mobile">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
       <div class="product__image" fxHide.lt-md fxShow.gt-sm fxFlex.gt-sm="50%" fxLayout="column" fxLayoutAlign="center"
         [style.backgroundImage]="currentImage">
@@ -39,7 +39,8 @@
           </div>
 
           <div class="product-body__description-wrap">
-            <div class="product-body__descriptions" [ngClass]="{'product-body__descriptions_expand': product.isExpanded}">
+            <div class="product-body__descriptions"
+              [ngClass]="{'product-body__descriptions_expand': product.isExpanded}">
               {{product.description}}
             </div>
           </div>

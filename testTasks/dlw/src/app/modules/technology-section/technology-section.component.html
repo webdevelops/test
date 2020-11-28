@@ -1,0 +1,28 @@
+<div class="technology" id="technologies">
+  <div class="technology__header">
+    <h2 class="technology__header-title">
+      <span>Main Technologies</span>
+    </h2>
+  </div>
+
+  <div class="technology__content" ngClass.lt-lg="mobile">
+    <div class="technology__container" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <div *ngFor="let item of technologiesArray" class="technology__item item" fxFlex.gt-sm="30" fxLayoutGap="24px"
+        fxFlex.lt-md="100">
+        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+          <div>
+            <img [src]="item.icon" alt="technology photo" class="item__icon">
+          </div>
+
+          <div class="item__title">
+            {{item.title}}
+          </div>
+
+          <div class="item__description" [ngClass.lt-md]="'mobile'">
+            {{item.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

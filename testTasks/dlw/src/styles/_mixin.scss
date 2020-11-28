@@ -3,10 +3,15 @@
 @mixin section-container {
   padding: 0 calc(50% - 590px);
 
-  @media (max-width: $breakpoint-gt-md) {
+  &.mobile {
     padding-left: 25px;
     padding-right: 25px;
   }
+
+  // @media (max-width: $breakpoint-gt-md) {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
 }
 
 @mixin container-padding {
@@ -19,15 +24,25 @@
   height: 2px;
   width: 50px;
 
-  &_active {
+  &.active {
     background-color: $green-color;
   }
 
-  @media (max-width: $breakpoint-gt-xs) {
+  &.mobile {
     height: 15px;
     width: 15px;
     border-radius: 50%;
   }
+
+  // @media (max-width: $breakpoint-gt-xs) {
+  //   height: 15px;
+  //   width: 15px;
+  //   border-radius: 50%;
+  // }
+}
+
+@mixin dark-grey-ground {
+  background-color: $grey-bg-color;
 }
 
 @mixin header {
@@ -35,13 +50,27 @@
   letter-spacing: 0;
   opacity: 1;
   vertical-align: middle;
-  height: 53px;
   padding-top: 71px;
   position: relative;
-  
-  h1 {
+
+  &-title {
     font-size: 30px;
     font-weight: normal;
+    height: 53px;
     margin: 0;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      // transform: translateX(-50%);
+      margin-left: -$width-underline-headers / 2;
+      height: 3px;
+      font-weight: 60;
+      width: $width-underline-headers;
+      background: $green-color;
+    }
   }
 }
