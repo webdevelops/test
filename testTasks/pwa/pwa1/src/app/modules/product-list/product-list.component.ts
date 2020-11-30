@@ -12,7 +12,6 @@ import { ProductModel } from 'src/app/core/models/product.model';
 
 const PAGE_SIZE = 5;
 const NEXT_PAGE_SIZE = 3;
-// const NEXT_PAGE_SIZE = 5;
 const PRODUCT_LIST_LENGTH = 11;
 
 @Component({
@@ -27,6 +26,8 @@ export class ProductListComponent implements OnInit {
   readonly productListLength = PRODUCT_LIST_LENGTH;
   public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
+
+  private page: number = 0;
 
   constructor(
     private productSelectors: ProductSelectors,
@@ -47,14 +48,16 @@ export class ProductListComponent implements OnInit {
   // }
 
   // loadAnotherPage(event): void {
-  //   const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
-    
-  //   this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
-  // }
-
   onScroll() {
-    // console.log('scrolled!!');
-    this.productActions.loadNextPage(this.nextPageSize);
+    // const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
+    const lastDownloadedProduct = this.nextPageSize * (this.page++)
+    
+    this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
   }
+
+  // onScroll() {
+  //   // console.log('scrolled!!');
+  //   this.productActions.loadNextPage(this.nextPageSize);
+  // }
 
 }

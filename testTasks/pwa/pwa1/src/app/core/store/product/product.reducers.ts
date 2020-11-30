@@ -32,6 +32,7 @@ export const productReducer = createReducer(
     lastDownloadedProductId
   })),
   on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
-    ...productAdapter.setAll(productList, state)
+    // ...productAdapter.setAll(productList, state)
+    ...productAdapter.upsertMany(productList, state)
   })),
 );

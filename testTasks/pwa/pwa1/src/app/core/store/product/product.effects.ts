@@ -25,7 +25,7 @@ export class ProductEffects {
 
   public showLoader$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ProductActions.PRODUCT_LIST_LOAD),
+      ofType(ProductActions.PRODUCT_LIST_LOAD, ProductActions.LOAD_ANOTHER_PAGE),
       map(() => ProductActions.SHOW_LOADER()),
     )
   );
@@ -76,21 +76,27 @@ export class ProductEffects {
                 ProductActions.HIDE_LOADER(),
                 ProductActions.LOAD_NEXT_PAGE_SUCCESS({ productList, page: nextPage, lastDownloadedProductId: lastInResponse })
               ];
+            }),
+            catchError((error: TypeError) => {
+              return [
+                ProductActions.HIDE_LOADER(),
+                ProductActions.LOAD_PRODUCT_BY_ID_FAILURE({ error })
+              ]
             })
           );
       }),
     ),
   );
 
-  public loadProductListOnBackground$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(ProductActions.PRODUCT_LIST_LOAD_SUCCESS, ProductActions.LOAD_NEXT_PAGE_SUCCESS),
-      withLatestFrom(this.productSelectors.selectLastDownloadedId$()),
-      mergeMap(([action, lastDownloadedProductId]) => {
-        return this.productService.loadNextPage(lastDownloadedProductId, BACKGROUND_LOAD_PRODUCT_LIST_ITEM_COUNT);
-      })),
-    { dispatch: false }
-  );
+  // public loadProductListOnBackground$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(ProductActions.PRODUCT_LIST_LOAD_SUCCESS, ProductActions.LOAD_NEXT_PAGE_SUCCESS),
+  //     withLatestFrom(this.productSelectors.selectLastDownloadedId$()),
+  //     mergeMap(([action, lastDownloadedProductId]) => {
+  //       return this.productService.loadNextPage(lastDownloadedProductId, BACKGROUND_LOAD_PRODUCT_LIST_ITEM_COUNT);
+  //     })),
+  //   { dispatch: false }
+  // );
 
   public loadAnotherPage$ = createEffect(() =>
     this.actions$.pipe(
