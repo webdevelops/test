@@ -26,9 +26,9 @@
     border-bottom: 1px solid $grey-font-color;
     width: 100%;
 
-    &_first {
-      border-top: 1px solid $grey-font-color;
-    }
+    // &_first {
+    // border-top: 1px solid $grey-font-color;
+    // }
   }
 }
 
@@ -41,7 +41,7 @@
   }
 
   &__image {
-    transform: scale(0);
+    // transform: scale(0);
     height: 0;
     overflow: hidden;
     background-position: center;
@@ -51,10 +51,10 @@
     -o-transition: all 0.75s;
     transition: all 0.75s;
 
-    &_expand {
+    &.show {
       margin-top: 25px;
       height: 20vh;
-      transform: scale(1);
+      // transform: scale(1);
       background-repeat: no-repeat, repeat;
       background-size: contain;
       width: 100%;
@@ -73,7 +73,8 @@
     cursor: pointer;
     transition: transform 0.2s;
 
-    @media (max-width: $breakpoint-gt-md) {
+    // @media (max-width: $breakpoint-gt-md) {
+    &.mobile {
       font-size: 18px;
       line-height: 22px;
       padding: 20px 9px;
@@ -88,13 +89,13 @@
       -o-transition: transform 0.5s;
       transition: transform 0.5s;
 
-      &_expand {
+      &.expand {
         color: $green-color;
         transform: rotate(0deg);
       }
     }
 
-    &_active {
+    &.active {
       font-weight: 500px;
     }
   }
@@ -109,14 +110,15 @@
     padding-left: 73px;
     padding-right: 23px;
     overflow: hidden;
-    font: 300 16px/24px Monserrat;
+    font: 300 16px/24px Montserrat;
 
     -webkit-transition: height 0.5s ease-in-out;
     -moz-transition: height 0.5s ease-in-out;
     -o-transition: height 0.5s ease-in-out;
     transition: height 0.5s ease-in-out;
 
-    @media (max-width: $breakpoint-gt-md) {
+    // @media (max-width: $breakpoint-gt-md) {
+    &.mobile {
       padding-left: 60px;
     }
 
@@ -127,7 +129,7 @@
       padding-right: 0;
     }
 
-    &_expand {
+    &.expand {
       padding-bottom: 23px;
       height: 170px;
 

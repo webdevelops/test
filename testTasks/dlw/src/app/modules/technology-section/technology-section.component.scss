@@ -1,0 +1,46 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+.technology {
+  @include dark-grey-ground;
+
+  &__header {
+    @include header;
+    color: $white-color;
+  }
+
+  &__content {
+    @include section-container;
+  }
+
+  &__container {
+    @include container-padding;
+    text-align: center;
+  }
+}
+
+.item {
+  padding: 39px 60px;
+  height: 260px;
+
+  &__icon {
+    width: 47px;
+    height: 42px;
+  }
+
+  &__title {
+    font: 500 20px/24px Montserrat;
+    color: $green-color;
+  }
+
+  &__description {
+    font: 300 16px/24px Montserrat;
+    color: $white-color;
+    width: 260px;
+    margin-bottom: 30px;
+
+    &.mobile {
+      width: 60vw;
+    }
+  }
+}

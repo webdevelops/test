@@ -5,12 +5,14 @@ import { GreetingSectionComponent } from './greeting-section/greeting-section.co
 import { ClientSectionComponent } from './client-section/client-section.component';
 import { SharedModule } from '../shared/shared.module';
 import { TeamSkillSectionComponent } from './team-skill-section/team-skill-section.component';
+import { TechnologySectionComponent } from './technology-section/technology-section.component';
 
 @NgModule({
   declarations: [
     ClientSectionComponent,
     GreetingSectionComponent,
     TeamSkillSectionComponent,
+    TechnologySectionComponent,
   ],
   imports: [
     SharedModule,
@@ -20,6 +22,7 @@ import { TeamSkillSectionComponent } from './team-skill-section/team-skill-secti
     ClientSectionComponent,
     GreetingSectionComponent,
     TeamSkillSectionComponent,
+    TechnologySectionComponent,
   ]
 })
 export class ModulesModule { }

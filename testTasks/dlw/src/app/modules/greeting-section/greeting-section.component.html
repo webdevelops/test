@@ -5,20 +5,21 @@
     <!-- label="tab.label" -->
     <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
       <ng-template mat-tab-label>
-        <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
+        <div class="slider__counter" [ngClass]="{'active': tab.isActive}"
+          [ngClass.xs]="{'active': tab.isActive, mobile: true}"></div>
       </ng-template>
 
-      <div class="slider__content">
+      <div class="slider__content" ngClass.xs="mobile">
         <div class="parallelogram"></div>
-        <div class="slider__body" fxLayout="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
-          fxLayoutGap.gt-sm="15px">
-          <div class="slider__title" [ngClass.lt-md]="{'slider__title_mobile': true}">
-            {{tab.title}} 
+        <div class="slider__body" ngClass.lt-lg="mobile" fxLayout="column" fxLayoutAlign="center start"
+          fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="15px">
+          <div class="slider__title" ngClass.lt-md="mobile">
+            {{tab.title}}
             <br>
             {{tab.title2}}
           </div>
 
-          <div class="slider__description" [ngClass.lt-md]="{'slider__description_mobile': true}">
+          <div class="slider__description" ngClass.lt-lg="mobile">
             {{tab.description}}
           </div>
         </div>

@@ -14,9 +14,13 @@
     width: 100%;
     color: $white-color;
 
-    @media (max-width: $breakpoint-gt-sm) {
+    &.mobile {
       height: calc(100vh - 60px);
     }
+
+    // @media (max-width: $breakpoint-gt-sm) {
+    //   height: calc(100vh - 60px);
+    // }
   }
 
   &__background-image {
@@ -28,19 +32,27 @@
 
   &__body {
     padding: 0 calc(50% - 590px);
+    padding-top: 210px;
     position: absolute;
     z-index: 10;
 
-    @media (min-width: $breakpoint-lt-md) and (max-width: $breakpoint-gt-md) {
+    &.mobile {
       padding: 0 25px;
-      padding-top: 210px;
-    }
-
-    @media (max-width: $breakpoint-gt-sm) {
       width: 100%;
       height: 100%;
-      padding: 0;
+      // padding: 0;
     }
+
+    // @media (min-width: $breakpoint-lt-md) and (max-width: $breakpoint-gt-md) {
+    //   padding: 0 25px;
+    //   padding-top: 210px;
+    // }
+
+    // @media (max-width: $breakpoint-gt-sm) {
+    //   width: 100%;
+    //   height: 100%;
+    //   padding: 0;
+    // }
   }
 
   &__title {
@@ -48,7 +60,7 @@
     text-transform: uppercase;
     width: 60vw;
 
-    &_mobile {
+    &.mobile {
       height: auto;
       font-size: 30px;
       line-height: 37px;
@@ -60,7 +72,7 @@
     width: 30vw;
     padding-top: 25px;
 
-    &_mobile {
+    &.mobile {
       padding-top: 15px;
       font-size: 16px;
       width: 60vw;

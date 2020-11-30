@@ -1,45 +1,45 @@
 <div class="product" id="products">
   <div class="product__header">
-    <h1><span>Key products</span></h1>
+    <h2 class="product__header-title"><span>Key products</span></h2>
   </div>
 
-  <div class="product__content">
+  <div class="product__content" ngClass.lt-lg="mobile">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px">
-      <div class="product__image" fxHide.lt-md fxShow.gt-sm fxFlex.gt-sm="50%" fxLayout="column" fxLayoutAlign="center"
+      <div class="product__image" fxHide.lt-md fxFlex.gt-sm="50%" fxLayout="column" fxLayoutAlign="center"
         [style.backgroundImage]="currentImage">
       </div>
       <!-- <div class="product__image" fxHide.lt-md fxShow.gt-sm fxFlex.gt-sm="50%" fxLayout="column" fxLayoutAlign="center"
         [style.backgroundImage]="'url(' + getCurrentImage() + ')'">
       </div> -->
 
-      <div class="product__list" fxLayout="column" fxFlex.gt-sm="50%" fxFlex.lt-md="100%" fxLayoutAlign="center center">
-        <div class="product__list-item" *ngFor="let product of productArray; let i = index; let first = First"
-          [ngClass]="{'product__list-item_first': first}" (click)="setCurrentExpandedPanel(product)" fxLayout="column"
-          fxLayoutAlign="start start">
+      <div class="product__list" fxLayout="column" fxLayoutAlign="center center" fxFlex.gt-sm="50%">
+        <div class="product__list-item" *ngFor="let product of productArray; let i = index"
+          (click)="setCurrentExpandedPanel(product)" fxLayout="column" fxLayoutAlign="start start">
 
-          <div class="product-body__image-wrap" fxShow.lt-md fxHide.gt-sm>
+          <div class="product-body__image-wrap" fxHide.gt-sm>
             <div class="product-body__image" [style.backgroundImage]="product.image"
-              [ngClass]="{'product-body__image_expand': product.isExpanded}">
+              [ngClass]="{'show': product.isExpanded}">
             </div>
             <!-- <div class="product-body__image" [style.backgroundImage]="'url(' + product.image + ')'"
               [ngClass]="{'product-body__image_expand': product.isExpanded}">
             </div> -->
           </div>
 
-          <div class="product-body__title" fxLayout="row" fxLayoutGap="25px" fxLayoutGap.lt-md="10px">
+          <div class="product-body__title" ngClass.lt-lg="mobile" fxLayout="row" fxLayoutGap="25px"
+            fxLayoutGap.lt-md="10px">
             <div>
-              <mat-icon class="product-body__title-icon"
-                [ngClass]="{'product-body__title-icon_expand': product.isExpanded}">arrow_downward
+              <mat-icon class="product-body__title-icon" [ngClass]="{'expand': product.isExpanded}">arrow_downward
               </mat-icon>
             </div>
 
-            <h2 [ngClass]="{'product-body__title_active': product.isExpanded}">
+            <h2 [ngClass]="{'active': product.isExpanded}">
               {{product.title}}
             </h2>
           </div>
 
           <div class="product-body__description-wrap">
-            <div class="product-body__descriptions" [ngClass]="{'product-body__descriptions_expand': product.isExpanded}">
+            <div class="product-body__descriptions" [ngClass]="{'expand': product.isExpanded}"
+              [ngClass.lt-md]="{'expand': product.isExpanded, 'mobile': true}">
               {{product.description}}
             </div>
           </div>
