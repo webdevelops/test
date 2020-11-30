@@ -42,18 +42,18 @@ export class ProductListComponent implements OnInit {
     )
   }
 
-  loadNextPage(): void {
+  // loadNextPage(): void {
     // this.productActions.loadNextPage(this.nextPageSize);
-  }
+  // }
 
-  loadAnotherPage(event): void {
-    const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
+  // loadAnotherPage(event): void {
+  //   const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
     
-    this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
-  }
+  //   this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
+  // }
 
   onScroll() {
-    console.log('scrolled!!');
+    // console.log('scrolled!!');
     this.productActions.loadNextPage(this.nextPageSize);
   }
 
