@@ -13,13 +13,13 @@
         <div class="parallelogram"></div>
         <div class="slider__body" ngClass.lt-lg="mobile" fxLayout="column" fxLayoutAlign="center start"
           fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="15px">
-          <div class="slider__title" [ngClass.lt-md]="{'slider__title_mobile': true}">
+          <div class="slider__title" ngClass.lt-md="mobile">
             {{tab.title}}
             <br>
             {{tab.title2}}
           </div>
 
-          <div class="slider__description" [ngClass.lt-md]="{'slider__description_mobile': true}">
+          <div class="slider__description" ngClass.lt-lg="mobile">
             {{tab.description}}
           </div>
         </div>

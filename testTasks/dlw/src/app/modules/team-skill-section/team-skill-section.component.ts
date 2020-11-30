@@ -26,7 +26,7 @@ export class TeamSkillSectionComponent implements OnInit {
     }
   ];
 
-  constructor() { console.log('this.productArray', this.productArray)}
+  constructor() { console.log('this.productArray', this.productArray) }
 
   ngOnInit(): void {
   }
@@ -44,7 +44,10 @@ export class TeamSkillSectionComponent implements OnInit {
   }
 
   get currentImage(): string {
-    const currentExpendedIndex = this.productArray.findIndex(product => product.isExpanded);
-    return this.productArray[currentExpendedIndex].image;
+    // const currentExpendedIndex = this.productArray.findIndex(product => product.isExpanded);
+    // return this.productArray[currentExpendedIndex].image;
+
+    const currentProduct = this.productArray.find(product => product.isExpanded);
+    return currentProduct.image;
   }
 }
