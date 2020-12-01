@@ -6,6 +6,7 @@ import { ClientSectionComponent } from './client-section/client-section.componen
 import { SharedModule } from '../shared/shared.module';
 import { TeamSkillSectionComponent } from './team-skill-section/team-skill-section.component';
 import { TechnologySectionComponent } from './technology-section/technology-section.component';
+import { AvailableServicesSectionComponent } from './available-services-section/available-services-section.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { TechnologySectionComponent } from './technology-section/technology-sect
     GreetingSectionComponent,
     TeamSkillSectionComponent,
     TechnologySectionComponent,
+    AvailableServicesSectionComponent,
   ],
   imports: [
     SharedModule,
@@ -23,6 +25,7 @@ import { TechnologySectionComponent } from './technology-section/technology-sect
     GreetingSectionComponent,
     TeamSkillSectionComponent,
     TechnologySectionComponent,
+    AvailableServicesSectionComponent,
   ]
 })
 export class ModulesModule { }

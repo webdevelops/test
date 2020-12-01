@@ -1,0 +1,27 @@
+<div class="available-service" id="clients">
+  <div class="available-service__header">
+    <div class="available-service__header-title">
+      <span>Who are our Clients?</span>
+    </div>
+  </div>
+
+  <div class="available-service__content" ngClass.lt-lg="mobile">
+    <div class="available-service__container" fxLayout="row" fxLayout.lt-md="column"
+      fxLayoutAlign="space-between center" fxLayoutAlign.lt-md="center center">
+
+      <div *ngFor="let item of sectionArray" fxFlex.gt-sm="28%">
+        <div class="available-service__item item" ngClass.lt-md="mobile" fxLayout="column"
+          fxLayoutAlign="center center">
+          <div class="item__container">
+            <img src="{{item.image}}" alt="image" class="item__image">
+          </div>
+          
+          <div class="item__title" ngClass.lt-md="mobile">{{item.title}}</div>
+          <div class="item__offers">Special offer:</div>
+          <div class="item__description">{{item.description}}</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
