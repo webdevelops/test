@@ -13,7 +13,7 @@ export class HeaderComponent {
 
   public iconList = IconList;
 
-  constructor() { console.log("HeaderComponent -> getMenuIcon -> this.sidenavState", this.sidenavState) }
+  constructor() {}
 
   openSideNav(): void {
     this.toggleSidenav.emit(true);

@@ -26,7 +26,7 @@ export class TeamSkillSectionComponent implements OnInit {
     }
   ];
 
-  constructor() { console.log('this.productArray', this.productArray) }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -95,7 +95,7 @@
       }
     }
 
-    &.active {
+    &_active {
       font-weight: 500px;
     }
   }
@@ -117,12 +117,8 @@
     -o-transition: height 0.5s ease-in-out;
     transition: height 0.5s ease-in-out;
 
-    // @media (max-width: $breakpoint-gt-md) {
+    // @media (max-width: $breakpoint-lt-md) {
     &.mobile {
-      padding-left: 60px;
-    }
-
-    @media (max-width: $breakpoint-lt-md) {
       font-size: 15px;
       max-height: 250px;
       padding-left: 43px;
@@ -138,7 +134,8 @@
       -o-transition: height 0.5s ease-in-out;
       transition: height 0.5s ease-in-out;
 
-      @media (max-width: $breakpoint-lt-md) {
+      // @media (max-width: $breakpoint-lt-md) {
+      &.mobile {
         height: 220px;
       }
     }

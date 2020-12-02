@@ -1,0 +1,75 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+.available-service {
+  &__header {
+    @include header;
+    color: $black-color;
+  }
+
+  &__content {
+    @include section-container;
+  }
+
+  &__container {
+    @include container-padding;
+    text-align: center;
+  }
+}
+
+.item {
+  border: 1px solid $grey-font-color;
+  border-radius: 10px;
+  margin: 30px 0;
+  height: 486px;
+  padding: 26px 28px 37px;
+  transition: transform 0.2s;
+
+  &:hover {
+    border: 1px solid $green-color;
+
+  &:hover .item__image {
+      transform: scale(1.2);
+    }
+  }
+
+  &.mobile {
+    height: 450px;
+  }
+
+  &__container {
+    max-width: 271px;
+    max-width: 230px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding-top: 33px;
+    font: 400 23/28px Montserrat;
+
+    &.mobile {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &__offers {
+    padding-top: 33px;
+    color: $green-color;
+    margin-bottom: 5px;
+    font: 300 16px/19px Montserrat;
+  }
+
+  &__description {
+    max-width: 260px;
+    font: 300 16px/19px Montserrat;
+  }
+}
