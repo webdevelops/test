@@ -10,7 +10,7 @@ import { SvgIconsComponent } from './svg-icons/svg-icons.component';
     SvgIconsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
     // MaterialModule
   ],
   exports: [
