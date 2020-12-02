@@ -1,3 +1,4 @@
+// Angular
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,4 +11,5 @@ export class LoadingComponent {
   public show: boolean = false;
 
   constructor() { }
+
 }

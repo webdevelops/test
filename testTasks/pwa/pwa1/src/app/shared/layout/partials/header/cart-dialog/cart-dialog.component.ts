@@ -1,8 +1,11 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+// import { ObservableMedia } from '@angular/flex-layout';
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+
 import { ProductModel } from '../../../../../core/models/product.model';
 import { Observable } from 'rxjs';
-import { IconList } from 'src/app/core/mock/icon.list';
+import { IconList } from '../../../../../core/mock/icon-list';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceList } from '../cart-window/cart-window.component';
 import { CartSelectors } from '../../../../../core/store/cart/cart.selectors';
@@ -38,10 +41,13 @@ export class CartDialogComponent implements OnInit {
     this.checkMobileMode();
   }
 
-  constructor(public dialogRef: MatDialogRef<CartDialogComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<CartDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartDialogData,
     private cartSelectors: CartSelectors,
-    private cartActions: CartActions) {
+    private cartActions: CartActions,
+    public media: ObservableMedia
+  ) {
   }
 
   ngOnInit(): void {
@@ -87,25 +93,24 @@ export class CartDialogComponent implements OnInit {
     this.sendForm.controls.messenger.setValue($event.option.value.name);
     this.sendForm.controls.messengerData.setValue($event.option.value.userData);
     // this.canFill = false;
-    console.log(this.sendForm.controls.messengerData);
-    console.log(this.sendForm.controls.messenger);
+    // console.log(this.sendForm.controls.messengerData);
+    // console.log(this.sendForm.controls.messenger);
   }
 
   removeFromCart(product: ProductModel): void {
-    this.cartActions.removeProductFromCart(product);
+    this.cartActions.deleteProductFromCart(product);
   }
 
   private checkMobileMode(): void {
-    console.log("CartDialogComponent -> isShowSendingFormPart-1", this.isShowSendingFormPart)
     this.isMobileMode = false;
     if (document) {
       const width = document.body.clientWidth;
-      this.isMobileMode = width < 1100;
-      console.log("CartDialogComponent -> checkMobileMode -> isMobileMode", this.isMobileMode)
+      this.isMobileMode = width < 800;
     }
     if (!this.isMobileMode) {
-      console.log("CartDialogComponent -> isShowSendingFormPart-2", this.isShowSendingFormPart)
       this.isShowSendingFormPart = false;
     }
   }
+
+
 }

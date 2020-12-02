@@ -1,13 +1,8 @@
-@import "./variables";
-@import "./custom-breakpoints";
+@import './variables';
+@import './custom-breakpoints';
 
 @mixin content-container {
-  padding: 0 calc(50% - 590px);
-}
-
-@mixin logo {
-  width: 168px;
-  height: 36px;
+  padding: 0 calc(50% - 590px)
 }
 
 @mixin carusel-counter {
@@ -27,12 +22,13 @@
   }
 }
 
-@mixin error {
-  color: $red-color;
-  font-size: 12px;
-  fill: $red-color;
+@mixin logo {
+  width: 168px;
+  height: 36px;
 }
 
-// @mixin text-center {
-//   text-align: center;
-// }
+@mixin error {
+ color: $red-color;
+ font-size: 12px;
+ fill: $red-color;
+}

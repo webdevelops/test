@@ -1,0 +1,156 @@
+@import "../../../../../../styles/variables";
+@import "../../../../../../styles/mixin";
+
+.shopping {
+  padding: 0 90px;
+  margin-top: 55px;  // ? header
+
+  &__container {
+    height: 670px;
+    width: 100%;
+  }
+
+  &__header {
+    color: $black-color;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 37px;
+    height: 64px;
+    margin: 0 90px;
+    border-bottom: 3px solid $header-cart-line;
+    position: relative;
+    left: 0;
+    top: 40px;
+    right: 0;
+    margin-bottom: 40px; // ? header
+  }
+
+  &__item {
+    background-color: $light-grey-color;
+    width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // font-size: 30px;
+
+    &-wrap {
+      position: relative;
+      height: 105px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__delete-icon {
+    // position: absolute;
+    // top: 50%;
+    // left: -40px;
+    // transform: translate(0, -50%);
+    cursor: pointer;
+  }
+}
+
+.sending-form {
+  padding: 0 50px;
+
+  &__header {
+    color: $light-grey-color;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 37px;
+    height: 64px;
+    padding: 0 50px;
+  }
+
+  &__content {
+    padding: 50px;
+    min-height: 330px;
+  }
+
+  &__field,
+  input[type="text"]:not(.browser-default) {
+    width: 100%;
+    color: $placeholder-color;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__field {
+    min-height: 100px;
+
+    &_error {
+      font-size: 18px;
+      color: $red-color;
+    }
+  }
+
+  &__addition {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $slider-line-color;
+    width: 292px;
+  }
+
+  &__footer {
+    height: 142px;
+    background-color: $header-grey-background;
+  }
+
+  &__btn {
+    width: 292px;
+    height: 46px;
+    background-color: $green-color;
+
+    span {
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 21px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: $white-color;
+    }
+  }
+}
+
+.selected-icon {
+  fill: $green-color;
+  position: absolute;
+  right: 12px;
+  bottom: -12px;
+  height: inherit;
+}
+
+.underlined-field {
+  margin-top: 5px;
+}
+
+.error {
+  @include error;
+}
+
+.mat-option.default-option {
+  height: 36px;
+  background: #f1f1f1;
+}
+
+.option-icon {
+  fill: $underline-color;
+}
+
+.mat-fab {
+  box-shadow: none;
+  position: absolute;
+  left: -65px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.mat-fab:focus {
+  background: none;
+}
+
+.mat-fab:not(.mat-button-disabled):active {
+  box-shadow: none;
+}

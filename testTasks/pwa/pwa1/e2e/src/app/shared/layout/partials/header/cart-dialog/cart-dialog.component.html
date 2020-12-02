@@ -1,0 +1,149 @@
+<div mat-dialog-content class="content" [ngClass]="{'mobile': isMobileMode, 'show-sending-form': isShowSendingFormPart}">
+
+  <div class="content">
+
+    <div class="modal-left-part shopping">
+      <div class="header-wrapper" *ngIf="!isMobileMode">
+        <div class="header shopping-cart">
+          Shopping Cart
+        </div>
+      </div>
+      <div class="header-wrapper" *ngIf="isMobileMode" (click)="isShowSendingFormPart = true">
+        <div class="header shopping-cart">
+          Shopping Cart
+          <app-svg-icons [iconType]="iconList.Next"></app-svg-icons>
+        </div>
+      </div>
+
+      <div class="container shopping-items" *ngIf="(cartProducts$ | async).length == 0">
+        <p>
+          Don't miss out on great deals! <br>
+          Start shopping and add a service to shopping cart!
+        </p>
+        <button mat-button class="btn" (click)="close({submitted: false})">
+          <span>Start shopping</span>
+        </button>
+      </div>
+
+      <div class="container shopping-items" *ngIf="(cartProducts$ | async).length > 1">
+        <div class="product-wrapper" fxLayout="row" *ngFor="let product of cartProducts$ | async">
+          <app-svg-icons class="delete-icon" [iconType]="iconList.Delete" (click)="removeFromCart(product)"></app-svg-icons>
+          <div class="product">
+            <app-product [product]="product" [viewMode]="'LIST_ITEM'"></app-product>
+          </div>
+        </div>
+      </div>
+
+      <div class="container shopping-items" *ngIf="(cartProducts$ | async).length == 1 && (cartProducts$ | async)[0] as product">
+        <div class="product">
+          <app-product [product]="product" [viewMode]="'CARD'"></app-product>
+        </div>
+        <button mat-button class="btn" (click)="removeFromCart(product)">
+          <span>Remove from Cart</span>
+        </button>
+      </div>
+
+      <div class="modal-footer" *ngIf="isMobileMode">
+        <div class="footer" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="17px">
+          <div class="addition" fxLayout="row" fxLayoutAlign="space-between center">
+            <span>items: {{(cartProducts$ | async).length}}</span>
+            <span>105-135 h</span>
+          </div>
+          <button mat-button class="btn footer-btn" (click)="isShowSendingFormPart = true">
+            <span>Send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-right-part sending-form">
+      <div class="modal-header-right header" *ngIf="!isMobileMode">Sending Form</div>
+
+      <div class="header-wrapper" *ngIf="isMobileMode" (click)="isShowSendingFormPart = false">
+        <div class="header shopping-cart">
+          <app-svg-icons [iconType]="iconList.Prev"></app-svg-icons>
+          Shopping Cart
+        </div>
+      </div>
+      <div class="header contact-info" *ngIf="isMobileMode">Contact Information</div>
+
+      <div class="modal-right-part-content">
+        <div class="content">
+          <form [formGroup]="sendForm">
+            <mat-form-field appearance="standart" class="field">
+              <mat-label>Name & Company</mat-label>
+              <input matInput class="underlined-field" type="text" autocomplete="off" formControlName="nameCompany"
+                     [ngClass]="{'touched': sendForm.controls.nameCompany.touched}">
+              <mat-error class="error" *ngIf="sendForm.controls.nameCompany.hasError('required')">Field is
+                <strong>required</strong></mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standart" class="field" fxLayout="column"
+                            fxLayoutAlign="space-between center">
+              <mat-label
+                [ngClass]="{'field_error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}">
+                <ng-container *ngIf="sendForm.controls.messenger.value; else defaultLabel">
+                  {{ sendForm.controls.messenger.value }}
+                </ng-container>
+                <ng-template #defaultLabel>
+                  Select messenger
+                </ng-template>
+              </mat-label>
+
+              <input type="text" matInput formControlName="messengerData" [matAutocomplete]="auto" class="underlined-field"
+                     [value]="sendForm.controls.messengerData.value"
+                     [ngClass]="{'touched': sendForm.controls.messengerData.touched}">
+              <app-svg-icons matSuffix class="selected-icon"
+                             [ngClass]="{'error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}"
+                             [iconType]="sendForm.controls.messenger.value === '' ? iconList.ArrowDown: sendForm.controls.messenger.value">
+              </app-svg-icons>
+              <mat-hint class="error"
+                        *ngIf="(sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched)">
+                Field is <strong>required</strong>
+              </mat-hint>
+              <mat-hint class="error"
+                        *ngIf="(sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')">
+                Select your messenger
+              </mat-hint>
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" autoActiveFirstOption="false"
+                                (optionSelected)="getUserData($event)">
+                <mat-option value="Select messenger" disabled class="default-option">
+                  Messenger
+                  <app-svg-icons class="option-icon" [iconType]="iconList.ArrowDown"></app-svg-icons>
+                </mat-option>
+                <mat-option *ngFor="let option of options" [value]="option" fxLayout="row"
+                            fxLayoutAlign="space-between center">
+                  {{option.name}}
+                  <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="standart" class="field comment">
+              <mat-label>Comment/Breif</mat-label>
+              <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" formControlName="comment"
+                        [ngClass]="{'touched': sendForm.controls.comment.touched && sendForm.controls.comment.value !== ''}"></textarea>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="footer" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="17px">
+          <div class="addition" fxLayout="row" fxLayoutAlign="space-between center">
+            <span>items: {{(cartProducts$ | async).length}}</span>
+            <span>105-135 h</span>
+          </div>
+          <button mat-button class="btn footer-btn" (click)="close({submitted: true})"
+                  [disabled]="sendForm.status === 'INVALID'">
+            <span>Send</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="close-btn" (click)="close()"><mat-icon>close</mat-icon></div>
+
+</div>

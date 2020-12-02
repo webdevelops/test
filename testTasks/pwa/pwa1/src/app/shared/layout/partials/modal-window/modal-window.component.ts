@@ -1,3 +1,4 @@
+// Angular
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,8 +13,8 @@ export class ModalWindowComponent {
 
   constructor(private router: Router) { }
 
-  closeModal($event) {
-    this.router.navigate([{ outlets: { modal: null } }]);
+  closeModal($event): void {
+    this.router.navigate([{outlets: {modal: null}}]);
     this.modalClose.next($event);
   }
 }

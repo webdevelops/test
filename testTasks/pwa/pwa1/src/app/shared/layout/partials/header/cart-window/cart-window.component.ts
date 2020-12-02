@@ -1,15 +1,13 @@
-// Angulat
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-// Libs
-import { Observable } from 'rxjs';
+// Angular
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 // App
-import { IconList } from 'src/app/core/mock/icon.list';
-import { ProductModel } from 'src/app/core/models/product.model';
-import { BasketActions } from 'src/app/core/store/basket/basket.actions';
-import { BasketSelectors } from '../../../../../core/store/basket/basket.selectors';
+import { IconList } from 'src/app/core/mock/icon-list';
+import {Observable} from 'rxjs';
+import {ProductModel} from '../../../../../core/models/product.model';
+import {CartSelectors} from '../../../../../core/store/cart/cart.selectors';
+import {CartActions} from '../../../../../core/store/cart/cart.actions';
 
 export interface ServiceList {
   name: string;
@@ -17,36 +15,28 @@ export interface ServiceList {
   userData: string;
 }
 
+
 @Component({
   selector: 'app-cart-window',
   templateUrl: './cart-window.component.html',
   styleUrls: ['./cart-window.component.scss']
 })
-export class CartWindowComponent implements OnInit {
-  // items = Array.from({ length: 10 }).map((_, i) => `index #${i}`);
+export class CartWindowComponent {
+  public cartProducts$: Observable<ProductModel[]>;
   public iconList = IconList;
-  public onlyRead: boolean = true;
   public options: Array<ServiceList> = [];
-  productsFromBasket$: Observable<Array<ProductModel>>;
-  productsFromBasket: ProductModel[] = [] as ProductModel[];
-
+  public onlyRead: boolean = true;
+  // public selected = ;
   public sendForm = new FormGroup({
-    nameCompany: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-      Validators.maxLength(30)
-    ]),
-    messenger: new FormControl('', [
-      Validators.required
-    ]),
+    nameCompany: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
+    messenger: new FormControl('', [Validators.required]),
     messengerData: new FormControl(''),
     comment: new FormControl('')
   });
 
-  constructor(
-    private basketSelectors: BasketSelectors,
-    private basketActions: BasketActions
-  ) {
+  constructor(private cartSelectors: CartSelectors, private cartActions: CartActions) {
+    console.log(this.sendForm);
+
     this.options = [
       {
         name: 'telegram',
@@ -64,33 +54,35 @@ export class CartWindowComponent implements OnInit {
         userData: ''
       },
       {
-        name: 'whatsapp',
-        icon: this.iconList.Whatsapp,
-        userData: ''
-      },
-      {
         name: 'email',
         icon: this.iconList.Email,
         userData: ''
+      },
+      {
+        name: 'whatsapp',
+        icon: this.iconList.Whatsapp,
+        userData: ''
       }
     ];
+
+    this.cartProducts$ = this.cartSelectors.selectAllProducts$();
   }
 
-  ngOnInit() {
-    this.productsFromBasket$ = this.basketSelectors.selectAllProductsFromBasket$();
-  }
-
-  getUserData($event) {
-    this.sendForm.controls.messenger.setValue($event.option.value.name);
-    this.sendForm.controls.messengerData.setValue($event.option.value.userData);
-  }
-
-  modalClose() {
+  modalClose(): void {
     console.log('userData: ', this.sendForm.controls.messengerData.value);
     console.log('messanger: ', this.sendForm.controls.messenger.value);
   }
 
-  removeFromCart(productId: string) {
-    this.basketActions.removeFromCart(productId);
+  getUserData($event): void {
+    this.sendForm.controls.messenger.setValue($event.option.value.name);
+    this.sendForm.controls.messengerData.setValue($event.option.value.userData);
+    // this.canFill = false;
+    console.log(this.sendForm.controls.messengerData);
+    console.log(this.sendForm.controls.messenger);
   }
+
+  removeFromCart(product: ProductModel): void {
+    this.cartActions.deleteProductFromCart(product);
+  }
+
 }

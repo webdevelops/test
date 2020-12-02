@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // App
-import { ProductSelectors } from "../../core/store/product/product.selectors";
-import { ProductActions } from '../../core/store/product/product.actions';
+import { ProductActions } from './../../core/store/product/product.actions';
+import { ProductSelectors } from './../../core/store/product/product.selectors';
 import { ProductModel } from 'src/app/core/models/product.model';
 
+const PRODUCT_LIST_LENGTH = 11;
 const PAGE_SIZE = 5;
 const NEXT_PAGE_SIZE = 3;
-const PRODUCT_LIST_LENGTH = 11;
 
 @Component({
   selector: 'app-product-list',
@@ -21,18 +21,17 @@ const PRODUCT_LIST_LENGTH = 11;
 })
 export class ProductListComponent implements OnInit {
   productList$: Observable<Array<ProductModel>>;
+  readonly productListLength = PRODUCT_LIST_LENGTH;
   readonly pageSize = PAGE_SIZE;
   readonly nextPageSize = NEXT_PAGE_SIZE;
-  readonly productListLength = PRODUCT_LIST_LENGTH;
   public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
 
-  private page: number = 0;
-
   constructor(
     private productSelectors: ProductSelectors,
-    private productActions: ProductActions
+    private productActions: ProductActions,
   ) { }
+
 
   ngOnInit(): void {
     this.loading$ = this.productSelectors.selectLoading$();
@@ -40,24 +39,15 @@ export class ProductListComponent implements OnInit {
     this.productList$ = this.productSelectors.selectAllProducts$();
     this.pageIndex$ = this.productSelectors.selectPage$().pipe(
       map((page: number) => page * this.pageSize)
-    )
+    );
   }
 
   // loadNextPage(): void {
-    // this.productActions.loadNextPage(this.nextPageSize);
+  //   this.productActions.loadNextPages(this.nextPageSize);
   // }
 
-  // loadAnotherPage(event): void {
-  onScroll() {
-    // const lastDownloadedProduct = this.nextPageSize * (event.pageIndex)
-    const lastDownloadedProduct = this.nextPageSize * (this.page++)
-    
-    this.productActions.loadAnotherPage(lastDownloadedProduct, this.nextPageSize);
+  onScroll(): void {
+    this.productActions.loadNextPages(this.nextPageSize);
   }
-
-  // onScroll() {
-  //   // console.log('scrolled!!');
-  //   this.productActions.loadNextPage(this.nextPageSize);
-  // }
-
 }
+

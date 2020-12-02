@@ -1,8 +1,8 @@
 // Angular
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // App
-import { IconList } from 'src/app/core/mock/icon.list';
+import { IconList } from 'src/app/core/mock/icon-list';
 
 @Component({
   selector: 'app-footer',

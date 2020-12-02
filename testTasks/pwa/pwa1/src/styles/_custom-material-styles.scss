@@ -1,5 +1,4 @@
 @import "../styles/variables";
-@import "./custom-breakpoints";
 
 .mat-raised-button,
 .mat-stroked-button,
@@ -8,6 +7,14 @@
   margin: 0 0.65em;
   min-width: 3em;
   line-height: 36.4px;
+}
+
+.mat-button.mat-button-base.mat-button-disabled{
+  background-color: #72ac0d87;
+
+  .mat-button-wrapper span{
+    color: $disabled-grey-color;
+  }
 }
 
 .mat-standard-chip {
@@ -38,11 +45,10 @@
   display: none !important;
 }
 
-// .mat-tab-label {
-//   opacity: 1 !important;
-//   padding: 0 10px !important;
-//   min-width: 70px !important;
-// }
+.mat-tab-label {
+  opacity: 1 !important;
+  padding: 0 10px !important;
+}
 
 .mat-drawer {
   width: 100%;
@@ -77,7 +83,7 @@
       display: flex;
       border-bottom: 2.16148px solid $underline-color;
       padding: 0;
-      height: 36px;
+      height: 42px;
     }
 
     .mat-form-field-infix .touched {
@@ -124,12 +130,11 @@ textarea.touched {
   caret-color: $green-color;
 }
 
-.mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow {
-  opacity: 0;
-}
+// .mat-select-trigger .mat-select-arrow-wrapper .mat-select-arrow {
+//   opacity: 0;
+// }
 
-.mat-option .mat-option-text,
-.mat-select-value {
+.mat-option .mat-option-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,28 +177,14 @@ textarea.touched {
   }
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: transparent;
-}
-
-.mat-paginator-container {
-  padding: 0 calc(50% - 590px) !important;
-}
-
-.mat-button.mat-button-base.mat-button-disabled {
-  background-color: #72ac0d87;
-}
-
-// .cdk-overlay-pane {
-// top: 633px !important;
-// }
+// It is test custom tabs for detail page
 
 .mat-tab-header {
   display: flex;
   overflow: hidden;
-  bottom: auto;
-  border: none;
   position: relative !important;
+  flex-shrink: 0;
+  border-bottom: none !important;
 }
 
 .mat-tab-label {
@@ -205,21 +196,17 @@ textarea.touched {
   font-size: 20px;
   line-height: 24px;
   color: #707e84;
-  border-bottom: 4px solid #c9d3d6;
+  border-bottom: 4px solid #C9D3D6 ;
+}
 
-  // &-content {
-  // min-width: 270px;
-  // }
+.mat-tab-label-active {
+  color: #3f4a4e;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  border-bottom: 4px solid $green-color ;
+}
 
-  &-active {
-    color: #3f4a4e;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    border-bottom: 4px solid $green-color;
-  }
-
-  // @media (max-width: $breakpoint-gt-xs) { // new
-  //   width: 72px;
-  // }
+.cdk-overlay-container {
+  z-index: 1002 !important;
 }

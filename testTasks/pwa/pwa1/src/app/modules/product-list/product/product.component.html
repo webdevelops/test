@@ -9,25 +9,24 @@
     <ng-container *ngTemplateOutlet="wideCardTemplate"></ng-container>
   </ng-container>
   <ng-container *ngSwitchDefault>
+    <!-- 'SIMPLE_CARD' -->
     <ng-container *ngTemplateOutlet="simpleCardTemplate"></ng-container>
   </ng-container>
 </ng-container>
 
 <ng-template #listItemTemplate>
-  <div class="product-list-item product row">
+  <div class="product-list-item product row" [routerLink]="['/product', product.productId]">
     <div class="product__image">
-      <div class="image" [ngStyle]="{backgroundImage: 'url(' + product.productPhotos[0].src + ')'}"></div>
+      <div class="image" [ngStyle]="{ backgroundImage: 'url('+ product.productPhotos[0].src + ')' }"></div>
     </div>
     <div class="product__content">
       <div class="title">
         {{product.productName}}
       </div>
-
       <div class="hours">
         <app-svg-icons [iconType]="'clock'"></app-svg-icons>
         <span>40-50 h</span>
       </div>
-
       <div class="description">
         <div>
           <span class="text">{{product.productShortDescription}}</span>
@@ -40,18 +39,17 @@
 <ng-template #detailedCardTemplate>
   <div class="product-card detailed" [routerLink]="['/product', product.productId]">
     <div class="product-card__header">
-      <a class="product-cart__title">
+      <a class="product-card__title">
         {{product.productName}}
       </a>
     </div>
-
     <div class="hours">
       <app-svg-icons [iconType]="'clock'"></app-svg-icons>
       <span>40-50 h</span>
     </div>
 
     <div class="image-wrapper">
-      <div class="image" [ngStyle]="{backgroundImage: 'url(' + product.productPhotos[0].src + ')'}"></div>
+      <div class="image" [ngStyle]="{ backgroundImage: 'url('+ product.productPhotos[0].src + ')' }"></div>
     </div>
 
     <div class="description">
@@ -69,24 +67,22 @@
         {{product.productName}}
       </a>
     </div>
-
     <div class="image-wrapper">
-      <div class="image" [ngStyle]="{backgroundImage: 'url(' + product.productPhotos[0].src + ')'}"></div>
+      <div class="image" [ngStyle]="{ backgroundImage: 'url('+ product.productPhotos[0].src + ')' }"></div>
     </div>
   </div>
 </ng-template>
 
 <ng-template #wideCardTemplate>
-  <div class="product-card product-card_wide" [ngClass.lt-sm]="{'product-card product-card_wide_mobile': true}"
+  <div class="product-card product-card_wide" [ngClass.lt-sm]="{'product-card_wide_mobile': true}"
     fxLayout="column-reverse" [routerLink]="['/product', product.productId]">
     <div class="product-card__header">
       <a class="product-card__title">
         {{product.productName}}
       </a>
     </div>
-
     <div class="image-wrapper">
-      <div class="image" [ngStyle]="{backgroundImage: 'url(' + product.productPhotos[0].src + ')'}"></div>
+      <div class="image" [ngStyle]="{ backgroundImage: 'url('+ product.productPhotos[0].src + ')' }"></div>
     </div>
   </div>
 </ng-template>

@@ -1,14 +1,12 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 
-// Lib
-import { Observable } from 'rxjs';
-
-//App
-import { IconList } from '../../../../core/mock/icon.list';
+// App
+import { IconList } from 'src/app/core/mock/icon-list';
 import { CartSelectors } from '../../../../core/store/cart/cart.selectors';
+import { Observable } from 'rxjs';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -19,19 +17,18 @@ export class HeaderComponent implements OnInit {
   public iconList = IconList;
   public cartCountProducts$: Observable<number>;
 
-  constructor(
-    private cartSelectors: CartSelectors,
-    public dialogCart: MatDialog
-  ) { }
+  constructor(private cartSelectors: CartSelectors, public dialogCart: MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cartCountProducts$ = this.cartSelectors.getCountProducts$();
   }
 
   showCart(): void {
     const dialogRef = this.dialogCart.open(CartDialogComponent, {
       panelClass: 'cart-modal',
-      data: { someIncomingData: [] }
+      data: {someIncomingData: []}
     });
   }
+
+
 }

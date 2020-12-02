@@ -4,6 +4,10 @@
   @include content-container;
   height: 60px;
 
+  &__mobile {
+    padding: 0 25px;
+  }
+
   &__logo {
     @include logo;
     cursor: pointer;
@@ -14,20 +18,11 @@
     box-shadow: none;
   }
 
-  .mat-badge {
-    display: block;
-  }
+  // button:focus {
+  //   background-color: inherit;
+  // }
 
-  &__card-btn {
+  &__cart-btn {
     display: flex;
   }
-
-  &__mobile {
-    padding: 0 25px;
-  }
-
-  // @media (min-width: $breakpoint-gt-xs) and (max-width: $breakpoint-gt-md) {
-  //   padding-left: 25px;
-  //   padding-right: 25px;
-  // }
 }

@@ -1,11 +1,12 @@
-@import "../../../../styles/variables";
+@import "../../../../styles/variables.scss";
 
 .product-card {
-  width: 280px;
+  position: relative;
+  width: 312px;
   height: 350px;
   background: $base-grey-background;
   cursor: pointer;
-  margin: 0 auto 30px;
+  margin: auto;
 
   &_wide {
     min-width: 500px;
@@ -20,10 +21,9 @@
     width: 271px;
     height: 218px;
     display: flex;
-    margin: auto;
-    // align-self: center;
-    // justify-self: center;
-    // margin-bottom: 46px;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 46px;
 
     .image {
       width: 100%;
@@ -51,10 +51,73 @@
   }
 }
 
+.product-card.detailed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .title {
+    display: inline-block;
+    width: 100%;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 26px;
+    color: #000000;
+    padding-bottom: 15px;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 370px;
+    background: $base-grey-background;
+    text-align: center;
+
+    &:before {
+      content: "";
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .image {
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+  }
+
+  .hours {
+    display: block;
+    float: left;
+    padding: 5px;
+    width: 100%;
+    background-color: #fff;
+
+    span {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: $black-color;
+      margin-left: 8px;
+    }
+  }
+
+  .description {
+    display: block;
+    background: #fff;
+    padding: 10px 0;
+    width: 100%;
+  }
+}
+
 .product-list-item.product {
   margin-bottom: 15px;
   height: 105px;
   overflow: hidden;
+  cursor: pointer;
 
   .product__content {
     width: calc(100% - 140px);
@@ -67,14 +130,12 @@
       font-weight: 400;
       font-size: 20px;
       line-height: 26px;
-      color: #000;
+      color: #000000;
       padding-bottom: 15px;
     }
 
     .hours {
-      // display: inline-block;
-      display: flex;
-      align-items: center;
+      display: inline-block;
       float: right;
       padding: 5px;
       width: 130px;

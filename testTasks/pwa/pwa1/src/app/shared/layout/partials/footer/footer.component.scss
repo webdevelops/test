@@ -1,23 +1,20 @@
-@import "../../../../../styles/shared-styles";
-@import "../../../../../styles/mixin";
-@import "../../../../../styles/variables";
+@import '../../../../../styles/variables';
+@import "../../../../../styles/mixin.scss";
 
 .footer {
   @include content-container;
-  // padding: 0 calc(50% - 400px);
   background-color: $footer-background;
   // height: 95px;
   color: $white-color;
-  padding-top:25px;
+  padding-top: 25px;
   padding-bottom: 45px;
 
   &__logo {
     @include logo;
-    
+
     &_mobile {
       margin-top: 16px;
       padding-left: 16px;
-      width: auto;
     }
   }
 
@@ -25,9 +22,9 @@
     font-weight: 300;
     font-size: 23px;
     line-height: 28px;
-
-    // &_mobile {
-    //   margin-bottom: 10px;
+    // @media (max-width: $breakpoint-gt-md) {
+    //   font-size: 17px;
+    //   line-height: 20px;
     // }
   }
 
@@ -37,15 +34,13 @@
   }
 
   &__icon {
-    height: 25px;
     width: 25px;
+    height: 25px;
     fill: $white-color;
-
-    &:hover {
-      cursor: pointer;
-      fill: $green-color;
-      transition: 0.3s;
-    }
   }
-  
+
+  &__icon:hover {
+    cursor: pointer;
+    fill: $green-color;
+  }
 }

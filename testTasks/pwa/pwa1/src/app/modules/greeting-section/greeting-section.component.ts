@@ -1,16 +1,23 @@
 // Angular
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
-// Libs
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
-
 // App
-import { IconList } from 'src/app/core/mock/icon.list';
-import { CartSelectors } from 'src/app/core/store/cart/cart.selectors';
-import { CartActions } from 'src/app/core/store/cart/cart.actions';
-import { ProductSelectors } from 'src/app/core/store/product/product.selectors';
+import { IconList } from '../../core/mock/icon-list';
+import {CartActions} from '../../core/store/cart/cart.actions';
+import {ProductSelectors} from '../../core/store/product/product.selectors';
+import {map, tap} from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {CartSelectors} from '../../core/store/cart/cart.selectors';
+
+export interface Tab {
+  productId: string;  // link to the ProductModel.productId
+  isActive: boolean;
+  label: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+}
 
 @Component({
   selector: 'app-greeting-section',
@@ -23,70 +30,44 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
   public tabs: Array<Tab>;
   public iconList = IconList;
 
-  constructor(
-    private cartSelectors: CartSelectors,
-    private productSelectors: ProductSelectors,
-    private cartActions: CartActions
-  ) {
+  constructor(private productSelectors: ProductSelectors, private cartSelectors: CartSelectors, private cartActions: CartActions) {
     this.tabs = [
       {
-        productId: '1',
+        productId: '1',  // here should be link to the Product by ID
         isActive: true,
         label: 'First',
-        title: 'INTERACTIVE - 1 SEARCH',
-        description: 'You want to prepare a software prodject budget. It is quite east with the help of our PWA store.',
+        title: 'INTERACTIVE SEARCH',
+        description: 'You want to prepare a software project budget. It is quite easy with the help of our PWA store.',
         imageSrc: 'assets/images/ImageItem.png',
       },
       {
-        productId: '2',
+        productId: '2',  // here should be link to the Product by ID
         isActive: false,
         label: 'Second',
-        title: 'INTERACTIVE - 2 TRENDING',
-        description: 'You want to prepare a software prodject budget. It is quite east with the help of our PWA store.',
+        title: 'INTERACTIVE INTERACTIVE SEARCH',
+        description: 'You want to prepare a software project budget. It is quite easy with the help of our PWA store.',
         imageSrc: 'assets/images/ImageItem.png',
       },
       {
-        productId: '3',
+        productId: '3',  // here should be link to the Product by ID
         isActive: false,
         label: 'Third',
-        title: 'INTERACTIVE - 3 TOPICS',
-        description: 'You want to prepare a software prodject budget. It is quite east with the help of our PWA store.',
+        title: 'INTERACTIVE SEARCH',
+        description: 'You want to prepare a software project budget. It is quite easy with the help of our PWA store.',
         imageSrc: 'assets/images/ImageItem.png',
-      }
+      },
     ];
   }
 
   ngOnInit(): void {
-    this.activeTabIndex$.subscribe(activeTabIndex => {
+    // change isProductInCart$ for each changed Tab
+    this.activeTabIndex$.subscribe((activeTabIndex) => {
       const productId = this.tabs[activeTabIndex].productId;
       this.isProductInCart$ = this.cartSelectors.selectProductById$(productId).pipe(
-        map(foundProduct => {
-          return !!foundProduct
-        })
+        map(foundProduct => !!foundProduct)
       );
     });
-    // this.activeTabIndex$.next(0);
-  }
-
-  public selectedTabChange(event: MatTabChangeEvent): void {
-    this.activeTabIndex$.next(event.index);
-    this.tabs.forEach(tab => tab !== this.tabs[event.index] ? tab.isActive = false : tab.isActive = true);
-  }
-
-  public addToCart(): void {
-    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
-    this.productSelectors.selectProductById$(productId)
-      .subscribe(product => {
-        this.cartActions.addProductToCart(product);
-      })
-  }
-
-  public removeFromCart(): void {
-    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
-    this.productSelectors.selectProductById$(productId)
-      .subscribe(product => {
-        this.cartActions.removeProductFromCart(product);
-      })
+    this.activeTabIndex$.next(0);
   }
 
   ngOnDestroy(): void {
@@ -95,20 +76,26 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
 
   public customSlider(): void {
     const tabIndex = this.activeTabIndex$.getValue();
-    this.activeTabIndex$.next(tabIndex > 1 ? 0 : tabIndex + 1);
+    this.activeTabIndex$.next( tabIndex > 1 ? 0 : tabIndex + 1);
   }
 
-  // customSlider(): void {
-  //   this.activeTabIndex = this.activeTabIndex > 1 ? 0 : ++this.activeTabIndex;
-  // }
+  public selectedTabChange(event: MatTabChangeEvent): void {
+    this.activeTabIndex$.next( event.index );
+    this.tabs.forEach(tab => tab !== this.tabs[event.index] ? tab.isActive = false : tab.isActive = true);
+  }
+
+  public addToCart(): void {
+    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
+    this.productSelectors.selectProductById$(productId).subscribe((product) => {
+      this.cartActions.addProductToCart(product);
+    });
+  }
+
+  public removeFromCart(): void {
+    const productId = this.tabs[this.activeTabIndex$.getValue()].productId;
+    this.productSelectors.selectProductById$(productId).subscribe((product) => {
+      this.cartActions.deleteProductFromCart(product);
+    });
+  }
 
 }
-
-export interface Tab {
-  productId: string;
-  isActive: boolean,
-  label: string;
-  title: string;
-  description: string;
-  imageSrc: string;
-};

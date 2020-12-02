@@ -1,14 +1,14 @@
 export interface ProductModel {
-  productId: string;
-  productName: string;
-  productShortDescription: string;
-  productFullDescription: string;
-  productPrice: string;
-  productPhotos: Array<ProductPhoto>;
-  productTags?: Array<string>;
+    productId: string;
+    productName: string;
+    productShortDescription: string;
+    productFullDescription: string;
+    productPrice: string;
+    productPhotos: Array<ProductPhoto>;
+    productTags?: Array<string>;
 }
 
 export class ProductPhoto {
-  isMain: boolean;
-  src: string;
+    isMain: boolean;
+    src: string;
 }
