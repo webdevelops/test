@@ -1,4 +1,6 @@
+// Angular
 import { Component, OnInit } from '@angular/core';
+import {CartActions} from '../../core/store/cart/cart.actions';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartActions: CartActions) { }
 
   ngOnInit(): void {
+    this.cartActions.loadCart();
   }
 
 }

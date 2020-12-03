@@ -2,28 +2,23 @@
 import { Injectable } from '@angular/core';
 
 // Libs
-import { Store, createFeatureSelector, createSelector } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 
 // App
 import { CartState } from './cart.state';
-import { cartFeatureKey } from './cart.reducers';
-import { productAdapter } from '../product/product.state';
 import { ProductModel } from '../../models/product.model';
-import { selectProductById } from '../product/product.selectors';
-
-const { selectTotal, selectAll, selectEntities } = productAdapter.getSelectors()
+import { productAdapter } from '../product/product.state';
+import { cartFeatureKey } from './cart.reducer';
 
 export const selectCartState = createFeatureSelector<CartState>(cartFeatureKey);
 
-export const selectCartProductTotal = createSelector(
-  selectCartState,
-  selectTotal
-);
+const { selectIds, selectEntities, selectAll, selectTotal } = productAdapter.getSelectors();
 
-export const selectAllCartProducts = createSelector(
+
+export const selectCartProductIds = createSelector(
   selectCartState,
-  selectAll
+  selectIds
 );
 
 export const selectCartProductEntities = createSelector(
@@ -31,9 +26,29 @@ export const selectCartProductEntities = createSelector(
   selectEntities
 );
 
+export const selectCartAllProducts = createSelector(
+  selectCartState,
+  selectAll
+);
+
+export const selectCartProductTotal = createSelector(
+  selectCartState,
+  selectTotal
+);
+
+export const selectCartError = createSelector(
+  selectCartState,
+  (state: CartState) => state.error
+);
+
 export const selectCartProductById = (id: string) => createSelector(
   selectCartProductEntities,
   entities => entities[id]
+);
+
+export const selectCartLoading = createSelector(
+  selectCartState,
+  (state: CartState) => state.isLoading
 );
 
 @Injectable({
@@ -47,10 +62,17 @@ export class CartSelectors {
   }
 
   public selectAllProducts$(): Observable<ProductModel[]> {
-    return this.store$.select(selectAllCartProducts);
+    return this.store$.select(selectCartAllProducts);
   }
 
   public selectProductById$(id: string): Observable<ProductModel> {
     return this.store$.select(selectCartProductById(id));
+  }
+
+  public selectError$(): Observable<string | TypeError> {
+    return this.store$.select(selectCartError);
+  }
+  public selectLoading$(): Observable<boolean> {
+    return this.store$.select(selectCartLoading);
   }
 }

@@ -1,10 +1,10 @@
 // Angular
-import { Injectable } from "@angular/core";
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
 
 // Libs
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // App
 import { ProductModel } from '../models/product.model';
@@ -13,7 +13,7 @@ import { ProductModel } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  oldLastLoadedProduct: number = -1;
+
   constructor(private firestore: AngularFirestore) { }
 
   loadProductList(itemCountToLoad: number): Observable<Array<ProductModel>> {
@@ -24,7 +24,17 @@ export class ProductService {
         map((response: ProductModel[]) => {
           return response;
         })
-      )
+      );
+  }
+
+  loadNextPage(lastDownloadedProductId: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
+    return this.firestore.collection('product-list', ref =>
+      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProductId).limit(itemCountToLoad))
+      .valueChanges().pipe(
+        map((response: ProductModel[]) => {
+          return response;
+        })
+      );
   }
 
   loadProductById(id: string): Observable<ProductModel> {
@@ -37,27 +47,4 @@ export class ProductService {
         );
     }
   }
-
-  loadNextPage(lastDownloadedProductId: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
-    // console.log('lastDownloadedProductId', lastDownloadedProductId);
-    return this.firestore.collection('product-list', ref =>
-      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProductId).limit(itemCountToLoad))
-      .valueChanges().pipe(
-        map((response: ProductModel[]) => {
-          return response;
-        })
-      );
-  }
-
-  loadAnotherPage(lastDownloadedProduct: number, itemCountToLoad: number): Observable<Array<ProductModel>> {
-    if (lastDownloadedProduct > this.oldLastLoadedProduct) { }
-    return this.firestore.collection('product-list', ref =>
-      ref.orderBy('productId', 'asc').startAfter(lastDownloadedProduct).limit(itemCountToLoad))
-      .valueChanges().pipe(
-        map((response: ProductModel[]) => {
-          return response;
-        })
-      )
-  }
-
 }

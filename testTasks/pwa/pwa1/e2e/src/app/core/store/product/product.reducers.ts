@@ -31,8 +31,12 @@ export const productReducer = createReducer(
     ...productAdapter.upsertMany(productList, state), page,
     lastDownloadedProductId
   })),
-  on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
-    // ...productAdapter.setAll(productList, state)
-    ...productAdapter.upsertMany(productList, state)
-  })),
+  // on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList  }) => ({
+  //   // ...productAdapter.setAll(productList, state)
+  //   ...productAdapter.upsertMany(productList, state)
+  // })),
+  on(ProductActions.LOAD_ANOTHER_PAGE_SUCCESS, (state, { productList }) => {
+    console.log('state', state);
+    return { ...productAdapter.upsertMany(productList, state) }
+  }),
 );

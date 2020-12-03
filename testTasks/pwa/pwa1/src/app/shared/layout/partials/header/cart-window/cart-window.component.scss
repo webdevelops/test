@@ -1,14 +1,9 @@
-@import "../../../../../../styles/variables";
-@import "../../../../../../styles/mixin";
+@import "../../../../../../styles/variables.scss";
+@import "../../../../../../styles/mixin.scss";
 
 .shopping {
   padding: 0 90px;
-  margin-top: 55px;  // ? header
-
-  &__container {
-    height: 670px;
-    width: 100%;
-  }
+  margin-top: 55px;
 
   &__header {
     color: $black-color;
@@ -22,29 +17,29 @@
     left: 0;
     top: 40px;
     right: 0;
-    margin-bottom: 40px; // ? header
+  }
+
+  &__container {
+    height: 670px;
+    width: 100%;
   }
 
   &__item {
     background-color: $light-grey-color;
     width: 100%;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // font-size: 30px;
+  }
 
-    &-wrap {
-      position: relative;
-      height: 105px;
-      margin-bottom: 30px;
-    }
+  &__item-wrap {
+    position: relative;
+    height: 105px;
+    margin-bottom: 30px;
   }
 
   &__delete-icon {
-    // position: absolute;
-    // top: 50%;
-    // left: -40px;
-    // transform: translate(0, -50%);
+    position: absolute;
+    left: -40px;
+    transform: translate(0, -50%);
+    top: 50%;
     cursor: pointer;
   }
 }
@@ -67,17 +62,17 @@
   }
 
   &__field,
-  input[type="text"]:not(.browser-default) {
+  input[type=text]:not(.browser-default) {
     width: 100%;
     color: $placeholder-color;
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
+
   }
 
   &__field {
     min-height: 100px;
-
     &_error {
       font-size: 18px;
       color: $red-color;
@@ -114,6 +109,16 @@
   }
 }
 
+.header__wrapper {
+  height: 104px;
+  position: sticky;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: $white-color;
+  z-index: 10;
+}
+
 .selected-icon {
   fill: $green-color;
   position: absolute;
@@ -132,25 +137,9 @@
 
 .mat-option.default-option {
   height: 36px;
-  background: #f1f1f1;
+  background: #F1F1F1;
 }
 
 .option-icon {
-  fill: $underline-color;
-}
-
-.mat-fab {
-  box-shadow: none;
-  position: absolute;
-  left: -65px;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-.mat-fab:focus {
-  background: none;
-}
-
-.mat-fab:not(.mat-button-disabled):active {
-  box-shadow: none;
+  fill: $underline-color
 }

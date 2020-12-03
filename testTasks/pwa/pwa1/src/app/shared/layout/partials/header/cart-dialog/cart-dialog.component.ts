@@ -1,8 +1,11 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+// import { ObservableMedia } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+
 import { ProductModel } from '../../../../../core/models/product.model';
 import { Observable } from 'rxjs';
-import { IconList } from 'src/app/core/mock/icon.list';
+import { IconList } from '../../../../../core/mock/icon-list';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceList } from '../cart-window/cart-window.component';
 import { CartSelectors } from '../../../../../core/store/cart/cart.selectors';
@@ -25,6 +28,7 @@ export class CartDialogComponent implements OnInit {
   public onlyRead = true;
   public isMobileMode = false;
   public isShowSendingFormPart = false;
+  // public state: ;
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
@@ -33,19 +37,41 @@ export class CartDialogComponent implements OnInit {
     comment: new FormControl('')
   });
 
-  @HostListener('window:resize', [])
-  private onResize(): void {
-    this.checkMobileMode();
-  }
+  // @HostListener('window:resize', [])
+  // private onResize(): void {
+  //   this.checkMobileMode();
+  // }
 
-  constructor(public dialogRef: MatDialogRef<CartDialogComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<CartDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartDialogData,
     private cartSelectors: CartSelectors,
-    private cartActions: CartActions) {
+    private cartActions: CartActions,
+    public media: MediaObserver
+  ) {
+    // media.asObservable().subscribe((change: MediaChange[]) => {
+    //   // console.log('media', media.isActive('lg'))
+    //   this.isMobileMode = media.isActive('lt-md')
+    //   console.log("🚀 ~ file: cart-dialog.component.ts ~ line 55 ~ CartDialogComponent ~ media.asObservable ~ this.isShowSendingFormPart", this.isShowSendingFormPart)
+    // })
+    // console.log('media', media)
+    // media.asObservable();
+    // console.log('media', media.isActive('lg'))
+    // media.asObservable()
+    //   .subscribe((change: MediaChange[]) => {
+    //     this.state = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : '';
+    //   });
   }
 
   ngOnInit(): void {
-    this.checkMobileMode();
+    // this.checkMobileMode();
+    this.media.asObservable().subscribe(() => {
+      this.isMobileMode = this.media.isActive('lt-md');
+
+      if (this.isMobileMode) {
+        this.isShowSendingFormPart = true;
+      }
+    })
 
     this.options = [
       {
@@ -87,25 +113,24 @@ export class CartDialogComponent implements OnInit {
     this.sendForm.controls.messenger.setValue($event.option.value.name);
     this.sendForm.controls.messengerData.setValue($event.option.value.userData);
     // this.canFill = false;
-    console.log(this.sendForm.controls.messengerData);
-    console.log(this.sendForm.controls.messenger);
+    // console.log(this.sendForm.controls.messengerData);
+    // console.log(this.sendForm.controls.messenger);
   }
 
   removeFromCart(product: ProductModel): void {
-    this.cartActions.removeProductFromCart(product);
+    this.cartActions.deleteProductFromCart(product);
   }
 
-  private checkMobileMode(): void {
-    console.log("CartDialogComponent -> isShowSendingFormPart-1", this.isShowSendingFormPart)
-    this.isMobileMode = false;
-    if (document) {
-      const width = document.body.clientWidth;
-      this.isMobileMode = width < 1100;
-      console.log("CartDialogComponent -> checkMobileMode -> isMobileMode", this.isMobileMode)
-    }
-    if (!this.isMobileMode) {
-      console.log("CartDialogComponent -> isShowSendingFormPart-2", this.isShowSendingFormPart)
-      this.isShowSendingFormPart = false;
-    }
-  }
+  // private checkMobileMode(): void {
+  //   this.isMobileMode = false;
+  //   if (document) {
+  //     const width = document.body.clientWidth;
+  //     this.isMobileMode = width < 800;
+  //   }
+  //   if (!this.isMobileMode) {
+  //     this.isShowSendingFormPart = false;
+  //   }
+  // }
+
+
 }

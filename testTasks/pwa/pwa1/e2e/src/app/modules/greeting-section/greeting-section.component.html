@@ -1,0 +1,56 @@
+<mat-tab-group headerPosition="below" class="slider------" [selectedIndex]="activeTabIndex$" #slider
+  (selectedTabChange)="selectedTabChange($event)">
+  <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
+    <ng-template mat-tab-label>
+      <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
+    </ng-template>
+
+    <div ngClass.xs='mobile'>
+      <div ngClass.lt-md='tablet'>
+        <div class="slider__content" fxLayout="row" fxLayoutAlign="center center" (click)="customSlider()">
+          <div class="slider__body" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start"
+            fxLayoutAlign.lt-lg="center center">
+
+            <div class="slider__detail" fxLayout="column" fxLayoutAlign="space-between start"
+              fxLayoutAlign.lt-md="center center">
+              <div class="slider__title-wrap mobile">
+                <div class="slider__title">
+                  {{tab.title}}
+                </div>
+
+                <div class="slider__description">
+                  {{tab.description}}
+                </div>
+              </div>
+
+              <img class="slider__image" src="{{tab.imageSrc}}" alt="product-image" fxHide.gt-sm>
+
+              <div class="slider__buttons" fxLayout="row" fxLayout.lt-sm="column">
+                <button mat-flat-button class="get-price-btn slider__btn">
+                  <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
+                  <span>Get Price</span>
+                </button>
+
+                <button mat-flat-button class="add-to-cart-btn slider__btn" *ngIf="!(isProductInCart$ | async)"
+                  (click)="addToCart(); $event.stopPropagation();">
+                  <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+                  <span>Add to cart</span>
+                </button>
+                <button mat-flat-button class="remove-from-cart-btn slider__btn" *ngIf="isProductInCart$ | async"
+                  (click)="removeFromCart(); $event.stopPropagation();">
+                  <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
+                  <span>Remove from cart</span>
+                </button>
+              </div>
+            </div>
+
+            <img src="{{tab.imageSrc}}" alt="product-image" class="slider__image" fxHide.lt-md>
+
+          </div>
+          <div [style.backgroundImage]="'url(' + 'assets/images/slider/slider-background.png' + ')'"
+            class="slider__background-image"></div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,28 @@
+@import "../../../styles//mixin";
+
+.wrap {
+  position: relative;
+}
+
+.product-list {
+  @include content-container;
+  padding-top: 83px;
+  // flex-wrap: wrap;
+  min-height: 300px;
+  position: relative;
+  margin: auto;
+  
+  &_mobile {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 63px;
+  }
+
+  &__item {
+    margin-bottom: 42px;
+
+    &_mobile {
+      width: 100%;
+    }
+  }
+}

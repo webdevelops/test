@@ -1,1 +1,27 @@
-@import "../../../styles/shared-styles";
+@import "../../../styles/variables";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    background-color: $header-grey-background;
+    top: 0;
+    position: sticky;
+    // position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2020;
+    flex: 0 0 auto;
+  }
+
+  &__content {
+    flex: 1 0 auto;
+    // padding-top: 60px;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+}

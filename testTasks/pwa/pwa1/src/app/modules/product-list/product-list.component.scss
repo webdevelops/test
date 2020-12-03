@@ -1,21 +1,15 @@
-@import "../../../styles//mixin";
-
-.wrap {
-  position: relative;
-}
+@import "../../../styles/mixin.scss";
 
 .product-list {
   @include content-container;
   padding-top: 83px;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   min-height: 300px;
   position: relative;
   margin: auto;
-  
-  &_mobile {
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 63px;
+
+  &__mobile {
+    padding: 63px 25px 0;
   }
 
   &__item {
@@ -26,3 +20,16 @@
     }
   }
 }
+
+.wrap {
+  position: relative;
+}
+
+// @media (max-width:800px) {
+
+  // .product-list {
+  //   align-items: center !important;
+  //   flex-direction: column !important;
+  // }
+
+// }

@@ -1,0 +1,145 @@
+<div class="layout">
+  <div class="layout__header">
+    <app-header></app-header>
+  </div>
+
+  <div class="layout__content detail-page">
+    <div class="product" *ngIf="product$ | async as product" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="product__details" fxFlex="90">
+        <div class="product__title">
+          {{product.productName}}
+        </div>
+
+        <div class="product__hours">
+          <app-svg-icons [iconType]="iconList.Clock"></app-svg-icons>
+          <span>40-60 h</span>
+        </div>
+
+        <div class="product__image-wrapper mobile" fxLayout="column-reverse" fxHide.gt-sm>
+          <div class="product__image-background" fxLayoutAlign="center center">
+            <img src="../../../assets/images/ImageItem.png" alt="Photo of the product" class="product__image">
+          </div>
+        </div>
+
+        <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start" fxLayoutAlign.lt-md="center">
+          <div>
+            <span class="title">Customers needs</span>
+            <br>
+            <span class="text">Mobile first, icon on homescreen, notification for Android, offline mode and good
+              experience using a pure mobile connection, good SEO, no need to submit your app to the App store or
+              Google. Play and pay commission.</span>
+          </div>
+
+          <div>
+            <span class="title">Short Description</span>
+            <span class="text">Mobile first with icon on Homepage, Behave like Native Apps (with some rescription), No
+              Store
+              Required, Much Cheaper to Develop, Deploy, Promote and Maintain than Mative Apps, Offline, Hardware
+              Integration,
+              Improve Page Speed, Cached Assets Reduce Derver Load & Less Data Requirement.</span>
+          </div>
+        </div>
+
+        <div class="product__buttons" fxLayout="row" fxLayout.xs="column">
+          <button mat-flat-button class="get-price-btn product__btn">
+            <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
+            <span>Get Price</span>
+          </button>
+
+          <button mat-flat-button class="add-to-cart-btn product__btn" *ngIf="!(isProductInCart$ | async)" (click)="addToCart(product)">
+            <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+            <span>Add to cart</span>
+          </button>
+          <button mat-flat-button class="remove-from-cart-btn product__btn" *ngIf="isProductInCart$ | async" (click)="removeFromCart(product)">
+            <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
+            <span>Remove from cart</span>
+          </button>
+
+          <!-- <input type="text" (input)="persist('test', $event.target.value)"> -->
+        </div>
+      </div>
+
+      <div class="product__image-wrapper" fxLayout="column-reverse" fxHide.lt-md>
+        <div class="product__image-background" fxLayoutAlign="center center">
+          <img src="../../../assets/images/ImageItem.png" alt="Photo on the product" class="product__image">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-info">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Our experience">
+          <div class="product-info__tab">
+            <div class="product-info__text">
+              <span class="title">Industries</span>
+              <br>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, quisquam illum
+                neque quasi totam et inventore unde reprehenderit cum. Necessitatibus ipsum assumenda nostrum minima nam
+                dolorum eos sed impedit ea nihil praesentium maiores perferendis expedita iste, omnis vero odio
+                accusantium at officia molestiae perspiciatis totam, in, voluptatibus cum. Quia accusantium dolor atque
+                neque esse, adipisci molestiae! Obcaecati reprehenderit qui temporibus dicta doloribus, voluptatum nisi
+                aut, veritatis atque vel sed. Voluptatum.</span>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Tach stack">
+          <div class="product-info__tab">
+            <div class="product-info__text">
+              <span class="title">Tach Stack</span>
+              <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero autem, doloribus ullam,
+                eaque, facilis quo non nemo dicta esse vero cupiditate unde culpa dolor pariatur debitis hic
+                necessitatibus qui sunt! Necessitatibus quos, magni ad dolor odit temporibus eveniet blanditiis fugiat
+                quas sunt provident explicabo rem nulla non quo consequatur iusto ex quasi! Delectus maxime provident
+                corrupti impedit debitis modi alias ab fugiat qui est, sit iste, totam similique, vero minus.</span>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Who uses">
+          <div class="product-info__tab">
+            <div class="product-info__text">
+              <span class="title">Who uses</span>
+              <br>
+              <span class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure quam quo incidunt iste
+                facere ex natus cupiditate soluta suscipit temporibus tempore beatae doloremque necessitatibus mollitia,
+                culpa similique magni eaque repellat, cumque odio quas. Suscipit itaque, laboriosam velit quas libero
+                dolore? Temporibus quaerat esse delectus beatae sunt eum, suscipit veniam voluptatibus voluptas quas?
+                Earum consectetur error quia cumque voluptas eius, vitae sit dicta, cum quas quae qui inventore, dolore
+                aliquam provident.</span>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Industries">
+          <div class="product-info__tab">
+            <div class="product-info__text">
+              <span class="title">Industries</span>
+              <br>
+              <span class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia perspiciatis quae,
+                atque temporibus sint repudiandae ipsam totam voluptatum autem rerum cupiditate. Laudantium, sequi saepe
+                fuga provident amet praesentium autem est aperiam dolor vel aut earum. Totam nisi nam perspiciatis
+                accusantium, tenetur nihil pariatur. Velit laborum iure ad tempore. Quasi, totam. Sed exercitationem
+                temporibus, dolore iusto non numquam quo soluta excepturi quia vitae, molestiae sapiente blanditiis
+                voluptatem, tenetur possimus!</span>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+    <div class="more-products">
+      <div class="more-products__head">
+        <span>More Products</span>
+      </div>
+
+      <div class="product-list">
+        <div class="item" *ngFor="let product of randomProductList$ | async">
+          <app-product [product]="product" [viewMode]="'SIMPLE_CARD'"></app-product>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

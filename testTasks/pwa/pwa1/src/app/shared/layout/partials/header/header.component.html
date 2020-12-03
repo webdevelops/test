@@ -1,9 +1,9 @@
 <div class="header" [ngClass.lt-lg]="{'header__mobile': true}" fxLayout="row" fxLayoutAlign="space-between center">
-  <app-svg-icons class="header__logo" [iconType]="iconList.Logo" [routerLink]="['/']"></app-svg-icons>
-  <button mat-fab class="header__cart-btn">
-    <a (click)="showCart()" matBadge="{{cartCountProducts$ | async}}" matBadgePosition="before"
-      [matBadgeHidden]="(cartCountProducts$ | async) == 0">
-      <app-svg-icons [iconType]="iconList.Cart"></app-svg-icons>
-    </a>
-  </button>
+    <app-svg-icons class="header__logo" [iconType]="iconList.Logo" [routerLink]="['/']"></app-svg-icons>
+    <button mat-fab class="header__cart-btn" fxLayoutAlign="center center">
+        <a (click)="showCart()" matBadge="{{cartCountProducts$ | async}}" matBadgePosition="before"
+            [matBadgeHidden]="(cartCountProducts$ | async) == 0">
+            <app-svg-icons [iconType]="iconList.Cart"></app-svg-icons>
+        </a>
+    </button>
 </div>

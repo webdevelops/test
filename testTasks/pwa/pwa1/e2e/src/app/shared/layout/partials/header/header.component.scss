@@ -1,0 +1,33 @@
+@import "../../../../../styles/mixin.scss";
+
+.header {
+  @include content-container;
+  height: 60px;
+
+  &__logo {
+    @include logo;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: inherit;
+    box-shadow: none;
+  }
+
+  .mat-badge {
+    display: block;
+  }
+
+  &__card-btn {
+    display: flex;
+  }
+
+  &__mobile {
+    padding: 0 25px;
+  }
+
+  // @media (min-width: $breakpoint-gt-xs) and (max-width: $breakpoint-gt-md) {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
+}

@@ -1,43 +1,58 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatBadgeModule } from '@angular/material/badge';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
-    // MatButtonModule,
-    // FlexLayoutModule, // ?
-    // MatProgressSpinnerModule, // ?
-    // MatAutocompleteModule
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatInputModule,
+    ScrollingModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatFormFieldModule,
     FlexLayoutModule,
     MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatDialogModule,
     MatButtonModule,
     MatTabsModule,
-    MatInputModule, // ?
-    ScrollingModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatAutocompleteModule,
     MatToolbarModule,
-    MatDialogModule,
-    MatBadgeModule
+    MatDividerModule,
+    MatInputModule,
+    ScrollingModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
   ]
 })
 export class MaterialModule { }

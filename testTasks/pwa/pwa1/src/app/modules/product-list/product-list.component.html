@@ -1,19 +1,15 @@
 <div class="wrap">
   <app-loading [show]="loading$ | async"></app-loading>
-
   <div infiniteScroll
       [infiniteScrollDistance]="2"
       [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()"
-  class="product-list" fxLayout="row wrap" fxLayoutAlign.gt-md="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-md="15px" [ngClass.lt-lg]="{'product-list_mobile': true}">
-    <div class="product-list__item"  [ngClass.lt-sm]="{'product-list__item_mobile': true}"
+  class="product-list" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-md="15px"  [ngClass.lt-lg]="{'product-list__mobile': true}">
+    <div class="product-list__item" [ngClass.lt-sm]="{'product-list__item_mobile': true}"
       *ngFor="let product of productList$ | async | slice:0:(pageIndex$ | async) index as index">
       <app-product [product]="product" [viewMode]="index < 2 ? 'WIDE_CARD' : 'SIMPLE_CARD'"></app-product>
     </div>
   </div>
-
-  <!-- <mat-paginator [length]="productListLength" [pageSize]="pageSize" (page)="loadNextPage()">
-  </mat-paginator> -->
-  <!-- <mat-paginator [length]="productListLength" [pageSize]="pageSize" (page)="loadAnotherPage($event)">
+  <!-- <mat-paginator [length]="productListLength" (page)="loadNextPage()" [pageSize]="pageSize">
   </mat-paginator> -->
 </div>

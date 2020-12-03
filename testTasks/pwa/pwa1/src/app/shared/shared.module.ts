@@ -1,31 +1,28 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // App
-import { SvgIconsComponent } from '../shared/svg-icons/svg-icons.component';
-import { MaterialModule } from '../shared/material/material.module';
 import { LoadingComponent } from '../shared/layout/partials/loading/loading.component';
+import { MaterialModule } from './material/material.module';
+import { SvgIconsComponent } from './svg-icons/svg-icons.component';
 
 @NgModule({
-  declarations: [
-    SvgIconsComponent,
-    LoadingComponent
-  ],
+  declarations: [LoadingComponent, SvgIconsComponent],
   imports: [
     CommonModule,
-    RouterModule, // ?
-    MaterialModule, // ?
-    ReactiveFormsModule, // ?
+    MaterialModule,
+    ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
-    SvgIconsComponent,
-    RouterModule,
     MaterialModule,
+    ReactiveFormsModule,
+    RouterModule,
+    SvgIconsComponent,
     LoadingComponent,
-    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

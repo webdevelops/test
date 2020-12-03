@@ -1,0 +1,97 @@
+<app-modal-window #modal="modal" (modalClose)="modalClose()">
+  <div modal-header-left class="shopping__header">Shopping Cart</div>
+  <div modal-left-part>
+    <cdk-virtual-scroll-viewport itemSize="4" class="shopping__container">
+      <!-- <div class="header__wrapper">
+        <div modal-header-left class="shopping__header">Shopping Cart</div>
+      </div> -->
+      <div class="shopping">
+        <div class="shopping__item-wrap" fxLayout="row"
+          *cdkVirtualFor="let productFromBasket of productsFromBasket$ | async">
+          <button mat-fab color="" aria-label="Example icon button with a delete icon"
+            (click)="removeFromCart(productFromBasket.productId)">
+            <app-svg-icons class="shopping__delete-icon" [iconType]="iconList.Delete"></app-svg-icons>
+          </button>
+          <div class="shopping__item">{{productFromBasket.productName}}</div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+  <div modal-header-right class="sending-form__header">Sending Form</div>
+  <div modal-right-part>
+    <div class="sending-form__content">
+      <form [formGroup]="sendForm">
+        <mat-form-field appearance="standart" class="sending-form__field">
+          <mat-label>Name & Company</mat-label>
+          <input matInput class="underlined-field" type="text" autocomplete="off" formControlName="nameCompany"
+            [ngClass]="{'touched': sendForm.controls.nameCompany.touched}">
+          <mat-error class="error" *ngIf="sendForm.controls.nameCompany.hasError('required')">
+            Field is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standart" class="sending-form__field">
+          <mat-label
+            [ngClass]="{'sending-form__field_error': (sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched) || (sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')}">
+            <ng-container *ngIf="sendForm.controls.messenger.value; else defaultLabel">
+              {{ sendForm.controls.messenger.value }}
+            </ng-container>
+            <ng-template #defaultLabel>
+              Select messenger
+            </ng-template>
+          </mat-label>
+
+          <input type="text" matInput formControlName="messengerData" [matAutocomplete]="auto" class="underlined-field"
+            [value]="sendForm.controls.messengerData.value"
+            [ngClass]="{'touched': sendForm.controls.messengerData.touched}">
+          <app-svg-icons matSuffix class="selected-icon" [ngClass]="{'error': (sendForm.controls.messengerData.value === '' 
+            && sendForm.controls.messengerData.touched)}" [iconType]="sendForm.controls.messenger.value === ''
+             ? iconList.ArrowDown
+             : sendForm.controls.messenger.value">
+          </app-svg-icons>
+
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messengerData.value === '' && sendForm.controls.messengerData.touched)">
+            Field is <strong>required</strong>
+          </mat-hint>
+          <mat-hint class="error"
+            *ngIf="(sendForm.controls.messenger.value === '' && sendForm.controls.messengerData.touched && sendForm.controls.messengerData.value !== '')">
+            Select your messenger
+          </mat-hint>
+
+          <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption="false"
+            (optionSelected)="getUserData($event)">
+            <mat-option value="Select messenger" disabled class="default-option">
+              Messenger
+              <app-svg-icons class="option-icon" [iconType]="iconList.ArrowDown"></app-svg-icons>
+            </mat-option>
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option.name}}
+              <app-svg-icons class="option-icon" [iconType]="option.icon"></app-svg-icons>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field appearance="standart" class="sending-form__field comment">
+          <mat-label>Comment/Breif</mat-label>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" formControlName="comment"
+            [ngClass]="{'touched': sendForm.controls.comment.touched && sendForm.controls.comment.value !== ''}"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <div class="sending-form__footer" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="17px">
+      <div class="sending-form__addition" fxLayout="row" fxLayoutAlign="space-between center">
+        <span>item: 5</span>
+        <span>105-135 h</span>
+      </div>
+      <button mat-stroked-button class="sending-form__btn" (click)="modal.closeModal({submitted: true})"
+        [disabled]="sendForm.status === 'INVALID'">
+        <span>Send</span>
+      </button>
+    </div>
+  </div>
+</app-modal-window>

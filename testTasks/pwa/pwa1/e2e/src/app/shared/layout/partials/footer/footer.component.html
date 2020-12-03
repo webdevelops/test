@@ -1,0 +1,48 @@
+<mat-toolbar-row>
+  <div class="footer" fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutAlign="space-between center"
+    fxLayoutAlign.lt-md="space-around center" [ngClass.lt-lg]="{'footer__mobile': true}">
+    <div fxLayout="row" fxLayourAlign="center">
+      <app-svg-icons class="footer__logo" [iconType]="iconList.Logo" [ngClass.lt-md]="{'footer__logo_mobile': true}"></app-svg-icons>
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.gt-sm="space-around stretch"
+      fxLayoutGap="30px" fxLayoutGap.lt-md="15px">
+      <div class="footer__item" [ngClass.lt-lg]="{'footer__item_mobile': true}">Follow us:</div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" fxLayoutGap.lt-sm="15px">
+
+        <a href="https://github.com/darklimeteam">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.GitHub"></app-svg-icons>
+        </a>
+
+        <a href="https://www.facebook.com/darklimeteam">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Facebook"></app-svg-icons>
+        </a>
+
+        <a href="https://www.linkedin.com/company/darklime">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Linkedin"></app-svg-icons>
+        </a>
+
+        <a href="https://www.behance.net/alexzp">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Behance"></app-svg-icons>
+        </a>
+
+        <a href="https://www.instagram.com/darklime_team">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Instagram"></app-svg-icons>
+        </a>
+
+        <a href="https://www.youtube.com/channel/UC6QQKPw7SwpySDUf7gbOEAA/featured">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Youtube"></app-svg-icons>
+        </a>
+
+        <a href="https://t.me/darklimeteam">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Telegram"></app-svg-icons>
+        </a>
+
+        <a href="https://twitter.com/DarkLimeTeam">
+          <app-svg-icons class="footer__icon" [iconType]="iconList.Twitter"></app-svg-icons>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</mat-toolbar-row>
