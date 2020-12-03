@@ -1,7 +1,6 @@
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-// import { ObservableMedia } from '@angular/flex-layout';
-import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 
 import { ProductModel } from '../../../../../core/models/product.model';
 import { Observable } from 'rxjs';
@@ -28,7 +27,6 @@ export class CartDialogComponent implements OnInit {
   public onlyRead = true;
   public isMobileMode = false;
   public isShowSendingFormPart = false;
-  // public state: ;
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
@@ -37,11 +35,6 @@ export class CartDialogComponent implements OnInit {
     comment: new FormControl('')
   });
 
-  // @HostListener('window:resize', [])
-  // private onResize(): void {
-  //   this.checkMobileMode();
-  // }
-
   constructor(
     public dialogRef: MatDialogRef<CartDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CartDialogData,
@@ -49,28 +42,10 @@ export class CartDialogComponent implements OnInit {
     private cartActions: CartActions,
     public media: MediaObserver
   ) {
-    // media.asObservable().subscribe((change: MediaChange[]) => {
-    //   // console.log('media', media.isActive('lg'))
-    //   this.isMobileMode = media.isActive('lt-md')
-    //   console.log("🚀 ~ file: cart-dialog.component.ts ~ line 55 ~ CartDialogComponent ~ media.asObservable ~ this.isShowSendingFormPart", this.isShowSendingFormPart)
-    // })
-    // console.log('media', media)
-    // media.asObservable();
-    // console.log('media', media.isActive('lg'))
-    // media.asObservable()
-    //   .subscribe((change: MediaChange[]) => {
-    //     this.state = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : '';
-    //   });
   }
 
   ngOnInit(): void {
     this.checkMobileMode();
-    // this.media.asObservable().subscribe(() => {
-    //   // this.isMobileMode = false;
-    //   this.isMobileMode = this.media.isActive('lt-md');
-
-    //   this.isShowSendingFormPart = !this.isMobileMode;
-    // })
 
     this.options = [
       {
@@ -122,19 +97,9 @@ export class CartDialogComponent implements OnInit {
 
   private checkMobileMode(): void {
     this.media.asObservable().subscribe(() => {
-      // this.isMobileMode = false;
       this.isMobileMode = this.media.isActive('lt-md');
-
       this.isShowSendingFormPart = !this.isMobileMode;
     })
-    //   this.isMobileMode = false;
-    //   if (document) {
-    //     const width = document.body.clientWidth;
-    //     this.isMobileMode = width < 800;
-    //   }
-    //   if (!this.isMobileMode) {
-    //     this.isShowSendingFormPart = false;
-    //   }
   }
 
 
