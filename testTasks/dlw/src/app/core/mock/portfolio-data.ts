@@ -20,12 +20,26 @@ export const links = [
 export const features = [
   'post video or audio content, your thoughts',
   'take part into polls or create your own one',
-  'get reward with points for quality content or polls and use them in our store'
+  'get reward with points for quality content or polls and use them in our store',
 ];
 
-export const icons = [
+export const dashboardIcons = [
   'assets/icon/angular.svg',
   'assets/icon/angular_material.svg',
   'assets/icon/firebase.svg',
-  'assets/icon/cloud_functions.svg'
+  'assets/icon/cloud_functions.svg',
 ];
+
+export const uStadiumIcons = [
+  'assets/icon/angular.svg',
+  'assets/icon/node_js.svg',
+  'assets/icon/google_cloud.svg',
+  'assets/icon/firebase.svg',
+  'assets/icon/braintree.svg',
+  'assets/icon/ngrx_store.svg',
+  'assets/icon/angular_universal.svg',
+]
+
+export const taskIcons = [
+  '/assets/icon/adobe_xd.svg',
+]

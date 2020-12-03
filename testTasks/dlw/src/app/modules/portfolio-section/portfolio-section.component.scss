@@ -1,0 +1,96 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+.portfolio {
+  @include dark-grey-ground;
+
+  &__header {
+    @include header;
+    color: $white-color;
+  }
+}
+
+.slider {
+  @include container-padding;
+
+  &__container {
+    @include section-container;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    min-height: 590px;
+  }
+
+  &__counter {
+    @include carusel-counter;
+  }
+
+  &__content {
+    width: 40%;
+
+    &.mobile {
+      max-width: 80vw;
+      width: 100%;
+      margin-top: 25px;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    font: 300 30px/37px Montserrat;
+    letter-spacing: 0;
+    color: $white-color;
+    opacity: 1;
+
+    &.mobile {
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+
+  &__description p,
+  li {
+    text-align: left;
+    font: 300 16px/25px Montserrat;
+    letter-spacing: 0;
+    color: $white-color;
+    opacity: 1;
+  }
+
+  &__description,
+  &__icons {
+    span {
+      text-align: left;
+      font: 400 9px/25px Montserrat;
+      letter-spacing: 0;
+      color: $green-color;
+      opacity: 1;
+      margin-bottom: 13px;
+    }
+
+    img {
+      margin-right: 20px;
+      margin-bottom: 33px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__link {
+    color: $green-color;
+  }
+
+  &__image {
+    width: 50%;
+    // flex: 1 0 auto;
+
+    img {
+      width: 100%;
+      // object-fit: contain;
+    }
+
+    &.mobile {
+      width: 100%;
+    }
+  }
+}

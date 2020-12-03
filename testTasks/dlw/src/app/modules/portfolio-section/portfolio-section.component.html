@@ -11,8 +11,9 @@
         <div class="slider__counter" [ngClass]="{'active': tab.isActive}"></div>
       </ng-template>
 
-      <div class="slider__container" fxLayout="row" fxLayoutAlign="space-around center">
-        <div class="slider__content" ngClass.lt-md="mobile" fxLayout.lt-md="column">
+      <div class="slider__container" ngClass.lt-md="mobile" fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutAlign="space-around center">
+
+        <div class="slider__content" ngClass.lt-md="mobile" fxLayout.lt-md="column">       
           <div class="slider__title">{{tab.title}}</div>
 
           <div class="slider__description">
@@ -21,16 +22,15 @@
               <p>Links:</p>
               <ul>
                 <ng-container *ngFor="let item of tab.list; let i = index">
-                  <li>
-                    <span *ngIf="tab.list.length == 0">{{item}}</span>
+                  <li *ngIf="tab.label == 'First'; else feature">
                     <a href={{item.link}} target="_blank" class="slider__link">
                       {{item.label}}
                     </a>
                   </li>
 
-                  <!-- <ng-template #feature> -->
-                    <!-- <li *ngIf="tab.list.length == 0">{{item}}</li> -->
-                  <!-- </ng-template> -->
+                  <ng-template #feature>
+                    <li>{{item}}</li>
+                  </ng-template>
                 </ng-container>
               </ul>
             </div>
@@ -44,6 +44,11 @@
             <img src={{icon}} alt="image" *ngFor="let icon of tab.icons">
           </div>
         </div>
+
+        <div class="slider__image" ngClass.lt-md="mobile">
+          <img src={{tab.imageSrc}} alt={{tab.title}}>
+        </div>
+
       </div>
     </mat-tab>
   </mat-tab-group>

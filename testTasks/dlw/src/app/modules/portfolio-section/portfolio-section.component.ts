@@ -21,7 +21,8 @@ export class PortfolioSectionComponent implements OnInit {
         list: data.links,
         description: data.description_labelFirst,
         description2: data.description2_labelFirst,
-        icons: data.icons
+        icons: data.dashboardIcons,
+        imageSrc: '/assets/slider/portfolio/dashboarhub.png',
       },
       {
         isActive: false,
@@ -30,7 +31,18 @@ export class PortfolioSectionComponent implements OnInit {
         list: data.features,
         description: data.description_labelFirst,
         description2: data.description2_labelFirst,
-        icons: data.icons
+        icons: data.uStadiumIcons,
+        imageSrc: '/assets/slider/portfolio/Ustadium.png',
+      },
+      {
+        isActive: false,
+        label: 'Third',
+        title: 'Task-it!',
+        // list: data.features,
+        description: data.description_labelFirst,
+        description2: data.description2_labelFirst,
+        icons: data.taskIcons,
+        imageSrc: '/assets/slider/portfolio/taskit.png',
       }
     ]
   }
