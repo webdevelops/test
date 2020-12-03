@@ -1,17 +1,15 @@
 @import "../../../../../../styles/variables.scss";
 @import "../../../../../../styles/mixin.scss";
 
-
 :host {
-
   .content.mobile {
     .modal-left-part,
-    .modal-right-part{
+    .modal-right-part {
       width: 100%;
       margin: 0;
       padding-top: 30px;
     }
-    .modal-right-part{
+    .modal-right-part {
       padding-top: 0;
     }
     .modal-right-part-content {
@@ -59,7 +57,6 @@
       color: rgba(255, 255, 255, 0.87);
       background: #f0f8ff20;
     }
-
   }
 
   .modal-left-part,
@@ -102,7 +99,6 @@
           height: 46px;
         }
       }
-
     }
   }
 
@@ -116,8 +112,6 @@
     .header-wrapper {
       margin-bottom: 20px;
     }
-
-
 
     .header {
       color: $black-color;
@@ -179,7 +173,7 @@
 
   .sending-form {
     padding: 50px 0 0 0;
-    background: #3F4A4E;
+    background: #3f4a4e;
     min-height: 100%;
     display: grid;
     width: 46%;
@@ -210,7 +204,7 @@
     }
 
     .field,
-    input[type=text]:not(.browser-default) {
+    input[type="text"]:not(.browser-default) {
       width: 100%;
       color: $placeholder-color;
       font-weight: 500;
@@ -263,13 +257,12 @@
 
   .mat-option.default-option {
     height: 36px;
-    background: #F1F1F1;
+    background: #f1f1f1;
   }
 
   .option-icon {
-    fill: $underline-color
+    fill: $underline-color;
   }
-
 
   .btn {
     background-color: $green-color;
@@ -290,20 +283,16 @@
       background-color: $disabled-green-btn !important;
     }
   }
-
 }
 
-
 ::ng-deep {
-
   .cdk-overlay-pane.cart-modal {
     max-width: 80vw;
     width: 1084px;
     height: 738px;
   }
 
-
-  @media (max-width:800px) {
+  @media (max-width: 960px) {
     .cdk-overlay-pane.cart-modal {
       max-width: 100% !important;
       width: 100%;
@@ -346,7 +335,6 @@
           padding-top: 0;
         }
       }
-
     }
   }
 
@@ -361,5 +349,4 @@
       max-height: 100%;
     }
   }
-
 }

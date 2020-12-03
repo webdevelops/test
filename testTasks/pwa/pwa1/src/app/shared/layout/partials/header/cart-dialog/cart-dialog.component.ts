@@ -64,14 +64,13 @@ export class CartDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.checkMobileMode();
-    this.media.asObservable().subscribe(() => {
-      this.isMobileMode = this.media.isActive('lt-md');
+    this.checkMobileMode();
+    // this.media.asObservable().subscribe(() => {
+    //   // this.isMobileMode = false;
+    //   this.isMobileMode = this.media.isActive('lt-md');
 
-      if (this.isMobileMode) {
-        this.isShowSendingFormPart = true;
-      }
-    })
+    //   this.isShowSendingFormPart = !this.isMobileMode;
+    // })
 
     this.options = [
       {
@@ -121,16 +120,22 @@ export class CartDialogComponent implements OnInit {
     this.cartActions.deleteProductFromCart(product);
   }
 
-  // private checkMobileMode(): void {
-  //   this.isMobileMode = false;
-  //   if (document) {
-  //     const width = document.body.clientWidth;
-  //     this.isMobileMode = width < 800;
-  //   }
-  //   if (!this.isMobileMode) {
-  //     this.isShowSendingFormPart = false;
-  //   }
-  // }
+  private checkMobileMode(): void {
+    this.media.asObservable().subscribe(() => {
+      // this.isMobileMode = false;
+      this.isMobileMode = this.media.isActive('lt-md');
+
+      this.isShowSendingFormPart = !this.isMobileMode;
+    })
+    //   this.isMobileMode = false;
+    //   if (document) {
+    //     const width = document.body.clientWidth;
+    //     this.isMobileMode = width < 800;
+    //   }
+    //   if (!this.isMobileMode) {
+    //     this.isShowSendingFormPart = false;
+    //   }
+  }
 
 
 }
