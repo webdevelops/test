@@ -67,12 +67,20 @@
       opacity: 1;
       margin-bottom: 13px;
     }
+  }
 
+  &__icons {
     img {
       margin-right: 20px;
       margin-bottom: 33px;
       width: 24px;
       height: 24px;
+    }
+
+    &.mobile {
+      img {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -90,7 +98,7 @@
     }
 
     &.mobile {
-      width: 100%;
+      width: 90%;
     }
   }
 }

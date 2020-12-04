@@ -11,24 +11,24 @@ import { PortfolioSectionComponent } from './portfolio-section/portfolio-section
 
 @NgModule({
   declarations: [
-    ClientSectionComponent,
     GreetingSectionComponent,
     TeamSkillSectionComponent,
     TechnologySectionComponent,
     AvailableServicesSectionComponent,
     PortfolioSectionComponent,
+    ClientSectionComponent,
   ],
   imports: [
     SharedModule,
     CommonModule
   ],
   exports: [
-    ClientSectionComponent,
     GreetingSectionComponent,
     TeamSkillSectionComponent,
     TechnologySectionComponent,
     AvailableServicesSectionComponent,
     PortfolioSectionComponent,
+    ClientSectionComponent,
   ]
 })
 export class ModulesModule { }

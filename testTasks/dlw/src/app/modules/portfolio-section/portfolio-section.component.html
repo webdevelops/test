@@ -5,15 +5,18 @@
     </div>
   </div>
 
-  <mat-tab-group class="slider" headerPosition="below" [selectedIndex]="activeTabIndex">
+  <mat-tab-group class="slider" headerPosition="below" [selectedIndex]="activeTabIndex"
+    (selectedTabChange)="selectedTabChange($event)">
     <mat-tab *ngFor="let tab of tabs" label={{tab.label}}>
       <ng-template mat-tab-label>
-        <div class="slider__counter" [ngClass]="{'active': tab.isActive}"></div>
+        <div class="slider__counter" [ngClass]="{'active': tab.isActive}" 
+        [ngClass.lt-md]="{'active': tab.isActive, 'mobile': true}"></div>
       </ng-template>
 
-      <div class="slider__container" ngClass.lt-md="mobile" fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutAlign="space-around center">
+      <div class="slider__container" ngClass.lt-lg="mobile" fxLayout="row" fxLayout.lt-md="column-reverse"
+        fxLayoutAlign="space-around center" (click)="customSlider()">
 
-        <div class="slider__content" ngClass.lt-md="mobile" fxLayout.lt-md="column">       
+        <div class="slider__content" ngClass.lt-md="mobile" fxLayout.lt-md="column">
           <div class="slider__title">{{tab.title}}</div>
 
           <div class="slider__description">
@@ -39,7 +42,7 @@
             <p>{{tab.description2}}</p>
           </div>
 
-          <div class="slider__icons">
+          <div class="slider__icons" ngClass.lt-md="mobile">
             <span>Services</span><br>
             <img src={{icon}} alt="image" *ngFor="let icon of tab.icons">
           </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import { Tab } from 'src/app/core/models/tab';
 import * as data from '../../core/mock/portfolio-data';
@@ -50,4 +51,12 @@ export class PortfolioSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public customSlider() {
+    this.activeTabIndex = this.activeTabIndex > 1 ? 0 : ++this.activeTabIndex;
+  }
+  
+  public selectedTabChange(event: MatTabChangeEvent) {
+    this.activeTabIndex = event.index;
+    this.tabs.forEach(tab => tab !== this.tabs[event.index] ? tab.isActive = false : tab.isActive = true);
+  }
 }
