@@ -1,9 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MediaObserver } from '@angular/flex-layout';
 
 import { ProductModel } from '../../../../../core/models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { IconList } from '../../../../../core/mock/icon-list';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceList } from '../cart-window/cart-window.component';
@@ -19,7 +19,7 @@ export interface CartDialogData {
   templateUrl: './cart-dialog.component.html',
   styleUrls: ['./cart-dialog.component.scss']
 })
-export class CartDialogComponent implements OnInit {
+export class CartDialogComponent implements OnInit, OnDestroy {
 
   public cartProducts$: Observable<ProductModel[]>;
   public iconList = IconList;
@@ -27,6 +27,7 @@ export class CartDialogComponent implements OnInit {
   public onlyRead = true;
   public isMobileMode = false;
   public isShowSendingFormPart = false;
+  private subscription: Subscription;
 
   public sendForm = new FormGroup({
     nameCompany: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
@@ -96,11 +97,14 @@ export class CartDialogComponent implements OnInit {
   }
 
   private checkMobileMode(): void {
-    this.media.asObservable().subscribe(() => {
+    this.subscription = this.media.asObservable().subscribe(() => {
       this.isMobileMode = this.media.isActive('lt-md');
       this.isShowSendingFormPart = !this.isMobileMode;
     })
   }
 
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    this.subscription = null;
+  }
 }
