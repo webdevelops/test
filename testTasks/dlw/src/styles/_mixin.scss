@@ -74,3 +74,25 @@
     }
   }
 }
+
+@mixin client-slider-counter {
+  display: flex;
+  background: #ddd 0% 0% no-repeat padding-box;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+
+  &.active {
+    background-color: $green-color;
+  }
+
+  &.mobile {
+    display: none;
+  }
+}
+
+@mixin small-slider-container {
+  .mobile {
+    max-width: 600px;
+  }
+}

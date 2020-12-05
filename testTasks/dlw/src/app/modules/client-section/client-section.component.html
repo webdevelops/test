@@ -5,9 +5,36 @@
     </div>
   </div>
 
-  <mat-tab-group class="slider" headerPosition="below" >
-    <mat-tab *ngFor="let item of textArray" fxLayout="row">
-      
+  <mat-tab-group class="slider" headerPosition="below">
+    <mat-tab *ngFor="let tab of tabs" fxLayout="row">
+      <ng-template mat-tab-label>
+        <div class="slider__counter" [ngClass]="{'active': tab.isActive}"></div>
+      </ng-template>
+
+      <div class="slider__container" ngClass.lt-md="mobile" fxLayout="row" fxLayoutAlign="space-around center"
+        fxLayoutAlign.lt-md="space-between center">
+        <div class="slider__wrap" fxLayoutAlign="space-around center" fxLayoutAlign="space-between center">
+          <div class="slider__arrows prev-arrow">
+            <img src="{{arrow}}" alt="arrow">
+          </div>
+
+          <div class="slider__content" ngClass.lt-md="mobile" fxLayoutAlign="space-around center"
+            fxLayoutAlign.lt-md="space-between-center">
+            <div class="circle" fxLayoutAlign="center center">
+              <img src="{{tab.iconSrc}}" [alt]="tab.title" class="circle__image">
+            </div>
+
+            <div class="slider__text-part" ngClass.lt-md="mobile">
+              <div class="slider__title">{{tab.title}}</div>
+              <div class="slider__description" ngClass.lt-md="mobile">{{tab.text}}</div>
+            </div>
+          </div>
+
+          <div class="slider-arrows next-arrow">
+            <img src="{{arrow}}" alt="arrow">
+          </div>
+        </div>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>
