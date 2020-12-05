@@ -21,8 +21,8 @@
   }
 
   &__counter {
-    @include client-slider-counter;
     // display: none;
+    @include client-slider-counter;
   }
 
   &__container {
@@ -33,16 +33,17 @@
     padding: 0;
 
     &.mobile {
-      height: $height-rectangle-slider-mobile + $diameter-circle-slider;
+      // height: $height-rectangle-slider-mobile + $diameter-circle-slider;
+      height: auto;
     }
   }
 
   &__arrows {
-    background: $white-color 0% 0% no-repeat padding-box;
+    // background: $white-color 0% 0% no-repeat padding-box;
     border: 1px solid rgba(0, 28, 0, 0.1);
     border-radius: 9px;
     width: $width-rectangle-slider / 2;
-    min-width: $height-rectangle-slider;
+    min-height: $height-rectangle-slider;
     position: relative;
     z-index: 10;
 
@@ -51,20 +52,23 @@
     }
   }
 
-  &__prev-arrow {
+  .prev-arrow {
     margin-right: 5%;
     margin-left: -10%;
     width: 30%;
 
     img {
       position: absolute;
-      left: 15%;
+      right: 15%;
       top: 50%;
       transform: rotate(180deg);
+      padding: 20px;
+      margin-top: -20px;
+      cursor: pointer;
     }
   }
 
-  &__next-arrow {
+  .next-arrow {
     margin-left: 5%;
     margin-right: -10%;
     width: 30%;
@@ -73,11 +77,14 @@
       position: absolute;
       left: 15%;
       top: 50%;
+      padding: 20px;
+      margin-top: -20px;
+      cursor: pointer;
     }
   }
 
   &__wrap {
-    min-height: $height-rectangle-slider + $diameter-circle-slider;
+    min-height: $height-rectangle-slider + $diameter-circle-slider + 40;
     width: 100%;
 
     &.mobile {
@@ -91,13 +98,15 @@
     border: 1px solid #001c00;
     border-radius: 9px;
     position: relative;
-    padding-left: 5%;
-    padding-right: 5%;
+    // padding-left: 5%;
+    // padding-right: 5%;
+    padding: 5%;
 
     &.mobile {
       // min-height: $height-rectangle-slider-mobile;
-      min-height: 225px;
-      min-width: 455px;
+      // min-height: 455px;
+      height: auto;
+      min-width: 225px;
       text-align: center;
       font: lighter 14px/27px Montserrat;
       letter-spacing: 0;
@@ -123,7 +132,7 @@
       top: -61px;
 
       &__image {
-        width: 0;
+        width: 90px;
         height: 90px;
         border-radius: 50%;
         border: 1px solid #dedede;

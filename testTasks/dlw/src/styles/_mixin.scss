@@ -85,10 +85,6 @@
   &.active {
     background-color: $green-color;
   }
-
-  &.mobile {
-    display: none;
-  }
 }
 
 @mixin small-slider-container {
