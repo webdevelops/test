@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GreetingSectionComponent } from './greeting-section/greeting-section.component'
 import { ClientSectionComponent } from './client-section/client-section.component';
@@ -8,6 +9,7 @@ import { TeamSkillSectionComponent } from './team-skill-section/team-skill-secti
 import { TechnologySectionComponent } from './technology-section/technology-section.component';
 import { AvailableServicesSectionComponent } from './available-services-section/available-services-section.component';
 import { PortfolioSectionComponent } from './portfolio-section/portfolio-section.component';
+import { ContactUsSectionComponent } from './contact-us-section/contact-us-section.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { PortfolioSectionComponent } from './portfolio-section/portfolio-section
     AvailableServicesSectionComponent,
     PortfolioSectionComponent,
     ClientSectionComponent,
+    ContactUsSectionComponent,
   ],
   imports: [
     SharedModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     GreetingSectionComponent,
@@ -29,6 +33,7 @@ import { PortfolioSectionComponent } from './portfolio-section/portfolio-section
     AvailableServicesSectionComponent,
     PortfolioSectionComponent,
     ClientSectionComponent,
+    ContactUsSectionComponent
   ]
 })
 export class ModulesModule { }

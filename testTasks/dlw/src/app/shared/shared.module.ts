@@ -11,9 +11,10 @@ import { SvgIconsComponent } from './svg-icons/svg-icons.component';
   ],
   imports: [
     CommonModule,
-    // MaterialModule
+    MaterialModule
   ],
   exports: [
+    CommonModule,
     MaterialModule,
     FlexLayoutModule,
     SvgIconsComponent

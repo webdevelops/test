@@ -56,8 +56,11 @@ export class GreetingSectionComponent implements OnInit {
 
   public selectedTabChange(event: MatTabChangeEvent) {
     this.activeTabIndex = event.index;
-    console.log('this.tabs', this.tabs);
     this.tabs.forEach(tab => tab !== this.tabs[event.index] ? tab.isActive = false : tab.isActive = true);
+  }
+
+  public customSlider() {
+    this.activeTabIndex = this.activeTabIndex > 1 ? 0 : ++this.activeTabIndex;
   }
 }
 

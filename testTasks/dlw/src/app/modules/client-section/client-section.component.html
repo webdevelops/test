@@ -8,8 +8,7 @@
   <mat-tab-group class="slider" headerPosition="below" [selectedIndex]="activeTabIndex">
     <mat-tab *ngFor="let tab of tabs" fxLayout="row" #first>
       <ng-template mat-tab-label>
-        <div class="slider__counter" [ngClass]="{'active': first.isActive}"
-        fxHide.gt-xs></div>
+        <div class="slider__counter" [ngClass]="{'active': first.isActive}" fxHide.gt-xs></div>
       </ng-template>
 
       <div class="slider__container" ngClass.lt-md="mobile" fxLayout="row" fxLayoutAlign="space-around center"
@@ -19,7 +18,7 @@
             <img src="{{arrow}}" alt="arrow">
           </div>
 
-          <div class="slider__content" ngClass.xs="mobile" fxLayoutAlign="space-around center">
+          <div class="slider__content" ngClass.xs="mobile" fxLayoutAlign="space-around center" (click)="customSlider()">
             <div class="circle" fxLayoutAlign="center center">
               <img src="{{tab.iconSrc}}" [alt]="tab.title" class="circle__image">
             </div>

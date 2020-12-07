@@ -9,7 +9,7 @@
           [ngClass.xs]="{'active': tab.isActive, mobile: true}"></div>
       </ng-template>
 
-      <div class="slider__content" ngClass.xs="mobile">
+      <div class="slider__content" ngClass.xs="mobile" (click)="customSlider()">
         <div class="parallelogram"></div>
         <div class="slider__body" ngClass.lt-lg="mobile" fxLayout="column" fxLayoutAlign="center start"
           fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="15px">

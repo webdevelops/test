@@ -32,11 +32,16 @@ export class ClientSectionComponent implements OnInit {
       this.activeTabIndex = this.activeTabIndex !== MAX_SLIDES_NUMBER
         ? ++this.activeTabIndex
         : this.activeTabIndex;
-    
+
     } else {
       this.activeTabIndex = this.activeTabIndex < 1
         ? 0
         : --this.activeTabIndex;
     }
+  }
+
+  customSlider() {
+    this.activeTabIndex = this.activeTabIndex > MAX_SLIDES_NUMBER ? 0 : ++this.activeTabIndex;
+    console.log("🚀 ~ file: client-section.component.ts ~ line 45 ~ ClientSectionComponent ~ customSlider ~ this.activeTabIndex", this.activeTabIndex)
   }
 }
