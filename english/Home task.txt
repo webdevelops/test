@@ -1,0 +1,65 @@
+Dark Lime12:01
+branch 'issue-24'
+commit 'issue-24: style fixed ...'
+Dark Lime12:05
+git checkout -b issue-24
+git commit
+git push
+
+// Git Bush
+olos1@DESKTOP-7FN4DS3 MINGW64 /f/Projects
+$ curl https://www.samsung-forward.ru/
+$ curl http://localhost:7000
+
+"dev:ssr": "ng run pwa-upwork:serve-ssr"
+$ curl http://localhost:4200
+
+
+
+olos1@DESKTOP-7FN4DS3 MINGW64 /f/Projects/JS_test/React/game/dlw/pwa-origin
+git pull
+git checkout origin/shopping-cart
+
+$ git checkout -b issue-24        // add and checkout new branch
+
+-------------------
+
+
+[ngClass.lt-md]="{'class__subclass_mobile': true}"
+
+ngClass.lt-md="mobile"
+
+
+.class {
+
+  &__subclass {
+    styles ...
+
+    &.mobile {
+      styles ...
+    }
+  }
+ 
+}
+
+-----------------
+
+.some-section {
+  ...
+
+  .slider {
+    ...
+  }
+}
+
+
+.slider {
+  ...
+}
+
+
+
+
+
+
+
