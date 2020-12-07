@@ -314,3 +314,7 @@ $global-typography: mat-typography-config(
 );
 
 @include angular-material-typography($global-typography);
+
+.mat-tab-body-content {
+  overflow: hidden !important;
+}

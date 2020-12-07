@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.contact-us {
+  @include dark-grey-ground;
+
+  &__header {
+    @include header;
+    color: $white-color;
+  }
+
+  &__content {
+    @include section-container;
+  }
+
+  &__container {
+    @include container-padding;
+
+    @include change-autofill-style($light-grey-ground-color, $grey_bg_color, $white-color);
+  }
+
+  &__label {
+    color: $green-color;
+  }
+
+  &__input {
+    color: $white-color;
+  }
+
+  &__textarea {
+    color: $white-color;
+    width: 100%;
+  }
+
+  &__button {
+    margin-top: 25px;
+    margin-bottom: 100px;
+
+    &_href {
+      background-color: $light-grey-ground-color;
+      padding: 11px 25px 13px;
+      font: 400 17px/20px Montserrat;
+      border: 1px solid $green-color;
+      border-radius: 8px;
+      color: #ddd;
+
+      &:hover {
+        background-color: $grey_bg_color;
+      }
+
+      &:active {
+        background-color: $light-grey-ground-color;
+        color: $green-color;
+      }
+
+      @media (max-width: $breakpoint-gt-md) {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+}
