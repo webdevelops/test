@@ -50,10 +50,10 @@
   letter-spacing: 0;
   opacity: 1;
   vertical-align: middle;
-  padding-top: 71px;
   position: relative;
-
+  
   &-title {
+    padding-top: 71px;
     font-size: 30px;
     font-weight: normal;
     height: 53px;
@@ -90,5 +90,22 @@
 @mixin small-slider-container {
   .mobile {
     max-width: 600px;
+  }
+}
+
+@mixin change-autofill-style($bg-color, $bg-active-color, $text-color) {
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px $bg-color inset !important;
+  }
+
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px $bg-active-color inset !important;
+  }
+
+  /*Change text in autofill textbox*/
+  input:-webkit-autofill {
+    -webkit-text-fill-color: $text-color !important;
   }
 }

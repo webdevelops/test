@@ -5,10 +5,10 @@
     </div>
   </div>
 
-  <div class="contact-us__content">
+  <div class="contact-us__content" ngClass="mobile">
     <form [formGroup]="contactUsForm" (click)="onSubmit()" class="contact-us__container" fxLayout="column"
       fxLayoutAlign="stretch">
-      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutGap.gr-sm="40px">
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between stretch" fxLayoutGap="40px">
         <div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="50">
           <mat-form-field appearance="outline">
             <mat-label class="contact-us__label">
@@ -21,7 +21,7 @@
             <mat-label class="contact-us__label">
               Email
             </mat-label>
-            <input type="text" natInput formControlName="email" class="contact-us__input">
+            <input type="text" matInput formControlName="email" class="contact-us__input">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -44,7 +44,7 @@
 
       <div class="contact-us__button" fxLayout="row" fxLayoutAlign="center center">
         <a href="mailto:darklimeteam@gmail.com?subject={{name}} email:{{email}} skype:{{skypeOrPhone}}, &body={{message}}"
-          class="contact-us__button_href" type="submit"></a>
+          class="contact-us__button_href" type="submit">Send Message</a>
       </div>
     </form>
   </div>

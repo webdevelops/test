@@ -22,7 +22,12 @@
           <div class="slider__description">
             <span>Overview</span><br>
             <div>
-              <p>Links:</p>
+              <p *ngIf="tab.label == 'First'; else text">Links:</p>
+              <ng-template #text>
+                <p>The Best Social Network for Sports Fans.</p>
+              </ng-template>
+
+              <p *ngIf="tab.label == 'Second'">{{tab.description}}</p>
               <ul>
                 <ng-container *ngFor="let item of tab.list; let i = index">
                   <li *ngIf="tab.label == 'First'; else feature">
@@ -38,8 +43,8 @@
               </ul>
             </div>
 
-            <p>{{tab.description}}</p>
-            <p>{{tab.description2}}</p>
+            <p *ngIf="tab.label != 'Second'">{{tab.description}}</p>
+            <p *ngIf="tab.label == 'Second'">{{tab.description2}}</p>
           </div>
 
           <div class="slider__icons" ngClass.lt-md="mobile">

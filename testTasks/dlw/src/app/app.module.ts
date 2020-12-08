@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './shared/layout/layout.module';
 import { SharedModule } from './shared/shared.module';
-import { LayoutRoutingModule } from './shared/layout/layout-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { LayoutRoutingModule } from './shared/layout/layout-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // LayoutRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
     // LayoutModule
