@@ -9,6 +9,11 @@
   &__content {
     min-height: 710px;
     background: $base-grey-background;
+
+    &.mobile {
+      min-height: auto;
+      height: calc(100vh - 120px);
+    }
   }
 
   &__detail {
@@ -30,6 +35,16 @@
     position: absolute;
     z-index: 10;
     color: $white-color;
+
+    &.tablet {
+      padding: 0 15px;
+    }
+  }
+
+  &__detail {
+    &.mobile {
+      width: 100%;
+    }
   }
 
   &__title-wrap {
@@ -50,7 +65,7 @@
     line-height: 118.16%;
     margin-bottom: 15px;
 
-    &_mobile {
+    &.tablet {
       height: auto;
       text-align: center;
       min-height: auto;
@@ -58,6 +73,10 @@
       font-size: 26px;
       line-height: 30px;
       padding-top: 20px;
+    }
+
+    &.mobile {
+      font-size: 18px;
     }
   }
 
@@ -72,11 +91,29 @@
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
+
+    &.tablet {
+      margin: auto;
+      text-align: center;
+      min-height: auto;
+      font-size: 16px;
+      line-height: 18px;
+      max-width: 400px;
+    }
+
+    &.mobile {
+      font-size: 14px;
+      max-width: 290px;
+    }
   }
 
   &__buttons {
     padding-top: 15px;
     align-items: center;
+
+    &.mobile {
+      padding-top: 0;
+    }
 
     span {
       font-size: 17px;
@@ -91,12 +128,21 @@
     height: 45px;
     border-radius: 0;
     padding-right: 30px;
+
+    &_mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__image {
     height: 416px;
     max-width: 517px;
     object-fit: contain;
+
+    &.mobile {
+      height: auto;
+      width: 90%;
+    }
   }
 
   .mat-tab-label {
@@ -126,54 +172,8 @@
   }
 }
 
-.tablet {
-  .slider {
-    &__body {
-      padding: 0 15px;
-    }
-
-    &__title {
-      height: auto;
-      text-align: center;
-      min-height: auto;
-      max-width: 100%;
-      font-size: 26px;
-      line-height: 30px;
-      padding-top: 20px;
-    }
-
-    &__description {
-      margin: auto;
-      text-align: center;
-      min-height: auto;
-      font-size: 16px;
-      line-height: 20px;
-    }
-  }
-}
-
-.mobile {
-  .slider {
-    &__content {
-      min-height: auto;
-      height: calc(100vh - 120px);
-    }
-
-    &__detail {
-      width: 100%;
-    }
-
-    &__image {
-      height: auto;
-      width: 100%;
-    }
-
-    &__buttons {
-      padding-top: 0;
-    }
-
-    &__btn {
-      margin-bottom: 20px;
-    }
-  }
-}
+// .mobile {
+//   .slider__btn {
+//     margin-bottom: 20px;
+//   }
+// }
