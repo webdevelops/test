@@ -10,7 +10,7 @@ export const productFeatureKey = 'product';
 export const productReducer = createReducer(
   initialProductState,
   on(ProductActions.PRODUCT_LIST_LOAD_SUCCESS, (state, { productList, lastDownloadedProductId }) => ({
-    ...productAdapter.setAll(productList, state), lastDownloadedProductId
+    ...productAdapter.setAll(productList, state), lastDownloadedProductId, page: 1
   })),
   on(ProductActions.PRODUCT_LIST_LOAD_FAILURE, (state, { error }) => ({
     ...state, error: error.message

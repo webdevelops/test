@@ -5,7 +5,7 @@
       <div class="slider__counter" [ngClass]="{'slider__counter_active': tab.isActive}"></div>
     </ng-template>
 
-    <div class="slider__content" ngClass.xs="mobile" (click)="customSlider()" fxLayoutAlign="center center">
+    <div class="slider__content" [ngClass.xs]="{'slider__content_mobile': true}" (click)="customSlider()" fxLayoutAlign="center center">
       <div class="slider__body" ngClass.lt-md="tablet" fxLayout="row" fxLayout.lt-md="column"
         fxLayoutAlign="space-between start" fxLayoutAlign.lt-lg="center center">
 

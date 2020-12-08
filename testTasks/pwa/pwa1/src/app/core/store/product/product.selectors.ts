@@ -60,7 +60,7 @@ export const selectCurrentProduct = createSelector(
 
 export const selectPage = createSelector(
     selectProductState,
-    (state: ProductState) => state.page,
+    (state: ProductState) => state.page
 );
 
 export const selectNextPage = createSelector(
@@ -120,6 +120,7 @@ export class ProductSelectors {
     }
 
     public selectPage$(): Observable<number> {
+        console.log('1')
         return this.store$.select(selectPage);
     }
 
@@ -128,6 +129,7 @@ export class ProductSelectors {
     }
 
     public selectLastDownloadedId$(): Observable<number> {
+        console.log('2')
         return this.store$.select(selectLastDownloadedId);
     }
 
