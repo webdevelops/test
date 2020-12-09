@@ -57,7 +57,11 @@ ngClass.lt-md="mobile"
   ...
 }
 
+-----------------
 
+preventDefault 
+
+type="submit"
 
 
 
