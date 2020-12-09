@@ -79,10 +79,22 @@ export class CartDialogComponent implements OnInit, OnDestroy {
     this.cartProducts$ = this.cartSelectors.selectAllProducts$();
   }
 
-  close(resultData?: any): void {
-    this.dialogRef.close(resultData);
+  closeCart(data?: any): void {
+    this.dialogRef.close(data);
   }
 
+  onCartClose(resultData?: any): void {
+    this.closeCart(resultData);
+  }
+
+  onProductClick(resultData?: any): void {
+    this.closeCart(resultData);
+  }
+
+  onSendForm(event, resultData?: any): void {
+    event.stopPropagation();
+    this.closeCart(resultData);
+  }
 
   getUserData($event): void {
     this.sendForm.controls.messenger.setValue($event.option.value.name);

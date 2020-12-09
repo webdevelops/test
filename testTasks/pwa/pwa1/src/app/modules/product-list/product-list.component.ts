@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Libs
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 // App
@@ -26,6 +26,8 @@ export class ProductListComponent implements OnInit {
   readonly nextPageSize = NEXT_PAGE_SIZE;
   public pageIndex$: Observable<number>;
   public loading$: Observable<boolean>;
+
+  private obj = new BehaviorSubject<number>(5);
 
   constructor(
     private productSelectors: ProductSelectors,

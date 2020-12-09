@@ -21,7 +21,7 @@
           Don't miss out on great deals! <br>
           Start shopping and add a service to shopping cart!
         </p>
-        <button mat-button class="btn" (click)="close({submitted: false})">
+        <button mat-button class="btn" (click)="onCartClose({submitted: false})">
           <span>Start shopping</span>
         </button>
       </div>
@@ -31,7 +31,7 @@
           <app-svg-icons class="delete-icon" [iconType]="iconList.Delete" (click)="removeFromCart(product)">
           </app-svg-icons>
           <div class="product">
-            <app-product [product]="product" [viewMode]="'LIST_ITEM'" (click)="close({submitted: false})"></app-product>
+            <app-product [product]="product" [viewMode]="'LIST_ITEM'" (click)="onProductClick({submitted: false})"></app-product>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
       <div class="container shopping-items"
         *ngIf="(cartProducts$ | async).length == 1 && (cartProducts$ | async)[0] as product">
         <div class="product">
-          <app-product [product]="product" [viewMode]="'CARD'" (click)="close({submitted: false})"></app-product>
+          <app-product [product]="product" [viewMode]="'CARD'" (click)="onProductClick({submitted: false})"></app-product>
         </div>
         <button mat-button class="btn" (click)="removeFromCart(product)">
           <span>Remove from Cart</span>
@@ -136,7 +136,7 @@
             <span>items: {{(cartProducts$ | async).length}}</span>
             <span>105-135 h</span>
           </div>
-          <button mat-button class="btn footer-btn" (click)="close({submitted: true})"
+          <button mat-button class="btn footer-btn" (click)="onSendForm($event)"
             [disabled]="sendForm.status === 'INVALID'">
             <span>Send</span>
           </button>
@@ -146,7 +146,7 @@
 
   </div>
 
-  <div class="close-btn" (click)="close()">
+  <div class="close-btn" (click)="onCartClose()">
     <mat-icon>close</mat-icon>
   </div>
 
