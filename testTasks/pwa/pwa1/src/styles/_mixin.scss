@@ -11,11 +11,11 @@
   height: 2px;
   width: 70px;
 
-  &_active {
+  &.active {
     background-color: $green-color;
   }
 
-  @media (max-width: $breakpoint-gt-xs) {
+  &.mobile {
     height: 15px;
     width: 15px;
     border-radius: 50%;

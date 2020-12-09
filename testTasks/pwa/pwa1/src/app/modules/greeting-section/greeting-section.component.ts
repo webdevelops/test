@@ -76,7 +76,7 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
 
   public customSlider(): void {
     const tabIndex = this.activeTabIndex$.getValue();
-    this.activeTabIndex$.next( tabIndex > 1 ? 0 : tabIndex + 1);
+    this.activeTabIndex$.next(tabIndex > 1 ? 0 : tabIndex + 1);
   }
 
   public selectedTabChange(event: MatTabChangeEvent): void {
