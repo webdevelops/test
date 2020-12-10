@@ -11,8 +11,9 @@ import { ProductModel } from 'src/app/core/models/product.model';
 import { IconList } from 'src/app/core/mock/icon-list';
 import { CartActions } from '../../core/store/cart/cart.actions';
 import { ProductSelectors } from '../../core/store/product/product.selectors';
-import {ProductActions} from '../../core/store/product/product.actions';
-import {CartSelectors} from '../../core/store/cart/cart.selectors';
+import { ProductActions } from '../../core/store/product/product.actions';
+import { CartSelectors } from '../../core/store/cart/cart.selectors';
+import { ScrollTopService } from '../../core/services/scroll-top.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -26,17 +27,19 @@ export class DetailPageComponent implements OnInit {
   public iconList = IconList;
 
   constructor(private route: ActivatedRoute,
-              private cartActions: CartActions,
-              private productActions: ProductActions,
-              private productSelectors: ProductSelectors,
-              private cartSelectors: CartSelectors) { }
+    private cartActions: CartActions,
+    private productActions: ProductActions,
+    private productSelectors: ProductSelectors,
+    private cartSelectors: CartSelectors,
+    private scrollTopService: ScrollTopService) { }
 
   ngOnInit(): void {
+    // this.scrollTopService.setScrollTop();
     this.productActions.loadProductList(20);
 
     this.product$ = this.route.data.pipe(
       map(data => data.product),
-      tap( product => {
+      tap(product => {
         this.isProductInCart$ = this.cartSelectors.selectProductById$(product.productId).pipe(
           map(foundProduct => !!foundProduct)
         );
@@ -52,6 +55,4 @@ export class DetailPageComponent implements OnInit {
   removeFromCart(product): void {
     this.cartActions.deleteProductFromCart(product);
   }
-
-
 }
