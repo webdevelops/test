@@ -4,8 +4,8 @@
       [infiniteScrollDistance]="2"
       [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()"
-  class="product-list" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-md="15px"  [ngClass.lt-lg]="{'product-list__mobile': true}">
-    <div class="product-list__item" [ngClass.lt-sm]="{'product-list__item_mobile': true}"
+  class="product-list" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.lt-lg="space-around" fxLayoutGap.lt-md="15px"  ngClass.lt-lg="mobile">
+    <div class="product-list__item" ngClass.lt-sm="mobile"
       *ngFor="let product of productList$ | async | slice:0:(pageIndex$ | async) index as index">
       <app-product [product]="product" [viewMode]="index < 2 ? 'WIDE_CARD' : 'SIMPLE_CARD'"></app-product>
     </div>

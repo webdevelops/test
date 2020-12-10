@@ -4,7 +4,6 @@
 .footer {
   @include content-container;
   background-color: $footer-background;
-  // height: 95px;
   color: $white-color;
   padding-top: 25px;
   padding-bottom: 45px;
@@ -12,7 +11,7 @@
   &__logo {
     @include logo;
 
-    &_mobile {
+    &.mobile {
       margin-top: 16px;
       padding-left: 16px;
     }
@@ -22,14 +21,9 @@
     font-weight: 300;
     font-size: 23px;
     line-height: 28px;
-    // @media (max-width: $breakpoint-gt-md) {
-    //   font-size: 17px;
-    //   line-height: 20px;
-    // }
   }
 
-  &__mobile {
-    // height: 200px;
+  &.mobile {
     padding: 25px 25px 35px;
   }
 

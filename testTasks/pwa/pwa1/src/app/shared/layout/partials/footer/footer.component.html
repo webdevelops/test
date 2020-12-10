@@ -1,9 +1,9 @@
 <mat-toolbar-row>
   <div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutAlign="space-between center"
     fxLayoutAlign.lt-md="space-around center" class="footer"
-    [ngClass.lt-lg]="{'footer__mobile': true}">
+    ngClass.lt-lg="mobile">
     <div fxlayout="row" fxLayoutAlign="center">
-      <app-svg-icons [iconType]="iconList.Logo" class="footer__logo" [ngClass.lt-md]="{'footer__logo_mobile': true}"></app-svg-icons>
+      <app-svg-icons [iconType]="iconList.Logo" class="footer__logo" ngClass.lt-md="mobile"></app-svg-icons>
     </div>
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.gt-sm="space-around stretch"
       fxLayoutGap="30px">

@@ -8,14 +8,14 @@
   position: relative;
   margin: auto;
 
-  &__mobile {
+  &.mobile {
     padding: 63px 25px 0;
   }
 
   &__item {
     margin-bottom: 42px;
 
-    &_mobile {
+    &.mobile {
       width: 100%;
     }
   }
@@ -24,12 +24,3 @@
 .wrap {
   position: relative;
 }
-
-// @media (max-width:800px) {
-
-  // .product-list {
-  //   align-items: center !important;
-  //   flex-direction: column !important;
-  // }
-
-// }
