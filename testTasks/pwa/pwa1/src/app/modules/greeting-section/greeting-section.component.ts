@@ -1,6 +1,7 @@
 // Angular
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatDialog } from '@angular/material/dialog';
 
 // App
 import { IconList } from '../../core/mock/icon-list';
@@ -9,6 +10,7 @@ import {ProductSelectors} from '../../core/store/product/product.selectors';
 import {map, tap} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {CartSelectors} from '../../core/store/cart/cart.selectors';
+import { CartDialogComponent } from 'src/app/shared/layout/partials/header/cart-dialog/cart-dialog.component';
 
 export interface Tab {
   productId: string;  // link to the ProductModel.productId
@@ -30,7 +32,7 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
   public tabs: Array<Tab>;
   public iconList = IconList;
 
-  constructor(private productSelectors: ProductSelectors, private cartSelectors: CartSelectors, private cartActions: CartActions) {
+  constructor(private productSelectors: ProductSelectors, private cartSelectors: CartSelectors, private cartActions: CartActions, private dialogCart: MatDialog) {
     this.tabs = [
       {
         productId: '1',  // here should be link to the Product by ID
@@ -98,4 +100,10 @@ export class GreetingSectionComponent implements OnInit, OnDestroy {
     });
   }
 
+  public showCart() {
+    const dialogRef = this.dialogCart.open(CartDialogComponent, {
+      panelClass: 'cart-modal',
+      data: {someIncomingData: []}
+    });
+  }
 }

@@ -24,16 +24,17 @@
           <img class="slider__image" ngClass.xs="mobile" src="{{tab.imageSrc}}" alt="product-image" fxHide.gt-sm>
 
           <div class="slider__buttons" ngClass="mobile" fxLayout="row" fxLayout.lt-sm="column">
-            <button mat-flat-button class="get-price-btn slider__btn" ngClass.xs="slider__btn_mobile">
+            <button mat-flat-button class="get-price-btn slider__btn" ngClass.xs="mobile"
+            (click)="showCart(); $event.stopPropagation()">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
               <span>Get Price</span>
             </button>
-            <button mat-flat-button class="add-to-cart-btn  slider__btn" ngClass.xs="slider__btn_mobile"
+            <button mat-flat-button class="add-to-cart-btn  slider__btn"
               *ngIf="!(isProductInCart$ | async)" (click)="addToCart(); $event.stopPropagation();">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
               <span>Add to cart</span>
             </button>
-            <button mat-flat-button class="remove-from-cart-btn  slider__btn" ngClass.xs="slider__btn_mobile"
+            <button mat-flat-button class="remove-from-cart-btn  slider__btn"
               *ngIf="isProductInCart$ | async" (click)="removeFromCart(); $event.stopPropagation();">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
               <span>Remove from cart</span>
