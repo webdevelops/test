@@ -29,7 +29,10 @@ export class ProductResolver implements Resolve<ProductModel>{
     this.productActions.loadProductById(neededId);
     return this.productSelectors.selectProductById$(neededId)
       .pipe(
-        filter(val => !!val),
+        filter(val => {
+          // console.log('val', val);
+          return !!val
+        }),
         take(1),
       );
   }

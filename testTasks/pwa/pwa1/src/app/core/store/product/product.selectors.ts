@@ -44,7 +44,11 @@ export const selectError = createSelector(
 
 export const selectProductById = (id: string) => createSelector(
     selectProductEntities,
-    entities => entities[id]
+    entities => {
+        // console.log('entities', entities)
+        // console.log('entities[id]', entities[id])
+        return entities[id]
+    }
 );
 
 export const selectCurrentProductId = createSelector(

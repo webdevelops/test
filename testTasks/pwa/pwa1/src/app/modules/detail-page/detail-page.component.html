@@ -2,40 +2,30 @@
     <div class="layout__header">
         <app-header></app-header>
     </div>
-    <div class="layout__content detail-page">
-        <div class="product" *ngIf="product$ | async as product" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="layout__content detail-page" *ngIf="product$ | async as product">
+        <div class="product" fxLayout="row" fxLayoutAlign="space-between center">
             <div class="product__details">
-                <div class="product__title">
-                    {{product.productName}}
-                </div>
+                <div class="product__title">{{product.productName}}</div>
                 <div class="product__hours">
                     <app-svg-icons [iconType]="'clock'"></app-svg-icons>
                     <span>40-50 h</span>
                 </div>
 
                 <div class="product__image mobile" fxLayout="column-reverse">
-                  <div class="product__image__content" fxLayoutAlign="center center">
-                    <img class="product__image__image" src="../../../../assets/images/ImageItem.png"
-                         alt="Photo of the product">
-                  </div>
+                    <div class="product__image__content" fxLayoutAlign="center center">
+                        <img class="product__image__image" src="../../../../assets/images/ImageItem.png"
+                            alt="Photo of the product">
+                    </div>
                 </div>
 
                 <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start ">
                     <div>
                         <span class="title">Customers needs</span><br>
-                        <span class="text"> mobile first, icon on homescreen, notification for Android, offline mode and
-                            good experience
-                            using a pure mobile connection, good SEO, no need to submit your app to the App store or
-                            Google
-                            Play and pay commission.</span>
+                        <span class="text" *ngIf="product.industries">{{product.industries}}</span>
                     </div>
                     <div>
                         <span class="title">Short Description</span><br>
-                        <span class="text">Mobile First with icon on Homepage, Behave Like Native Apps (with some
-                            restriction), No Store
-                            Required, Much Cheaper to Develop, Deploy, Promote and Maintain than Native Apps, Offline,
-                            Hardware Integration, Improved Page Speed, Cached Assets Reduce Server Load & Less Data
-                            Requirements.</span>
+                        <span class="text">{{product.productShortDescription}}</span>
                     </div>
                 </div>
                 <div class="product__buttons" fxLayout="row">
@@ -44,12 +34,15 @@
                         <span>Get Price</span>
                     </button>
 
-                    <button mat-flat-button class="add-to-cart-btn  product__btn" *ngIf="!(isProductInCart$ | async)" (click)="addToCart(product)">
-                      <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
-                      <span>Add to cart</span>
+                    <button mat-flat-button class="add-to-cart-btn  product__btn" *ngIf="!(isProductInCart$ | async)"
+                        (click)="addToCart(product)">
+                        <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
+                        <span>Add to cart</span>
                     </button>
-                    <button mat-flat-button class="remove-from-cart-btn  product__btn" *ngIf="isProductInCart$ | async" (click)="removeFromCart(product)">
-                        <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
+                    <button mat-flat-button class="remove-from-cart-btn  product__btn" *ngIf="isProductInCart$ | async"
+                        (click)="removeFromCart(product)">
+                        <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart">
+                        </app-svg-icons>
                         <span>Remove from cart</span>
                     </button>
                 </div>
@@ -57,7 +50,7 @@
 
             <div class="product__image" fxLayout="column-reverse">
                 <div class="product__image__content" fxLayoutAlign="center center">
-                    <img class="product__image__image" src="../../../../assets/images/ImageItem.png"
+                    <img class="product__image__image" src={{product.productPhotos[0].src}}
                         alt="Photo of the product">
                 </div>
             </div>
@@ -69,12 +62,8 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text"> multi vendor marketplace, internal company management applications,
-                                casino PWA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <span class="text" *ngIf="product.industries">
+                                {{product.industries}}
                             </span>
                         </div>
                     </div>
@@ -83,12 +72,8 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text"> multi vendor marketplace, internal company management applications,
-                                casino PWA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <span class="text" *ngIf="product.techStack">
+                                {{product.techStack}}
                             </span>
                         </div>
                     </div>
@@ -97,12 +82,8 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text"> multi vendor marketplace, internal company management applications,
-                                casino PWA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <span class="text" *ngIf="product.whoUse">
+                                {{product.whoUse}}
                             </span>
                         </div>
                     </div>
@@ -111,12 +92,8 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text"> multi vendor marketplace, internal company management applications,
-                                casino PWA. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <span class="text" *ngIf="product.industries">
+                                {{product.industries}}
                             </span>
                         </div>
                     </div>
@@ -129,8 +106,7 @@
                 <span>More Products</span>
             </div>
             <div class="product-list">
-                <div class="item"
-                     *ngFor="let product of randomProductList$ | async">
+                <div class="item" *ngFor="let product of randomProductList$ | async">
                     <app-product [product]="product" [viewMode]="'SIMPLE_CARD'"></app-product>
                 </div>
             </div>

@@ -13,7 +13,6 @@ import { CartActions } from '../../core/store/cart/cart.actions';
 import { ProductSelectors } from '../../core/store/product/product.selectors';
 import { ProductActions } from '../../core/store/product/product.actions';
 import { CartSelectors } from '../../core/store/cart/cart.selectors';
-import { ScrollTopService } from '../../core/services/scroll-top.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -25,21 +24,26 @@ export class DetailPageComponent implements OnInit {
   public isProductInCart$: Observable<boolean>;
   public randomProductList$: Observable<ProductModel[]>;
   public iconList = IconList;
+  // public product;
 
   constructor(private route: ActivatedRoute,
     private cartActions: CartActions,
     private productActions: ProductActions,
     private productSelectors: ProductSelectors,
-    private cartSelectors: CartSelectors,
-    private scrollTopService: ScrollTopService) { }
+    private cartSelectors: CartSelectors) { }
 
   ngOnInit(): void {
     // this.scrollTopService.setScrollTop();
     this.productActions.loadProductList(20);
 
     this.product$ = this.route.data.pipe(
-      map(data => data.product),
+      map(data => {
+        // console.log('data', data)
+        return data.product
+      }),
       tap(product => {
+        console.log('product', product)
+        // this.product = product;
         this.isProductInCart$ = this.cartSelectors.selectProductById$(product.productId).pipe(
           map(foundProduct => !!foundProduct)
         );
