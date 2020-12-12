@@ -13,8 +13,8 @@
 
                 <div class="product__image mobile" fxLayout="column-reverse">
                     <div class="product__image__content" fxLayoutAlign="center center">
-                        <img class="product__image__image" src="../../../../assets/images/ImageItem.png"
-                            alt="Photo of the product">
+                        <img class="product__image__image" src={{product.productPhotos[0].src}}
+                            alt={{product.productName}}>
                     </div>
                 </div>
 
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="product__buttons" fxLayout="row">
-                    <button mat-flat-button class="get-price-btn product__btn">
+                    <button mat-flat-button class="get-price-btn product__btn" (click)="showCart()">
                         <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
                         <span>Get Price</span>
                     </button>
@@ -51,7 +51,7 @@
             <div class="product__image" fxLayout="column-reverse">
                 <div class="product__image__content" fxLayoutAlign="center center">
                     <img class="product__image__image" src={{product.productPhotos[0].src}}
-                        alt="Photo of the product">
+                        alt={{product.productName}}>
                 </div>
             </div>
         </div>

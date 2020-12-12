@@ -1,6 +1,7 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 // Libs
 import { map, tap } from 'rxjs/operators';
@@ -13,6 +14,7 @@ import { CartActions } from '../../core/store/cart/cart.actions';
 import { ProductSelectors } from '../../core/store/product/product.selectors';
 import { ProductActions } from '../../core/store/product/product.actions';
 import { CartSelectors } from '../../core/store/cart/cart.selectors';
+import { CartDialogComponent } from 'src/app/shared/layout/partials/header/cart-dialog/cart-dialog.component';
 
 @Component({
   selector: 'app-detail-page',
@@ -30,7 +32,8 @@ export class DetailPageComponent implements OnInit {
     private cartActions: CartActions,
     private productActions: ProductActions,
     private productSelectors: ProductSelectors,
-    private cartSelectors: CartSelectors) { }
+    private cartSelectors: CartSelectors,
+    private dialogCart: MatDialog) { }
 
   ngOnInit(): void {
     // this.scrollTopService.setScrollTop();
@@ -58,5 +61,12 @@ export class DetailPageComponent implements OnInit {
 
   removeFromCart(product): void {
     this.cartActions.deleteProductFromCart(product);
+  }
+
+  showCart() {
+    const dialogRef = this.dialogCart.open(CartDialogComponent, {
+      panelClass: 'cart-modal',
+      data: { someIncomingData: [] }
+    });
   }
 }
