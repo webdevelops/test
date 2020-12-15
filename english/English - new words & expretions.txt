@@ -569,7 +569,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 !!
+------------------------  +  15 !
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
@@ -605,7 +605,7 @@ Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
 Ne'vertheless, he is happy - Тем не менее он счастлив
 
-------------------------  +  16 !!
+------------------------  +  16 !
 
 This place is much fa'rther. I ga'ined lots of expe'rience - Это место намного дальше. Я приобрел много опыта
 Your channel is real trea'sure - Ваш канал - настоящее сокровище
@@ -683,4 +683,15 @@ He lea'ned fo'rward - Он наклонился вперед
 Is this legisla'tion perfect? - Это законодательство идеально?
 Will the voting age be lowered? - Будет ли снижен возраст голосования?
 
-----------
+========================================================================
+
+
+Could you repeat it please?
+Slower please
+One more time please
+Could you write this sentence/expresion/phrase/word please?
+What does this word (...) mean?
+
+I need to think
+
+----------------

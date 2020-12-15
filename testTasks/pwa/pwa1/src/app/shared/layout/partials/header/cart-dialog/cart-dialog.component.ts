@@ -76,6 +76,9 @@ export class CartDialogComponent implements OnInit, OnDestroy {
       }
     ];
 
+    console.log();
+
+
     this.cartProducts$ = this.cartSelectors.selectAllProducts$();
   }
 

@@ -31,7 +31,8 @@
           <app-svg-icons class="delete-icon" [iconType]="iconList.Delete" (click)="removeFromCart(product)">
           </app-svg-icons>
           <div class="product">
-            <app-product [product]="product" [viewMode]="'LIST_ITEM'" (click)="onProductClick({submitted: false})"></app-product>
+            <app-product [product]="product" [viewMode]="'LIST_ITEM'" (click)="onProductClick({submitted: false})">
+            </app-product>
           </div>
         </div>
       </div>
@@ -39,7 +40,8 @@
       <div class="container shopping-items"
         *ngIf="(cartProducts$ | async).length == 1 && (cartProducts$ | async)[0] as product">
         <div class="product">
-          <app-product [product]="product" [viewMode]="'CARD'" (click)="onProductClick({submitted: false})"></app-product>
+          <app-product [product]="product" [viewMode]="'CARD'" (click)="onProductClick({submitted: false})">
+          </app-product>
         </div>
         <button mat-button class="btn" (click)="removeFromCart(product)">
           <span>Remove from Cart</span>
