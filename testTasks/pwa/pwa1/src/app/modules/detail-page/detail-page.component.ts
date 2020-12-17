@@ -26,7 +26,6 @@ export class DetailPageComponent implements OnInit {
   public isProductInCart$: Observable<boolean>;
   public randomProductList$: Observable<ProductModel[]>;
   public iconList = IconList;
-  // public product;
 
   constructor(private route: ActivatedRoute,
     private cartActions: CartActions,
@@ -36,17 +35,14 @@ export class DetailPageComponent implements OnInit {
     private dialogCart: MatDialog) { }
 
   ngOnInit(): void {
-    // this.scrollTopService.setScrollTop();
     this.productActions.loadProductList(20);
 
     this.product$ = this.route.data.pipe(
       map(data => {
-        // console.log('data', data)
         return data.product
       }),
       tap(product => {
-        console.log('product', product)
-        // this.product = product;
+        // console.log('product', product)
         this.isProductInCart$ = this.cartSelectors.selectProductById$(product.productId).pipe(
           map(foundProduct => !!foundProduct)
         );
