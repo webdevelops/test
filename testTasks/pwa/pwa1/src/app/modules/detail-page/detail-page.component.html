@@ -1,14 +1,11 @@
 <div class="layout">
-    <div class="layout__header">
-        <app-header></app-header>
-    </div>
     <div class="layout__content detail-page" *ngIf="product$ | async as product">
         <div class="product" fxLayout="row" fxLayoutAlign="space-between center">
             <div class="product__details">
                 <div class="product__title">{{product.productName}}</div>
                 <div class="product__hours">
                     <app-svg-icons [iconType]="'clock'"></app-svg-icons>
-                    <span>40-50 h</span>
+                    <span>{{product.hours}}</span>
                 </div>
 
                 <div class="product__image mobile" fxLayout="column-reverse">
@@ -21,7 +18,7 @@
                 <div class="product__description" fxLayout="column" fxLayoutAlign="space-between flex-start ">
                     <div>
                         <span class="title">Customers needs</span><br>
-                        <span class="text" *ngIf="product.industries">{{product.industries}}</span>
+                        <span class="text">{{product.industries}}</span>
                     </div>
                     <div>
                         <span class="title">Short Description</span><br>
@@ -50,8 +47,7 @@
 
             <div class="product__image" fxLayout="column-reverse">
                 <div class="product__image__content" fxLayoutAlign="center center">
-                    <img class="product__image__image" src={{product.productPhotos[0].src}}
-                        alt={{product.productName}}>
+                    <img class="product__image__image" src={{product.productPhotos[0].src}} alt={{product.productName}}>
                 </div>
             </div>
         </div>
@@ -62,9 +58,7 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text" *ngIf="product.industries">
-                                {{product.industries}}
-                            </span>
+                            <span class="text"> {{product.ourExperience}}</span>
                         </div>
                     </div>
                 </mat-tab>
@@ -72,9 +66,7 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text" *ngIf="product.techStack">
-                                {{product.techStack}}
-                            </span>
+                            <span class="text">{{product.techStack}}</span>
                         </div>
                     </div>
                 </mat-tab>
@@ -82,9 +74,7 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text" *ngIf="product.whoUse">
-                                {{product.whoUse}}
-                            </span>
+                            <span class="text">{{product.whoUses}}</span>
                         </div>
                     </div>
                 </mat-tab>
@@ -92,9 +82,7 @@
                     <div class="product-info__tab">
                         <div class="product-info__text">
                             <span class="title">Industries</span><br>
-                            <span class="text" *ngIf="product.industries">
-                                {{product.industries}}
-                            </span>
+                            <span class="text">{{product.industries}}</span>
                         </div>
                     </div>
                 </mat-tab>
@@ -111,8 +99,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="layout__footer">
-        <app-footer></app-footer>
     </div>
 </div>
