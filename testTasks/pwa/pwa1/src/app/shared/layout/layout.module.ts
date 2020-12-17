@@ -37,7 +37,8 @@ import { HomePageComponent } from '../../modules/home-page/home-page.component';
     HeaderComponent,
     FooterComponent,
     ProductListComponent,
-    GreetingSectionComponent
+    GreetingSectionComponent,
+    // LayoutRoutingModule
   ]
 })
 export class LayoutModule { }

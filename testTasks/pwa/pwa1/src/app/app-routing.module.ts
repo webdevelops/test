@@ -40,6 +40,22 @@ export class ProductResolver implements Resolve<ProductModel>{
 }
 
 const routes: Routes = [
+  // {
+  //   path: 'cart',
+  //   component: CartWindowComponent,
+  //   outlet: 'modal'
+  // },
+  // {
+  //   path: 'product/:id',
+  //   component: DetailPageComponent,
+  //   resolve: { product: ProductResolver }
+  // },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./shared/layout/layout.module').then(m => m.LayoutModule),
+  //   pathMatch: 'full'
+  //   // component: LayoutComponent,
+  // },
   {
     path: '',
     component: LayoutComponent,
