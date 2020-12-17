@@ -1,5 +1,5 @@
-
-------------------------    -1 !
+1
+------------------------    -1 
 
 I can't keep up with you  - я не могу угнатьс€ за тобой
 He injured his arm - ќн повредил руку
@@ -643,7 +643,7 @@ He was wearing a he'lmet. It was thanks to his sword - ќн был (носил) в шлеме. Ё
 It was a mi'ssile attack - Ёто был ракетный удар
 Don't he'sitate - Ќе стесн€йтесь
 
-------------------------  +  17 !!
+------------------------  +  17 !
 
 Hey, what's up - Ёй, как жизнь
 There were some hens not far from our country house - –€дом с нашим (не далеко) загородным домом было несколько кур
