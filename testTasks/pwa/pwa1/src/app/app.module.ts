@@ -22,7 +22,7 @@ import { DetailPageComponent } from './modules/detail-page/detail-page.component
 import { reducers, metaReducers } from './core/store';
 import { ProductEffects } from './core/store/product/product.effects';
 import { LayoutModule } from './shared/layout/layout.module';
-import {CartEffects} from './core/store/cart/cart.effects';
+import { CartEffects } from './core/store/cart/cart.effects';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import {CartEffects} from './core/store/cart/cart.effects';
     }),
     EffectsModule.forRoot([ProductEffects, CartEffects]),
     FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md', 'lt-lg'] }),
-    LayoutModule,
+    // LayoutModule,
   ],
   providers: [AngularFireModule],
   bootstrap: [AppComponent]
