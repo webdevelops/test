@@ -14,6 +14,7 @@ import { ProductListModule } from 'src/app/modules/product-list/product.module';
 import { CartWindowComponent } from './partials/header/cart-window/cart-window.component';
 import { ModalWindowComponent } from './partials/modal-window/modal-window.component';
 import { CartDialogComponent } from './partials/header/cart-dialog/cart-dialog.component';
+import { HomePageComponent } from '../../modules/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,15 @@ import { CartDialogComponent } from './partials/header/cart-dialog/cart-dialog.c
     GreetingSectionComponent,
     CartWindowComponent,
     ModalWindowComponent,
-    CartDialogComponent
+    CartDialogComponent,
+    HomePageComponent
   ],
-    imports: [
-        CommonModule,
-        SharedModule,
-        ProductListModule,
-        MatBadgeModule,
-    ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    ProductListModule,
+    MatBadgeModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
