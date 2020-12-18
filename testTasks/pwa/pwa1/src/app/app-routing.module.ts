@@ -12,7 +12,6 @@ import { ProductActions } from './core/store/product/product.actions';
 import { ProductModel } from 'src/app/core/models/product.model';
 import { DetailPageComponent } from './modules/detail-page/detail-page.component';
 import { LayoutComponent } from './shared/layout/layout.component';
-import { CartWindowComponent } from './shared/layout/partials/header/cart-window/cart-window.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 
 
@@ -40,22 +39,6 @@ export class ProductResolver implements Resolve<ProductModel>{
 }
 
 const routes: Routes = [
-  // {
-  //   path: 'cart',
-  //   component: CartWindowComponent,
-  //   outlet: 'modal'
-  // },
-  // {
-  //   path: 'product/:id',
-  //   component: DetailPageComponent,
-  //   resolve: { product: ProductResolver }
-  // },
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./shared/layout/layout.module').then(m => m.LayoutModule),
-  //   pathMatch: 'full'
-  //   // component: LayoutComponent,
-  // },
   {
     path: '',
     component: LayoutComponent,
