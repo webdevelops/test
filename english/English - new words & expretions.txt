@@ -1,5 +1,5 @@
 
-------------------------    -1 !
+------------------------    -1 
 
 I can't keep up with you  - Я не могу угнаться за тобой
 He injured his arm - Он повредил руку
@@ -31,7 +31,7 @@ He is at the butcher's - Он у мясника
 I don't want to put on weight - Я не хочу прибавлять в весе
 I put it on the carpet - Я положил это на ковер
 
-------------------------    0 !
+------------------------    0 
 
 The ca'rtoons were absolutely hi'larious (very funny) - Мультфильмы были абсолютно веселыми // ...1015 / 1.26.47
 I used to listen to the tape - Я (раньше слушал) привык слушать кассету
