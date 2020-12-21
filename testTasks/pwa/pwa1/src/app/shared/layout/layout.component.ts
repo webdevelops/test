@@ -1,6 +1,6 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
-import {CartActions} from '../../core/store/cart/cart.actions';
+import { CartActions } from '../../core/store/cart/cart.actions';
 
 @Component({
   selector: 'app-layout',
@@ -14,5 +14,5 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.cartActions.loadCart();
   }
-
+  // p - 333
 }
