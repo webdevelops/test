@@ -38,7 +38,7 @@ import { HomePageComponent } from '../../modules/home-page/home-page.component';
     FooterComponent,
     ProductListComponent,
     GreetingSectionComponent,
-    // temp-00000
+    // temp-11
   ]
 })
 export class LayoutModule { }
