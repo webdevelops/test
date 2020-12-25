@@ -38,7 +38,7 @@ import { HomePageComponent } from '../../modules/home-page/home-page.component';
     FooterComponent,
     ProductListComponent,
     GreetingSectionComponent,
-    // mmm
+    // ol-1  - task 4
   ]
 })
 export class LayoutModule { }
