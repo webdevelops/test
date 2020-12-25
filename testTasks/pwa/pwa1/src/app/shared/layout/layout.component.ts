@@ -15,5 +15,5 @@ export class LayoutComponent implements OnInit {
     this.cartActions.loadCart();
   }
   // at-3  -task number 3
-  // iv-1 -task 2
+  // iv-2 -task 3
 }
