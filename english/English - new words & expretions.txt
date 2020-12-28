@@ -300,7 +300,7 @@ It's a sin - Это грех
 The electri'city supply' was cut off - Электроснабжение было отключено
 Do you like bi'scuit? - Тебе нравится печенье?
 
-------------------------    8 !
+------------------------    8 
 
 I'll write it on the blackbo'ard - Я напишу это на доске
 Bring us one more hi'ghlighter - Принесите нам еще один маркер
@@ -339,7 +339,7 @@ This ca'ndidate is sui'table for us - Этот кандидат (подходящий) подходит для на
 I'll take part in the elections - Я приму участие в выборах                  ------- // ... 1840
 I like ca'ndies - Я люблю конфеты
 
-------------------------    9 !
+------------------------    9 
 
 I'm not proud of our cantee'n - Я не горжусь нашей столовой
 He is inca'pable / ca'pable of doing it - Он неспособен / способен сделать это
@@ -377,7 +377,7 @@ When did you go to the ci'rcus last time? - Когда вы в последний раз ходили в ци
 Under no ci'rcumstances will I do it - Ни при каких обстоятельствах я не буду этого делать
 He's a very ski'lful worker - Он очень умелый работник
 
-------------------------  +  10 !
+------------------------  +  10 
 
 I don't have a clue how to do it - Я понятия (ключ к разгадке) не имею, как это сделать
 This country is rich in co'al - Эта страна богата углем
