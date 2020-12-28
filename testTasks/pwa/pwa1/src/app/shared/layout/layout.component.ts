@@ -14,5 +14,5 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.cartActions.loadCart();
   }
-  // at-5 - task 1
+  // at-6 - task 1
 }
