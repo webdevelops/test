@@ -39,7 +39,7 @@ import { HomePageComponent } from '../../modules/home-page/home-page.component';
     ProductListComponent,
     GreetingSectionComponent,
     // master - 4
-    // ol-9  - task 2
+    // ol-11  - task 1
   ]
 })
 export class LayoutModule { }
