@@ -27,8 +27,8 @@
   </ng-container>
 
   <!-- logo -->
-  <ng-container *ngSwitchCase="'logo'">
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="168" height="36.121" viewBox="0 0 168 36.121">
+  <!-- <ng-container *ngSwitchCase="'logo'"> -->
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="168" height="36.121" viewBox="0 0 168 36.121">
       <defs>
         <style>
           .a {
@@ -106,8 +106,8 @@
       </g>
     </svg> -->
 
-    <img src="../../../assets/icons/logo.svg" alt="logo">
-  </ng-container>
+  <img *ngSwitchCase="'logo'" src="../../../assets/icons/logo.svg" alt="logo">
+  <!-- </ng-container> -->
 
   <!-- cart -->
   <!-- <ng-container *ngSwitchCase="'cart'"> -->
