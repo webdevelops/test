@@ -569,7 +569,7 @@ It's covered with dust - Он покрыт пылью
 He is really sick. He vo'mited 20 minutes ago again. - Он действительно болен. Его снова вырвало 20 минут назад.
 Everything is in diso'rder - Все в беспорядке (расстройство)
 
-------------------------  +  15 !
+------------------------  +  15 
 
 I think we need some kind of diversity - Я думаю, что нам нужно какое-то разнообразие
 Does this do'main belong to you? - Этот домен (область, сфера) принадлежит вам?
@@ -599,7 +599,7 @@ The food went off / spoilt - Еда испортилась / испортилась
 They gave us a full refu'nd - Они дали нам полный возврат
 He is a fre'quent vi'sitor - Он частый посетитель
 The fre'quency of atta'cks decrea'sed - Частота атак снизилась
-Do you like fried pota'toes on pan? - Тебе нравится жареная картошка на сковороде?
+Do you like fried pota'toes on a pan? - Тебе нравится жареная картошка на сковороде?
 The plane ran out of fuel [фюил] - В самолете кончилось топливо
 Don't touch this fur! - Не трогай этот мех!
 Fu'rthermore, they have a huge debt now - Кроме того, сейчас у них огромный долг
