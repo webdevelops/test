@@ -38,8 +38,7 @@ import { HomePageComponent } from '../../modules/home-page/home-page.component';
     FooterComponent,
     ProductListComponent,
     GreetingSectionComponent,
-    // master - 4
-    // ol-12  - task 2
+    // ol-13  - task 2
   ]
 })
 export class LayoutModule { }
