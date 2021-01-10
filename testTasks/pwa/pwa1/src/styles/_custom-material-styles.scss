@@ -9,10 +9,10 @@
   line-height: 36.4px;
 }
 
-.mat-button.mat-button-base.mat-button-disabled{
+.mat-button.mat-button-base.mat-button-disabled {
   background-color: #72ac0d87;
 
-  .mat-button-wrapper span{
+  .mat-button-wrapper span {
     color: $disabled-grey-color;
   }
 }
@@ -179,10 +179,19 @@ textarea.touched {
 
 // It is test custom tabs for detail page
 
+.custom-tab-group {
+  &.mobile {
+    .mat-tab-header {
+      display: none;
+    }
+  }
+}
+
 .mat-tab-header {
   display: flex;
   overflow: hidden;
-  position: relative !important;
+  // position: relative !important;
+  position: absolute;
   flex-shrink: 0;
   border-bottom: none !important;
 }
@@ -196,7 +205,8 @@ textarea.touched {
   font-size: 20px;
   line-height: 24px;
   color: #707e84;
-  border-bottom: 4px solid #C9D3D6 ;
+  min-width: auto !important;
+  // border-bottom: 4px solid #c9d3d6;
 }
 
 .mat-tab-label-active {
@@ -204,7 +214,7 @@ textarea.touched {
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
-  border-bottom: 4px solid $green-color ;
+  // border-bottom: 4px solid $green-color;
 }
 
 .cdk-overlay-container {
