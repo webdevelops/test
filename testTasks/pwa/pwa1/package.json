@@ -42,7 +42,6 @@
     "firestore-export-import": "^0.6.1",
     "ngrx-store-localstorage": "^10.1.1",
     "ngx-infinite-scroll": "^10.0.0",
-    "ngx-material-file-input": "^2.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
