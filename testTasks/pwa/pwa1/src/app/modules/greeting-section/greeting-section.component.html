@@ -1,8 +1,9 @@
-<mat-tab-group headerPosition="below" [selectedIndex]="activeTabIndex$ | async" #slider
-  (selectedTabChange)="selectedTabChange($event)">
+<mat-tab-group class="custom-tab-group" ngClass.xs="mobile" headerPosition="below"
+  [selectedIndex]="activeTabIndex$ | async" #slider (selectedTabChange)="selectedTabChange($event)">
   <mat-tab *ngFor="let tab of tabs" label="{{tab.label}}">
     <ng-template mat-tab-label>
-      <div class="slider__counter" [ngClass]="{'active': tab.isActive}" [ngClass.xs]="{'active': tab.isActive, 'mobile': true}"></div>
+      <div class="slider__counter" [ngClass]="{'active': tab.isActive}"
+        [ngClass.xs]="{'active': tab.isActive, 'mobile': true}"></div>
     </ng-template>
 
     <div class="slider__content" ngClass.xs="mobile" (click)="customSlider()" fxLayoutAlign="center center">
@@ -25,17 +26,17 @@
 
           <div class="slider__buttons" ngClass="mobile" fxLayout="row" fxLayout.lt-sm="column">
             <button mat-flat-button class="get-price-btn slider__btn" ngClass.xs="mobile"
-            (click)="showCart(); $event.stopPropagation()">
+              (click)="showCart(); $event.stopPropagation()">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.Invoice"></app-svg-icons>
               <span>Get Price</span>
             </button>
-            <button mat-flat-button class="add-to-cart-btn  slider__btn"
-              *ngIf="!(isProductInCart$ | async)" (click)="addToCart(); $event.stopPropagation();">
+            <button mat-flat-button class="add-to-cart-btn  slider__btn" *ngIf="!(isProductInCart$ | async)"
+              (click)="addToCart(); $event.stopPropagation();">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.AddToCart"></app-svg-icons>
               <span>Add to cart</span>
             </button>
-            <button mat-flat-button class="remove-from-cart-btn  slider__btn"
-              *ngIf="isProductInCart$ | async" (click)="removeFromCart(); $event.stopPropagation();">
+            <button mat-flat-button class="remove-from-cart-btn  slider__btn" *ngIf="isProductInCart$ | async"
+              (click)="removeFromCart(); $event.stopPropagation();">
               <app-svg-icons fxLayoutAlign="center center" [iconType]="iconList.RemoveFromCart"></app-svg-icons>
               <span>Remove from cart</span>
             </button>
