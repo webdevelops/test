@@ -11,6 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// import { NgImageSliderModule } from 'ng-image-slider';
 
 // App
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +46,7 @@ import { CartEffects } from './core/store/cart/cart.effects';
     }),
     EffectsModule.forRoot([ProductEffects, CartEffects]),
     FlexLayoutModule.withConfig({ ssrObserveBreakpoints: ['xs', 'lt-md', 'lt-lg'] }),
+    // NgImageSliderModule
   ],
   providers: [AngularFireModule],
   bootstrap: [AppComponent]

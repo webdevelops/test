@@ -93,10 +93,13 @@
             <div class="head">
                 <span>More Products</span>
             </div>
-            <div class="product-list">
-                <div class="item" *ngFor="let product of randomProductList$ | async">
+            <div class="product-list" ngClass.lt-md="tablet" ngClass.xs="mobile">
+                <!-- <div class="item" *ngFor="let product of randomProductList$ | async">
                     <app-product [product]="product" [viewMode]="'SIMPLE_CARD'"></app-product>
-                </div>
+                </div> -->
+
+                <ng-image-slider class="image" #nav [images]="imageObject" [imagePopup]="false" [infinite]="true"
+                    [autoSlide]="0" slideImage="1"></ng-image-slider>
             </div>
         </div>
     </div>

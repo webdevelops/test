@@ -40,6 +40,7 @@
     "express": "^4.15.2",
     "firebase": "^7.18.0",
     "firestore-export-import": "^0.6.1",
+    "ng-image-slider": "^2.6.4",
     "ngrx-store-localstorage": "^10.1.1",
     "ngx-infinite-scroll": "^10.0.0",
     "rxjs": "~6.5.5",

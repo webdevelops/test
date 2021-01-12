@@ -34,6 +34,34 @@ export class DetailPageComponent implements OnInit {
     private cartSelectors: CartSelectors,
     private dialogCart: MatDialog) { }
 
+  imageObject = [{
+    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
+    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
+    title: 'PWA',
+    productId: '1',
+  }, {
+    image: 'https://millionstatusov.ru/pic/statpic/all/58e61335ec518.jpg',
+    thumbImage: 'https://millionstatusov.ru/pic/statpic/all/58e61335ec518.jpg',
+    title: 'SSR',
+    productId: '2',
+  }, {
+    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
+    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/4.jpg',
+    title: 'Angular performance review and refactoring.'
+  }, {
+    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
+    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/7.jpg',
+    title: 'Angular upgrade to Angular 11.'
+  }, {
+    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg',
+    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/1.jpg',
+    title: 'ngrx/store architecture.'
+  }, {
+    image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
+    thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/2.jpg',
+    title: 'PWA Angular Material customization/implementation.'
+  }];
+
   ngOnInit(): void {
     this.productActions.loadProductList(20);
 
