@@ -1,0 +1,5 @@
+<app-search>search works!</app-search>
+
+<div *ngFor="let item of (freelancerList$  | async)?.profiles">
+  <app-freelancer></app-freelancer>
+</div>
