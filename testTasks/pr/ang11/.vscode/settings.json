@@ -1,0 +1,11 @@
+{
+  "eslint.workingDirectories": ["./"],
+  "eslint.nodePath": "./node_modules",
+  "eslint.validate": ["javascript", "typescript", "html"],
+  "eslint.options": {
+    "extensions": [".js", ".ts", "html"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

@@ -1,0 +1,11 @@
+<app-search>search works!</app-search>
+
+<div *ngFor="let freelancer of (freelancerList$  | async)?.profiles">
+  <app-freelancer [freelancer]="freelancer"></app-freelancer>
+</div>
+
+<div class="freelancer-list__paginator" *ngIf="(freelancerList$ | async)?.profiles as freelancers">
+  <mat-paginator [length]="freelancers.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onChangePage($event)">
+  </mat-paginator>
+</div>
