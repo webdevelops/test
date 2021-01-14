@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // angular
 import { Injectable } from '@angular/core';
 
@@ -7,4 +6,4 @@ import { Injectable } from '@angular/core';
 // app
 
 @Injectable()
-export class CoreMainEffects {}
+export class CoreMainEffects { }

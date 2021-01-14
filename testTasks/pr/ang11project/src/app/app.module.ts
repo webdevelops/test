@@ -2,6 +2,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // app
 import { AppComponent } from './app.component';
@@ -9,12 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppStartService, startupServiceFactory } from './app-start.service';
 import { CoreModule } from './core/core.module';
 import { HttpRequestInterceptor } from './core/interceptors/http-request-interceptor';
+import { CustomFlexLayoutModule } from './shared/libs/custom-flex-layout/custom-flex-layout.module';
 import { coreEffectsModule as appEffectsModule } from './store/app.effects';
 import { appStore } from './store/app.store';
 import { storeDevToolsModule } from './store/dev-tools.module';
 import { storeRouterConnectingModule } from './store/router-connect.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomFlexLayoutModule } from './shared/libs/custom-flex-layout/custom-flex-layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,8 +34,7 @@ import { CustomFlexLayoutModule } from './shared/libs/custom-flex-layout/custom-
     BrowserAnimationsModule,
 
     // flex-layout
-    CustomFlexLayoutModule
-
+    CustomFlexLayoutModule,
   ],
   providers: [
     {
@@ -52,4 +51,4 @@ import { CustomFlexLayoutModule } from './shared/libs/custom-flex-layout/custom-
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
