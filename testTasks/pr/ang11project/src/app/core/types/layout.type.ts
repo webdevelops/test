@@ -1,6 +1,0 @@
-export enum LAYOUT_TYPE {
-  UNDEFINED = 'UNDEFINED',
-  MOBILE = 'MOBILE',
-  TABLET = 'TABLET',
-  DESKTOP = 'DESKTOP',
-}
