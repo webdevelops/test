@@ -23,26 +23,27 @@ export class FreelancerHttpService {
         const response = this._http.get<any>(url, { params }).pipe(tap(freelancerList => { console.log(freelancerList) }));
         return of({
             "pages": 400,
-            "profiles": profiles.slice(0, pageSize)
+            "profiles": profiles
         }).pipe(tap(freelancerList => {
             console.log(freelancerList);
         }));
     }
 
-    public getFreelancerList(currentPage: number, nextPageSize: number) {
-        console.log("currentPage, nextPageSize", currentPage, nextPageSize)
-        const url: string = `genie.geegbay.com/profile/api/v1/profiles/freelancermap?page=${currentPage}&pageSize=${nextPageSize}`;
-        let params: HttpParams = new HttpParams();
-        const response = this._http.get<any>(url, { params });
+    // public getFreelancerList(currentPage: number, nextPageSize: number) {
+    //     console.log("currentPage, nextPageSize", currentPage, nextPageSize)
+    //     const url: string = `genie.geegbay.com/profile/api/v1/profiles/freelancermap?page=${currentPage}&pageSize=${nextPageSize}`;
+    //     let params: HttpParams = new HttpParams();
+    //     const response = this._http.get<any>(url, { params });
 
-        const fromPosition = nextPageSize * currentPage - 1;
-        const toPosition = (nextPageSize * currentPage - 1) + (nextPageSize);
+    //     // const fromPosition = nextPageSize * currentPage - 1;
+    //     // const toPosition = (nextPageSize * currentPage - 1) + (nextPageSize);
 
-        return of({
-            "pages": 400,
-            "profiles": profiles.slice(fromPosition, toPosition)
-        })
-    }
+    //     return of({
+    //         "pages": 400,
+    //         // "profiles": profiles.slice(fromPosition, toPosition)
+    //         "profiles": profiles
+    //     })
+    // }
 
 }
 

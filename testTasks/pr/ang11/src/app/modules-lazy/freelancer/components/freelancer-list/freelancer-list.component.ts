@@ -22,21 +22,34 @@ export class FreelancerListComponent implements OnInit {
   readonly pageSize = PAGE_SIZE;
   readonly pageSizeOptions = PAGE_SIZE_OPTIONS;
   private nextPageSize = NEXT_PAGE_SIZE;
-  private currentPage = 1;
+  private currentPage = 0;
+  // private currentPage = 1;
+  public fromPosition = 0;
+  public toPosition = PAGE_SIZE;
 
   constructor(private freelancerHttpService: FreelancerHttpService) {
     this.freelancerList$ = this.freelancerHttpService.searchFreelancerList(this.pageSize);
 
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onChangePage(pageData: PageEvent) {
-    this.currentPage = pageData.pageIndex + 1;
+    this.currentPage = pageData.pageIndex;
     this.nextPageSize = pageData.pageSize;
-    this.freelancerList$ = this.freelancerHttpService.getFreelancerList(this.currentPage, this.nextPageSize);
+
+    this.fromPosition = this.nextPageSize * this.currentPage;
+    this.toPosition = this.fromPosition + this.nextPageSize;
 
     console.log('pageData', pageData);
   }
+  // onChangePage(pageData: PageEvent) {
+  //   this.currentPage = (pageData.pageIndex == 0) ? 1 : pageData.pageIndex + 1;
+  //   this.nextPageSize = pageData.pageSize;
+
+  //   this.fromPosition = this.nextPageSize * (this.currentPage - 1);
+  //   this.toPosition = this.fromPosition + this.nextPageSize;
+
+  //   console.log('pageData', pageData);
+  // }
 }

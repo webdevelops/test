@@ -1,6 +1,6 @@
 <app-search>search works!</app-search>
 
-<div *ngFor="let freelancer of (freelancerList$  | async)?.profiles">
+<div *ngFor="let freelancer of (freelancerList$  | async)?.profiles | slice:fromPosition:toPosition">
   <app-freelancer [freelancer]="freelancer"></app-freelancer>
 </div>
 
