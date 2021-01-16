@@ -17,13 +17,14 @@ export class FreelancerHttpService {
     constructor(private _http: HttpClient) { }
 
 
-    public searchFreelancerList(pageSize?: number): Observable<{ "pages": number, "profiles": IFreelancerProfile[] }> {
+    public searchFreelancerList(freelancerName: string): Observable<{ "pages": number, "profiles": IFreelancerProfile[] }> {
+        console.log('nameFreelancer', freelancerName)
         const url: string = "genie.geegbay.com/profile/api/v1/profiles/freelancermap?keywords=Java&page=2";
         let params: HttpParams = new HttpParams();
         const response = this._http.get<any>(url, { params }).pipe(tap(freelancerList => { console.log(freelancerList) }));
         return of({
             "pages": 400,
-            "profiles": profiles
+            "profiles": profiles.filter(profile => profile.name.indexOf(freelancerName) > -1)
         }).pipe(tap(freelancerList => {
             console.log(freelancerList);
         }));
