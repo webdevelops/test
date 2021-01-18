@@ -42,10 +42,7 @@ export class FreelancerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.freelancerActions.loadUserListSuccess(freelancerList);
-    // this.freelancerActions.loadFreelancerList(this.pageSize);
-    // this.freelancerHttpService.searchFreelancerList(this.freelancerName);
-    // this.freelancerList$ = this.freelancersSelectors.selectFreelancerList();
+    this.freelancerActions.loadFreelancerList();
   }
 
   onChangePage(pageData: PageEvent) {

@@ -8,8 +8,8 @@ import { Store, createAction, props } from '@ngrx/store';
 import { IAppState } from '@app/store/app.state';
 import { IFreelancerResponse } from '@app/interfaces';
 
-export const LOAD_FREELANCER = createAction('[Load User] FREELANCER_LOAD');
-export const LOAD_FREELANCER_SUCCESS = createAction(
+export const LOAD_FREELANCER_LIST = createAction('[Load User] FREELANCER_LOAD');
+export const LOAD_FREELANCER_LIST_SUCCESS = createAction(
   '[Load User] FREELANCER_LOAD_SUCCESS',
   props<{ freelancerList: IFreelancerResponse }>()
 );
@@ -20,7 +20,11 @@ export const LOAD_FREELANCER_SUCCESS = createAction(
 export class FreelancerActionsService {
   constructor(private store: Store<IAppState>) { }
 
-  loadUserListSuccess(freelancerList: IFreelancerResponse) {
-    this.store.dispatch(LOAD_FREELANCER_SUCCESS({ freelancerList }));
+  loadFreelancerList(): void {
+    this.store.dispatch(LOAD_FREELANCER_LIST());
+  }
+
+  loadFreelancerListSuccess(freelancerList: IFreelancerResponse) {
+    this.store.dispatch(LOAD_FREELANCER_LIST_SUCCESS({ freelancerList }));
   }
 }
