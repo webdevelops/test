@@ -1,8 +1,7 @@
 export interface IFreelancerResponse {
-  pages: 400;
+  pages: number;
   profiles: Array<IFreelancerProfile>;
 }
-
 export interface IFreelancerProfile {
   availability: IAvailability;
   city: string;
