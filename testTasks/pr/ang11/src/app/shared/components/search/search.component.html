@@ -1,9 +1,12 @@
 <form>
   <mat-form-field>
     <mat-label>Search</mat-label>
-    <input type="search" placeholder="skills" aria-label="search" matInput>
+    <input type="search" [(ngModel)]="freelancerName" name="freelancer" placeholder="skills" aria-label="search"
+      matInput>
   </mat-form-field>
 
-  <button mat-raised-button>Search</button>
+  <button mat-raised-button (click)="searchFreelancer()">Search</button>
+
+  <!-- <p>Hello {{freelancerName}} !</p> -->
 
 </form>
